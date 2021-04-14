@@ -48,7 +48,8 @@ class ZaloController extends Controller
         $params = ['offset' => 0, 'limit' => 10, 'fields' => "id,name,gender,picture"];
         $response = $this->zalo->get(ZaloEndpoint::API_GRAPH_FRIENDS, $accessToken, $params);
         $friends = $response->getDecodedBody();
-        return view('components/friend-list',compact('friends'));
+        $profile = session('profile');
+        return view('components/friend-list',compact('friends','profile'));
     }
     public function add($id)
     {
