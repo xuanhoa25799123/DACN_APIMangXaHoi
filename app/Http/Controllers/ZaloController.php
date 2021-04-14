@@ -66,5 +66,6 @@ class ZaloController extends Controller
         return redirect()->route('dashboard');
     }
 
+
 }
 
