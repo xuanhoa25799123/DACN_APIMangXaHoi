@@ -29,6 +29,7 @@ class ZaloController extends Controller
     }
     public function dashboard()
     {
+//        return view('dashboard');
         $callbackUrl = "https://zalo-app-api.herokuapp.com/dashboard";
         $accessToken = $this->helper->getAccessToken($callbackUrl);
         session(['token'=>$accessToken]);

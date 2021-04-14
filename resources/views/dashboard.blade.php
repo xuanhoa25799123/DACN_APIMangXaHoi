@@ -5,12 +5,11 @@
 @endsection
 @section('css')
     <link rel="stylesheet" href="{{asset('css/dashboard/style.css')}}">
-    <link rel="stylesheet" href="{{asset('css/sidebar/style.css')}}">
 @endsection
 
 
 
-@include('partials.sidebar')
+
 @section('content')
     <div class="content">
 {{--    <a class="btn btn-primary" href="{{route('oa.user')}}">Official account</a>--}}

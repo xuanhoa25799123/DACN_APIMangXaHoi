@@ -5,10 +5,9 @@
     <div class="sidebar-content">
     <div class="api-socials">Zalo xã hội</div>
         <div class="item-container">
-    <a class="social-item" href="{{route('friend-list')}}">Danh sách bạn bè</a>
+    <a class="social-item" >Danh sách bạn bè</a>
     <a class="social-item">Mời tham gia ứng dụng</a>
     <a class="social-item">Thông tin cá nhân</a>
-        </div>
     </div>
 
 </div>
