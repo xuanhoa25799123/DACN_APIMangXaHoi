@@ -37,7 +37,7 @@ class ZaloController extends Controller
             $params = ['fields' => 'name,picture'];
             $response = $this->zalo->get(ZaloEndPoint::API_GRAPH_ME, $accessToken, $params);
             $profile = $response->getDecodedBody();
-            dd($profile['picture']['data']['image_url']);
+            dd($profile['picture']);
             session(['profile'=>$profile]);
             return view('dashboard',compact('profile'));
         }
