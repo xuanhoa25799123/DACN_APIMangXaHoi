@@ -1,5 +1,5 @@
 .sidebar{
-    position:fixed;
+    position:relative;
     top:0;
     left:0;
     width:300px;
@@ -15,12 +15,12 @@
     height:100px;
     margin:10px auto;
     border-radius:5px;
-    border:2px solid lightblue;;
+    border:2px solid aqua;;
 }
 
 .logo-img{
-    width:90%;
-    height:90%;
+    width:80%;
+    height:80%;
     margin:auto;
     object-fit: cover;
 }
