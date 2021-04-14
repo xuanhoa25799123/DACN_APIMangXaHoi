@@ -1,9 +1,9 @@
 @extends('layouts.admin')
+
 @section('css')
     <link rel="stylesheet" href="{{asset('/css/friend_list/style.css')}}">
     @endsection
 @section('content')
-        </div>
         <p>Bạn bè đã vào ứng dụng</p>
         <div class="list-friends">
             @foreach($friends['data'] as $friend)
