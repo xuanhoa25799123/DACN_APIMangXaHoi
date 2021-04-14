@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Zalo\Zalo;
+use Zalo\ZaloEndPoint;
 
 
 class ZaloController extends Controller
