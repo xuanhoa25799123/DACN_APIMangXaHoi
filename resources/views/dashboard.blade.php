@@ -5,7 +5,7 @@
 @endsection
 {{--@include('partials.sidebar')--}}
 @section('content')
-    <a class="btn btn-primary" href="{{route('oa.user')}}">Official account</a>
+{{--    <a class="btn btn-primary" href="{{route('oa.user')}}">Official account</a>--}}
     <div class="profile">
         <img class="profile-img" src="{{$profile['picture']['data']['url']}}" href="">
 
