@@ -29,23 +29,17 @@ class ZaloController extends Controller
     }
     public function dashboard()
     {
-//        return view('dashboard');
         $callbackUrl = "https://zalo-app-api.herokuapp.com/dashboard";
         $accessToken = $this->helper->getAccessToken($callbackUrl);
         session(['token'=>$accessToken]);
         if(!empty($accessToken))
         {
-            $params = ['fields' => 'id,name,birthday,gender,picture'];
+            $params = ['fields' => 'name,picture'];
             $response = $this->zalo->get(ZaloEndPoint::API_GRAPH_ME, $accessToken, $params);
-            $profile = $response->getDecodedBody(); // result
-            $params2 = ['offset' => 0, 'limit' => 10, 'fields' => "id, name,'picture"];
-            $response2 = $this->zalo->get(ZaloEndpoint::API_GRAPH_INVITABLE_FRIENDS, $accessToken, $params2);
-            $invitable_friends = $response2->getDecodedBody(); // result
-            $params3 = ['offset' => 0, 'limit' => 10, 'fields' => "id,name,gender,picture"];
-            $response3 = $this->zalo->get(ZaloEndpoint::API_GRAPH_FRIENDS, $accessToken, $params3);
-            $friends = $response3->getDecodedBody(); // result
-            //dd($friends['data'][0]['picture']['data']['url']);
-            return view('dashboard',compact('profile','invitable_friends','friends'));
+            $profile = $response->getDecodedBody();
+            dd($profile['picture']['data']['image_url']);
+            session(['profile'=>$profile]);
+            return view('dashboard',compact('profile'));
         }
         return redirect('/');
     }
@@ -70,3 +64,10 @@ class ZaloController extends Controller
 
 }
 
+//$params2 = ['offset' => 0, 'limit' => 10, 'fields' => "id, name,'picture"];
+//$response2 = $this->zalo->get(ZaloEndpoint::API_GRAPH_INVITABLE_FRIENDS, $accessToken, $params2);
+//$invitable_friends = $response2->getDecodedBody(); // result
+//$params3 = ['offset' => 0, 'limit' => 10, 'fields' => "id,name,gender,picture"];
+//$response3 = $this->zalo->get(ZaloEndpoint::API_GRAPH_FRIENDS, $accessToken, $params3);
+//$friends = $response3->getDecodedBody(); // result
+////dd($friends['data'][0]['picture']['data']['url']);

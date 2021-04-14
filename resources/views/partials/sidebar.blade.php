@@ -9,5 +9,5 @@
     <a class="social-item">Mời tham gia ứng dụng</a>
     <a class="social-item">Thông tin cá nhân</a>
     </div>
-
+</div>
 </div>

@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="{{asset('css/dashboard/style.css')}}">
 @endsection
 
-
-
-
 @section('content')
     <div class="content">
 {{--    <a class="btn btn-primary" href="{{route('oa.user')}}">Official account</a>--}}

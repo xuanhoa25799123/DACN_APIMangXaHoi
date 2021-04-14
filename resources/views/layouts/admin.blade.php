@@ -7,14 +7,22 @@
     @yield('title')
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
     <link rel="stylesheet" href="{{asset('/css/sidebar/style.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/header/style.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     @yield('css')
 </head>
 <body>
-@include('partials.sidebar')
+<div class="big-container">
+    <div class="left">
+    @include('partials.sidebar')
+    </div>
+    <div class="right">
+    @include('partials.header')
     @yield('content')
+    </div>
+</div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="{{asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('js/main.js')}}"></script>
 @yield('js')
 </body>
