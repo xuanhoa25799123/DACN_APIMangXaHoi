@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [
+    'uses'=>'App\Http\Controllers\ZaloController@login',
+]);
+Route::get('/dashboard', [
+    'as'=>'dashboard',
+    'uses'=>'App\Http\Controllers\ZaloController@dashboard'
+]);

@@ -1,0 +1,74 @@
+body{
+    margin:0;
+    padding:0;
+    font-family: Tahoma;
+}
+a{
+    color:black;
+    text-decoration: none;
+}
+.header{
+    width:80%;
+    margin:0px auto;
+    height:100px;
+    display:flex;
+    justify-content:space-between;
+}
+.logo{
+    width:200px;
+    height:100%;
+}
+.logo-img{
+    width:100%;
+    height:100%;
+    padding:10px;
+    //object-fit: cover;
+}
+
+.nav{
+    width:70%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.slider{
+    width:100%;
+    height:600px;
+    background-image:url('https://treehouse-marketing.s3.amazonaws.com/open-graph-social/courses-share-image.png');
+    background-size:cover;
+}
+
+.profile-img{
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.list-friends{
+    display:flex;
+    align-items:center;
+}
+.friend-item{
+    margin:10px;
+    width:200px;
+    height:170px;
+    color:white;
+}
+.item-header{
+    border-radius:10px 10px 0 0;
+    width:100%;
+    height:50%;
+    background-color:orange;
+    display:flex;
+}
+.item-footer{
+    width:100%;
+    height:50%;
+    border-radius:0 0 10px 10px;
+    border:1px solid aqua;
+    color:black
+
+}
