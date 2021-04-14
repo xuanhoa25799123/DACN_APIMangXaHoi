@@ -6,8 +6,8 @@
     height:100vh;
     display:flex;
     flex-direction: column;
-    align-items: center;
     background-color:#232222;
+    font-family:tahoma;
 }
 
 .logo{
@@ -16,11 +16,38 @@
     margin:10px auto;
     border-radius:5px;
     border:2px solid aqua;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 .logo-img{
-    width:80%;
-    height:80%;
-    margin:auto;
-    object-fit: cover;
+    width:50%;
+    height:50%;
+
+    object-fit: contain;
+}
+.sidebar-content{
+    width:90%;
+    margin:10px auto;
+    color:white;
+}
+
+.item-container{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+}
+.social-item{
+    border:none;
+    outline:none;
+    background:none;
+    color:white;
+    padding:10px;
+    width:100%;
+}
+
+.social-item:hover{
+    color:white;
+    text-decoration: none;
 }

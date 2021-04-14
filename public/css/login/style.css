@@ -1,13 +1,13 @@
 .background{
     width:100vw;
     height:100vh;
-    background-image:url('/storage/app/bg.jpg');
+    background-image:url('https://wallpapercave.com/wp/wp7475942.png');
     background-size:cover;
     filter:brightness(60%);
 }
 
 .login-button{
-    position:absolute;
+    position:fixed;
     top:45%;
     left:45%;
     font-family:tahoma;

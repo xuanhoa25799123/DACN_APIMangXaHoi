@@ -20,6 +20,14 @@ Route::get('/login', [
     'as'=>'login',
     'uses'=>'App\Http\Controllers\ZaloController@login'
 ]);
+
+Route::prefix('dashboard')->group(function () {
+    Route::get('/friend-list', [
+        'as'=>'friend-list',
+        'uses'=>'App\Http\Controllers\ZaloController@friendList'
+    ]);
+});
+
 Route::get('/add/{id}', [
     'as'=>'social.add',
     'uses'=>'App\Http\Controllers\ZaloController@add'

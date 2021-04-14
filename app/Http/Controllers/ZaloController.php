@@ -27,10 +27,6 @@ class ZaloController extends Controller
         $loginUrl = $this->helper->getLoginUrl($callbackUrl);
         return view('login',compact('loginUrl'));
     }
-    public function test()
-    {
-
-    }
     public function dashboard()
     {
         $callbackUrl = "https://zalo-app-api.herokuapp.com/dashboard";
@@ -51,6 +47,10 @@ class ZaloController extends Controller
             return view('dashboard',compact('profile','invitable_friends','friends'));
         }
         return redirect('/');
+    }
+    public function friendList()
+    {
+        return view('components/friend-list');
     }
     public function add($id)
     {
