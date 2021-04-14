@@ -3,7 +3,7 @@
 @section('title')
     <title>Dashboard</title>
 @endsection
-{{--@include('partials.sidebar')--}}
+@include('partials.sidebar')
 @section('content')
 {{--    <a class="btn btn-primary" href="{{route('oa.user')}}">Official account</a>--}}
     <div class="profile">
