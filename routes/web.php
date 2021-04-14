@@ -26,6 +26,10 @@ Route::prefix('dashboard')->group(function () {
         'as'=>'friend-list',
         'uses'=>'App\Http\Controllers\ZaloController@friendList'
     ]);
+    Route::get('/profile/{id}', [
+        'as'=>'view.profile',
+        'uses'=>'App\Http\Controllers\ZaloController@profile'
+    ]);
 });
 
 Route::get('/add/{id}', [

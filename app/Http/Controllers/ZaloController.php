@@ -51,6 +51,10 @@ class ZaloController extends Controller
         $profile = session('profile');
         return view('components/friend-list',compact('friends','profile'));
     }
+    public function profile($id)
+    {
+
+    }
     public function add($id)
     {
         return view('sendmessage',compact('id'));
