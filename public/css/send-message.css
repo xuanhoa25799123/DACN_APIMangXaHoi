@@ -21,6 +21,7 @@
     width:100%;
     height:100%;
     border-radius:50%;
+    cursor:pointer;
 }
 
 .send-name{
@@ -31,9 +32,8 @@
     color:white;
     padding:0 5px;
     display:none;
-    cursor:pointer;
 }
-.send-img:hover .send-name{
+.send-img:hover > .send-name{
     display:initial;
 }
 
