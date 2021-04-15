@@ -54,6 +54,7 @@ class ZaloController extends Controller
     }
     public function search($keyword)
     {
+        dd($keyword);
         $friendList = session('friends');
         $friends = array_slice($friendList,0,1);
         $html = view('partials.friends')->with(compact('friends'))->render();
