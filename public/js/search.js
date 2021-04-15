@@ -7,7 +7,8 @@ $(document).ready(function() {
             type: 'get',
             dataType: 'text',
             success: function(response) {
-                $('.list-friends').html(response.html);
+                console.log(response.friends);
+               
             }
         });
     });
