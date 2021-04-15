@@ -2,21 +2,18 @@
 
 @section('css')
     <link rel="stylesheet" href="{{asset('/css/friend_list/style.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/search-input/style.css')}}">
+    @endsection
+@section('js')
+    <script src="{{asset('js/search.js')}}"></script>
     @endsection
 @section('content')
         <p>Đã có {{$friends['summary']['total_count']}} người bạn vào ứng dụng</p>
+        <div class="search-container">
+            <i class="search-logo fa fa-search"></i>
+        <input type="text" name="search" id="search-bar" placeholder="Tìm kiếm tên bạn bè">
+        </div>
         <div class="list-friends">
-            @foreach($friends['data'] as $friend)
-                <div class="friend-item">
-                    <div class="item-header">
-                    <img class="profile-img"src="{{$friend['picture']['data']['url']}}" href="">
-                    <p>{{$friend['name']}}</p>
-                    </div>
-                    <div class="item-footer">
-                        <a class="btn btn-primary" href="{{route('view.profile',['id'=>$friend['id']])}}">Xem thông tin</a>
-                        <a class="btn btn-primary" href="{{route('social.add',['id'=>$friend['id']])}}">Gửi tin nhắn</a>
-                    </div>
-                </div>
-            @endforeach
+       @include('partials.friends')
         </div>
 @endsection
