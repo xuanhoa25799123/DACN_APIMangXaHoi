@@ -4,8 +4,8 @@ $(document).ready(function() {
         console.log(keyword);
         $.ajax({
             url: '/dashboard/friend-list/'+keyword,
-            type: 'html',
-            dataType: 'text',
+            type: 'get',
+            dataType: 'html',
             success: function(response) {
                 $('.list-friends').html(response.html);
             }
