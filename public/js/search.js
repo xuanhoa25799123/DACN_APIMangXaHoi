@@ -5,8 +5,9 @@ $(document).ready(function() {
         $.ajax({
             url: '/dashboard/friend-list/'+keyword,
             type: 'get',
-            dataType: 'text',
+            dataType: 'json',
             success: function(response) {
+                console.log(response.test);
                 console.log(response.friends);
 
             }
