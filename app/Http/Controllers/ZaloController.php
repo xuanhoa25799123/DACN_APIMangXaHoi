@@ -47,17 +47,19 @@ class ZaloController extends Controller
         $accessToken=session('token');
         $params = ['offset' => 0, 'limit' => 10, 'fields' => "id,name,gender,picture"];
         $response = $this->zalo->get(ZaloEndpoint::API_GRAPH_FRIENDS, $accessToken, $params);
-        $friends = $response->getDecodedBody();
-        session(['friends'=>$friends]);
+        $result = $response->getDecodedBody();
         $profile = session('profile');
-        return view('components/friend-list',compact('friends','profile'));
+        $total = $result['summary']['total_count'];
+        $friends = $result['data'];
+        session(['friends'=>$friends]);
+        return view('components/friend-list',compact('total','friends','profile'));
     }
     public function search($keyword)
     {
         $friendList = session('friends');
-//        $friends = array_slice($friendList,0,1);
-//        $html = view('partials.friends')->with(compact('friends'))->render();
-        return response()->json(['success' => true, 'friends' => $friendList,'test'=>1]);
+        $friends = array_slice($friendList,0,1);
+        $html = view('partials.friends')->with(compact('friends'))->render();
+        return response()->json(['success' => true, 'html' => $html]);
     }
     public function profile($id)
     {

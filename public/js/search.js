@@ -4,12 +4,10 @@ $(document).ready(function() {
         console.log(keyword);
         $.ajax({
             url: '/dashboard/friend-list/'+keyword,
-            type: 'get',
-            dataType: 'json',
+            type: 'html',
+            dataType: 'text',
             success: function(response) {
-                console.log(response.test);
-                console.log(response.friends);
-
+                $('.list-friends').html(response.html);
             }
         });
     });
