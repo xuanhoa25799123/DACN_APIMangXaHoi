@@ -33,7 +33,7 @@ Route::prefix('dashboard')->group(function () {
         'as'=>'profile',
         'uses'=>'App\Http\Controllers\ZaloController@profile'
     ]);
-    Route::get('/friend-list', [
+    Route::get('/invite-list', [
         'as'=>'invite-list',
         'uses'=>'App\Http\Controllers\ZaloController@inviteList'
     ]);
