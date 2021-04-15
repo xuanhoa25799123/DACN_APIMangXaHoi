@@ -57,9 +57,15 @@
     font-weight:bold;
     color:rgb(35, 36, 27);
     padding:5px 0;
+    text-align:center;
 }
 .sent-message:hover{
     text-decoration: none;
     color:white;
     background-color:#232222;
+}
+
+.text{
+    font-size:14px;
+    padding:10px;
 }

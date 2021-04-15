@@ -10,9 +10,7 @@
 }
 .search-logo
 {
-    width: 20px;
-    height: 20px;
-    padding:10px;
+    margin:10px 0;
     cursor: pointer;
     color:white;
 }
