@@ -45,7 +45,7 @@ class ZaloController extends Controller
     public function friendList()
     {
         $accessToken=session('token');
-        $params = ['offset' => 0, 'limit' => 10, 'fields' => "id,name,gender,picture"];
+        $params = ['offset' => 0, 'fields' => "id,name,gender,picture"];
         $response = $this->zalo->get(ZaloEndpoint::API_GRAPH_FRIENDS, $accessToken, $params);
         $result = $response->getDecodedBody();
         $profile = session('profile');
@@ -54,6 +54,19 @@ class ZaloController extends Controller
         session(['friends'=>$friends]);
         return view('components/friend-list',compact('total','friends','profile'));
     }
+    public function inviteList()
+    {
+        $accessToken=session('token');
+        $params = ['offset' => 0, 'fields' => "id,name,gender,picture"];
+        $response = $this->zalo->get(ZaloEndpoint::API_GRAPH_INVITABLE_FRIENDS, $accessToken, $params);
+        $result = $response->getDecodedBody();
+        $profile = session('profile');
+        $total = $result['summary']['total_count'];
+        $friends = $result['data'];
+        session(['invite_friends'=>$friends]);
+        return view('components/invite-list',compact('total','friends','profile'));
+    }
+
     public function search($keyword)
     {
         $friends = session('friends');
