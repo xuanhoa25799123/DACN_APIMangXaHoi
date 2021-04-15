@@ -1,7 +1,9 @@
  @foreach($friends as $friend)
         <div class="friend-item">
             <div class="item-header">
+                <div class="item-background">
                 <img class="profile-img"src="{{$friend['picture']['data']['url']}}" href="">
+                </div>
             </div>
             <div class="item-footer">
                 <p class="name">{{$friend['name']}}</p>
