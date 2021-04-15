@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="{{asset('/css/sidebar/style.css')}}">
     <link rel="stylesheet" href="{{asset('/css/header/style.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     @yield('css')
 </head>
 <body>
@@ -23,8 +26,7 @@
     </div>
 </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="{{asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('js/main.js')}}"></script>
+    <script src="{{asset('/js/main.js')}}"></script>
 @yield('js')
 </body>
 </html>
