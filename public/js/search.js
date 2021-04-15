@@ -4,7 +4,7 @@ $(document).ready(function() {
         console.log(keyword);
         $.ajax({
             url: '/dashboard/friend-list',
-            method: 'post',
+            type: 'POST',
             dataType: 'text',
             data : {
                 keyword : keyword,

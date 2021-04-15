@@ -52,7 +52,7 @@ class ZaloController extends Controller
         $profile = session('profile');
         return view('components/friend-list',compact('friends','profile'));
     }
-    public function search(Request $request)
+    public function search($keyword)
     {
         $friendList = session('friends');
         $friends = array_slice($friendList,0,1);
