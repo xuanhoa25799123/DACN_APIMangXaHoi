@@ -1,6 +1,6 @@
 .list-friends{
     display:grid;
-    grid-template-columns:1fr 1fr 1fr;
+    grid-template-columns:1fr 1fr 1fr 1fr 1fr;
     grid-gap:5px;
 }
 .friend-item{
@@ -10,11 +10,12 @@
     color:white;
 }
 .item-header{
-    border-radius:10px 10px 0 0;
+    border-radius:5px 5px 0 0;
     width:100%;
-    height:50%;
+    height:30%;
     background-color:orange;
     display:flex;
+    position:relative;
 }
 .item-footer{
     width:100%;
@@ -22,8 +23,14 @@
     border-radius:0 0 10px 10px;
     border:2px solid #232222;
     color:black;
+    display:flex;
+    align-items:center;
+    justify-content: center;
 }
 .profile-img{
+    position:absolute;
+    bottom:0;
+    left:45%;
     width:40px;
     height:40px;
     border:none;
