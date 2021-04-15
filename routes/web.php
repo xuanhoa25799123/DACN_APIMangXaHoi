@@ -26,8 +26,7 @@ Route::prefix('dashboard')->group(function () {
         'as'=>'friend-list',
         'uses'=>'App\Http\Controllers\ZaloController@friendList'
     ]);
-    Route::post('/friend-list', [
-        'as'=>'friend-list',
+    Route::get('/friend-list/{keyword}', [
         'uses'=>'App\Http\Controllers\ZaloController@search'
     ]);
     Route::get('/profile/{id}', [
