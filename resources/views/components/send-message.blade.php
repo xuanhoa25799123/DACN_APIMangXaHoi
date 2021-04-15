@@ -10,7 +10,7 @@
             @foreach($receives as $receive)
                 <div class="send-profile">
                     <img class="send-img" src="{{$receive['picture']['data']['url']}}" alt="">
-                    <label class="send-label">{{$receive['name']}}</label>
+                    <p class="send-label">{{$receive['name']}}</p>
                 </div>
                 @endforeach
             </div>
