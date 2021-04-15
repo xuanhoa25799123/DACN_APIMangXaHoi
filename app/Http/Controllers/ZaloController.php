@@ -89,7 +89,7 @@ class ZaloController extends Controller
         $friends = session('friends');
         foreach($friends as $friend)
         {
-            if($friends['id']==$id)
+            if($friend['id']==$id)
             {
                 array_push($receives,$friend);
             }
