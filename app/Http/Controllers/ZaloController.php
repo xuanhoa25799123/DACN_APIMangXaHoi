@@ -87,6 +87,7 @@ class ZaloController extends Controller
     {
         $receives = array();
         $friends = session('friends');
+        $profile = session('profile');
         foreach($friends as $friend)
         {
             if($friend['id']==$id)
@@ -94,7 +95,7 @@ class ZaloController extends Controller
                 array_push($receives,$friend);
             }
         }
-        return view('components.send-message',compact('receives'));
+        return view('components.send-message',compact('receives','profile'));
 
     }
 
