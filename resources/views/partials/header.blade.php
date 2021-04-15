@@ -1,5 +1,5 @@
 <div class="header">
     <div class="profile">
-        <img class="profile-img" alt="" src="{{$profile['picture']['data']['url']}}">
+        <img class="user-img" alt="" src="{{$profile['picture']['data']['url']}}">
     </div>
 </div>

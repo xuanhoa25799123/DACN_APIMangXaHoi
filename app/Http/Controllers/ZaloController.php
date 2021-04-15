@@ -59,7 +59,7 @@ class ZaloController extends Controller
         $friends = session('friends');
 //        $friends = array_slice($friendList,0,1);
         $html = view('partials.friends')->with(compact('friends'))->render();
-        return response()->json(['success' => true, 'html' => $html]);
+        return response()->json(['success' => true, 'html' => $html,'friends'=>$friends]);
     }
     public function profile($id)
     {
