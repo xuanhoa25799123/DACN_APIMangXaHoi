@@ -31,9 +31,9 @@
     color:white;
     padding:0 5px;
     display:none;
-    cursor:pointer
+    cursor:pointer;
 }
-.send-img:hover .send-label{
+.send-img:hover .send-name{
     display:initial;
 }
 
