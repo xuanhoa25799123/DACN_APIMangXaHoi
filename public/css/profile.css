@@ -3,6 +3,7 @@
     height:300px;
     margin:50px auto;
     border-radius:20px;
+    background-color:white;
 }
 
 .profile-header{
@@ -16,11 +17,12 @@
     width:100%;
     height:70%;
     border-radius:20px 20px 0 0;
+    background-image: url('https://envato-shoebox-0.imgix.net/3510/c9ec-89aa-4295-8980-ae11584592eb/IMG_8993.jpg?auto=compress%2Cformat&fit=max&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&markalign=center%2Cmiddle&markalpha=18&w=1600&s=c50490c579370cd5e5c416a7b4f7774a');
 }
 .profile-footer{
     width:90%;
     height:60%;
-    margin:0px auto;
+    margin:0 auto;
     color:black;
     display:flex;
     flex-direction: column;

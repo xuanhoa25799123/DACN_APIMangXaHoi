@@ -10,7 +10,7 @@
                 <img class="profile-img" alt ="" src="{{$profile['picture']['data']['url']}}">
             </div>
         </div>
-        <div class="footer">
+        <div class="profile-footer">
             <p class="name">{{$profile['name']}}</p>
         </div>
     </div>
