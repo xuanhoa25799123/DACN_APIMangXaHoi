@@ -3,7 +3,7 @@ $(document).ready(function() {
         var keyword = $(this).val();
         console.log(keyword);
         $.ajax({
-            url: '/friend-list',
+            url: '/dashboard/friend-list',
             method: 'post',
             dataType: 'text',
             data : {
