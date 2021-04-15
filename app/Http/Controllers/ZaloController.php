@@ -61,9 +61,10 @@ class ZaloController extends Controller
         $html = view('partials.friends')->with(compact('friends'))->render();
         return response()->json(['success' => true, 'html' => $html,'friends'=>$friends]);
     }
-    public function profile($id)
+    public function profile()
     {
-
+        $profile = session('profile');
+        return view('components.profile',compact('profile'));
     }
     public function add($id)
     {
