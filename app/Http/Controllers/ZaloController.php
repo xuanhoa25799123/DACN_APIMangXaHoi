@@ -83,14 +83,19 @@ class ZaloController extends Controller
     {
         return view('sendmessage',compact('id'));
     }
-    public function sendmessage(Request $request)
+    public function sendMessage($id)
     {
-        $accessToken=session('token');
-        $params = ['message' => $request->message, 'to' => $request->id, 'link' => $request->link];
-        $response = $this->zalo->post(ZaloEndpoint::API_GRAPH_MESSAGE, $accessToken, $params);
-        $result = $response->getDecodedBody(); // result
-        dd($result);
-        return redirect()->route('dashboard');
+        $receives = array();
+        $friends = session('friends');
+        foreach($friends as $friend)
+        {
+            if($friends['id']==$id)
+            {
+                array_push($receives,$friend);
+            }
+        }
+        return view('components.send-message',compact('receives'));
+
     }
 
 

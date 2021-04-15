@@ -37,16 +37,20 @@ Route::prefix('dashboard')->group(function () {
         'as'=>'invite-list',
         'uses'=>'App\Http\Controllers\ZaloController@inviteList'
     ]);
+    Route::get('/send-message/{id}', [
+        'as'=>'send-message',
+        'uses'=>'App\Http\Controllers\ZaloController@sendMessage'
+    ]);
 });
 
 Route::get('/add/{id}', [
     'as'=>'social.add',
     'uses'=>'App\Http\Controllers\ZaloController@add'
 ]);
-Route::post('/send-message}', [
-    'as'=>'social.sendmessage',
-    'uses'=>'App\Http\Controllers\ZaloController@sendmessage'
-]);
+//Route::post('/send-message}', [
+//    'as'=>'social.sendmessage',
+//    'uses'=>'App\Http\Controllers\ZaloController@sendmessage'
+//]);
 Route::get('/dashboard', [
     'as'=>'dashboard',
     'uses'=>'App\Http\Controllers\ZaloController@dashboard'
