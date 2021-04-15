@@ -6,9 +6,6 @@ $(document).ready(function() {
             url: '/dashboard/friend-list/'+keyword,
             type: 'get',
             dataType: 'text',
-            data : {
-                keyword : keyword,
-            },
             success: function(response) {
                 $('.list-friends').html(response.html);
             }
