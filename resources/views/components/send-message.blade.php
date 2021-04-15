@@ -15,6 +15,7 @@
                 @endforeach
             </div>
         <form action="{{route('send',['sendIds'=>$sendIds])}}" method="POST">
+            @csrf
             <div class="form-group">
                 <label>Link</label>
                 <input type="text" class="form-control" name="link">
