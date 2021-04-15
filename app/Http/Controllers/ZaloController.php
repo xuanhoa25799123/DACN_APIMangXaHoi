@@ -66,8 +66,12 @@ class ZaloController extends Controller
         session(['invite_friends'=>$friends]);
         return view('components/invite-list',compact('total','friends','profile'));
     }
-    public function send(){
-        
+    public function send(Request $request,$sendIds){
+        $accessToken = session('token');
+        $params = ['message' => $request->message, 'to' => $sendIds, 'link' => $request->link];
+        $response = $this->zalo->post(ZaloEndpoint::API_GRAPH_MESSAGE, $accessToken, $params);
+        $result = $response->getDecodedBody(); // result
+        dd($result);
     }
 
     public function search($keyword)
@@ -82,27 +86,23 @@ class ZaloController extends Controller
         $profile = session('profile');
         return view('components.profile',compact('profile'));
     }
-    public function add($id)
-    {
-        return view('sendmessage',compact('id'));
-    }
     public function sendMessage($id)
     {
         $receives = array();
         $friends = session('friends');
         $profile = session('profile');
+        $sendIds = "";
         foreach($friends as $friend)
         {
             if($friend['id']==$id)
             {
+                $sendIds.=$friend['id'].',';
                 array_push($receives,$friend);
             }
         }
-        return view('components.send-message',compact('receives','profile'));
-
+        $sendIds=substr($sendIds,0,-1);
+        return view('components.send-message',compact('receives','profile','sendIds'));
     }
-
-
 }
 
 //$params2 = ['offset' => 0, 'limit' => 10, 'fields' => "id, name,'picture"];
