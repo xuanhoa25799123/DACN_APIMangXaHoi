@@ -66,6 +66,9 @@ class ZaloController extends Controller
         session(['invite_friends'=>$friends]);
         return view('components/invite-list',compact('total','friends','profile'));
     }
+    public function send(){
+        
+    }
 
     public function search($keyword)
     {

@@ -14,5 +14,17 @@
                 </div>
                 @endforeach
             </div>
+        <form action="{{route('send')}}" method="POST">
+            <div class="form-group">
+                <label>Link</label>
+                <input type="text" class="form-control" name="link">
+            </div>
+            <div class="form-group">
+                <label>Tin nhắn</label>
+                <textarea class="form-controler" name="message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i>Gửi tin nhắn</button>
+            <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i>Xoá nội dung</button>
+        </form>
     </div>
 @endsection

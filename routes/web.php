@@ -41,6 +41,10 @@ Route::prefix('dashboard')->group(function () {
         'as'=>'send-message',
         'uses'=>'App\Http\Controllers\ZaloController@sendMessage'
     ]);
+    Route::post('/send-message', [
+        'as'=>'send',
+        'uses'=>'App\Http\Controllers\ZaloController@send'
+    ]);
 });
 
 Route::get('/add/{id}', [
