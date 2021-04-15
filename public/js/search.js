@@ -8,7 +8,7 @@ $(document).ready(function() {
             dataType: 'text',
             success: function(response) {
                 console.log(response.friends);
-               
+
             }
         });
     });
