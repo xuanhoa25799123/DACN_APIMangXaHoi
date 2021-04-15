@@ -6,7 +6,8 @@
 }
 
 .send-header{
-    display:inline;
+    display:flex;
+    align-items:center;
 
 }
 .send-profile{

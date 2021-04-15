@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="send-container">
-            <div class="send-header">Gửi tin nhắn đến
+            <div class="send-header">Gửi tin nhắn đến &nbsp;
             @foreach($receives as $receive)
                 <div class="send-profile">
                     <img class="send-img" src="{{$receive['picture']['data']['url']}}" alt="">
