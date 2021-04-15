@@ -49,14 +49,13 @@ class ZaloController extends Controller
         $response = $this->zalo->get(ZaloEndpoint::API_GRAPH_FRIENDS, $accessToken, $params);
         $friends = $response->getDecodedBody();
         session(['friends'=>$friends]);
-        dd(session('friends'));
         $profile = session('profile');
         return view('components/friend-list',compact('friends','profile'));
     }
     public function search($keyword)
     {
-        dd($keyword);
         $friendList = session('friends');
+        dd($friendList);
         $friends = array_slice($friendList,0,1);
         $html = view('partials.friends')->with(compact('friends'))->render();
         return response()->json(['success' => true, 'friends' => $friendList]);
