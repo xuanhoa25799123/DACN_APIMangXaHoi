@@ -45,6 +45,14 @@ Route::prefix('dashboard')->group(function () {
         'as'=>'send',
         'uses'=>'App\Http\Controllers\ZaloController@send'
     ]);
+    Route::get('/send-invite/{id}', [
+        'as'=>'send-invite',
+        'uses'=>'App\Http\Controllers\ZaloController@sendInvite'
+    ]);
+    Route::post('/send-invite/{sendIds}', [
+        'as'=>'invite',
+        'uses'=>'App\Http\Controllers\ZaloController@invite'
+    ]);
 });
 
 Route::get('/add/{id}', [

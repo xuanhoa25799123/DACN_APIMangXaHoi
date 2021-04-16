@@ -103,6 +103,30 @@ class ZaloController extends Controller
         $sendIds=substr($sendIds,0,-1);
         return view('components.send-message',compact('receives','profile','sendIds'));
     }
+    public function sendInvite($id)
+    {
+        $receives = array();
+        $friends = session('invite_friends');
+        $profile = session('profile');
+        $sendIds = "";
+        foreach($friends as $friend)
+        {
+            if($friend['id']==$id)
+            {
+                $sendIds.=$friend['id'].',';
+                array_push($receives,$friend);
+            }
+        }
+        $sendIds=substr($sendIds,0,-1);
+        return view('components.send-invite',compact('receives','profile','sendIds'));
+    }
+    public function invite(Request $request,$sendIds){
+        $accessToken = session('token');
+        $params = ['message' => $request->message, 'to' => $sendIds];
+        $response = $this->zalo->post(ZaloEndpoint::API_GRAPH_APP_REQUESTS, $accessToken, $params);
+        $result = $response->getDecodedBody(); // result
+        dd($result);
+    }
 }
 
 //$params2 = ['offset' => 0, 'limit' => 10, 'fields' => "id, name,'picture"];

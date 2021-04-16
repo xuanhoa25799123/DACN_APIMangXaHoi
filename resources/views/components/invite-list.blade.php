@@ -14,6 +14,6 @@
     </div>
     <p class="text">{{$total}} người bạn chưa tham gia ứng dụng</p>
     <div class="list-friends">
-        @include('partials.friends')
+        @include('partials.invite')
     </div>
 @endsection
