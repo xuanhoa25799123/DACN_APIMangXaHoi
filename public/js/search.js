@@ -1,13 +1,11 @@
 $(document).ready(function() {
     $('#search-bar').on('keyup',function() {
         var keyword = $(this).val();
-        console.log(keyword);
         $.ajax({
             url: '/dashboard/friend-list/'+keyword,
             type: 'get',
             dataType: 'json',
             success: function(response) {
-                console.log(response.html);
                 $('.list-friends').html(response.html);
             }
         });

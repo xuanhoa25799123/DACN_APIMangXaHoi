@@ -76,10 +76,18 @@ class ZaloController extends Controller
 
     public function search($keyword)
     {
-        $friends = session('friends');
-        $friends = array_slice($friends,0,1);
+        $frs = session('friends');
+        $friends = array();
+        foreach($frs as $fr)
+        {
+            if(stripos($fr['name'],$keyword)===true)
+            {
+                array_push($friends,$fr);
+            }
+        }
+//        $friends = array_slice($friends,0,1);
         $html = view('partials.friends')->with(compact('friends'))->render();
-        return response()->json(['success' => true, 'html' => $html,'friends'=>$friends]);
+        return response()->json(['success' => true, 'html' => $html]);
     }
     public function profile()
     {
