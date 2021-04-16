@@ -78,11 +78,15 @@ class ZaloController extends Controller
     {
         $frs = session('friends');
         $friends = array();
-        foreach($frs as $fr)
+        if($keyword=="")
         {
-            if(stripos($fr['name'],$keyword)===true)
-            {
-                array_push($friends,$fr);
+            $friends=$frs;
+        }
+        else {
+            foreach ($frs as $fr) {
+                if (stripos($fr['name'], $keyword) >= 0) {
+                    array_push($friends, $fr);
+                }
             }
         }
 //        $friends = array_slice($friends,0,1);
