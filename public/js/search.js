@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#search-bar').on('change',function() {
+    $('#search-bar').on('keyup',function() {
         var keyword = $(this).val();
         console.log(keyword);
         $.ajax({
