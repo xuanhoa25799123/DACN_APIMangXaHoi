@@ -5,10 +5,10 @@ $(document).ready(function() {
         $.ajax({
             url: '/dashboard/friend-list/'+keyword,
             type: 'get',
-            dataType: 'json',
+            dataType: 'html',
             success: function(response) {
                 console.log(response.friends);
-                // $('.list-friends').html(response.friends);
+                $('.list-friends').html(response.html);
             }
         });
     });
