@@ -135,6 +135,19 @@ class ZaloController extends Controller
         $result = $response->getDecodedBody(); // result
         dd($result);
     }
+    public function makeStatus()
+    {
+        $profile = session('profile');
+        return view('components.post-status',compact('profile'));
+    }
+    public function postStatus(Request $request)
+    {
+        $accessToken = session('token');
+        $params = ['message' => $request->message, 'link' => $request->link];
+        $response = $this->zalo->post(ZaloEndpoint::API_GRAPH_POST_FEED, $accessToken, $params);
+        $result = $response->getDecodedBody(); // result
+        dd($result);
+    }
 }
 
 //$params2 = ['offset' => 0, 'limit' => 10, 'fields' => "id, name,'picture"];

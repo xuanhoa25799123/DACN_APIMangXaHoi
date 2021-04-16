@@ -5,8 +5,9 @@
     <div class="sidebar-content">
     <div class="api-socials">Zalo xã hội</div>
         <div class="item-container">
-    <a class="social-item" href="{{route('friend-list')}}">Danh sách bạn bè</a>
+    <a class="social-item" href="{{route('friend-list')}}">Gửi tin nhắn</a>
     <a class="social-item" href="{{route('invite-list')}}">Mời tham gia ứng dụng</a>
+            <a class="social-item" href="{{route('make-status')}}">Tạo bài viết</a>
     <a class="social-item" href="{{route('profile')}}">Thông tin cá nhân</a>
     </div>
 </div>

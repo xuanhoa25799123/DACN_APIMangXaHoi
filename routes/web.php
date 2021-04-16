@@ -53,6 +53,14 @@ Route::prefix('dashboard')->group(function () {
         'as'=>'invite',
         'uses'=>'App\Http\Controllers\ZaloController@invite'
     ]);
+    Route::get('/post-status', [
+        'as'=>'make-status',
+        'uses'=>'App\Http\Controllers\ZaloController@makeStatus'
+    ]);
+    Route::post('/post-status', [
+        'as'=>'post-status',
+        'uses'=>'App\Http\Controllers\ZaloController@postStatus'
+    ]);
 });
 
 Route::get('/add/{id}', [
