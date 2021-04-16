@@ -5,9 +5,9 @@ $(document).ready(function() {
         $.ajax({
             url: '/dashboard/friend-list/'+keyword,
             type: 'get',
-            dataType: 'html',
+            dataType: 'json',
             success: function(response) {
-                console.log(response.friends);
+                console.log(response.html);
                 $('.list-friends').html(response.html);
             }
         });
