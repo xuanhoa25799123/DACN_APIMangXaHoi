@@ -14,8 +14,8 @@
         <div class="profile-footer">
             <p class="name">{{$profile['name']}}</p>
             <div class="profile-info">
-                <p>ID: {{$profile['id']}}</p>
-                @if($profile['gender']=="Male")
+              
+                @if($profile['gender']=="male")
                     <p>GT: Nam</p>
                 @else
                     <p>GT: Nữ</p>
