@@ -38,6 +38,42 @@ $(document).ready(function() {
             $('.preview-container').css('display','none');
         }
     })
+    $('.btn-send-message').on('click',function(){
+        let link = $('input[name=link]').val();
+        let message=  $('textarea[name=message]').val();
+        $.ajax({
+            url: "/send-message",
+            type: 'POST',
+            data:{
+                link,message
+            },
+            headers:{
+                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+            },
+            dataType: 'json',
+            success: function(response) {
+                Swal.fire({
+                    title: 'Thành công',
+                    text: "Đã gửi tin nhắn",
+                    icon: 'success',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#6c800b',
+                    confirmButtonText:"Trở về trang chủ",
+                    cancelButtonText:"Ở lại",
+                }).then(result=>{
+                    if(result.isConfirmed)
+                    {
+                        window.location.href="/dashboard";
+                    }
+                    else
+                    {
+                        $(".preview-container").css('display','none');
+                    }
+                })
+            }
+        });
+    })
 });
 
 

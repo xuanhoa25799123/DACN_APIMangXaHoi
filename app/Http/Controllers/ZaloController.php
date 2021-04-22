@@ -51,7 +51,8 @@ class ZaloController extends Controller
         $profile = session('profile');
         $total = $result['summary']['total_count'];
         $friends = $result['data'];
-        session(['friends'=>$friends]);
+        dd($friends);
+
         return view('components.friend-list',compact('total','friends','profile'));
     }
     public function inviteList()
@@ -137,7 +138,7 @@ class ZaloController extends Controller
         $profile = session('profile');
         $message = $request->message;
         $link = $request->link;
-        $html = view('partials.status-preview')->with(compact('message','link','profile'))->render();
+        $html = view('partials.send-preview')->with(compact('message','link','profile'))->render();
         return response()->json((['success'=>true,'html'=>$html]));
     }
     public function invitePreview(Request $request)
