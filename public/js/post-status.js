@@ -16,7 +16,7 @@ $(document).ready(function() {
             }
             else{
                 $.ajax({
-                    url: "http://localhost:8000/status-preview",
+                    url: "/status-preview",
                     type: 'POST',
                     data:{
                         link,message
@@ -42,7 +42,7 @@ $(document).ready(function() {
         let link = $('input[name=link]').val();
         let message=  $('textarea[name=message]').val();
         $.ajax({
-            url: "http://localhost:8000/post-status",
+            url: "/post-status",
             type: 'POST',
             data:{
                 link,message
@@ -64,7 +64,7 @@ $(document).ready(function() {
                 }).then(result=>{
                     if(result.isConfirmed)
                     {
-                        window.location.href="http://localhost:8000/dashboard";
+                        window.location.href="/dashboard";
                     }
                     else
                     {

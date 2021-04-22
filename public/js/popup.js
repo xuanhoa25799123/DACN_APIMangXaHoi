@@ -66,7 +66,7 @@ $(document).ready(function() {
         }
         else{
             let idStr = arr.join(',');
-            window.location.href="http://localhost:8000/send-message/"+idStr;
+            window.location.href="/send-message/"+idStr;
         }
     })
     $('.invite-submit').on('click',function(){
@@ -86,7 +86,7 @@ $(document).ready(function() {
         else{
             let idStr = arr.join(',');
             console.log(idStr);
-            window.location.href="http://localhost:8000/send-invite/"+idStr;
+            window.location.href="/send-invite/"+idStr;
         }
     })
 });

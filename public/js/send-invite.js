@@ -16,7 +16,7 @@ $(document).ready(function() {
             }
             else{
                 $.ajax({
-                    url: "http://localhost:8000/test/invite-preview",
+                    url: "/invite-preview",
                     type: 'POST',
                     data:{
                         message
@@ -64,7 +64,7 @@ $(document).ready(function() {
                         cancelButtonText: "Ở lại",
                     }).then(result => {
                         if (result.isConfirmed) {
-                            window.location.href = "http://localhost:8000/test/dashboard";
+                            window.location.href = "/test/dashboard";
                         } else {
                             $(".preview-container").css('display', 'none');
                         }
@@ -86,10 +86,10 @@ $(document).ready(function() {
                         denyButtonText: 'Gửi lại lời mời',
                     }).then(result => {
                         if (result.isConfirmed) {
-                            window.location.href = "http://localhost:8000/dashboard";
+                            window.location.href = "/dashboard";
                         } else if(result.isDenied) {
                             $('.preview-contain').css('display','none');
-                            window.location.href = "http://localhost:8000/send-invite/"+response.unsend;
+                            window.location.href = "/send-invite/"+response.unsend;
                         }
                         else{
                             $('.preview-contain').css('display','none');
