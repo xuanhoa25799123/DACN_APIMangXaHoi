@@ -22,6 +22,9 @@ Route::get('/login', [
 ]);
 
 Route::prefix('dashboard')->group(function () {
+    Route::get('/',[
+        'uses'=>'App\Http\Controllers\ZaloController@dashboard'
+    ]);
     Route::get('/friend-list', [
         'as'=>'friend-list',
         'uses'=>'App\Http\Controllers\ZaloController@friendList'
