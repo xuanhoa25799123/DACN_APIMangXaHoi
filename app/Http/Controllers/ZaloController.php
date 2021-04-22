@@ -119,6 +119,7 @@ class ZaloController extends Controller
     {
         $receives = array();
         $friends = session('friends');
+        dd($friends);
         $profile = session('profile');
         $sendIds=$id;
         $idArr = explode(',',$id);
