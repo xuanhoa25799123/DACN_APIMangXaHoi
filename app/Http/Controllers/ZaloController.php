@@ -52,6 +52,7 @@ class ZaloController extends Controller
         $total = $result['summary']['total_count'];
         $friends = $result['data'];
         session(['friends'=>$friends]);
+        dd($friends);
         return view('components.friend-list',compact('total','friends','profile'));
     }
     public function inviteList()
@@ -88,7 +89,7 @@ class ZaloController extends Controller
                 }
             }
         }
-        $html = view('test.partials.friends')->with(compact('friends'))->render();
+        $html = view('partials.friends')->with(compact('friends'))->render();
         return response()->json(['success' => true, 'html' => $html]);
     }
     public function inviteSearch($keyword)
@@ -106,7 +107,7 @@ class ZaloController extends Controller
                 }
             }
         }
-        $html = view('test.partials.invite')->with(compact('friends'))->render();
+        $html = view('partials.invite')->with(compact('friends'))->render();
         return response()->json(['success' => true, 'html' => $html]);
     }
     public function profile()
@@ -130,14 +131,14 @@ class ZaloController extends Controller
         }
         $message="";
         $link="";
-        return view('test.components.send-message',compact('receives','profile','sendIds','message','link'));
+        return view('components.send-message',compact('receives','profile','sendIds','message','link'));
     }
     public function sendPreview(Request $request)
     {
         $profile = session('profile');
         $message = $request->message;
         $link = $request->link;
-        $html = view('partials.message-preview')->with(compact('message','link','profile'))->render();
+        $html = view('partials.status-preview')->with(compact('message','link','profile'))->render();
         return response()->json((['success'=>true,'html'=>$html]));
     }
     public function invitePreview(Request $request)
@@ -170,7 +171,7 @@ class ZaloController extends Controller
             }
         }
         $message="";
-        return view('test.components.send-invite',compact('receives','profile','sendIds','message'));
+        return view('components.send-invite',compact('receives','profile','sendIds','message'));
     }
     public function invite(Request $request,$sendIds){
         $accessToken = session('token');
@@ -207,7 +208,7 @@ class ZaloController extends Controller
         $profile = session('profile');
         $message="";
         $link="";
-        return view('test.components.post-status',compact('profile','message','link'));
+        return view('components.post-status',compact('profile','message','link'));
     }
     public function postStatus(Request $request)
     {
