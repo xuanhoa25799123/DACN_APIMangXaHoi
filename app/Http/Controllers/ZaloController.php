@@ -52,7 +52,6 @@ class ZaloController extends Controller
         $total = $result['summary']['total_count'];
         $friends = $result['data'];
         session(['friends'=>$friends]);
-        dd(session('friends'));
         return view('components.friend-list',compact('total','friends','profile'));
     }
     public function inviteList()
@@ -74,7 +73,6 @@ class ZaloController extends Controller
         $result = $response->getDecodedBody(); // result
         return response()->json(['success'=>'true','sendIds'=>$sendIds,'message'=>$request->message,'link'=>$request->link]);
     }
-
     public function friendSearch($keyword)
     {
         $frs = session('friends');
@@ -120,8 +118,8 @@ class ZaloController extends Controller
     {
         $receives = array();
         $friends = session('friends');
-        dd($friends);
         $profile = session('profile');
+        dd($profile);
         $sendIds=$id;
         $idArr = explode(',',$id);
         foreach($friends as $friend)
