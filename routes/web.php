@@ -120,8 +120,8 @@ Route::prefix('test')->group(function () {
         'as'=>'test-send',
         'uses'=>'App\Http\Controllers\TestController@send'
     ]);
-    Route::post('/message-preview', [
-        'uses'=>'App\Http\Controllers\TestController@messagePreview'
+    Route::post('/send-preview', [
+        'uses'=>'App\Http\Controllers\TestController@sendPreview'
     ]);
     Route::post('/status-preview', [
         'uses'=>'App\Http\Controllers\TestController@statusPreview'

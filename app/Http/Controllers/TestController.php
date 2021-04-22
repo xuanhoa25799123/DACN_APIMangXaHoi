@@ -58,7 +58,7 @@ class TestController extends Controller
         array_push($result['data'],$item4);
         array_push($result['data'],$item5);
         $friends=$result['data'];
-        session(['friends'=>$friends]);
+
         $profile = session('profile');
         $total = $result['summary']['total_count'];
 //        dd($friends);
@@ -181,7 +181,7 @@ class TestController extends Controller
         $profile = session('profile');
         $message = $request->message;
         $link = $request->link;
-        $html = view('test.partials.status-preview')->with(compact('message','link','profile'))->render();
+        $html = view('test.partials.send-preview')->with(compact('message','link','profile'))->render();
         return response()->json((['success'=>true,'html'=>$html]));
     }
     public function invitePreview(Request $request)

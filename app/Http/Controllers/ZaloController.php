@@ -132,6 +132,29 @@ class ZaloController extends Controller
         $link="";
         return view('test.components.send-message',compact('receives','profile','sendIds','message','link'));
     }
+    public function sendPreview(Request $request)
+    {
+        $profile = session('profile');
+        $message = $request->message;
+        $link = $request->link;
+        $html = view('partials.message-preview')->with(compact('message','link','profile'))->render();
+        return response()->json((['success'=>true,'html'=>$html]));
+    }
+    public function invitePreview(Request $request)
+    {
+        $profile = session('profile');
+        $message = $request->message;
+        $html = view('partials.invite-preview')->with(compact('message','profile'))->render();
+        return response()->json((['success'=>true,'html'=>$html]));
+    }
+    public function statusPreview(Request $request)
+    {
+        $profile = session('profile');
+        $message = $request->message;
+        $link = $request->link;
+        $html = view('partials.status-preview')->with(compact('message','link','profile'))->render();
+        return response()->json((['success'=>true,'html'=>$html]));
+    }
     public function sendInvite($id)
     {
         $receives = array();
