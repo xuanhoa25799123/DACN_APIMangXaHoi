@@ -31,7 +31,7 @@ Route::get('/login', [
     'uses'=>'App\Http\Controllers\ZaloController@inviteSearch'
     ]);
     Route::get('/friend-list/{keyword}', [
-        'uses'=>'App\Http\Controllers\ZaloController@search'
+        'uses'=>'App\Http\Controllers\ZaloController@friendSearch'
     ]);
     Route::get('/profile', [
         'as'=>'profile',
