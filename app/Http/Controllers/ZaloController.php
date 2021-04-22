@@ -117,6 +117,7 @@ class ZaloController extends Controller
     public function sendMessage($id)
     {
         $receives = array();
+        dd("asdasd");
         $friends = session('friends');
         $profile = session('profile');
         $sendIds=$id;
