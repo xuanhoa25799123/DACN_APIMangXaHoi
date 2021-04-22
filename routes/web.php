@@ -20,8 +20,7 @@ Route::get('/login', [
     'as'=>'login',
     'uses'=>'App\Http\Controllers\ZaloController@login'
 ]);
-
-    Route::get('/',[
+    Route::get('/dashboard',[
         'uses'=>'App\Http\Controllers\ZaloController@dashboard'
     ]);
     Route::get('/friend-list', [
