@@ -2,7 +2,7 @@ $(document).ready(function() {
     $('.search-bar').on('keyup',function() {
         var keyword = $(this).val();
         $.ajax({
-            url: '/dashboard/friend-list/'+keyword,
+            url: '/friend-list/'+keyword,
             type: 'get',
             dataType: 'json',
             success: function(response) {

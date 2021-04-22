@@ -21,7 +21,6 @@ Route::get('/login', [
     'uses'=>'App\Http\Controllers\ZaloController@login'
 ]);
 
-Route::prefix('dashboard')->group(function () {
     Route::get('/',[
         'uses'=>'App\Http\Controllers\ZaloController@dashboard'
     ]);
@@ -64,7 +63,7 @@ Route::prefix('dashboard')->group(function () {
         'as'=>'post-status',
         'uses'=>'App\Http\Controllers\ZaloController@postStatus'
     ]);
-});
+
 
 Route::prefix('test')->group(function () {
     Route::get('/', [

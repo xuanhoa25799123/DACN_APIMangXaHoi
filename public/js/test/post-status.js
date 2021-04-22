@@ -64,7 +64,7 @@ $(document).ready(function() {
                 }).then(result=>{
                     if(result.isConfirmed)
                     {
-                        window.location.href="http://localhost:8000/dashboard";
+                        window.location.href="http://localhost:8000/test/dashboard";
                     }
                     else
                     {

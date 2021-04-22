@@ -7,7 +7,7 @@ $(document).ready(function() {
             keyword="*";
         }
         $.ajax({
-            url: '/invite-list/'+keyword,
+            url: '/test/invite-list/'+keyword,
             type: 'get',
             dataType: 'json',
             success: function(response) {

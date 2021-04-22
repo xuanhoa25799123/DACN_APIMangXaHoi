@@ -6,7 +6,7 @@ $(document).ready(function() {
             keyword="*";
         }
         $.ajax({
-            url: '/friend-list/'+keyword,
+            url: '/test/friend-list/'+keyword,
             type: 'get',
             dataType: 'json',
             success: function(response) {

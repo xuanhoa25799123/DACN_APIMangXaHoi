@@ -16,7 +16,7 @@ $(document).ready(function() {
         }
         else{
             $.ajax({
-                url: "http://localhost:8000/message-preview",
+                url: "http://localhost:8000/test/message-preview",
                 type: 'POST',
                 data:{
                   link,message

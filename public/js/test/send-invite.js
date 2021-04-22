@@ -86,10 +86,10 @@ $(document).ready(function() {
                         denyButtonText: 'Gửi lại lời mời',
                     }).then(result => {
                         if (result.isConfirmed) {
-                            window.location.href = "http://localhost:8000/dashboard";
+                            window.location.href = "http://localhost:8000/test/dashboard";
                         } else if(result.isDenied) {
                             $('.preview-contain').css('display','none');
-                            window.location.href = "http://localhost:8000/send-invite/"+response.unsend;
+                            window.location.href = "http://localhost:8000/test/send-invite/"+response.unsend;
                         }
                         else{
                             $('.preview-contain').css('display','none');
