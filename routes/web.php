@@ -52,8 +52,8 @@ Route::get('/invite-list/{keyword}', [
         'as'=>'send',
         'uses'=>'App\Http\Controllers\ZaloController@send'
     ]);
-Route::post('/message-preview', [
-    'uses'=>'App\Http\Controllers\ZaloController@messagePreview'
+Route::post('/send-preview', [
+    'uses'=>'App\Http\Controllers\ZaloController@sendPreview'
 ]);
     Route::get('/send-invite/{id}', [
         'as'=>'send-invite',
