@@ -40,10 +40,10 @@
             <button class="btn-close preview-close">x</button>
         </div>
         <div class="preview-sub-container">
-            @include('test.partials.invite-preview')
+            @include('partials.invite-preview')
         </div>
         <div class="preview-footer">
-            <button class="btn btn-primary btn-send-invite btn-margin" data-href="{{route('test-invite',['sendIds'=>$sendIds])}}">Gửi lời mời</button>
+            <button class="btn btn-primary btn-send-invite btn-margin" data-href="{{route('invite',['sendIds'=>$sendIds])}}">Gửi lời mời</button>
             <button class="btn btn-danger preview-close">Huỷ</button>
         </div>
     </div>

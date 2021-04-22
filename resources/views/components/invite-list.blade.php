@@ -20,10 +20,10 @@
     <button class="btn btn-primary toggle-popup friend-list-button">Gửi lời mời</button>
     <p class="text">{{$total}} người bạn chưa tham gia ứng dụng</p>
     <div class="list-friends">
-        @include('test.partials.invite')
+        @include('partials.invite')
         <div class="popup-container">
             <p class="popup-title">Chọn bạn bè gửi lời mời</p>
-            @include('test.partials.popup')
+            @include('partials.popup')
             <div class="popup-footer">
                 <div class="popup-filter">
                     <input type="checkbox" class="cb filter-all">Tất cả

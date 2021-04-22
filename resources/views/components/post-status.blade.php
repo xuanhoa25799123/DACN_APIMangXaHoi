@@ -30,7 +30,7 @@
                 <button class="btn-close preview-close">x</button>
             </div>
             <div class="preview-sub-container">
-                @include('test.partials.status-preview')
+                @include('partials.status-preview')
             </div>
             <div class="preview-footer">
                 <button class="btn btn-primary btn-post-status">Đăng bài viết</button>
