@@ -51,7 +51,6 @@ class ZaloController extends Controller
         $profile = session('profile');
         $total = $result['summary']['total_count'];
         $friends = $result['data'];
-        dd($friends);
 
         return view('components.friend-list',compact('total','friends','profile'));
     }
