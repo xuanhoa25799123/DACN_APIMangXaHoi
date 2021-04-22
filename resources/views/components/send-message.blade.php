@@ -42,7 +42,7 @@
                 <button class="btn-close preview-close">x</button>
             </div>
             <div class="preview-sub-container">
-                @include('test.partials.send-preview')
+                @include('partials.send-preview')
             </div>
             <div class="preview-footer">
                 <button class="btn btn-primary btn-send-message btn-margin">Gửi tin nhắn</button>
