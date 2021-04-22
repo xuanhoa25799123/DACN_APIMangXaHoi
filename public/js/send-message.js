@@ -16,8 +16,7 @@ $(document).ready(function() {
         }
         else{
             $.ajax({
-                url: "/" +
-                    "message-preview",
+                url: "/message-preview",
                 type: 'POST',
                 data:{
                   link,message

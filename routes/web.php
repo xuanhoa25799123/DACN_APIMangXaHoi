@@ -52,6 +52,9 @@ Route::get('/invite-list/{keyword}', [
         'as'=>'send',
         'uses'=>'App\Http\Controllers\ZaloController@send'
     ]);
+Route::post('/message-preview', [
+    'uses'=>'App\Http\Controllers\ZaloController@messagePreview'
+]);
     Route::get('/send-invite/{id}', [
         'as'=>'send-invite',
         'uses'=>'App\Http\Controllers\ZaloController@sendInvite'
@@ -60,6 +63,9 @@ Route::get('/invite-list/{keyword}', [
         'as'=>'invite',
         'uses'=>'App\Http\Controllers\ZaloController@invite'
     ]);
+Route::post('/invite-preview', [
+    'uses'=>'App\Http\Controllers\ZaloController@invitePreview'
+]);
     Route::get('/post-status', [
         'as'=>'make-status',
         'uses'=>'App\Http\Controllers\ZaloController@makeStatus'
@@ -68,6 +74,10 @@ Route::get('/invite-list/{keyword}', [
         'as'=>'post-status',
         'uses'=>'App\Http\Controllers\ZaloController@postStatus'
     ]);
+Route::post('/status-preview', [
+    'uses'=>'App\Http\Controllers\ZaloController@statusPreview'
+]);
+
 
 
 Route::prefix('test')->group(function () {
