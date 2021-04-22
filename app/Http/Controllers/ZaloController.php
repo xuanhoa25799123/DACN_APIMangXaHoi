@@ -52,7 +52,7 @@ class ZaloController extends Controller
         $total = $result['summary']['total_count'];
         $friends = $result['data'];
         session(['friends'=>$friends]);
-        return view('components/friend-list',compact('total','friends','profile'));
+        return view('components.friend-list',compact('total','friends','profile'));
     }
     public function inviteList()
     {
@@ -64,33 +64,50 @@ class ZaloController extends Controller
         $total = $result['summary']['total_count'];
         $friends = $result['data'];
         session(['invite_friends'=>$friends]);
-        return view('components/invite-list',compact('total','friends','profile'));
+        return view('components.invite-list',compact('total','friends','profile'));
     }
     public function send(Request $request,$sendIds){
         $accessToken = session('token');
         $params = ['message' => $request->message, 'to' => $sendIds, 'link' => $request->link];
         $response = $this->zalo->post(ZaloEndpoint::API_GRAPH_MESSAGE, $accessToken, $params);
         $result = $response->getDecodedBody(); // result
-        dd($result);
+        return response()->json(['success'=>'true','sendIds'=>$sendIds,'message'=>$request->message,'link'=>$request->link]);
     }
 
-    public function search($keyword)
+    public function friendSearch($keyword)
     {
         $frs = session('friends');
         $friends = array();
-        if($keyword=="")
+        if($keyword=="*")
+        {
+            $friends = $frs;
+        }
+        else {
+            foreach ($frs as $fr) {
+                if (stripos($fr['name'], $keyword) == true||stripos($fr['name'], $keyword) ===0) {
+                    array_push($friends, $fr);
+                }
+            }
+        }
+        $html = view('test.partials.friends')->with(compact('friends'))->render();
+        return response()->json(['success' => true, 'html' => $html]);
+    }
+    public function inviteSearch($keyword)
+    {
+        $frs = session('invite_friends');
+        $friends = array();
+        if($keyword=="*")
         {
             $friends=$frs;
         }
         else {
             foreach ($frs as $fr) {
-                if (stripos($fr['name'], $keyword) >= 0) {
+                if (stripos($fr['name'], $keyword) == true||stripos($fr['name'], $keyword) ===0) {
                     array_push($friends, $fr);
                 }
             }
         }
-//        $friends = array_slice($friends,0,1);
-        $html = view('partials.friends')->with(compact('friends'))->render();
+        $html = view('test.partials.invite')->with(compact('friends'))->render();
         return response()->json(['success' => true, 'html' => $html]);
     }
     public function profile()
@@ -103,46 +120,72 @@ class ZaloController extends Controller
         $receives = array();
         $friends = session('friends');
         $profile = session('profile');
-        $sendIds = "";
+        $sendIds=$id;
+        $idArr = explode(',',$id);
         foreach($friends as $friend)
         {
-            if($friend['id']==$id)
+            if(in_array($friend['id'],$idArr))
             {
-                $sendIds.=$friend['id'].',';
                 array_push($receives,$friend);
             }
         }
-        $sendIds=substr($sendIds,0,-1);
-        return view('components.send-message',compact('receives','profile','sendIds'));
+        $message="";
+        $link="";
+        return view('test.components.send-message',compact('receives','profile','sendIds','message','link'));
     }
     public function sendInvite($id)
     {
         $receives = array();
         $friends = session('invite_friends');
         $profile = session('profile');
-        $sendIds = "";
+        $sendIds=$id;
+        $idArr = explode(',',$id);
         foreach($friends as $friend)
         {
-            if($friend['id']==$id)
+            if(in_array($friend['id'],$idArr))
             {
-                $sendIds.=$friend['id'].',';
                 array_push($receives,$friend);
             }
         }
-        $sendIds=substr($sendIds,0,-1);
-        return view('components.send-invite',compact('receives','profile','sendIds'));
+        $message="";
+        return view('test.components.send-invite',compact('receives','profile','sendIds','message'));
     }
     public function invite(Request $request,$sendIds){
         $accessToken = session('token');
         $params = ['message' => $request->message, 'to' => $sendIds];
         $response = $this->zalo->post(ZaloEndpoint::API_GRAPH_APP_REQUESTS, $accessToken, $params);
         $result = $response->getDecodedBody(); // result
-        dd($result);
+        $sendArr = explode(',',$sendIds);
+        if(count($sendArr)==count($result['to']))
+        {
+            return response()->json(['success'=>'true','complete'=>true,'count'=>count($result['to'])]);
+        }
+        else{
+            $unsend = "";
+            $count = 0;
+            foreach($sendArr as $item)
+            {
+                if(!in_array($item,$result['to']))
+                {
+                    $count++;
+                    if($unsend=="")
+                    {
+                        $unsend .= $item;
+                    }
+                    else{
+                        $unsend .=','.$item;
+                    }
+                }
+            }
+            return response()->json(['success'=>'true','complete'=>false,'unsend'=>$unsend,'count'=>$count]);
+        }
     }
     public function makeStatus()
     {
         $profile = session('profile');
-        return view('components.post-status',compact('profile'));
+        $message="";
+        $link="";
+        return view('test.components.post-status',compact('profile','message','link'));
     }
     public function postStatus(Request $request)
     {
