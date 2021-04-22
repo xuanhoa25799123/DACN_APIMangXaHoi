@@ -21,10 +21,10 @@
 <body>
 <div class="big-container">
     <div class="left">
-        @include('test.partials.sidebar')
+        @include('partials.sidebar')
     </div>
     <div class="right">
-        @include('test.partials.header')
+        @include('partials.header')
         <div class="content">
             @yield('content')
         </div>
