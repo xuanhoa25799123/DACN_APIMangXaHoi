@@ -1,0 +1,15 @@
+.invite-preview-content{
+    padding:10px;
+    display:flex;
+    flex-wrap:wrap;
+}
+.invite-preview-button{
+    width:70%;
+    margin:10px auto;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.invite-message{
+    padding:10px;
+}

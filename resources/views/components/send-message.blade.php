@@ -2,6 +2,7 @@
 
 @section('css')
     <link rel="stylesheet" href="{{asset('/css/send-message.css')}}">
+
 @endsection
 
 @section('content')
@@ -27,5 +28,6 @@
             <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i>&nbsp;Gửi tin nhắn</button>
             <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i>&nbsp;Xoá nội dung</button>
         </form>
+
     </div>
 @endsection

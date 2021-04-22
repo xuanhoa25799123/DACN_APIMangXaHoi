@@ -1,14 +1,13 @@
 .send-container{
-    width:80%;
-    margin:30px auto;
+    width:100%;
     display:flex;
     flex-direction: column;
+    font-family:tahoma;
 }
 
 .send-header{
     display:flex;
     align-items:center;
-
 }
 .send-profile{
     width:30px;
@@ -23,17 +22,34 @@
     border-radius:50%;
     cursor:pointer;
 }
-
+.send-name-container{
+    display:none;
+    color:white;
+}
 .send-name{
-    position:absolute;
-    background-color:black;
-    width:60px;
-    bottom:-30px;
+    background-color:#232223;
+    border-radius:5px;
     color:white;
     padding:0 5px;
-    display:none;
-}
-.send-img:hover > .send-name{
-    display:initial;
-}
 
+}
+.arrow{
+    margin-left:5px;
+    width:0;
+    height:0;
+    border-bottom: 5px solid #232223;
+    border-right:5px solid transparent;
+    border-left:5px solid transparent;
+
+}
+.send-profile:hover > .send-name-container{
+    display:flex;
+    position:absolute;
+    top:30px;
+    left:0;
+    flex-direction:column;
+
+}
+.send-btn{
+    font-family:tahoma;
+}

@@ -1,8 +1,13 @@
 $(document).ready(function() {
-    $('.search-bar').on('keyup',function() {
+    $('#invite-search-bar').on('keyup',function() {
         var keyword = $(this).val();
+
+        if(keyword=="")
+        {
+            keyword="*";
+        }
         $.ajax({
-            url: '/dashboard/friend-list/'+keyword,
+            url: '/test/invite-list/'+keyword,
             type: 'get',
             dataType: 'json',
             success: function(response) {
