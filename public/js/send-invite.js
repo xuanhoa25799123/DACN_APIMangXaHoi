@@ -64,7 +64,7 @@ $(document).ready(function() {
                         cancelButtonText: "Ở lại",
                     }).then(result => {
                         if (result.isConfirmed) {
-                            window.location.href = "/test/dashboard";
+                            window.location.href = "/dashboard";
                         } else {
                             $(".preview-container").css('display', 'none');
                         }
