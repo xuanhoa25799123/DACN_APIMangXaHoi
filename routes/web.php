@@ -27,6 +27,9 @@ Route::get('/login', [
         'as'=>'friend-list',
         'uses'=>'App\Http\Controllers\ZaloController@friendList'
     ]);
+    Route::get('/invite-list/{keyword}', [
+    'uses'=>'App\Http\Controllers\ZaloController@inviteSearch'
+    ]);
     Route::get('/friend-list/{keyword}', [
         'uses'=>'App\Http\Controllers\ZaloController@search'
     ]);
@@ -38,6 +41,9 @@ Route::get('/login', [
         'as'=>'invite-list',
         'uses'=>'App\Http\Controllers\ZaloController@inviteList'
     ]);
+Route::get('/invite-list/{keyword}', [
+    'uses'=>'App\Http\Controllers\ZaloController@inviteSearch'
+]);
     Route::get('/send-message/{id}', [
         'as'=>'send-message',
         'uses'=>'App\Http\Controllers\ZaloController@sendMessage'

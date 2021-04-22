@@ -11,12 +11,12 @@ $(document).ready(function() {
                     text: "Điền vào ít nhất 1 ô",
                     icon: 'warning',
                     confirmButtonColor: '#3085d6',
-                    confirmButtonText:"Dồng ý",
+                    confirmButtonText:"Đồng ý",
                 })
             }
             else{
                 $.ajax({
-                    url: "http://localhost:8000/test/status-preview",
+                    url: "http://localhost:8000/status-preview",
                     type: 'POST',
                     data:{
                         link,message
@@ -42,7 +42,7 @@ $(document).ready(function() {
         let link = $('input[name=link]').val();
         let message=  $('textarea[name=message]').val();
         $.ajax({
-            url: "http://localhost:8000/test/post-status",
+            url: "http://localhost:8000/post-status",
             type: 'POST',
             data:{
                 link,message
