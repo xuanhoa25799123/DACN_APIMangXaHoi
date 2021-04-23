@@ -4,7 +4,7 @@ $(document).ready(function() {
         {
         let link = $('input[name=link]').val();
             $.ajax({
-                url: '/previewUrl/'+link,
+                url: '/preview-url/'+link,
                 type: 'GET',
                 success: function (response) {
                     var data = response.data;
