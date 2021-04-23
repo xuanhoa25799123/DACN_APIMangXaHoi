@@ -6,9 +6,9 @@
     <link rel="stylesheet" href="{{asset('/css/popup.css')}}">
     @endsection
 @section('js')
-    <script src="{{asset('js/friend-search.js')}}"></script>
-    <script src="{{asset('js/toggle-popup.js')}}"></script>
-    <script src="{{asset('js/popup.js')}}"></script>
+    <script src="{{asset('js/test/friend-search.js')}}"></script>
+    <script src="{{asset('js/test/toggle-popup.js')}}"></script>
+    <script src="{{asset('js/test/popup.js')}}"></script>
     <script src="{{asset('plugins/sweetalert2/sweetalert2@10.js')}}"></script>
 @endsection
 @section('content')

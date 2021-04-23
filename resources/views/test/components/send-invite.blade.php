@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="{{asset('/css/invite-preview.css')}}">
 @endsection
 @section('js')
-    <script src="{{asset('/js/send-invite.js')}}"></script>
-    <script src="{{asset('/js/preview.js')}}"></script>
+    <script src="{{asset('/js/test/send-invite.js')}}"></script>
+    <script src="{{asset('/js/test/preview.js')}}"></script>
     <script src="{{asset('plugins/sweetalert2/sweetalert2@10.js')}}"></script>
 @endsection
 @section('content')

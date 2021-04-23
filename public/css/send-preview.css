@@ -1,0 +1,46 @@
+.send-preview-container{
+    display:flex;
+
+}
+.send-preview-content{
+    border-radius:5px;
+    display:flex;
+    flex-direction:column;
+    padding:5px;
+
+}
+
+.send-preview-link{
+    display:flex;
+    justify-content: space-between;
+}
+.send-preview-img{
+    border-radius:5px;
+    width:50px;
+    height:50px;
+    object-fit: contain;
+}
+.send-preview-text{
+    display:flex;
+    flex-direction: column;
+
+}
+
+.send-preview-title{
+    color:black;
+    font-weight:bold;
+    font-size:13px;
+}
+
+.send-preview-description{
+    color:grey;
+    font-size:12px;
+}
+.send-preview-host{
+    color:black;
+    font-size:12px;
+}
+.send-preview-time{
+    color:grey;
+
+}

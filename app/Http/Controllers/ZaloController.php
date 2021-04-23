@@ -266,7 +266,7 @@ class ZaloController extends Controller
             $url = $match[0][0];
             $client = new Client();
                 $crawler = $client->request('GET', $url);
-                $statusCode = $client->getResponse()->getStatus();
+                $statusCode = $client->getResponse()->getStatusCode();
                 if ($statusCode == 200) {
                     $title = $crawler->filter('title')->text();
                     if ($crawler->filterXpath('//meta[@name="description"]')->count()) {

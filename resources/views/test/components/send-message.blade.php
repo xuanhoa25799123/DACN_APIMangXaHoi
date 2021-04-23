@@ -5,8 +5,8 @@
     <link rel="stylesheet" href="{{asset('/css/preview.css')}}">
 @endsection
 @section('js')
-    <script src="{{asset('/js/send-message.js')}}"></script>
-    <script src="{{asset('/js/preview.js')}}"></script>
+    <script src="{{asset('/js/test/send-message.js')}}"></script>
+    <script src="{{asset('/js/test/preview.js')}}"></script>
     <script src="{{asset('plugins/sweetalert2/sweetalert2@10.js')}}"></script>
 @endsection
 @section('content')

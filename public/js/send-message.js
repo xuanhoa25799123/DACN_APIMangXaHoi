@@ -14,8 +14,13 @@ $(document).ready(function() {
                 },
                 dataType: 'json',
                 success: function (response) {
-                    var data = response.data;
-                    console.log(data);
+                    let data =response.data;
+                  var preview =  '<img class="send-preview-img" src="'+data.image_url+'">'+
+                                    '<div class="send-preview-text"><p class="send-preview-title">' +data.title+
+                      '</p><p class="send-preview-description">' +data.description+
+                      '</p><p class="send-preview-host">' +data.host+
+                      '</p></div>';
+                  $('.preview-send-link').html(preview);
                 }
             });
         let message=  $('textarea[name=message]').val();

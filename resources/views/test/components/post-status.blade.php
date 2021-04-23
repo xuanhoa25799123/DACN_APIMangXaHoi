@@ -6,8 +6,8 @@
 @endsection
 @section('js')
     <script src="{{asset('plugins/sweetalert2/sweetalert2@10.js')}}"></script>
-    <script src="{{asset('/js/preview.js')}}"></script>
-    <script src="{{asset('/js/post-status.js')}}"></script>
+    <script src="{{asset('/js/test/preview.js')}}"></script>
+    <script src="{{asset('/js/test/post-status.js')}}"></script>
     @endsection
 @section('content')
     <div class="send-container">

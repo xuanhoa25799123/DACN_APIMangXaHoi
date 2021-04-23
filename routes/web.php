@@ -155,6 +155,14 @@ Route::prefix('test')->group(function () {
         'as'=>'test-post-status',
         'uses'=>'App\Http\Controllers\TestController@postStatus'
     ]);
+    Route::get('/preview-url', [
+        'as'=>'test-preview-url',
+        'uses'=>'App\Http\Controllers\TestController@urlPreview'
+    ]);
+    Route::post('/preview-url', [
+        'as'=>'test-url-preview',
+        'uses'=>'App\Http\Controllers\TestController@previewUrl'
+    ]);
 });
 
 //Route::get('/add/{id}', [
