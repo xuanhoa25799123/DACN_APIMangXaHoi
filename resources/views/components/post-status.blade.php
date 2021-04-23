@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('css')
-    {{--    <link rel="stylesheet" href="{{asset('/css/send-message.css')}}">--}}
+        <link rel="stylesheet" href="{{asset('/css/status-preview.css')}}">
     <link rel="stylesheet" href="{{asset('/css/preview.css')}}">
 @endsection
 @section('js')
