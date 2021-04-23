@@ -12,6 +12,11 @@ $(document).ready(function() {
                 'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
             },
             dataType: 'json',
+          beforeSend:function()
+          {
+                let loader = "<div class=loader></div>";
+                $('.result').html=loader;
+          },
             success: function (response) {
                 let data =response.data;
                 var preview = '<a class="send-preview-link" href="'+data.url+'"target="_blank"><img class="send-preview-img" src="'+data.image+'">'+
