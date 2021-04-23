@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Zalo\Zalo;
 use Zalo\ZaloEndPoint;
+use Goutte\Client;
 
 
 class ZaloController extends Controller
@@ -254,6 +255,53 @@ class ZaloController extends Controller
         }
         return response()->json(['code'=>200,'data'=>['title'=>$page_title, 'images'=>$image_urls, 'content'=> $page_body]]);
 
+    }
+    public function previewUrl($content)
+    {
+        $urls = preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $content, $match);
+        $results = [];
+
+        if ($urls > 0) {
+            $url = $match[0][0];
+            $client = new Client();
+            try {
+                $crawler = $client->request('GET', $url);
+
+                $statusCode = $client->getResponse()->getStatus();
+                if ($statusCode == 200) {
+                    $title = $crawler->filter('title')->text();
+
+                    if ($crawler->filterXpath('//meta[@name="description"]')->count()) {
+                        $description = $crawler->filterXpath('//meta[@name="description"]')->attr('content');
+                    }
+
+                    if ($crawler->filterXpath('//meta[@name="og:image"]')->count()) {
+                        $image = $crawler->filterXpath('//meta[@name="og:image"]')->attr('content');
+                    } elseif ($crawler->filterXpath('//meta[@name="twitter:image"]')->count()) {
+                        $image = $crawler->filterXpath('//meta[@name="twitter:image"]')->attr('content');
+                    } else {
+                        if ($crawler->filter('img')->count()) {
+                            $image = $crawler->filter('img')->attr('src');
+                        } else {
+                            $image = 'no_image';
+                        }
+                    }
+
+                    $results['title'] = $title;
+                    $results['url'] = $url;
+                    $results['host'] = parse_url($url)['host'];
+                    $results['description'] = isset($description) ? $description : '';
+                    $results['image'] = $image;
+                }
+            }catch (\Exception $e) {
+
+                }
+            if (count($results) > 0) {
+                return response()->json(['success' => true, 'data' => $results]);
+            }
+
+            return response()->json(['success' => false, 'data' => $results]);
+        }
     }
 }
 

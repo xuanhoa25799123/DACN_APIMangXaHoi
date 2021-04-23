@@ -3,39 +3,14 @@ $(document).ready(function() {
         if($('.preview-container').css('display')=='none')
         {
         let link = $('input[name=link]').val();
-            var match_url = /\b(https?):\/\/([\-A-Z0-9.]+)(\/[\-A-Z0-9+&@#\/%=~_|!:,.;]*)?(\?[A-Z0-9+&@#\/%=~_|!:,.;]*)?/i;
-
-            //continue if matched url is found in text field
-            if (match_url.test(link)) {
-                // $("#results").hide();
-                // $("#loading_indicator").show(); //show loading indicator image
-
-                var extracted_url = link.match(match_url)[0]; //extracted first url from text filed
-                $.ajax({
-                    url: "/extract-process",
-                    type: 'POST',
-                    data:{
-                        'url': extracted_url
-                    },
-                    headers:{
-                        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
-                    },
-                    dataType: 'json',
-                    success: function(response) {
-                        let data =response.data;
-                        let extracted_images = data.images;
-                        let total_images = parseInt(data.images.length-1);
-                        let img_arr_pos = total_images;
-                        let inc_image="";
-                        if(total_images>0){
-                            inc_image = '<div class="extracted_thumb" id="extracted_thumb"><img src="'+data.images[img_arr_pos]+'" width="100" height="100"></div>';
-                            console.log(data.title,data.content,data.images[img_arr_pos]);
-                        }else{
-                            inc_image ='';
-                        }
-                        console.log(data.title,data.content,data.images[img_arr_pos]);
-                    }
-                });
+            $.ajax({
+                url: '/previewUrl/'+link,
+                type: 'GET',
+                success: function (response) {
+                    var data = response.data;
+                    console.log(data);
+                }
+            });
         let message=  $('textarea[name=message]').val();
         if(link.trim()=="" && message.trim()=="")
         {
@@ -70,7 +45,7 @@ $(document).ready(function() {
         else{
             $('.preview-container').css('display','none');
         }
-    }})
+    })
     $('.btn-send-message').on('click',function(){
         let link = $('input[name=link]').val();
 
@@ -147,3 +122,35 @@ $(document).ready(function() {
 //         })
 //     }
 // });
+
+
+// if (match_url.test(link)) {
+//     // $("#results").hide();
+//     // $("#loading_indicator").show(); //show loading indicator image
+//
+//     var extracted_url = link.match(match_url)[0]; //extracted first url from text filed
+//     $.ajax({
+//         url: "/extract-process",
+//         type: 'POST',
+//         data:{
+//             'url': extracted_url
+//         },
+//         headers:{
+//             'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+//         },
+//         dataType: 'json',
+//         success: function(response) {
+//             let data =response.data;
+//             let extracted_images = data.images;
+//             let total_images = parseInt(data.images.length-1);
+//             let img_arr_pos = total_images;
+//             let inc_image="";
+//             if(total_images>0){
+//                 inc_image = '<div class="extracted_thumb" id="extracted_thumb"><img src="'+data.images[img_arr_pos]+'" width="100" height="100"></div>';
+//                 console.log(data.title,data.content,data.images[img_arr_pos]);
+//             }else{
+//                 inc_image ='';
+//             }
+//             console.log(data.title,data.content,data.images[img_arr_pos]);
+//         }
+//     });
