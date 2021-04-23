@@ -1,6 +1,7 @@
 $(document).ready(function() {
     $('.send-message-link').on('change',function(){
         let link = $('input[name=link]').val();
+        console.log('change');
         $.ajax({
             url: '/preview-url',
             type: 'POST',
