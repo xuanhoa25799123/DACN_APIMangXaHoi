@@ -15,7 +15,7 @@ $(document).ready(function() {
                 dataType: 'json',
                 beforeSend:function()
                 {
-                    $('.results').addClass('loader');
+                    $('.temp').addClass('loader');
                 },
                 success: function (response) {
                     let data =response.data;
@@ -27,7 +27,7 @@ $(document).ready(function() {
                     $('.results').html(preview);
                 },
                 complete:function() {
-                    $('.results').removeClass('loader');
+                    $('.temp').removeClass('loader');
                 },
             })
         let message=  $('textarea[name=message]').val();
