@@ -274,10 +274,11 @@ class TestController extends Controller
                     if ($crawler->filterXpath('//meta[@name="description"]')->count()) {
                         $description = $crawler->filterXpath('//meta[@name="description"]')->attr('content');
                     }
-                    if ($crawler->filterXpath('//meta[@name="og:image"]')->count()) {
-                        $image = $crawler->filterXpath('//meta[@name="og:image"]')->attr('content');
-                    } elseif ($crawler->filterXpath('//meta[@name="twitter:image"]')->count()) {
-                        $image = $crawler->filterXpath('//meta[@name="twitter:image"]')->attr('content');
+                    if ($crawler->filterXpath('//meta[@property="og:title"]')->count()) {
+                        $title2 = $crawler->filterXpath('//meta[@property="og:title"]')->attr('content');
+                    }
+                    if ($crawler->filterXpath('//meta[@property="og:image"]')->count()) {
+                        $image = $crawler->filterXpath('//meta[@property="og:image"]')->attr('content');
                     } else {
                         if ($crawler->filter('img')->count()) {
                             $image = $crawler->filter('img')->attr('src');
@@ -290,6 +291,7 @@ class TestController extends Controller
                     $results['host'] = parse_url($url)['host'];
                     $results['description'] = isset($description) ? $description : '';
                     $results['image'] = $image;
+                    $results['title2']=$title2;
                 }
             }
             dd($results);
