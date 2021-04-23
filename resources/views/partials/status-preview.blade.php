@@ -11,7 +11,7 @@
     <div class="results"></div>
 </div>
 <div class="preview-interact">
-    <button class="btn-interact like"><i class="fa fa-send icon"></i>  Thích</button>
+    <button class="btn-interact like"><i class="fa fa-heart icon"></i>  Thích</button>
     <button class="btn-interact comment"><i class="fa fa-comment icon"></i>  Bình luận</button>
     <button class="btn-interact share"><i class="fa fa-share icon"></i>  Chia sẻ</button>
 </div>

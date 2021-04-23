@@ -21,19 +21,20 @@
     <p class="text">Đã có {{$total}} người bạn vào ứng dụng</p>
     <div class="list-friends">
         @include('partials.friends')
-        <div class="popup-container">
-            <p class="popup-title">Chọn bạn bè nhận tin nhắn</p>
-            @include('partials.popup')
-            <div class="popup-footer">
-                <div class="popup-filter">
-                    <input type="checkbox" class="cb filter-all">Tất cả
-                    <input type="checkbox" class="cb filter-male">Nam
-                    <input type="checkbox" class="cb filter-female">Nữ
-                </div>
-                <div class="popup-button-container">
-                    <button type="button" class="btn btn-primary friend-submit">Gửi tin nhắn</button>
-                    <button type="button" class="btn btn-danger exit">Thoát</button>
-                </div>
+    </div>
+    <div class="popup-container">
+        <p class="popup-title">Chọn bạn bè nhận tin nhắn</p>
+        @include('partials.popup')
+        <div class="popup-footer">
+            <div class="popup-filter">
+                <input type="checkbox" class="cb filter-all">Tất cả
+                <input type="checkbox" class="cb filter-male">Nam
+                <input type="checkbox" class="cb filter-female">Nữ
+            </div>
+            <div class="popup-button-container">
+                <button type="button" class="btn btn-primary friend-submit">Gửi tin nhắn</button>
+                <button type="button" class="btn btn-danger exit">Thoát</button>
             </div>
         </div>
+    </div>
 @endsection

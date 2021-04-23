@@ -10,7 +10,6 @@ $(document).ready(function() {
             type: 'get',
             dataType: 'json',
             success: function(response) {
-                console.log(response.html);
                 $('.list-friends').html(response.html);
             }
         });

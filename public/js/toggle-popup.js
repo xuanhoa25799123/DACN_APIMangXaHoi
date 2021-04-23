@@ -1,6 +1,5 @@
 $(document).ready(function() {
     $('.toggle-popup').on('click',function(){
-        console.log($('.popup-container').css('display'));
         if($('.popup-container').css('display')=='none')
         {
             $('.popup-container').css('display','flex');
@@ -12,3 +11,4 @@ $(document).ready(function() {
         }
     })
 });
+
