@@ -68,14 +68,15 @@ class ZaloController extends Controller
     }
     public function send(Request $request,$sendIds){
         $accessToken = session('token');
-        $idArr = explode($sendIds);
+        $idArr = explode(',',$sendIds);
         $result=array();
         foreach($idArr as $id) {
             $params = ['message' => $request->message, 'to' => $id, 'link' => $request->link];
             $response = $this->zalo->post(ZaloEndpoint::API_GRAPH_MESSAGE, $accessToken, $params);
             $rs = $response->getDecodedBody(); // result
-            dd($rs);
+            array_push($result,$rs['to']);
         }
+
         return response()->json(['success'=>'true','sendIds'=>$sendIds,'message'=>$request->message,'link'=>$request->link,'result'=>$result]);
     }
     public function friendSearch($keyword)
