@@ -28,11 +28,11 @@
             </div>
             <div class="form-group">
                 <label>Link</label>
-                <input class="form-control" class="send-message-link" name="link" placeholder="nhấp link">
+                <input class="form-control send-message-link" name="link" placeholder="nhập link">
             </div>
             <div class="form-group">
                 <label>Message</label>
-                <textarea class="form-control" name="message" rows="5" placeholder="nhấp nội dung"></textarea>
+                <textarea class="form-control" name="message" rows="5" placeholder="nhập nội dung"></textarea>
             </div>
             <button type="button" class="btn btn-primary send-btn" data-href="{{route('send',['sendIds'=>$sendIds])}}"><i class="fa fa-send"></i> Gửi tin nhắn</button>
             <button type="button" class="btn btn-danger send-btn"><i class="fa fa-trash"></i> Xoá</button>
