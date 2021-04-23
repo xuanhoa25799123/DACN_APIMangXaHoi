@@ -233,7 +233,7 @@ class ZaloController extends Controller
     public function extractProcess(Request $request)
     {
         $get_url = $request->url;
-        $get_content = file_get_html($get_url);
+        $get_content = file_get_contents($get_url);
         foreach($get_content->find('title') as $element)
         {
             $page_title = $element->plaintext;
