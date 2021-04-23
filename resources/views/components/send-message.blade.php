@@ -3,6 +3,7 @@
 @section('css')
     <link rel="stylesheet" href="{{asset('/css/send-message.css')}}">
     <link rel="stylesheet" href="{{asset('/css/preview.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/send-preview.css')}}">
 @endsection
 @section('js')
     <script src="{{asset('/js/send-message.js')}}"></script>

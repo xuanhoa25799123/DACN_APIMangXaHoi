@@ -15,12 +15,13 @@ $(document).ready(function() {
                 dataType: 'json',
                 success: function (response) {
                     let data =response.data;
-                  var preview =  '<img class="send-preview-img" src="'+data.image_url+'">'+
+                  var preview =  '' +
+                      '<a class="send-preview-link" href="'+data.url+'"target="_blank">"<img class="send-preview-img" src="'+data.image+'">'+
                                     '<div class="send-preview-text"><p class="send-preview-title">' +data.title+
                       '</p><p class="send-preview-description">' +data.description+
                       '</p><p class="send-preview-host">' +data.host+
                       '</p></div>';
-                  $('.preview-send-link').html(preview);
+                  $('.send-preview-content').append(preview);
                 }
             });
         let message=  $('textarea[name=message]').val();
