@@ -1,39 +1,41 @@
 .preview-container{
-    background-color:darkgrey !important;
+    background-color: #ffd9d9 !important;
 }
 .send-preview-profile{
-    width:50px;
-    height:50px;
+    width:40px;
+    height:40px;
     border-radius:50%;
-    padding:5px;
     object-fit: contain;
-    border:1px solid white;
-
+    margin:5px;
 }
 .send-preview-container{
     display:flex;
 
 }
 .send-preview-content{
-    border-radius:5px;
+    border-radius:10px;
     display:flex;
     flex-direction:column;
     padding:5px;
+    margin:5px;
+    background-color:white;
 
 }
 
 .send-preview-link{
     display:flex;
     justify-content: space-between;
+    text-decoration: none !important;
 }
 .send-preview-img{
     border-radius:5px;
     width:70px;
-    height:70px;
+    height:90px;
     object-fit: contain;
 }
 .send-preview-text{
     display:flex;
+    width:70%;
     flex-direction: column;
 
 }

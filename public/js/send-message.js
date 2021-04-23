@@ -16,9 +16,9 @@ $(document).ready(function() {
                 success: function (response) {
                     let data =response.data;
                   var preview =  '' +
-                      '<a class="send-preview-link" href="'+data.url+'"target="_blank">"<img class="send-preview-img" src="'+data.image+'">'+
+                      '<a class="send-preview-link" href="'+data.url+'"target="_blank"><img class="send-preview-img" src="'+data.image+'">'+
                                     '<div class="send-preview-text"><p class="send-preview-title">' +data.title+
-                      '</p><p class="send-preview-description">' +data.description+
+                      '</p><p class="send-preview-description">' +data.description.length>50?data.description.slice(0,47)+'...':data.description+
                       '</p><p class="send-preview-host">' +data.host+
                       '</p></div>';
                   $('.send-preview-content').append(preview);
