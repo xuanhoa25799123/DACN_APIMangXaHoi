@@ -1,16 +1,27 @@
-$(document).ready(function() {
-    $('.search-bar').on('keyup',function() {
-        var keyword = $(this).val();
-        $.ajax({
-            url: '/friend-list/'+keyword,
-            type: 'get',
-            dataType: 'json',
-            success: function(response) {
-                $('.list-friends').html(response.html);
-            }
-        });
+$('.search-bar').on('keyup',function() {
+    var keyword = $(this).val();
+    $.ajax({
+        url: '/friend-list/'+keyword,
+        type: 'get',
+        dataType: 'json',
+        success: function(response) {
+            $('.list-friends').html(response.html);
+        }
     });
 });
+// $(document).ready(function() {
+    // $('.search-bar').on('keyup',function() {
+    //     var keyword = $(this).val();
+    //     $.ajax({
+    //         url: '/friend-list/'+keyword,
+    //         type: 'get',
+    //         dataType: 'json',
+    //         success: function(response) {
+    //             $('.list-friends').html(response.html);
+    //         }
+    //     });
+    // });
+// });
 // $(document).ready(function() {
 //     $('.search-bar').keydown(function(event) {
 //         if (event.keyCode == 13) {

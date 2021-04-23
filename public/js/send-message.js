@@ -14,9 +14,7 @@ $(document).ready(function() {
             dataType: 'json',
           beforeSend:function()
           {
-              console.log('asd');
-                let loader = "<div class=loader></div>";
-                $('.results').html(loader);
+              $('.temp').addClass('loader');
           },
             success: function (response) {
                 let data =response.data;
@@ -27,7 +25,9 @@ $(document).ready(function() {
                     '</p></div>';
                 $('.results').html(preview);
             }
-        });
+        }).complete(function() {
+            $('.temp').removeClass('loader');
+        });;
     })
     $('.send-btn').on('click',function(){
         if($('.preview-container').css('display')=='none')
