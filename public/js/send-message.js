@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('.send-message-link').on('keyup',function(){
+    $('.send-message-link').on('change',function(){
         let link = $('input[name=link]').val();
         $.ajax({
             url: '/preview-url',
