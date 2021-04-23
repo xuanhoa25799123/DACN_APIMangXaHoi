@@ -261,23 +261,17 @@ class ZaloController extends Controller
         try {
         $content=$request->link;
         $urls = preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $content, $match);
-        $results = ['hehe'=>123];
-        return response()->json(['success' => true, 'data' => $results]);
-
+        $results = [];
         if ($urls > 0) {
             $url = $match[0][0];
             $client = new Client();
-
                 $crawler = $client->request('GET', $url);
-
                 $statusCode = $client->getResponse()->getStatus();
                 if ($statusCode == 200) {
                     $title = $crawler->filter('title')->text();
-
                     if ($crawler->filterXpath('//meta[@name="description"]')->count()) {
                         $description = $crawler->filterXpath('//meta[@name="description"]')->attr('content');
                     }
-
                     if ($crawler->filterXpath('//meta[@name="og:image"]')->count()) {
                         $image = $crawler->filterXpath('//meta[@name="og:image"]')->attr('content');
                     } elseif ($crawler->filterXpath('//meta[@name="twitter:image"]')->count()) {
@@ -289,7 +283,6 @@ class ZaloController extends Controller
                             $image = 'no_image';
                         }
                     }
-
                     $results['title'] = $title;
                     $results['url'] = $url;
                     $results['host'] = parse_url($url)['host'];
