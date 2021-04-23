@@ -274,7 +274,11 @@ class ZaloController extends Controller
                     }
                     if ($crawler->filterXpath('//meta[@property="og:image"]')->count()) {
                         $image = $crawler->filterXpath('//meta[@property="og:image"]')->attr('content');
-                    } elseif ($crawler->filterXpath('//meta[@name="twitter:image"]')->count()) {
+                    }
+                    elseif($crawler->filterXpath('//meta[@name="og:image"]')->count()) {
+                        $image = $crawler->filterXpath('//meta[@name="og:image"]')->attr('content');
+                    }
+                    elseif ($crawler->filterXpath('//meta[@name="twitter:image"]')->count()) {
                         $image = $crawler->filterXpath('//meta[@name="twitter:image"]')->attr('content');
                     } else {
                         if ($crawler->filter('img')->count()) {
