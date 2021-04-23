@@ -34,7 +34,7 @@ class ZaloController extends Controller
         session(['token'=>$accessToken]);
         if(!empty($accessToken))
         {
-            $params = ['fields' => 'name,picture'];
+            $params = ['fields' => 'name,picture,gender,id,birthday'];
             $response = $this->zalo->get(ZaloEndPoint::API_GRAPH_ME, $accessToken, $params);
             $profile = $response->getDecodedBody();
             session(['profile'=>$profile]);
@@ -117,7 +117,6 @@ class ZaloController extends Controller
     public function sendMessage($id)
     {
         $receives = array();
-        dd("asdasd");
         $friends = session('friends');
         $profile = session('profile');
         $sendIds=$id;
