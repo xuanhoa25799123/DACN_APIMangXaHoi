@@ -53,9 +53,10 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(response) {
                 if (response.complete) {
+                    console.log(response.result);
                     Swal.fire({
                         title: 'Thành công',
-                        text: "Đã gửi lời mời cho "+response.count+" bạn bè",
+                        text: "Đã gửi lời mời cho bạn bè",
                         icon: 'success',
                         showCancelButton: true,
                         confirmButtonColor: '#3085d6',

@@ -177,30 +177,31 @@ class ZaloController extends Controller
         $params = ['message' => $request->message, 'to' => $sendIds];
         $response = $this->zalo->post(ZaloEndpoint::API_GRAPH_APP_REQUESTS, $accessToken, $params);
         $result = $response->getDecodedBody(); // result
-        $sendArr = explode(',',$sendIds);
-        if(count($sendArr)==count($result['to']))
-        {
-            return response()->json(['success'=>'true','complete'=>true,'count'=>count($result['to'])]);
-        }
-        else{
-            $unsend = "";
-            $count = 0;
-            foreach($sendArr as $item)
-            {
-                if(!in_array($item,$result['to']))
-                {
-                    $count++;
-                    if($unsend=="")
-                    {
-                        $unsend .= $item;
-                    }
-                    else{
-                        $unsend .=','.$item;
-                    }
-                }
-            }
-            return response()->json(['success'=>'true','complete'=>false,'unsend'=>$unsend,'count'=>$count]);
-        }
+//        $sendArr = explode(',',$sendIds);
+//        if(count($sendArr)==count($result['to']))
+//        {
+//            return response()->json(['success'=>'true','complete'=>true,'count'=>count($result['to'])]);
+//        }
+//        else{
+//            $unsend = "";
+//            $count = 0;
+//            foreach($sendArr as $item)
+//            {
+//                if(!in_array($item,$result['to']))
+//                {
+//                    $count++;
+//                    if($unsend=="")
+//                    {
+//                        $unsend .= $item;
+//                    }
+//                    else{
+//                        $unsend .=','.$item;
+//                    }
+//                }
+//            }
+            //return response()->json(['success'=>'true','complete'=>true,'unsend'=>$unsend,'count'=>$count,'result'=>$result]);
+        return response()->json(['success'=>'true','complete'=>true,'result'=>$result]);
+        //}
     }
     public function makeStatus()
     {
