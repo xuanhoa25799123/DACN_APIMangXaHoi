@@ -15,7 +15,7 @@ $(document).ready(function() {
           beforeSend:function()
           {
                 let loader = "<div class=loader></div>";
-                $('.results').html=loader;
+                $('.results').html(loader);
           },
             success: function (response) {
                 let data =response.data;
