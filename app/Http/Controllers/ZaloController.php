@@ -258,6 +258,7 @@ class ZaloController extends Controller
     }
     public function previewUrl(Request $request)
     {
+        try {
         $content=$request->link;
         $urls = preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $content, $match);
         $results = [];
@@ -265,7 +266,7 @@ class ZaloController extends Controller
         if ($urls > 0) {
             $url = $match[0][0];
             $client = new Client();
-            try {
+
                 $crawler = $client->request('GET', $url);
 
                 $statusCode = $client->getResponse()->getStatus();
@@ -294,13 +295,14 @@ class ZaloController extends Controller
                     $results['description'] = isset($description) ? $description : '';
                     $results['image'] = $image;
                 }
-            }catch (\Exception $e) {
-                return response()->json(['success' => false, 'data' => $e->getMessage()]);
             }
             if (count($results) > 0) {
                 return response()->json(['success' => true, 'data' => $results]);
             }
             return response()->json(['success' => false, 'data' => $results]);
+        }
+        catch (\Exception $e) {
+            return response()->json(['success' => false, 'data' => $e->getMessage()]);
         }
     }
 }
