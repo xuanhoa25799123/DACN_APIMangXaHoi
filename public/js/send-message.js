@@ -41,8 +41,9 @@ $(document).ready(function() {
     $('.btn-send-message').on('click',function(){
         let link = $('input[name=link]').val();
         let message=  $('textarea[name=message]').val();
+        let url =  $(this).data('href');
         $.ajax({
-            url: "/send-message",
+            url: "/send-message/",
             type: 'POST',
             data:{
                 link,message

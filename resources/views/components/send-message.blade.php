@@ -45,7 +45,7 @@
                 @include('partials.send-preview')
             </div>
             <div class="preview-footer">
-                <button class="btn btn-primary btn-send-message btn-margin">Gửi tin nhắn</button>
+                <button class="btn btn-primary btn-send-message btn-margin" data-href="{{route('invite',['sendIds'=>$sendIds])}}">Gửi tin nhắn</button>
                 <button class="btn btn-danger preview-close">Huỷ</button>
             </div>
         </div>
