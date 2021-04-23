@@ -69,12 +69,12 @@ class ZaloController extends Controller
     public function send(Request $request,$sendIds){
         $accessToken = session('token');
         $idArr = explode($sendIds);
-        $result['to']=array();
+        $result=array();
         foreach($idArr as $id) {
             $params = ['message' => $request->message, 'to' => $id, 'link' => $request->link];
             $response = $this->zalo->post(ZaloEndpoint::API_GRAPH_MESSAGE, $accessToken, $params);
             $rs = $response->getDecodedBody(); // result
-            array_push($result['to'],$rs['to']);
+            dd($rs);
         }
         return response()->json(['success'=>'true','sendIds'=>$sendIds,'message'=>$request->message,'link'=>$request->link,'result'=>$result]);
     }
