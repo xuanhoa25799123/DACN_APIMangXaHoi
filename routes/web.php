@@ -83,7 +83,7 @@ Route::post('/status-preview', [
 Route::post('/extract-process', [
     'uses'=>'App\Http\Controllers\ZaloController@extractProcess'
 ]);
-Route::post('/preview-url/{content}', [
+Route::post('/preview-url', [
     'uses'=>'App\Http\Controllers\ZaloController@previewUrl'
 ]);
 
