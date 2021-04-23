@@ -29,18 +29,24 @@ class ZaloController extends Controller
     }
     public function dashboard()
     {
-        $callbackUrl = "https://zalo-app-api.herokuapp.com/dashboard";
-        $accessToken = $this->helper->getAccessToken($callbackUrl);
-        session(['token'=>$accessToken]);
-        if(!empty($accessToken))
+        $ac = session('token');
+        if(!empty($ac))
         {
-            $params = ['fields' => 'name,picture,gender,id,birthday'];
-            $response = $this->zalo->get(ZaloEndPoint::API_GRAPH_ME, $accessToken, $params);
-            $profile = $response->getDecodedBody();
-            session(['profile'=>$profile]);
+            $profile = session('profile');
             return view('dashboard',compact('profile'));
         }
-        return redirect('/');
+        else {
+            $callbackUrl = "https://zalo-app-api.herokuapp.com/dashboard";
+            $accessToken = $this->helper->getAccessToken($callbackUrl);
+            session(['token' => $accessToken]);
+            if (!empty($accessToken)) {
+                $params = ['fields' => 'name,picture,gender,id,birthday'];
+                $response = $this->zalo->get(ZaloEndPoint::API_GRAPH_ME, $accessToken, $params);
+                $profile = $response->getDecodedBody();
+                session(['profile' => $profile]);
+                return view('dashboard', compact('profile'));
+            }
+        }
     }
     public function friendList()
     {
