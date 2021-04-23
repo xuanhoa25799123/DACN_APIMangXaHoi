@@ -295,12 +295,11 @@ class ZaloController extends Controller
                     $results['image'] = $image;
                 }
             }catch (\Exception $e) {
-
-                }
+                return response()->json(['success' => false, 'data' => $e->getMessage()]);
+            }
             if (count($results) > 0) {
                 return response()->json(['success' => true, 'data' => $results]);
             }
-
             return response()->json(['success' => false, 'data' => $results]);
         }
     }
