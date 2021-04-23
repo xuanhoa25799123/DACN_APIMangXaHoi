@@ -30,12 +30,11 @@
     font-size:12px;
 }
 .send-preview-host{
-    color:black;
+    color:grey;
     font-size:12px;
 }
 .send-preview-time{
     color:grey;
-
 }
 
 .loader {

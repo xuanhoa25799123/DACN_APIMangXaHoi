@@ -1,39 +1,35 @@
 $(document).ready(function() {
-    $('.send-message-link').on('change',function(){
-        let link = $('input[name=link]').val();
-        console.log('change');
-        $.ajax({
-            url: '/preview-url',
-            type: 'POST',
-            data:{
-                link
-            },
-            headers:{
-                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
-            },
-            dataType: 'json',
-          beforeSend:function()
-          {
-              $('.results').addClass('loader');
-          },
-            success: function (response) {
-                let data =response.data;
-                var preview = '<a class="send-preview-link" href="'+data.url+'"target="_blank"><img class="send-preview-img" src="'+data.image+'">'+
-                '<div class="send-preview-text"><p class="send-preview-title">' +data.title+
-                '</p><p class="send-preview-description">' +data.description+
-                    '</p><p class="send-preview-host">' +data.host+
-                    '</p></div>';
-                $('.results').html(preview);
-            },
-                complete:function() {
-                    $('.results').removeClass('loader');
-                },
-        })
-    })
     $('.send-btn').on('click',function(){
         if($('.preview-container').css('display')=='none')
         {
         let link = $('input[name=link]').val();
+            $.ajax({
+                url: '/preview-url',
+                type: 'POST',
+                data:{
+                    link
+                },
+                headers:{
+                    'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                },
+                dataType: 'json',
+                beforeSend:function()
+                {
+                    $('.results').addClass('loader');
+                },
+                success: function (response) {
+                    let data =response.data;
+                    var preview = '<a class="send-preview-link" href="'+data.url+'"target="_blank"><img class="send-preview-img" src="'+data.image+'">'+
+                        '<div class="send-preview-text"><p class="send-preview-title">' +data.title+
+                        '</p><p class="send-preview-description">' +data.description+
+                        '</p><p class="send-preview-host">' +data.host+
+                        '</p></div>';
+                    $('.results').html(preview);
+                },
+                complete:function() {
+                    $('.results').removeClass('loader');
+                },
+            })
         let message=  $('textarea[name=message]').val();
         if(link.trim()=="" && message.trim()=="")
         {
