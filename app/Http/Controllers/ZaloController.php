@@ -261,7 +261,8 @@ class ZaloController extends Controller
         try {
         $content=$request->link;
         $urls = preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $content, $match);
-        $results = [];
+        $results = ['hehe'=>123];
+        return response()->json(['success' => true, 'data' => $results]);
 
         if ($urls > 0) {
             $url = $match[0][0];
