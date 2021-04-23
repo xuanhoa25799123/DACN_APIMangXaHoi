@@ -4,8 +4,14 @@ $(document).ready(function() {
         {
         let link = $('input[name=link]').val();
             $.ajax({
-                url: '/preview-url/'+link,
-                type: 'GET',
+                url: '/preview-url/',
+                type: 'POST',
+                data:{
+                   link
+                },
+                headers:{
+                    'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                },
                 success: function (response) {
                     var data = response.data;
                     console.log(data);

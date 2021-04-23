@@ -256,8 +256,9 @@ class ZaloController extends Controller
         return response()->json(['code'=>200,'data'=>['title'=>$page_title, 'images'=>$image_urls, 'content'=> $page_body]]);
 
     }
-    public function previewUrl($content)
+    public function previewUrl(Request $request)
     {
+        $content=$request->link;
         $urls = preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $content, $match);
         $results = [];
 
