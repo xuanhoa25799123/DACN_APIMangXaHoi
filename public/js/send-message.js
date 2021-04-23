@@ -14,6 +14,7 @@ $(document).ready(function() {
             dataType: 'json',
           beforeSend:function()
           {
+              console.log('asd');
                 let loader = "<div class=loader></div>";
                 $('.results').html(loader);
           },
