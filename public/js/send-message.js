@@ -4,7 +4,7 @@ $(document).ready(function() {
         {
         let link = $('input[name=link]').val();
             $.ajax({
-                url: '/preview-url/',
+                url: '/preview-url',
                 type: 'POST',
                 data:{
                    link
@@ -12,6 +12,7 @@ $(document).ready(function() {
                 headers:{
                     'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
                 },
+                dataType: 'json',
                 success: function (response) {
                     var data = response.data;
                     console.log(data);
