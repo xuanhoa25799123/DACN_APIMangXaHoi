@@ -4,7 +4,6 @@
     <div class="send-preview-content">
         <p>{{$message}}</p>
         <div class="results"></div>
-        <div class="temp"></div>
     </div>
 </div>
 
