@@ -24,10 +24,11 @@ $(document).ready(function() {
                     '</p><p class="send-preview-host">' +data.host+
                     '</p></div>';
                 $('.results').html(preview);
-            }
-        }).complete(function() {
-            $('.temp').removeClass('loader');
-        });;
+            },
+                complete:function() {
+                    $('.temp').removeClass('loader');
+                },
+        })
     })
     $('.send-btn').on('click',function(){
         if($('.preview-container').css('display')=='none')
