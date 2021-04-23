@@ -15,7 +15,7 @@
         <div>
             <div class="form-group">
                 <label>Link</label>
-                <input type="text" class="form-control" name="link">
+                <input type="text" class="form-control post-status-link" name="link">
             </div>
             <div class="form-group">
                 <label>Tin nhắn</label>

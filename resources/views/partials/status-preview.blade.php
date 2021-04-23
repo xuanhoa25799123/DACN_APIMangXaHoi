@@ -8,7 +8,7 @@
 </div>
 <div class="preview-content">
     <p>{{$message}}</p>
-    <a href="{{$link}}" target="_blank">{{$link}}</a>
+    <div class="results"></div>
 </div>
 <div class="preview-interact">
     <button class="btn-interact like"><i class="fa fa-send icon"></i>  Thích</button>
