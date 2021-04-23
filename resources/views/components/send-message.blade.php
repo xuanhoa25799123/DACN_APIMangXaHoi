@@ -28,7 +28,7 @@
             </div>
             <div class="form-group">
                 <label>Link</label>
-                <input class="form-control" name="link" placeholder="nhấp link">
+                <input class="form-control" class="send-message-link" name="link" placeholder="nhấp link">
             </div>
             <div class="form-group">
                 <label>Message</label>
