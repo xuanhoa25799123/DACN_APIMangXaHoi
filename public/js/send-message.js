@@ -54,6 +54,7 @@ $(document).ready(function() {
             },
             dataType: 'json',
             success: function(response) {
+                console.log(response.result);
                 Swal.fire({
                     title: 'Thành công',
                     text: "Đã gửi tin nhắn",

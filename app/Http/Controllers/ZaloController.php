@@ -71,7 +71,7 @@ class ZaloController extends Controller
         $params = ['message' => $request->message, 'to' => $sendIds, 'link' => $request->link];
         $response = $this->zalo->post(ZaloEndpoint::API_GRAPH_MESSAGE, $accessToken, $params);
         $result = $response->getDecodedBody(); // result
-        return response()->json(['success'=>'true','sendIds'=>$sendIds,'message'=>$request->message,'link'=>$request->link]);
+        return response()->json(['success'=>'true','sendIds'=>$sendIds,'message'=>$request->message,'link'=>$request->link,'result'=>$result]);
     }
     public function friendSearch($keyword)
     {
