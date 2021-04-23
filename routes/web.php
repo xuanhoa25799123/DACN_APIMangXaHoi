@@ -77,6 +77,13 @@ Route::post('/invite-preview', [
 Route::post('/status-preview', [
     'uses'=>'App\Http\Controllers\ZaloController@statusPreview'
 ]);
+Route::post('/status-preview', [
+    'uses'=>'App\Http\Controllers\ZaloController@statusPreview'
+]);
+Route::post('/extract-process', [
+    'uses'=>'App\Http\Controllers\ZaloController@extractProcess'
+]);
+
 
 
 

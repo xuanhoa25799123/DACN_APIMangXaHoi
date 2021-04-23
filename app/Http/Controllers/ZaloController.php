@@ -230,6 +230,31 @@ class ZaloController extends Controller
         $result = $response->getDecodedBody(); // result
         dd($result);
     }
+    public function extractProcess(Request $request)
+    {
+        $get_url = $request->url;
+        $get_content = file_get_html($get_url);
+        foreach($get_content->find('title') as $element)
+        {
+            $page_title = $element->plaintext;
+        }
+        foreach($get_content->find('body') as $element)
+        {
+            $page_body = trim($element->plaintext);
+            $pos=strpos($page_body, ' ', 200); //Find the numeric position to substract
+            $page_body = substr($page_body,0,$pos ); //shorten text to 200 chars
+        }
+        $image_urls = array();
+        foreach($get_content->find('img') as $element)
+        {
+            if(!preg_match('/blank.(.*)/i', $element->src) && filter_var($element->src, FILTER_VALIDATE_URL))
+            {
+                $image_urls[] =  $element->src;
+            }
+        }
+        return response()->json(['code'=>200,'data'=>['title'=>$page_title, 'images'=>$image_urls, 'content'=> $page_body]]);
+
+    }
 }
 
 //$params2 = ['offset' => 0, 'limit' => 10, 'fields' => "id, name,'picture"];
