@@ -37,7 +37,7 @@
             <button type="button" class="btn btn-primary send-btn" data-href="{{route('send',['sendIds'=>$sendIds])}}"><i class="fa fa-send"></i> Gửi tin nhắn</button>
             <button type="button" class="btn btn-danger send-btn"><i class="fa fa-trash"></i> Xoá</button>
         </div>
-        <div class="send-preview-container">
+        <div class="preview-container">
             <div class="preview-header">
                 <p class="preview-header-p">Xem trước tin nhắn</p>
                 <button class="btn-close preview-close">x</button>

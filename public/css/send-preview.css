@@ -1,25 +1,5 @@
-@keyframes popup{
-    0%{
-        transform: scale(0);
-        opacity:0;
-    }
-    100%{
-        transform:scale(1);
-        opacity: 1;
-    }
-}
-.send-preview-container{
-    position:fixed;
-    top:100px;
-    left:40%;
-    width:400px;
-    height:fit-content;
-    display:none;
-    border-radius:5px;
-    box-shadow:0 10px 15px -7px black;
-    z-index:2;
-    background-color:darkgrey;
-    animation:0.3s popup ease-in-out;
+.preview-container{
+    background-color:darkgrey !important;
 }
 .send-preview-profile{
     width:50px;
