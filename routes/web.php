@@ -163,6 +163,9 @@ Route::prefix('test')->group(function () {
         'as'=>'test-url-preview',
         'uses'=>'App\Http\Controllers\TestController@previewUrl'
     ]);
+    Route::get('/utc-time', [
+        'uses'=>'App\Http\Controllers\TestController@utcTime'
+    ]);
 });
 
 //Route::get('/add/{id}', [

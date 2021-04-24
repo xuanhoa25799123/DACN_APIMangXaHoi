@@ -304,9 +304,9 @@ class TestController extends Controller
             return response()->json(['success' => false, 'data' => $e->getMessage()]);
         }
     }
-    public function dateTime($time)
+    public function utcTime()
     {
-            $countDown =  time()-strtotime($time);
-            dd($countDown);
+        $time = time();
+        dd(date("Y-m-d H:i:s", $time));
     }
 }
