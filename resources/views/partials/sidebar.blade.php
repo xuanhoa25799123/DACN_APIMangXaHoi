@@ -9,6 +9,9 @@
     <a class="social-item" href="{{route('invite-list')}}">Mời tham gia ứng dụng</a>
             <a class="social-item" href="{{route('make-status')}}">Tạo bài viết</a>
     <a class="social-item" href="{{route('profile')}}">Thông tin cá nhân</a>
+    <div class="social-item">
+        <p>Token hết hạn trong : {{$countDown}}</p>
+    </div>
     </div>
 </div>
 </div>

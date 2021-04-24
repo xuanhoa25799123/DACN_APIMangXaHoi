@@ -42,11 +42,13 @@ class ZaloController extends Controller
             session(['token' => $accessToken]);
             if (!empty($accessToken)) {
                 $expires = $accessToken->getExpiresAt();
+                $countDown = time()-$expires;
+                dd($countDown);
                 $params = ['fields' => 'name,picture,gender,id,birthday'];
                 $response = $this->zalo->get(ZaloEndPoint::API_GRAPH_ME, $accessToken, $params);
                 $profile = $response->getDecodedBody();
                 session(['profile' => $profile]);
-                return view('dashboard', compact('profile'));
+                return view('dashboard', compact('profile','countDown'));
             }
         }
     }

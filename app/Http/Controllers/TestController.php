@@ -304,4 +304,9 @@ class TestController extends Controller
             return response()->json(['success' => false, 'data' => $e->getMessage()]);
         }
     }
+    public function dateTime($time)
+    {
+            $countDown =  time()-strtotime($time);
+            dd($countDown);
+    }
 }
