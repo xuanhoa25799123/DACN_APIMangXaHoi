@@ -42,6 +42,8 @@ class ZaloController extends Controller
             session(['token' => $accessToken]);
             if (!empty($accessToken)) {
                 $expires = $accessToken->getExpiresAt();
+                $expires = date("Y-m-d H:i:s", $expires);
+                dd($expires);
                 $countDown = time()-strtotime($expires);
                 dd($countDown);
                 $params = ['fields' => 'name,picture,gender,id,birthday'];
