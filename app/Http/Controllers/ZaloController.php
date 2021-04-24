@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Faker\Provider\DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
 use Zalo\Zalo;
@@ -45,8 +46,10 @@ class ZaloController extends Controller
                 $expires = $accessToken->getExpiresAt();
                 $rs = $expires->format('Y-m-d H:i:s');
                 $current = date('Y-m-d H:i:s');
-                $remain = $rs->diff($current)->format("%d");
-                dd($remain);
+                //$remain = new \DateTime($rs)->diff($current)->format("%d");
+                $date1 = new DateTime($rs);
+                $date2 = new DateTime($current);
+                dd($date1,$date2);
                 $params = ['fields' => 'name,picture,gender,id,birthday'];
                 $response = $this->zalo->get(ZaloEndPoint::API_GRAPH_ME, $accessToken, $params);
                 $profile = $response->getDecodedBody();
