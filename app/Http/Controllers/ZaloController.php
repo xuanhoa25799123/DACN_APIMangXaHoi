@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 use Zalo\Zalo;
 use Zalo\ZaloEndPoint;
 use Goutte\Client;
@@ -42,10 +43,10 @@ class ZaloController extends Controller
             session(['token' => $accessToken]);
             if (!empty($accessToken)) {
                 $expires = $accessToken->getExpiresAt();
-//                date: 2021-04-24 21:34:39.0 Asia/Ho_Chi_Minh (+07:00)
-//                $test = explode('-',$expires);
                 $rs = $expires->format('Y-m-d H:i:s');
-                dd($rs);
+                $current = new Date();
+                $remain = $rs-$current;
+                dd($remain);
                 $params = ['fields' => 'name,picture,gender,id,birthday'];
                 $response = $this->zalo->get(ZaloEndPoint::API_GRAPH_ME, $accessToken, $params);
                 $profile = $response->getDecodedBody();
