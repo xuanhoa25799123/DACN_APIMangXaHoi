@@ -9,6 +9,7 @@
 <div class="preview-content">
     <p>{{$message}}</p>
     <div class="results"></div>
+    <div class="temp"></div>
 </div>
 <div class="preview-interact">
     <button class="btn-interact like"><i class="fa fa-heart icon"></i>  Thích</button>

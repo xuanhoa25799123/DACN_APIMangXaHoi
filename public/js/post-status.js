@@ -6,25 +6,6 @@ $(document).ready(function() {
         if($('.preview-container').css('display')=='none')
         {
             let link = $('input[name=link]').val();
-            $.ajax({
-                url: '/preview-url',
-                type: 'POST',
-                data:{
-                    link
-                },
-                headers:{
-                    'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
-                },
-                dataType: 'json',
-                success: function (response) {
-                    let data =response.data;
-                    var preview = '<a class="send-preview-link" href="'+data.url+'"target="_blank"><img class="send-preview-img" src="'+data.image+'">'+
-                        '<div class="send-preview-text"><p class="send-preview-host">' +data.host+
-                        '</p><p class="send-preview-title">' +data.title+
-                        '</p></div>';
-                    $('.results').html(preview);
-                },
-            })
             let message=  $('textarea[name=message]').val();
             if(link.trim()=="" && message.trim()=="")
             {
@@ -52,6 +33,32 @@ $(document).ready(function() {
                         $('.preview-container').css('display','flex');
                         $('.preview-container').css('flex-direction','column');
                         $('.preview-container').css('align-items','center');
+                        $.ajax({
+                            url: '/preview-url',
+                            type: 'POST',
+                            data:{
+                                link
+                            },
+                            headers:{
+                                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                            },
+                            dataType: 'json',
+                            beforeSend:function()
+                            {
+                                $('.temp').addClass('loader');
+                            },
+                            success: function (response) {
+                                let data =response.data;
+                                var preview = '<a class="send-preview-link" href="'+data.url+'"target="_blank"><img class="send-preview-img" src="'+data.image+'">'+
+                                    '<div class="send-preview-text"><p class="send-preview-host">' +data.host+
+                                    '</p><p class="send-preview-title">' +data.title+
+                                    '</p></div>';
+                                $('.results').html(preview);
+                            },
+                            complete:function() {
+                                $('.temp').removeClass('loader');
+                            },
+                        })
                     }
                 });
             }
