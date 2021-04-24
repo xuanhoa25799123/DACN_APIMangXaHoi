@@ -42,7 +42,7 @@ class ZaloController extends Controller
             session(['token' => $accessToken]);
             if (!empty($accessToken)) {
                 $expires = $accessToken->getExpiresAt();
-                dd($expires->date);
+                dd($expires);
                 $params = ['fields' => 'name,picture,gender,id,birthday'];
                 $response = $this->zalo->get(ZaloEndPoint::API_GRAPH_ME, $accessToken, $params);
                 $profile = $response->getDecodedBody();
