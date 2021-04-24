@@ -44,7 +44,8 @@ class ZaloController extends Controller
             if (!empty($accessToken)) {
                 $expires = $accessToken->getExpiresAt();
                 $rs = $expires->format('Y-m-d H:i:s');
-                $current = new Date();
+                $current = date('Y-m-d H:i:s');
+                dd($current);
                 $remain = $rs-$current;
                 dd($remain);
                 $params = ['fields' => 'name,picture,gender,id,birthday'];
