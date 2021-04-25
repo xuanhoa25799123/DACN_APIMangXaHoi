@@ -56,6 +56,7 @@ class OAController extends Controller
         ))];
         $response = $this->zalo->get(ZaloEndPoint::API_OA_GET_LIST_FOLLOWER, $accessToken, $data);
         $result = $response->getDecodedBody();
-       dd($result);
+        $followers = $result['data']['followers'];
+       dd($followers);
     }
 }
