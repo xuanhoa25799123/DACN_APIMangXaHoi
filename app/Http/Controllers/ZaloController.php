@@ -44,7 +44,8 @@ class ZaloController extends Controller
             session(['token' => $accessToken]);
             if (!empty($accessToken)) {
                 $expires = $accessToken->getExpiresAt();
-                $expires = $expires->format('Y-m-d H:i:s');
+                $expires = $expires->format('H:i:s');
+//                $expires = $expires->format('Y-m-d H:i:s');
                 session(['expires'=>$expires]);
 //                $current = date('Y-m-d H:i:s');
 //                //$remain = new \DateTime($rs)->diff($current)->format("%d");
