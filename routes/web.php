@@ -95,6 +95,9 @@ Route::prefix('oa')->group(function () {
         'as'=>'oa-token',
         'uses'=>'App\Http\Controllers\OAController@getToken'
     ]);
+    Route::get('/dashboard',[
+        'uses'=>'App\Http\Controllers\OAController@dashboard'
+    ]);
 });
 
 
