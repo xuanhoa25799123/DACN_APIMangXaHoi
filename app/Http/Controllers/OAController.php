@@ -35,7 +35,11 @@ class OAController extends Controller
        session(['oa_id'=>$oa_id]);
         $response = $this->zalo->get(ZaloEndPoint::API_OA_GET_PROFILE, $oa_token, []);
         $result = $response->getDecodedBody();
-        dd($result);
+        $oa_info = $result['data'];
+        session(['oa_info'=>$oa_info]);
+        return view('oa.dashboard',compact('oa_info'));
+
+
 
     }
 }

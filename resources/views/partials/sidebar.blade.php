@@ -16,7 +16,7 @@
     </div>
         <div class="api-oa">Zalo doanh nghiệp</div>
         <div class="item-container">
-            <a class="social-item" href="{{route('oa-token')}}">ABC</a>
+            <a class="social-item" href="{{route('oa-token')}}">Chọn doanh nghiệp</a>
         </div>
 </div>
 </div>
