@@ -29,7 +29,6 @@ class OAController extends Controller
     }
     public function dashboard(Request $request)
     {
-        $oaAccessToken = $request->access_token;
-        dd($oaAccessToken)
+        dd($request);
     }
 }
