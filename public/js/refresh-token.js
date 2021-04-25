@@ -4,6 +4,9 @@ $(document).ready(function() {
             url: 'https://zalo-api-app.herokuapp.com/refresh-token',
             type: 'GET',
             dataType: 'json',
+            headers:{
+                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+            },
             success: function (response) {
                 console.log(response.expires);
                $('#expires-time').innerHTML(response.expires);
