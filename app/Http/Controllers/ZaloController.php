@@ -316,6 +316,8 @@ class ZaloController extends Controller
     }
     public function refreshToken()
     {
+        $expires="asd";
+        return Response()->json(['success'=>true,'expires'=>$expires]);
         try {
             $callbackUrl = "https://zalo-app-api.herokuapp.com/dashboard";
             $accessToken = $this->helper->getAccessToken($callbackUrl);
@@ -328,7 +330,7 @@ class ZaloController extends Controller
             return Response()->json(['success'=>false,'message'=>'Cannot get access token']);
         }catch(\Exception $e)
         {
-            dd($e->getMessage());
+            return Response()->json(['success'=>false,'message'=>$e->getMessage()]);
         }
     }
 }
