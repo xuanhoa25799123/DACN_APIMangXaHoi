@@ -10,7 +10,8 @@
             <a class="social-item" href="{{route('make-status')}}">Tạo bài viết</a>
     <a class="social-item" href="{{route('profile')}}">Thông tin cá nhân</a>
     <div class="social-item">
-        <p>Token hết hạn trong </p>
+        <p>Token hết hạn trong {{$expires}} </p>
+        <button class="btn btn-primary"><i class="fa fa-refresh"></i> Làm mới Token</button>
     </div>
     </div>
 </div>

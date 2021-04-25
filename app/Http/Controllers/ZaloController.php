@@ -43,8 +43,9 @@ class ZaloController extends Controller
             $accessToken = $this->helper->getAccessToken($callbackUrl);
             session(['token' => $accessToken]);
             if (!empty($accessToken)) {
-//                $expires = $accessToken->getExpiresAt();
-//                $rs = $expires->format('Y-m-d H:i:s');
+                $expires = $accessToken->getExpiresAt();
+                $expires = $expires->format('Y-m-d H:i:s');
+                session(['expires'=>$expires]);
 //                $current = date('Y-m-d H:i:s');
 //                //$remain = new \DateTime($rs)->diff($current)->format("%d");
 //                $date1 = new DateTime($rs);
@@ -54,7 +55,7 @@ class ZaloController extends Controller
                 $response = $this->zalo->get(ZaloEndPoint::API_GRAPH_ME, $accessToken, $params);
                 $profile = $response->getDecodedBody();
                 session(['profile' => $profile]);
-                return view('dashboard', compact('profile'));
+                return view('dashboard', compact('profile','expires'));
             }
         }
     }
