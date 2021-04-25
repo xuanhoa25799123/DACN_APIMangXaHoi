@@ -52,10 +52,21 @@ class OAController extends Controller
         $accessToken = session('oa_token');
         $data = ['data' => json_encode(array(
             'offset' => 0,
-            'count' => 10
         ))];
         $response = $this->zalo->get(ZaloEndPoint::API_OA_GET_LIST_FOLLOWER, $accessToken, $data);
         $result = $response->getDecodedBody();
-        dd($result);
+        $total = $result['data']['total'];
+        $followers = $result['data']['followers'];
+        $fl = array();
+        foreach($followers as $follower)
+        {
+            $data = ['data' => json_encode(array(
+                'user_id' => $follower['id']
+            ))];
+            $response = $this->zalo->get(ZaloEndpoint::API_OA_GET_USER_PROFILE, $accessToken, $data);
+            $result = $response->getDecodedBody(); // result
+            array_push($fl,$result['data']);
+        }
+        dd(fl);
     }
 }
