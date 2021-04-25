@@ -5,8 +5,13 @@ $(document).ready(function() {
             type: 'GET',
             dataType: 'json',
             success: function (response) {
+                console.log(response.expires);
                $('#expires-time').innerHTML(response.expires);
             },
+            fail:function(response)
+            {
+                console.log(response.message);
+            }
 
 
         })

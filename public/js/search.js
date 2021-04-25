@@ -7,10 +7,6 @@ $('.search-bar').on('keyup',function() {
         success: function(response) {
             $('.list-friends').html(response.html);
         },
-        fail:function(response)
-        {
-            console.log('refresh token fail '+response.message);
-        }
     });
 });
 // $(document).ready(function() {
