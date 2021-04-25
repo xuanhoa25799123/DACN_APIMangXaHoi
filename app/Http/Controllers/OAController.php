@@ -67,6 +67,6 @@ class OAController extends Controller
             $result = $response->getDecodedBody(); // result
             array_push($fl,$result['data']);
         }
-        dd(fl);
+        dd($fl);
     }
 }
