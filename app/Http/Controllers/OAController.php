@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 class OAController extends Controller
 {
+    private $zalo;
+    private $helper;
     public function __construct()
     {
 
@@ -16,5 +18,10 @@ class OAController extends Controller
         );
         $this->zalo = new Zalo($config);
         $this->helper = $this->zalo->getRedirectLoginHelper();
+    }
+    public function getToken()
+    {
+        $callbackPageUrl = "https://zalo-app-api.herokuapp.com/oa/dashboard";
+        $linkOAGrantPermission2App = $this->helper->getLoginUrlByPage($callbackPageUrl);
     }
 }

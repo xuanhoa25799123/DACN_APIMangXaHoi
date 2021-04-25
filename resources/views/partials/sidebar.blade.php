@@ -9,10 +9,14 @@
     <a class="social-item" href="{{route('invite-list')}}">Mời tham gia ứng dụng</a>
             <a class="social-item" href="{{route('make-status')}}">Tạo bài viết</a>
     <a class="social-item" href="{{route('profile')}}">Thông tin cá nhân</a>
-    <div class="social-item">
-        <p>Token hết hạn vào <p id="expires-time">{{$expires}}</p> </p>
-        <button class="btn btn-primary refresh-token-btn" data-href="{{route('refresh-token')}}"><i class="fa fa-refresh"></i> Làm mới Token</button>
+{{--    <div class="social-item">--}}
+{{--        <p>Token hết hạn vào <p id="expires-time">{{$expires}}</p> </p>--}}
+{{--        <button class="btn btn-primary refresh-token-btn" data-href="{{route('refresh-token')}}"><i class="fa fa-refresh"></i> Làm mới Token</button>--}}
+{{--    </div>--}}
     </div>
-    </div>
+        <div class="api-oa">Zalo doanh nghiệp</div>
+        <div class="item-container">
+            <a class="social-item" href="{{route('oa-token')}}">ABC</a>
+        </div>
 </div>
 </div>

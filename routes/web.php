@@ -90,7 +90,12 @@ Route::get('/refresh-token',[
     'as'=>'refresh-token',
     'uses'=>'App\Http\Controllers\ZaloController@refreshToken'
 ]);
-
+Route::prefix('oa')->group(function () {
+    Route::get('/',[
+        'as'=>'oa-token',
+        'uses'=>'App\Http\Controllers\OAController@getToken'
+    ]);
+});
 
 
 
