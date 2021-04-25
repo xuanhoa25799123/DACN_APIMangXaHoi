@@ -5,7 +5,7 @@
     <div class="sidebar-content">
     <div class="api-socials">Zalo doanh nghiệp</div>
         <div class="item-container">
-        <a class="social-item" href="">Gửi tin nhắn</a>
+        <a class="social-item" href="{{route('oa-list')}}">Danh sách người quan tâm</a>
     </div>
 </div>
 </div>

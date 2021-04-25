@@ -98,6 +98,10 @@ Route::prefix('oa')->group(function () {
     Route::get('/dashboard',[
         'uses'=>'App\Http\Controllers\OAController@dashboard'
     ]);
+    Route::get('/list',[
+        'as'=>'oa-list',
+               'uses'=>'App\Http\Controllers\OAController@oaList',
+    ]);
 });
 
 

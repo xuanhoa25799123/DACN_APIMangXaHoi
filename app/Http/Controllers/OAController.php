@@ -29,17 +29,33 @@ class OAController extends Controller
     }
     public function dashboard(Request $request)
     {
-       $oa_token = $request->access_token;
-       $oa_id = $request->oa_id;
-       session(['oa_token'=>$oa_token]);
-       session(['oa_id'=>$oa_id]);
-        $response = $this->zalo->get(ZaloEndPoint::API_OA_GET_PROFILE, $oa_token, []);
+        $ac = session('token');
+        if(!empty($ac))
+        {
+            $oa_info = session('oa_info');
+            return view('oa.dashboard',compact('oa_info'));
+        }
+        else {
+            $oa_token = $request->access_token;
+            $oa_id = $request->oa_id;
+            session(['oa_token' => $oa_token]);
+            session(['oa_id' => $oa_id]);
+            $response = $this->zalo->get(ZaloEndPoint::API_OA_GET_PROFILE, $oa_token, []);
+            $result = $response->getDecodedBody();
+            $oa_info = $result['data'];
+            session(['oa_info' => $oa_info]);
+            return view('oa.dashboard', compact('oa_info'));
+        }
+    }
+    public function oaList()
+    {
+        $accessToken = session('oa_token');
+        $data = ['data' => json_encode(array(
+            'offset' => 0,
+            'count' => 10
+        ))];
+        $response = $this->zalo->get(ZaloEndPoint::API_OA_GET_LIST_FOLLOWER, $accessToken, $data);
         $result = $response->getDecodedBody();
-        $oa_info = $result['data'];
-        session(['oa_info'=>$oa_info]);
-        return view('oa.dashboard',compact('oa_info'));
-
-
-
+        dd($result);
     }
 }
