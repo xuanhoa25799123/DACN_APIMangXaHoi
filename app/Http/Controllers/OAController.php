@@ -29,7 +29,7 @@ class OAController extends Controller
     }
     public function dashboard(Request $request)
     {
-        $ac = session('token');
+        $ac = session('oa_token');
         if(!empty($ac))
         {
             $oa_info = session('oa_info');
