@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Zalo\Zalo;
 use Zalo\ZaloEndPoint;
 
@@ -24,5 +25,6 @@ class OAController extends Controller
     {
         $callbackPageUrl = "https://zalo-app-api.herokuapp.com/oa/dashboard";
         $linkOAGrantPermission2App = $this->helper->getLoginUrlByPage($callbackPageUrl);
+        return redirect($linkOAGrantPermission2App);
     }
 }
