@@ -2,7 +2,7 @@ $(document).ready(function() {
     $('.refresh-token-btn').on('click',function(){
         let url = $(this).data('href');
         $.ajax({
-            url: 'https://zalo-api-app.herokuapp.com/refresh-token',
+            url: url,
             type: 'GET',
             dataType: 'jsonp',
             headers:{
