@@ -60,12 +60,7 @@ class OAController extends Controller
         $fl = array();
         foreach($followers as $follower)
         {
-            $data = ['data' => json_encode(array(
-                'user_id' => $follower['id']
-            ))];
-            $response = $this->zalo->get(ZaloEndpoint::API_OA_GET_USER_PROFILE, $accessToken, $data);
-            $result = $response->getDecodedBody(); // result
-            array_push($fl,$result['data']);
+            dd($follower['id']);
         }
         dd($fl);
     }
