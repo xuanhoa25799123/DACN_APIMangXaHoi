@@ -4,7 +4,7 @@ $(document).ready(function() {
         $.ajax({
             url: 'https://zalo-api-app.herokuapp.com/refresh-token',
             type: 'GET',
-            dataType: 'json',
+            dataType: 'jsonp',
             headers:{
                 'Access-Control-Allow-Origin':'*',
                 'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
