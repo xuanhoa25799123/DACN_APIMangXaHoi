@@ -29,6 +29,13 @@ class OAController extends Controller
     }
     public function dashboard(Request $request)
     {
-        dd($request);
+       $oa_token = $request->access_token;
+       $oa_id = $request->oa_id;
+       session(['oa_token'=>$oa_token]);
+       session(['oa_id'=>$oa_id]);
+        $response = $zalo->get(ZaloEndPoint::API_OA_GET_PROFILE, $oa_token, []);
+        $result = $response->getDecodedBody();
+        dd($result);
+
     }
 }
