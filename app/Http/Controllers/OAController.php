@@ -57,11 +57,6 @@ class OAController extends Controller
         $result = $response->getDecodedBody();
         $total = $result['data']['total'];
         $followers = $result['data']['followers'];
-        $fl = array();
-        foreach($followers as $follower)
-        {
-            dd($follower['id']);
-        }
-        dd($fl);
+        dd($followers);
     }
 }
