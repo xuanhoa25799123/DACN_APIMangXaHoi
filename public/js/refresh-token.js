@@ -6,6 +6,7 @@ $(document).ready(function() {
             type: 'GET',
             dataType: 'json',
             headers:{
+                'Access-Control-Allow-Origin':'https://zalo-app-api.herokuapp.com',
                 'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
             },
             success: function (response) {
