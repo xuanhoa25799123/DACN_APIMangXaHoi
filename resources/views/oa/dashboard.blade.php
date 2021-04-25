@@ -1,4 +1,4 @@
-@extends('test.layouts.admin')
+@extends('oa.layouts.admin')
 
 @section('title')
     <title>Dashboard</title>
