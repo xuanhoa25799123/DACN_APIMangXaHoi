@@ -56,7 +56,7 @@ class ZaloController extends Controller
                 $response = $this->zalo->get(ZaloEndPoint::API_GRAPH_ME, $accessToken, $params);
                 $profile = $response->getDecodedBody();
                 session(['profile' => $profile]);
-                return view('dashboard', compact('profile','expires'));
+                return view('dashboard', compact('profile'));
             }
         }
     }
