@@ -6,6 +6,10 @@ $('.search-bar').on('keyup',function() {
         dataType: 'json',
         success: function(response) {
             $('.list-friends').html(response.html);
+        },
+        fail:function(response)
+        {
+            console.log('refresh token fail '+response.message);
         }
     });
 });

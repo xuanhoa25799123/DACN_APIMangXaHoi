@@ -313,6 +313,23 @@ class ZaloController extends Controller
             return response()->json(['success' => false, 'data' => $e->getMessage()]);
         }
     }
+    public function refreshToken()
+    {
+        try {
+            $callbackUrl = "https://zalo-app-api.herokuapp.com/dashboard";
+            $accessToken = $this->helper->getAccessToken($callbackUrl);
+            if (!empty($accessToken)) {
+                $expires = $accessToken->getExpiresAt();
+                $expires = $expires->format('Y-m-d H:i:s');
+                session(['expires' => $expires]);
+                return Response()->json(['success'=>true,'expires'=>$expires]);
+            }
+            return Response()->json(['success'=>false,'message'=>'Cannot get access token']);
+        }catch(\Exception $e)
+        {
+            dd($e->getMessage());
+        }
+    }
 }
 
 //$params2 = ['offset' => 0, 'limit' => 10, 'fields' => "id, name,'picture"];

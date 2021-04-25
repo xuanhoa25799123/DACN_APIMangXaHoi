@@ -86,6 +86,10 @@ Route::post('/extract-process', [
 Route::post('/preview-url', [
     'uses'=>'App\Http\Controllers\ZaloController@previewUrl'
 ]);
+Route::get('/refresh-token',[
+    'as'=>'refresh-token',
+    'uses'=>'App\Http\Controllers\ZaloController@refreshToken'
+]);
 
 
 
