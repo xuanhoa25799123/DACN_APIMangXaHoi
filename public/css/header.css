@@ -11,11 +11,9 @@
    display:flex;
     align-items:center;
     margin-right:50px;
-    text-decoration: none;
+    position:relative;
 }
-.profile:hover{
-    text-decoration: none;
-}
+
 .user-img{
     width:40px;
     height:40px;
@@ -25,7 +23,25 @@
 
 .profile-name{
     color:white;
-
 }
 
-
+.menu-dropdown{
+    position:absolute;
+    top:50px;
+    border-radius:5px;
+    width:70px;
+    background-color:#232223;
+    display:none;
+}
+.arrow-up{
+    margin-left:10px;
+    width:0;
+    height:0;
+    border-bottom: 5px solid #232223;
+    border-right:5px solid transparent;
+    border-left:5px solid transparent;
+}
+.menu-item{
+    text-decoration: none;
+    color:white;
+}

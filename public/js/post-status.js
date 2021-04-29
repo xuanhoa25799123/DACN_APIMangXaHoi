@@ -1,7 +1,4 @@
 $(document).ready(function() {
-
-
-
     $('.send-btn').on('click',function(){
         if($('.preview-container').css('display')=='none')
         {
