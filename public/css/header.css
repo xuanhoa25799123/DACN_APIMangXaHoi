@@ -43,11 +43,16 @@
 }
 .menu-container{
     display:flex;
+    flex-direction: column;
     width:100%;
     align-items:center;
 }
 .menu-item{
     width:100%;
+    text-decoration: none;
+    color:white;
+}
+.menu-item:hover{
     text-decoration: none;
     color:white;
 }
