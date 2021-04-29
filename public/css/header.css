@@ -50,11 +50,15 @@
 }
 .menu-item{
     width:100%;
-    text-decoration: none;
+    min-height:40px;
     color:white;
-    text-align: center;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+
 }
 .menu-item:hover{
     text-decoration: none;
     color:white;
+    background-color:#23f2ff;
 }
