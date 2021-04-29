@@ -7,7 +7,7 @@
         <div class="item-container">
         <a class="social-item" href="{{route('oa-list')}}">Danh sách người quan tâm</a>
             <a class="social-item" href="{{route('oa-dashboard')}}">
-                <img clas="logo" src="{{$oa_info['avatar']}}">
+                <img clas="oa-logo" src="{{$oa_info['avatar']}}">
                 {{$oa_info['name']}}</a>
     </div>
 </div>
