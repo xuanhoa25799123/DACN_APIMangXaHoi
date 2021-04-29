@@ -59,6 +59,7 @@ class OAController extends Controller
         $follower_ids = $result['data']['followers'];
         $followers = array();
         foreach($follower_ids as $follower) {
+            dd($follower);
             $data = ['data' => json_encode(array(
                 'user_id' => $follower->user_id
             ))];
