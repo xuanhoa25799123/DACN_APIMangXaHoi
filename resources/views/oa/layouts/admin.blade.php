@@ -33,8 +33,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="{{asset('/plugins/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('/js/test/main.js')}}"></script>
-
+<script src="{{asset('/js/menu-dropdown.js')}}"></script>
 @yield('js')
 </body>
 </html>
