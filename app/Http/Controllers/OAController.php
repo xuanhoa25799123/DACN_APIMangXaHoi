@@ -47,7 +47,7 @@ class OAController extends Controller
             return view('oa.dashboard', compact('oa_info'));
         }
     }
-    public function oaList()
+    public function followersList()
     {
         $accessToken = session('oa_token');
         $data = ['data' => json_encode(array(
@@ -56,7 +56,16 @@ class OAController extends Controller
         ))];
         $response = $this->zalo->get(ZaloEndPoint::API_OA_GET_LIST_FOLLOWER, $accessToken, $data);
         $result = $response->getDecodedBody();
-        $followers = $result['data']['followers'];
-       dd($followers);
+        $follower_ids = $result['data']['followers'];
+        $followers = array();
+        foreach($follower_ids as $follower) {
+            $data = ['data' => json_encode(array(
+                'user_id' => $follower->user_id
+            ))];
+            $response = $this->zalo->get(ZaloEndpoint::API_OA_GET_USER_PROFILE, $accessToken, $data);
+            $result = $response->getDecodedBody(); // result
+            array_push($followers,$result['data']);
+        }
+        dd($followers);
     }
 }

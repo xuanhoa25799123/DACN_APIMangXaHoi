@@ -100,7 +100,7 @@ Route::prefix('oa')->group(function () {
     ]);
     Route::get('/list',[
         'as'=>'oa-list',
-               'uses'=>'App\Http\Controllers\OAController@oaList',
+               'uses'=>'App\Http\Controllers\OAController@followersList',
     ]);
 });
 
