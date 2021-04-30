@@ -75,7 +75,7 @@ class OAController extends Controller
     {
         $accessToken = session('oa_token');
         $res = $this->client->get('https://openapi.zalo.me/v2.0/article/getslice', ['accesss_token'=>$accessToken,'offset'=>0]);
-        dd($res);
+        dd($res->getBody());
 
     }
 }
