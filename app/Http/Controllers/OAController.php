@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Zalo\Zalo;
+use GuzzleHttp;
 use Zalo\ZaloEndPoint;
 
 class OAController extends Controller
@@ -22,7 +23,7 @@ class OAController extends Controller
         );
         $this->zalo = new Zalo($config);
         $this->helper = $this->zalo->getRedirectLoginHelper();
-        $this->client=new GuzzleHttp/Client();
+        $this->client=new GuzzleHttp\Client();
     }
     public function getToken()
     {
