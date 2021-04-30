@@ -68,7 +68,10 @@ class OAController extends Controller
         $accessToken = session('oa_token');
 
         $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice?offset=0&type=normal&access_token='.$accessToken);
-        dd(json_decode($res->getBody()));
+       $result = json_decode($res->getBody());
+       $data = $result->data;
+       $articles = $data['medias'];
+        dd($articles);
 
     }
 }
