@@ -22,7 +22,7 @@ class OAController extends Controller
         );
         $this->zalo = new Zalo($config);
         $this->helper = $this->zalo->getRedirectLoginHelper();
-        $this->client=new Client();
+        $this->client=new GuzzleHttp/Client();
     }
     public function getToken()
     {
