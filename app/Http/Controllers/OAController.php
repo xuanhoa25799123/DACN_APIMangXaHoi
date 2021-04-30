@@ -70,7 +70,7 @@ class OAController extends Controller
         $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice?offset=0&type=normal&access_token='.$accessToken);
        $result = json_decode($res->getBody());
        $data = $result->data;
-       $articles = $data['medias'];
+       $articles = $data->medias;
         dd($articles);
 
     }
