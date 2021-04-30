@@ -107,6 +107,10 @@ Route::prefix('oa')->group(function () {
         'as'=>'oa-article',
         'uses'=>'App\Http\Controllers\OAController@articleList',
     ]);
+    Route::get('/article',[
+        'as'=>'oa-create-article',
+        'uses'=>'App\Http\Controllers\OAController@createArticle',
+    ]);
 });
 
 

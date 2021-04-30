@@ -77,4 +77,8 @@ class OAController extends Controller
        return views('oa.components.articles',compact('articles','oa_info'));
 
     }
+    public function createArticle()
+    {
+
+    }
 }
