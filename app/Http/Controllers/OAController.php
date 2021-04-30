@@ -13,7 +13,6 @@ class OAController extends Controller
 {
     private $zalo;
     private $helper;
-    private $client;
     public function __construct()
     {
         $config = array(
@@ -23,7 +22,6 @@ class OAController extends Controller
         );
         $this->zalo = new Zalo($config);
         $this->helper = $this->zalo->getRedirectLoginHelper();
-        $this->client=new GuzzleHttp\Client();
     }
     public function getToken()
     {
@@ -74,9 +72,10 @@ class OAController extends Controller
     }
     public function articleList()
     {
+        $client = new GuzzleHttp\Client();
         $accessToken = session('oa_token');
-        $res = $this->client->get('https://openapi.zalo.me/v2.0/article/getslice?access_token='.$accessToken.'&type=normal&offset=0');
-        dd($res->getBody());
+        $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',['offset'=>0,'access_token'=>$accessToken,'type'=>'normal']);
+        dd(json_decode($res->getBody()));
 
     }
 }

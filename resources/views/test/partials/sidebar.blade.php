@@ -10,6 +10,7 @@
             <a class="social-item" href="{{route('test-make-status')}}">Tạo bài viết</a>
         <a class="social-item" href="{{route('test-profile')}}">Thông tin cá nhân</a>
             <a class="social-item" href="{{route('test-preview-url')}}">Preview url</a>
+            <a class="social-item" href="{{route('test-article')}}">Article</a>
     </div>
         <div class="api-oa">Zalo Official Account</div>
 </div>

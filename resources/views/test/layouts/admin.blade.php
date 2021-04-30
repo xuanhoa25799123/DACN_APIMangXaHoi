@@ -1,40 +1,40 @@
-{{--<!DOCTYPE html>--}}
-{{--<html lang="en">--}}
-{{--<head>--}}
-{{--    <meta charset="utf-8">--}}
-{{--    <meta name="viewport" content="width=device-width, initial-scale=1">--}}
-{{--    <meta http-equiv="x-ua-compatible" content="ie=edge">--}}
-{{--    <meta name="csrf-token" content="{{csrf_token()}}">--}}
-{{--    @yield('title')--}}
-{{--    <link rel="stylesheet" href="{{asset('/css/app.css')}}">--}}
-{{--    <link rel="stylesheet" href="{{asset('/css/sidebar.css')}}">--}}
-{{--    <link rel="stylesheet" href="{{asset('/css/header.css')}}">--}}
-{{--    <link rel="stylesheet" href="{{asset('/plugins/fontawesome-free/css/all.min.css')}}">--}}
-{{--    <link rel="stylesheet" href="{{asset('/plugins/bootstrap-css/bootstrap.min.css')}}">--}}
-{{--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">--}}
-{{--    <link--}}
-{{--        rel="stylesheet"--}}
-{{--        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"--}}
-{{--    />--}}
-{{--    @yield('css')--}}
-{{--</head>--}}
-{{--<body>--}}
-{{--<div class="big-container">--}}
-{{--    <div class="left">--}}
-{{--    @include('test.partials.sidebar')--}}
-{{--    </div>--}}
-{{--    <div class="right">--}}
-{{--    @include('test.partials.header')--}}
-{{--        <div class="content">--}}
-{{--    @yield('content')--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
-{{--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>--}}
-{{--<script src="{{asset('/plugins/jquery/jquery.min.js')}}"></script>--}}
-{{--<script src="{{asset('/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>--}}
-{{--    <script src="{{asset('/js/test/main.js')}}"></script>--}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{csrf_token()}}">
+    @yield('title')
+    <link rel="stylesheet" href="{{asset('/css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/sidebar.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/header.css')}}">
+    <link rel="stylesheet" href="{{asset('/plugins/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/plugins/bootstrap-css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    @yield('css')
+</head>
+<body>
+<div class="big-container">
+    <div class="left">
+    @include('test.partials.sidebar')
+    </div>
+    <div class="right">
+    @include('test.partials.header')
+        <div class="content">
+    @yield('content')
+        </div>
+    </div>
+</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="{{asset('/plugins/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('/js/test/main.js')}}"></script>
 
-{{--@yield('js')--}}
-{{--</body>--}}
-{{--</html>--}}
+@yield('js')
+</body>
+</html>

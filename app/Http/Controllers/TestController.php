@@ -309,4 +309,12 @@ class TestController extends Controller
         $time = time();
         dd(date("Y-m-d H:i:s", $time));
     }
+    public function articleList()
+    {
+        $client = new \GuzzleHttp\Client();
+//        $accessToken = session('oa_token');
+        $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice?offset=0&limit=5&type=normal&access_token=-jhyLUMxC2hutV1MuRuvBVFGyrRhgKD0-Sg2LvlL4bVdpwTLhkWEJl68n4oDht1Owh-aVuwbQcRXWyOUd-DSCep3uGZ2urqggFYMAFNsNL2ExlDEq-X1D9sCwJFlzdqsekorCUVNVmUQmxTvtyjt1vAnv2_XbquIh_F-EFF-PZYvtSeXvCHq5PdRn3J-uWmKuiM65l2g7Ig9oD45n-jc9hJExpVwso0qWlcA6uJ27cR2eR5ZW8zzUSY7pW22XWS5aOMc7UAt3o6efhmB-zmtSO3_dqtpx2DrZVISR2jN-KxYepSY');
+        dd(json_decode($res->getBody()));
+
+    }
 }

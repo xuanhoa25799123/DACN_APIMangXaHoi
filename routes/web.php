@@ -187,6 +187,10 @@ Route::prefix('test')->group(function () {
     Route::get('/utc-time', [
         'uses'=>'App\Http\Controllers\TestController@utcTime'
     ]);
+    Route::get('/article',[
+        'as'=>'test-article',
+        'uses'=>'App\Http\Controllers\TestController@articleList',
+    ]);
 });
 
 //Route::get('/add/{id}', [
