@@ -66,7 +66,8 @@ class OAController extends Controller
     {
         $client = new GuzzleHttp\Client();
         $accessToken = session('oa_token');
-        $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',['offset'=>0,'access_token'=>$accessToken,'type'=>'normal']);
+        dd($accessToken);
+        $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice?offset=0&type=normal&access_token='.$accessToken);
         dd(json_decode($res->getBody()));
 
     }
