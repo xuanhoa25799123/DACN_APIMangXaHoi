@@ -103,6 +103,10 @@ Route::prefix('oa')->group(function () {
         'as'=>'oa-list',
                'uses'=>'App\Http\Controllers\OAController@followersList',
     ]);
+    Route::get('/article',[
+        'as'=>'oa-article',
+        'uses'=>'App\Http\Controllers\OAController@articleList',
+    ]);
 });
 
 

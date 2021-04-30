@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Zalo\Zalo;
@@ -11,6 +12,7 @@ class OAController extends Controller
 {
     private $zalo;
     private $helper;
+    private $client;
     public function __construct()
     {
         $config = array(
@@ -20,6 +22,7 @@ class OAController extends Controller
         );
         $this->zalo = new Zalo($config);
         $this->helper = $this->zalo->getRedirectLoginHelper();
+        $this->client=new Client();
     }
     public function getToken()
     {
@@ -67,5 +70,12 @@ class OAController extends Controller
             array_push($followers,$result['data']);
         }
         dd($followers);
+    }
+    public function articleList()
+    {
+        $accessToken = session('oa_token');
+        $res = $this->client->get('https://openapi.zalo.me/v2.0/article/getslice', ['accesss_token'=>$accessToken,'offset'=>0]);
+        dd($res);
+
     }
 }

@@ -64,7 +64,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/console" />
       <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
-      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
@@ -183,7 +182,8 @@
       <workItem from="1619269293413" duration="4918000" />
       <workItem from="1619312240828" duration="6715000" />
       <workItem from="1619322590639" duration="4021000" />
-      <workItem from="1619670113057" duration="5765000" />
+      <workItem from="1619670113057" duration="6629000" />
+      <workItem from="1619744997467" duration="1285000" />
     </task>
     <servers />
   </component>
