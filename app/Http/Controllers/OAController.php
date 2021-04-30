@@ -60,7 +60,9 @@ class OAController extends Controller
             $result = $response->getDecodedBody(); // result
             array_push($followers,$result['data']);
         }
-        dd($followers);
+        $oa_info = session('oa_info');
+
+        return views('oa.components.followers',compact('followers','oa_info'));
     }
     public function articleList()
     {
@@ -71,7 +73,8 @@ class OAController extends Controller
        $result = json_decode($res->getBody());
        $data = $result->data;
        $articles = $data->medias;
-        dd($articles);
+        $oa_info = session('oa_info');
+       return views('oa.components.articles',compact('articles','oa_info'));
 
     }
 }

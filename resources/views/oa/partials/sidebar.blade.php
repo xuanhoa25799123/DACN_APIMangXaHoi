@@ -10,6 +10,7 @@
                 <img class="oa-logo" src="{{$oa_info['avatar']}}">
                 {{$oa_info['name']}}</a>
             <a class="social-item" href="{{route('oa-article')}}">Danh sách bài viết</a>
+            <a class="social-item" href="{{route('oa-create-article')}}">Tạo bài viết mới</a>
     </div>
 </div>
 </div>
