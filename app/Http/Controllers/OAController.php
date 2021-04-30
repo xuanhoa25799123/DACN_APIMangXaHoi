@@ -31,13 +31,6 @@ class OAController extends Controller
     }
     public function dashboard(Request $request)
     {
-        $ac = session('oa_token');
-        if(!empty($ac))
-        {
-            $oa_info = session('oa_info');
-            return view('oa.dashboard',compact('oa_info'));
-        }
-        else {
             $oa_token = $request->access_token;
             $oa_id = $request->oa_id;
             session(['oa_token' => $oa_token]);
@@ -47,7 +40,6 @@ class OAController extends Controller
             $oa_info = $result['data'];
             session(['oa_info' => $oa_info]);
             return view('oa.dashboard', compact('oa_info'));
-        }
     }
     public function followersList()
     {
