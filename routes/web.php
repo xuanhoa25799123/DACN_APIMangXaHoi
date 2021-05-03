@@ -16,80 +16,78 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [
     'uses'=>'App\Http\Controllers\ZaloController@login',
 ]);
-Route::get('/login', [
-    'as'=>'login',
-    'uses'=>'App\Http\Controllers\ZaloController@login'
-]);
-    Route::get('/dashboard',[
-        'uses'=>'App\Http\Controllers\ZaloController@dashboard'
+Route::prefix('social')->group(function () {
+    Route::get('/dashboard', [
+        'uses' => 'App\Http\Controllers\ZaloController@dashboard'
     ]);
     Route::get('/friend-list', [
-        'as'=>'friend-list',
-        'uses'=>'App\Http\Controllers\ZaloController@friendList'
+        'as' => 'friend-list',
+        'uses' => 'App\Http\Controllers\ZaloController@friendList'
     ]);
     Route::get('/invite-list/{keyword}', [
-    'uses'=>'App\Http\Controllers\ZaloController@inviteSearch'
+        'uses' => 'App\Http\Controllers\ZaloController@inviteSearch'
     ]);
     Route::get('/friend-list/{keyword}', [
-        'uses'=>'App\Http\Controllers\ZaloController@friendSearch'
+        'uses' => 'App\Http\Controllers\ZaloController@friendSearch'
     ]);
     Route::get('/profile', [
-        'as'=>'profile',
-        'uses'=>'App\Http\Controllers\ZaloController@profile'
+        'as' => 'profile',
+        'uses' => 'App\Http\Controllers\ZaloController@profile'
     ]);
     Route::get('/invite-list', [
-        'as'=>'invite-list',
-        'uses'=>'App\Http\Controllers\ZaloController@inviteList'
+        'as' => 'invite-list',
+        'uses' => 'App\Http\Controllers\ZaloController@inviteList'
     ]);
-Route::get('/invite-list/{keyword}', [
-    'uses'=>'App\Http\Controllers\ZaloController@inviteSearch'
-]);
+    Route::get('/invite-list/{keyword}', [
+        'uses' => 'App\Http\Controllers\ZaloController@inviteSearch'
+    ]);
     Route::get('/send-message/{id}', [
-        'as'=>'send-message',
-        'uses'=>'App\Http\Controllers\ZaloController@sendMessage'
+        'as' => 'send-message',
+        'uses' => 'App\Http\Controllers\ZaloController@sendMessage'
     ]);
     Route::post('/send-message/{sendIds}', [
-        'as'=>'send',
-        'uses'=>'App\Http\Controllers\ZaloController@send'
+        'as' => 'send',
+        'uses' => 'App\Http\Controllers\ZaloController@send'
     ]);
-Route::post('/send-preview', [
-    'uses'=>'App\Http\Controllers\ZaloController@sendPreview'
-]);
+    Route::post('/send-preview', [
+        'uses' => 'App\Http\Controllers\ZaloController@sendPreview'
+    ]);
     Route::get('/send-invite/{id}', [
-        'as'=>'send-invite',
-        'uses'=>'App\Http\Controllers\ZaloController@sendInvite'
+        'as' => 'send-invite',
+        'uses' => 'App\Http\Controllers\ZaloController@sendInvite'
     ]);
     Route::post('/send-invite/{sendIds}', [
-        'as'=>'invite',
-        'uses'=>'App\Http\Controllers\ZaloController@invite'
+        'as' => 'invite',
+        'uses' => 'App\Http\Controllers\ZaloController@invite'
     ]);
-Route::post('/invite-preview', [
-    'uses'=>'App\Http\Controllers\ZaloController@invitePreview'
-]);
+    Route::post('/invite-preview', [
+        'uses' => 'App\Http\Controllers\ZaloController@invitePreview'
+    ]);
     Route::get('/post-status', [
-        'as'=>'make-status',
-        'uses'=>'App\Http\Controllers\ZaloController@makeStatus'
+        'as' => 'make-status',
+        'uses' => 'App\Http\Controllers\ZaloController@makeStatus'
     ]);
     Route::post('/post-status', [
-        'as'=>'post-status',
-        'uses'=>'App\Http\Controllers\ZaloController@postStatus'
+        'as' => 'post-status',
+        'uses' => 'App\Http\Controllers\ZaloController@postStatus'
     ]);
-Route::post('/status-preview', [
-    'uses'=>'App\Http\Controllers\ZaloController@statusPreview'
-]);
-Route::post('/status-preview', [
-    'uses'=>'App\Http\Controllers\ZaloController@statusPreview'
-]);
-Route::post('/extract-process', [
-    'uses'=>'App\Http\Controllers\ZaloController@extractProcess'
-]);
-Route::post('/preview-url', [
-    'uses'=>'App\Http\Controllers\ZaloController@previewUrl'
-]);
-Route::get('/refresh-token',[
-    'as'=>'refresh-token',
-    'uses'=>'App\Http\Controllers\ZaloController@refreshToken'
-]);
+    Route::post('/status-preview', [
+        'uses' => 'App\Http\Controllers\ZaloController@statusPreview'
+    ]);
+    Route::post('/status-preview', [
+        'uses' => 'App\Http\Controllers\ZaloController@statusPreview'
+    ]);
+    Route::post('/extract-process', [
+        'uses' => 'App\Http\Controllers\ZaloController@extractProcess'
+    ]);
+    Route::post('/preview-url', [
+        'uses' => 'App\Http\Controllers\ZaloController@previewUrl'
+    ]);
+    Route::get('/refresh-token', [
+        'as' => 'refresh-token',
+        'uses' => 'App\Http\Controllers\ZaloController@refreshToken'
+    ]);
+});
 Route::prefix('oa')->group(function () {
     Route::get('/',[
         'as'=>'oa-token',

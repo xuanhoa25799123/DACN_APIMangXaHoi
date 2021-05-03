@@ -46,7 +46,7 @@
         <p class="sidebar-content-header">Zalo xã hội</p>
         <a class="sidebar-item" href="/dashboard">
             <div class="sidebar-item-icon-container">
-                <i class="fa fa-out sidebar-item-icon"></i>
+                <i class="fa fa-arrow-left sidebar-item-icon"></i>
             </div>
             <p class='sidebar-item-text'>Quay lại</p>
         </a>

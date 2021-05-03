@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('social.layouts.admin')
 
 @section('css')
     <link rel="stylesheet" href="{{asset('/css/send-message.css')}}">
@@ -43,7 +43,7 @@
                 <button class="btn-close preview-close">x</button>
             </div>
             <div class="preview-sub-container">
-                @include('partials.send-preview')
+                @include('social.partials.send-preview')
             </div>
             <div class="preview-footer">
                 <button class="btn btn-primary btn-send-message btn-margin" data-href="{{route('send',['sendIds'=>$sendIds])}}">Gửi tin nhắn</button>

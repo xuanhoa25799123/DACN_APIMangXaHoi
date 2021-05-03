@@ -6,7 +6,7 @@
 
 @section('content')
 
-    @include('partials.header',['name'=>'home','key'=>'home'])
+    @include('social.partials.header',['name'=>'home','key'=>'home'])
     <div class="slider">
 
     </div>

@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('social.layouts.admin')
 
 @section('css')
         <link rel="stylesheet" href="{{asset('/css/status-preview.css')}}">
@@ -30,7 +30,7 @@
                 <button class="btn-close preview-close">x</button>
             </div>
             <div class="preview-sub-container">
-                @include('partials.status-preview')
+                @include('social.partials.status-preview')
             </div>
             <div class="preview-footer">
                 <button class="btn btn-primary btn-post-status">Đăng bài viết</button>

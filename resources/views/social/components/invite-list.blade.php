@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('social.layouts.admin')
 
 @section('css')
     <link rel="stylesheet" href="{{asset('/css/friend-list.css')}}">
@@ -20,11 +20,11 @@
     <button class="btn btn-primary toggle-popup friend-list-button">Gửi lời mời</button>
     <p class="text">{{$total}} người bạn chưa tham gia ứng dụng</p>
     <div class="list-friends">
-        @include('partials.invite')
+        @include('social.partials.invite')
     </div>
     <div class="popup-container">
         <p class="popup-title">Chọn bạn bè gửi lời mời</p>
-        @include('partials.popup')
+        @include('social.partials.popup')
         <div class="popup-footer">
             <div class="popup-filter">
                 <input type="checkbox" class="cb filter-all">Tất cả

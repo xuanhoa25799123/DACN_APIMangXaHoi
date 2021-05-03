@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('social.layouts.admin')
 
 @section('css')
     <link rel="stylesheet" href="{{asset('/css/profile.css')}}">
