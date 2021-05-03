@@ -167,14 +167,14 @@ class ZaloController extends Controller
         $profile = session('profile');
         $message = $request->message;
         $link = $request->link;
-        $html = view('partials.send-preview')->with(compact('message','link','profile'))->render();
+        $html = view('social.partials.send-preview')->with(compact('message','link','profile'))->render();
         return response()->json((['success'=>true,'html'=>$html]));
     }
     public function invitePreview(Request $request)
     {
         $profile = session('profile');
         $message = $request->message;
-        $html = view('partials.invite-preview')->with(compact('message','profile'))->render();
+        $html = view('social.partials.invite-preview')->with(compact('message','profile'))->render();
         return response()->json((['success'=>true,'html'=>$html]));
     }
     public function statusPreview(Request $request)
@@ -182,7 +182,7 @@ class ZaloController extends Controller
         $profile = session('profile');
         $message = $request->message;
         $link = $request->link;
-        $html = view('partials.status-preview')->with(compact('message','link','profile'))->render();
+        $html = view('social.partials.status-preview')->with(compact('message','link','profile'))->render();
         return response()->json((['success'=>true,'html'=>$html]));
     }
     public function sendInvite($id)

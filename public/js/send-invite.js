@@ -2,7 +2,6 @@ $(document).ready(function() {
     $('.invite-btn').on('click',function(){
         if($('.preview-container').css('display')=='none')
         {
-
             let message=  $('textarea[name=message]').val();
             if(message.trim()=="")
             {
