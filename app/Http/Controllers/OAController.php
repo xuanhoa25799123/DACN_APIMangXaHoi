@@ -63,21 +63,19 @@ class OAController extends Controller
         }
         $oa_info = session('oa_info');
         $title="Người theo dõi";
-        return views('oa.components.followers',compact('followers','oa_info','title'));
+        return view('oa.components.followers',compact('followers','oa_info','title'));
     }
     public function articleList()
     {
         $client = new GuzzleHttp\Client();
         $accessToken = session('oa_token');
-
         $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice?offset=0&type=normal&access_token='.$accessToken);
        $result = json_decode($res->getBody());
        $data = $result->data;
        $articles = $data->medias;
         $oa_info = session('oa_info');
         $title="Bài viết";
-       return views('oa.components.articles',compact('articles','oa_info','title'));
-
+       return view('oa.components.articles',compact('articles','oa_info','title'));
     }
     public function createArticle()
     {
