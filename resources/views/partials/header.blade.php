@@ -1,7 +1,7 @@
 <div class="header">
     <div class="profile">
         <img class="user-img" alt="" src="{{$profile['picture']['data']['url']}}">
-        @include('oa.partials.menu-dropdown')
+        @include('partials.menu-dropdown')
     </div>
 </div>
 <div class="header-content">

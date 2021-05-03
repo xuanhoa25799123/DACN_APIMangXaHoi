@@ -9,14 +9,14 @@
 .profile{
    display:flex;
     align-items:center;
-    margin-right:50px;
+    margin-right:400px;
     position:relative;
     cursor:pointer;
 }
 
 .user-img{
-    width:30px;
-    height:30px;
+    width:40px;
+    height:40px;
     object-fit: contain;
     border-radius:50%;
 }
@@ -47,6 +47,7 @@
     background-color:white;
     box-shadow: 0 0 10px rgb(0 0 0 / 12%);
     border-radius:5px;
+    color:black;
 }
 .menu-header{
     width:100%;
@@ -59,7 +60,6 @@
 .menu-item{
     width:100%;
     padding:10px 20px;
-    color:white;
     display:flex;
     align-items:center;
     justify-content: space-between;
