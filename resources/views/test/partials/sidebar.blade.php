@@ -1,17 +1,55 @@
+{{--<div class="sidebar">--}}
+{{--    <div class="logo">--}}
+{{--        <img class="logo-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Zalo_logo_2019.svg/1024px-Zalo_logo_2019.svg.png">--}}
+{{--    </div>--}}
+{{--    <div class="sidebar-content">--}}
+{{--    <div class="api-socials">Zalo xã hội</div>--}}
+{{--        <div class="item-container">--}}
+{{--        <a class="social-item" href="{{route('test-friend-list')}}">Gửi tin nhắn</a>--}}
+{{--         <a class="social-item" href="{{route('test-invite-list')}}">Mời tham gia ứng dụng</a>--}}
+{{--            <a class="social-item" href="{{route('test-make-status')}}">Tạo bài viết</a>--}}
+{{--        <a class="social-item" href="{{route('test-profile')}}">Thông tin cá nhân</a>--}}
+{{--            <a class="social-item" href="{{route('test-preview-url')}}">Preview url</a>--}}
+{{--            <a class="social-item" href="{{route('test-article')}}">Article</a>--}}
+{{--    </div>--}}
+{{--        <div class="api-oa">Zalo Official Account</div>--}}
+{{--</div>--}}
+{{--</div>--}}
+
+
 <div class="sidebar">
-    <div class="logo">
-        <img class="logo-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Zalo_logo_2019.svg/1024px-Zalo_logo_2019.svg.png">
+    <div class="sidebar-logo-container">
+        <a class="sidebar-logo" href="/admin">
+            <p class="sidebar-logo-text">Zalo API</p>
+        </a>
     </div>
+
     <div class="sidebar-content">
-    <div class="api-socials">Zalo xã hội</div>
-        <div class="item-container">
-        <a class="social-item" href="{{route('test-friend-list')}}">Gửi tin nhắn</a>
-         <a class="social-item" href="{{route('test-invite-list')}}">Mời tham gia ứng dụng</a>
-            <a class="social-item" href="{{route('test-make-status')}}">Tạo bài viết</a>
-        <a class="social-item" href="{{route('test-profile')}}">Thông tin cá nhân</a>
-            <a class="social-item" href="{{route('test-preview-url')}}">Preview url</a>
-            <a class="social-item" href="{{route('test-article')}}">Article</a>
+        <p class="sidebar-content-header">Zalo xã hội</p>
+        <a class="sidebar-item" href="/dashboard">
+            <div class="sidebar-item-icon-container">
+                <i class="fa fa-home sidebar-item-icon"></i>
+            </div>
+            <p class='sidebar-item-text'>Trang chủ</p>
+        </a>
+        <a class="sidebar-item" href="{{route('test-friend-list')}}">
+            <div class="sidebar-item-icon-container">
+                <i class="fa fa-comments sidebar-item-icon"></i>
+            </div>
+            <p class='sidebar-item-text'>Gửi tin nhắn</p>
+        </a>
+        <a class="sidebar-item" href="{{route('test-invite-list')}}">
+            <div class="sidebar-item-icon-container">
+                <i class="fa fa-envelope-open sidebar-item-icon"></i>
+            </div>
+            <p class='sidebar-item-text'>Mời tham gia ứng dụng</p>
+        </a>
+        <a class="sidebar-item" href="{{route('test-make-status')}}">
+            <div class="sidebar-item-icon-container">
+                <i class="fa fa-edit sidebar-item-icon"></i>
+            </div>
+            <p class='sidebar-item-text'>Tạo bài viết</p>
+        </a>
     </div>
-        <div class="api-oa">Zalo Official Account</div>
-</div>
+
 </div>

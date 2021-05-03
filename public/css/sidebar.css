@@ -1,60 +1,74 @@
-.sidebar{
-    position:relative;
-    top:0;
-    left:0;
-    width:100%;
-    height:100vh;
-    display:flex;
-    flex-direction: column;
-    background-color:#232222;
-    font-family:tahoma;
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    background-color: aliceblue;
 }
+.sidebar-logo-container {
+    width: 100%;
+    height: 70px;
 
-.logo{
-    width:80%;
-    height:60px;
-    margin:10px auto;
-    border-radius:5px;
-    border:2px solid aqua;
-    display:flex;
-    align-items:center;
-    justify-content:center;
 }
+.sidebar-logo {
+    width: 100%;
+    height: 90%;
+    display:flex;
 
-.logo-img{
-    width:50%;
-    height:50%;
-
+    align-items: center;
+    justify-content: center;
+}
+.sidebar-logo-img {
+    width: 60px;
+    height: 60px;
     object-fit: contain;
 }
-.sidebar-content{
-    width:90%;
-    margin:10px auto;
-    color:white;
+.sidebar-logo-text {
+    font-size: 23px;
+    font-weight:700;
+    color: #008000;
 }
-
-.item-container{
-    display:flex;
+.sidebar-content {
+    display: flex;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
+    height: 100%;
+    overflow-y: auto;
 }
-.social-item{
-    border:none;
-    outline:none;
-    background:none;
-    color:white;
-    padding:10px;
-    width:100%;
-    cursor:pointer;
+.sidebar-content-header{
+    font-size:18px;
+   font-weight:bold;
+    width:90%;
+
+}
+.sidebar-item {
+    width: 90%;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+}
+.sidebar-item:hover {
+    background-color: aqua;
 }
 
-.social-item:hover{
-    color:white;
-    text-decoration: none;
+.sidebar-item-icon-container {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    justify-content: center;
+    box-shadow: 0 0 10px rgb(0 0 0 / 12%);
 }
 
-.oa-logo{
-    width:20px;
-    height:20px;
-    border-radius:50%;
+.sidebar-item-icon {
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #232222;
+}
+
+.sidebar-item-text {
+    margin-left: 15px;
+    color: #2b345f;
 }

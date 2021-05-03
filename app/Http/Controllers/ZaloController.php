@@ -52,11 +52,12 @@ class ZaloController extends Controller
 //                $date1 = new DateTime($rs);
 //                $date2 = new DateTime($current);
 //                dd($date1,$date2);
+                $title = "Trang chủ";
                 $params = ['fields' => 'name,picture,gender,id,birthday'];
                 $response = $this->zalo->get(ZaloEndPoint::API_GRAPH_ME, $accessToken, $params);
                 $profile = $response->getDecodedBody();
                 session(['profile' => $profile]);
-                return view('dashboard', compact('profile'));
+                return view('dashboard', compact('profile','title'));
             }
         }
     }
@@ -70,7 +71,8 @@ class ZaloController extends Controller
         $total = $result['summary']['total_count'];
         $friends = $result['data'];
         session(['friends'=>$friends]);
-        return view('components.friend-list',compact('total','friends','profile'));
+        $title = "Gửi tin nhắn";
+        return view('components.friend-list',compact('total','friends','profile','title'));
     }
     public function inviteList()
     {
@@ -82,7 +84,8 @@ class ZaloController extends Controller
         $total = $result['summary']['total_count'];
         $friends = $result['data'];
         session(['invite_friends'=>$friends]);
-        return view('components.invite-list',compact('total','friends','profile'));
+        $title = "Gửi lời mời";
+        return view('components.invite-list',compact('total','friends','profile','title'));
     }
     public function send(Request $request,$sendIds){
         $accessToken = session('token');
@@ -136,7 +139,8 @@ class ZaloController extends Controller
     public function profile()
     {
         $profile = session('profile');
-        return view('components.profile',compact('profile'));
+        $title = "Thông tin";
+        return view('components.profile',compact('profile','title'));
     }
     public function sendMessage($id)
     {
@@ -154,7 +158,8 @@ class ZaloController extends Controller
         }
         $message="";
         $link="";
-        return view('components.send-message',compact('receives','profile','sendIds','message','link'));
+        $title = "Gửi tin nhắn";
+        return view('components.send-message',compact('receives','profile','sendIds','message','link','title'));
     }
     public function sendPreview(Request $request)
     {
@@ -194,7 +199,8 @@ class ZaloController extends Controller
             }
         }
         $message="";
-        return view('components.send-invite',compact('receives','profile','sendIds','message'));
+        $title = "Gửi lời mời";
+        return view('components.send-invite',compact('receives','profile','sendIds','message','title'));
     }
     public function invite(Request $request,$sendIds){
         $accessToken = session('token');
@@ -232,7 +238,8 @@ class ZaloController extends Controller
         $profile = session('profile');
         $message="";
         $link="";
-        return view('components.post-status',compact('profile','message','link'));
+        $title = "Tạo bài viết";
+        return view('components.post-status',compact('profile','message','link','title'));
     }
     public function postStatus(Request $request)
     {

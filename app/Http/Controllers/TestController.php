@@ -21,7 +21,8 @@ class TestController extends Controller
             $profile['gender']="Male";
             $profile['birthday']='10/12/2008';
             session(['profile'=>$profile]);
-            return view('test.dashboard',compact('profile'));
+            $title="Trang chủ";
+            return view('test.dashboard',compact('profile','title'));
     }
     public function friendList()
     {
@@ -62,8 +63,9 @@ class TestController extends Controller
 
         $profile = session('profile');
         $total = $result['summary']['total_count'];
+        $title="Gủi tin nhắn";
 //        dd($friends);
-        return view('test.components.friend-list',compact('total','friends','profile'));
+        return view('test.components.friend-list',compact('total','friends','profile','title'));
     }
     public function inviteList()
     {
@@ -86,7 +88,8 @@ class TestController extends Controller
         session(['invite_friends'=>$friends]);
         $profile = session('profile');
         $total = $result['summary']['total_count'];
-        return view('test.components.invite-list',compact('total','friends','profile'));
+        $title = "Mời tham gia";
+        return view('test.components.invite-list',compact('total','friends','profile','title'));
     }
     public function send(Request $request,$sendIds)
     {
@@ -150,7 +153,8 @@ class TestController extends Controller
         }
         $message="";
         $link="";
-        return view('test.components.send-message',compact('receives','profile','sendIds','message','link'));
+        $title = "Gửi tin nhắn";
+        return view('test.components.send-message',compact('receives','profile','sendIds','message','link','title'));
     }
 //    public function sendMessages(Request $request)
 //    {
@@ -207,7 +211,8 @@ class TestController extends Controller
             }
         }
         $message="";
-        return view('test.components.send-invite',compact('receives','profile','sendIds','message'));
+        $title = "Gửi lời mời";
+        return view('test.components.send-invite',compact('receives','profile','sendIds','message','title'));
     }
     public function invite(Request $request,$sendIds){
         $result = array();
@@ -245,7 +250,8 @@ class TestController extends Controller
         $profile = session('profile');
         $message="";
         $link="";
-        return view('test.components.post-status',compact('profile','message','link'));
+        $title = "Tạo bài viết";
+        return view('test.components.post-status',compact('profile','message','link','title'));
     }
     public function postStatus(Request $request)
     {
@@ -256,7 +262,8 @@ class TestController extends Controller
     public function urlPreview()
     {
         $profile=session('profile');
-        return view('test.components.preview-url',compact('profile'));
+        $title = "Gửi tin nhắn";
+        return view('test.components.preview-url',compact('profile','title'));
     }
     public function previewUrl(Request $request)
     {

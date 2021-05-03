@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
     <link rel="stylesheet" href="{{asset('/css/sidebar.css')}}">
     <link rel="stylesheet" href="{{asset('/css/header.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/content.css')}}">
     <link rel="stylesheet" href="{{asset('/plugins/fontawesome-free/css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('/plugins/bootstrap-css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -25,7 +26,9 @@
     </div>
     <div class="right">
     @include('test.partials.header')
+
         <div class="content">
+
     @yield('content')
         </div>
     </div>
