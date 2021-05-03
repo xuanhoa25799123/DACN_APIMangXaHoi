@@ -39,6 +39,7 @@ class OAController extends Controller
             $result = $response->getDecodedBody();
             $oa_info = $result['data'];
             session(['oa_info' => $oa_info]);
+            dd($oa_info);
              $title="Trang chủ";
              return view('oa.dashboard', compact('oa_info','title'));
 
@@ -46,8 +47,14 @@ class OAController extends Controller
     public function home()
     {
         $oa_info = session('oa_info');
-        $title="Trang chủ";
-        return view('oa.dashboard', compact('oa_info','title'));
+        if(empty($oa_info))
+        {
+            $this->getToken();
+        }
+        else {
+            $title = "Trang chủ";
+            return view('oa.dashboard', compact('oa_info', 'title'));
+        }
     }
     public function followersList()
     {
