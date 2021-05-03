@@ -39,11 +39,12 @@ class OAController extends Controller
             $result = $response->getDecodedBody();
             $oa_info = $result['data'];
             session(['oa_info' => $oa_info]);
-//            home();
+            home();
     }
     public function home()
     {
         $oa_info = session('oa_info');
+        dd($oa_info);
         $title="Trang chủ";
         return view('oa.dashboard', compact('oa_info','title'));
     }
