@@ -23,6 +23,13 @@
     border-radius:50%;
 }
 
+.user-img-2{
+    width:35px;
+    height:35px;
+    object-fit: contain;
+    border-radius:50%;
+}
+
 .profile-name{
     color:white;
 }
