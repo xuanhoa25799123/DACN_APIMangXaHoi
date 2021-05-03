@@ -22,10 +22,10 @@
 <body>
 <div class="big-container">
     <div class="left">
-        @include('partials.sidebar')
+        @include('social.partials.sidebar')
     </div>
     <div class="right">
-        @include('partials.header')
+        @include('social.partials.header')
         <div class="content">
             @yield('content')
         </div>
