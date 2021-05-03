@@ -67,6 +67,7 @@
     position:absolute;
     right:3px;
     bottom:3px;
+    border-radius:50%;
 }
 .menu-item{
     width:100%;
