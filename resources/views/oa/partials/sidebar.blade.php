@@ -36,7 +36,7 @@
             </div>
             <p class='sidebar-item-text'>Danh sách người quan tâm</p>
         </a>
-        <a class="sidebar-item" href="{{route('oa-article')}}">
+        <a class="sidebar-item" href="/oa/article">
             <div class="sidebar-item-icon-container">
                 <i class="fa fa-envelope-open sidebar-item-icon"></i>
             </div>
