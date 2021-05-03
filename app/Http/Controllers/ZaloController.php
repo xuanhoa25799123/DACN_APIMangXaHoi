@@ -240,7 +240,7 @@ class ZaloController extends Controller
         $message="";
         $link="";
         $title = "Tạo bài viết";
-        return view('components.post-status',compact('profile','message','link','title'));
+        return view('social.components.post-status',compact('profile','message','link','title'));
     }
     public function postStatus(Request $request)
     {
