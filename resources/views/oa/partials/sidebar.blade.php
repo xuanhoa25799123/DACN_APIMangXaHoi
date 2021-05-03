@@ -32,13 +32,13 @@
         </a>
         <a class="sidebar-item" href="{{route('oa-list')}}">
             <div class="sidebar-item-icon-container">
-                <i class="fa fa-comments sidebar-item-icon"></i>
+                <i class="fa fa-users sidebar-item-icon"></i>
             </div>
             <p class='sidebar-item-text'>Danh sách người quan tâm</p>
         </a>
         <a class="sidebar-item" href="/oa/article">
             <div class="sidebar-item-icon-container">
-                <i class="fa fa-envelope-open sidebar-item-icon"></i>
+                <i class="fa fa-edit sidebar-item-icon"></i>
             </div>
             <p class='sidebar-item-text'>Danh sách bài viết</p>
         </a>
