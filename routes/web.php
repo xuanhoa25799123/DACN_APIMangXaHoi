@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [
     'uses'=>'App\Http\Controllers\ZaloController@login',
 ]);
-Route::prefix('social')->group(function () {
+
     Route::get('/dashboard', [
         'uses' => 'App\Http\Controllers\ZaloController@dashboard'
     ]);
@@ -87,7 +87,7 @@ Route::prefix('social')->group(function () {
         'as' => 'refresh-token',
         'uses' => 'App\Http\Controllers\ZaloController@refreshToken'
     ]);
-});
+
 Route::prefix('oa')->group(function () {
     Route::get('/get-token',[
         'as'=>'oa-token',
