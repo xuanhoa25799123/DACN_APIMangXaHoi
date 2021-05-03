@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('social.layouts.admin')
 
 @section('title')
     <title>Dashboard</title>
