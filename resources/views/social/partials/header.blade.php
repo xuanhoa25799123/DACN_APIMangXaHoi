@@ -2,7 +2,7 @@
     <div class="profile">
         <img class="user-img" alt="" src="{{$profile['picture']['data']['url']}}">
         <div class="online-dot"></div>
-        @include('partials.menu-dropdown')
+        @include('social.partials.menu-dropdown')
     </div>
 </div>
 <div class="header-content">
