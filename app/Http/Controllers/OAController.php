@@ -40,7 +40,7 @@ class OAController extends Controller
             $oa_info = $result['data'];
             session(['oa_info' => $oa_info]);
             dd($oa_info);
-            home();
+//            home();
     }
     public function home()
     {
