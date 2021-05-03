@@ -36,7 +36,8 @@ class ZaloController extends Controller
         if(!empty($ac))
         {
             $profile = session('profile');
-            return view('dashboard',compact('profile'));
+            $title="Trang chủ";
+            return view('dashboard',compact('profile','title'));
         }
         else {
             $callbackUrl = "https://zalo-app-api.herokuapp.com/dashboard";
