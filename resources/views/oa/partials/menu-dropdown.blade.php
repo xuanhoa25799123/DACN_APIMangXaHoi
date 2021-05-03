@@ -6,6 +6,6 @@
             <p>{{$oa_info['name']}}</p>
         </div>
         <a class="menu-item" href="{{route('oa-home')}}"><i class="fa fa-user icon"></i> Xem thông tin</a>
-        <a class="menu-item" href="/oa"><i class="fa fa-sync icon"</i>Đổi doanh nghiệp</a>
+        <a class="menu-item" href="/oa"><i class="fa fa-sync icon"></i>Đổi doanh nghiệp</a>
     </div>
 </div>
