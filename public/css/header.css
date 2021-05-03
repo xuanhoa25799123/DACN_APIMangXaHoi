@@ -68,11 +68,12 @@
     border-bottom:0.5px solid lightblue;
 }
 .online-dot{
-    width:7px;
-    height:7px;
+    width:8px;
+    height:8px;
     background-color: #5ed84f;
     position:absolute;
-    right:3px;
+    border:1px solid black;
+    right:1px;
     bottom:3px;
     border-radius:50%;
 }

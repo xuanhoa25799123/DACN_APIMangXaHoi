@@ -39,7 +39,7 @@ class OAController extends Controller
             $result = $response->getDecodedBody();
             $oa_info = $result['data'];
             session(['oa_info' => $oa_info]);
-            home();
+//            home();
     }
     public function home()
     {
