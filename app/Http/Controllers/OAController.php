@@ -39,6 +39,7 @@ class OAController extends Controller
             $result = $response->getDecodedBody();
             $oa_info = $result['data'];
             session(['oa_info' => $oa_info]);
+            dd($oa_info);
             home();
     }
     public function home()
@@ -85,8 +86,6 @@ class OAController extends Controller
     }
     public function createArticle()
     {
-        $callbackPageUrl = "https://zalo-app-api.herokuapp.com/oa/dashboard";
-        $linkOAGrantPermission2App = $this->helper->getLoginUrlByPage($callbackPageUrl);
-        return redirect($linkOAGrantPermission2App);
+
     }
 }

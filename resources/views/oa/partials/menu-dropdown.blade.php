@@ -6,6 +6,6 @@
             <p>{{$oa_info['name']}}</p>
         </div>
         <a class="menu-item" href="{{route('oa-dashboard')}}">Xem thông tin</a>
-        <a class="menu-item" href="{{route('oa-token')}}">Đổi doanh nghiệp</a>
+        <a class="menu-item" href="/oa">Đổi doanh nghiệp</a>
     </div>
 </div>
