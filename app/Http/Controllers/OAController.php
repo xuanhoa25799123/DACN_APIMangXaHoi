@@ -74,7 +74,6 @@ class OAController extends Controller
             $result = $response->getDecodedBody(); // result
             array_push($followers,$result['data']);
         }
-        dd($followers);
         $oa_info = session('oa_info');
         $title="Người theo dõi";
         return view('oa.components.followers',compact('followers','oa_info','title'));
