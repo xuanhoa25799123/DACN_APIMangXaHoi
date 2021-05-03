@@ -89,7 +89,7 @@ Route::prefix('social')->group(function () {
     ]);
 });
 Route::prefix('oa')->group(function () {
-    Route::get('/',[
+    Route::get('/get-token',[
         'as'=>'oa-token',
         'uses'=>'App\Http\Controllers\OAController@getToken'
     ]);
@@ -97,7 +97,7 @@ Route::prefix('oa')->group(function () {
         'as'=>'oa-dashboard',
         'uses'=>'App\Http\Controllers\OAController@dashboard'
     ]);
-    Route::get('/home',[
+    Route::get('/',[
         'as'=>'oa-home',
         'uses'=>'App\Http\Controllers\OAController@home'
     ]);
