@@ -14,3 +14,42 @@
     </div>
 </div>
 </div>
+
+<div class="sidebar">
+    <div class="sidebar-logo-container">
+        <a class="sidebar-logo" href="/admin">
+            <p class="sidebar-logo-text">Zalo API</p>
+        </a>
+    </div>
+
+    <div class="sidebar-content">
+        <p class="sidebar-content-header">Zalo doanh nghiệp</p>
+        <a class="sidebar-item" href="route('oa-dashboard')">
+            <div class="sidebar-item-icon-container">
+                <i class="fa fa-home sidebar-item-icon"></i>
+            </div>
+            <p class='sidebar-item-text'>Trang chủ</p>
+        </a>
+        <a class="sidebar-item" href="{{route('oa-list')}}">
+            <div class="sidebar-item-icon-container">
+                <i class="fa fa-comments sidebar-item-icon"></i>
+            </div>
+            <p class='sidebar-item-text'>Danh sách người quan tâm</p>
+        </a>
+        <a class="sidebar-item" href="">
+            <div class="sidebar-item-icon-container">
+                <i class="fa fa-envelope-open sidebar-item-icon"></i>
+            </div>
+            <p class='sidebar-item-text'>Danh sách bài viết</p>
+        </a>
+
+        <p class="sidebar-content-header">Zalo xã hội</p>
+        <a class="sidebar-item" href="/dashboard">
+            <div class="sidebar-item-icon-container">
+                <i class="fa fa-out sidebar-item-icon"></i>
+            </div>
+            <p class='sidebar-item-text'>Quay lại</p>
+        </a>
+    </div>
+
+</div>
