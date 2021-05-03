@@ -24,7 +24,7 @@
 
     <div class="sidebar-content">
         <p class="sidebar-content-header">Zalo doanh nghiệp</p>
-        <a class="sidebar-item" href="route('oa-dashboard')">
+        <a class="sidebar-item" href="{{route('oa-home')}}">
             <div class="sidebar-item-icon-container">
                 <i class="fa fa-home sidebar-item-icon"></i>
             </div>

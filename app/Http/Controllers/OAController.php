@@ -39,8 +39,13 @@ class OAController extends Controller
             $result = $response->getDecodedBody();
             $oa_info = $result['data'];
             session(['oa_info' => $oa_info]);
-            $title="Trang chủ";
-            return view('oa.dashboard', compact('oa_info','title'));
+            home();
+    }
+    public function home()
+    {
+        $oa_info = session('oa_info');
+        $title="Trang chủ";
+        return view('oa.dashboard', compact('oa_info','title'));
     }
     public function followersList()
     {
@@ -79,6 +84,8 @@ class OAController extends Controller
     }
     public function createArticle()
     {
-
+        $callbackPageUrl = "https://zalo-app-api.herokuapp.com/oa/dashboard";
+        $linkOAGrantPermission2App = $this->helper->getLoginUrlByPage($callbackPageUrl);
+        return redirect($linkOAGrantPermission2App);
     }
 }
