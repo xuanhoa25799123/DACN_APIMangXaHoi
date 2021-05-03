@@ -1,6 +1,7 @@
 <div class="header">
     <div class="profile">
         <img class="user-img" alt="" src="{{$profile['picture']['data']['url']}}">
+        <div class="online-dot"></div>
         @include('partials.menu-dropdown')
     </div>
 </div>

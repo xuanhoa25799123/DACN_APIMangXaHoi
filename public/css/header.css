@@ -8,6 +8,8 @@
 /*}*/
 .profile{
    display:flex;
+    width:40px;
+    height:40px;
     align-items:center;
     margin-right:50px;
     position:relative;
@@ -15,8 +17,8 @@
 }
 
 .user-img{
-    width:40px;
-    height:40px;
+    width:100%;
+    height:100%;
     object-fit: contain;
     border-radius:50%;
 }
@@ -55,8 +57,16 @@
     padding:20px;
     display:flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     border-bottom:0.5px solid lightblue;
+}
+.online-dot{
+    width:5px;
+    height:5px;
+    background-color: #27fa27;
+    position:absolute;
+    right:5px;
+    bottom:5px;
 }
 .menu-item{
     width:100%;
