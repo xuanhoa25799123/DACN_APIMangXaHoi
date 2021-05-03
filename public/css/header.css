@@ -9,7 +9,7 @@
 .profile{
    display:flex;
     align-items:center;
-    margin-right:400px;
+    margin-right:50px;
     position:relative;
     cursor:pointer;
 }
@@ -67,6 +67,9 @@
 }
 .icon{
     margin:0 20px;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
 .menu-item:hover{
     color:grey;
