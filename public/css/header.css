@@ -27,17 +27,18 @@
 
 .menu-dropdown{
     position:absolute;
-    top:60px;
-    width:150px;
+    top:50px;
+    right:0;
+    width:200px;
     display:none;
 }
 .arrow-up{
-    margin-left:10px;
+    margin-left:120px;
     width:0;
     height:0;
-    border-bottom: 5px solid white;
-    border-right:5px solid transparent;
-    border-left:5px solid transparent;
+    border-bottom: 10px solid white;
+    border-right:10px solid transparent;
+    border-left:10px solid transparent;
 }
 .menu-container{
     display:flex;
@@ -55,7 +56,7 @@
     display:flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom:1px solid grey;
+    border-bottom:0.5px solid lightblue;
 }
 .menu-item{
     width:100%;
@@ -63,12 +64,17 @@
     display:flex;
     align-items:center;
     justify-content: space-between;
+    color:black;
+}
+.icon{
+    margin:0 20px;
 }
 .menu-item:hover{
     color:grey;
 }
 .header {
-    width: 100%;
+    width: inherit;
+    max-width:inherit;
     height: 80px;
     background-image: linear-gradient(to right, #9f78ff, #32cafe);
     background-repeat: repeat-x;

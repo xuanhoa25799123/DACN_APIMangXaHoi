@@ -25,6 +25,7 @@ a:hover,a:focus{
 }
 .right {
     width: 100%;
+    max-width:1098px;
     position: relative;
 }
 .content{
