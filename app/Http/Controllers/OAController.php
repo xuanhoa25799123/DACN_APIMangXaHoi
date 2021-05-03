@@ -39,7 +39,8 @@ class OAController extends Controller
             $result = $response->getDecodedBody();
             $oa_info = $result['data'];
             session(['oa_info' => $oa_info]);
-            return view('oa.dashboard', compact('oa_info'));
+            $title="Trang chủ";
+            return view('oa.dashboard', compact('oa_info','title'));
     }
     public function followersList()
     {
@@ -61,8 +62,8 @@ class OAController extends Controller
             array_push($followers,$result['data']);
         }
         $oa_info = session('oa_info');
-
-        return views('oa.components.followers',compact('followers','oa_info'));
+        $title="Người theo dõi";
+        return views('oa.components.followers',compact('followers','oa_info','title'));
     }
     public function articleList()
     {
@@ -74,7 +75,8 @@ class OAController extends Controller
        $data = $result->data;
        $articles = $data->medias;
         $oa_info = session('oa_info');
-       return views('oa.components.articles',compact('articles','oa_info'));
+        $title="Bài viết";
+       return views('oa.components.articles',compact('articles','oa_info','title'));
 
     }
     public function createArticle()
