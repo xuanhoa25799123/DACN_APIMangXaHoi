@@ -9,7 +9,7 @@
 .profile{
    display:flex;
     align-items:center;
-    margin-right:400px;
+    margin-right:50px;
     position:relative;
     cursor:pointer;
 }

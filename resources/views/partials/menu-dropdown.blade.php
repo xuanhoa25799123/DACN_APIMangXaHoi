@@ -6,6 +6,6 @@
             <p>{{$profile['name']}}</p>
         </div>
         <a class="menu-item" href="{{route('profile')}}"><i class="fa fa-user"></i>Xem thông tin</a>
-        <a class="menu-item" href="/"><i class="fa fa-power-off"Đăng xuất</a>
+        <a class="menu-item" href="/"><i class="fa fa-power-off"></i>Đăng xuất</a>
     </div>
 </div>
