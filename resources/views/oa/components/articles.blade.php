@@ -24,7 +24,7 @@
             <tbody>
             @foreach($articles as $article)
             <tr>
-                <th scope="row">{{$article['id']}}</th>
+                <th scope="row">1</th>
                 <td>{{date('d/m/Y',$article['create_date'])}}</td>
                 <td> <img src="{{$article['thumb']}}" alt=""></td>
                 <td> {{$article['title']}}</td>
