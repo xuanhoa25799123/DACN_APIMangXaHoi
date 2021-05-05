@@ -88,6 +88,7 @@ class OAController extends Controller
        $articles = $data->medias;
         $oa_info = session('oa_info');
         $title="Bài viết";
+        dd($articles);
        return view('oa.components.articles',compact('articles','oa_info','title'));
     }
     public function createArticle()

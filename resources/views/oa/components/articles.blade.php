@@ -2,15 +2,16 @@
 
 @section('css')
     <link rel="stylesheet" href="{{asset('/css/article.css')}}">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 @endsection
 @section('js')
-
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 @endsection
 @section('content')
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">ID</th>
+                <th scope="col">#</th>
                 <th scope="col">Ngày xuất bản</th>
                 <th scope="col">Hình đại diện</th>
                 <th scope="col">Tên bài viết</th>
