@@ -198,6 +198,9 @@ Route::prefix('test')->group(function () {
         'as'=>'test-article',
         'uses'=>'App\Http\Controllers\TestController@articleList',
     ]);
+    Route::get('/test-date',[
+        'uses'=>'App\Http\Controllers\TestController@testDate',
+    ]);
 });
 
 //Route::get('/add/{id}', [

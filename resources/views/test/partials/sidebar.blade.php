@@ -50,6 +50,12 @@
             </div>
             <p class='sidebar-item-text'>Tạo bài viết</p>
         </a>
+        <a class="sidebar-item" href="/test/test-date">
+            <div class="sidebar-item-icon-container">
+                <i class="fa fa-edit sidebar-item-icon"></i>
+            </div>
+            <p class='sidebar-item-text'>Test date</p>
+        </a>
     </div>
 
 </div>

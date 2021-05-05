@@ -324,4 +324,10 @@ class TestController extends Controller
         dd(json_decode($res->getBody()));
 
     }
+    public function testDate()
+    {
+        $time = 1619749166;
+        $time2 = 1617795697;
+        dd(Date(date('Y-m-d H:i:s',$time)),Date(date('Y-m-d H:i:s',$time2)));
+    }
 }

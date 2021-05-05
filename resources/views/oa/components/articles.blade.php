@@ -25,7 +25,7 @@
             @foreach($articles as $index=>$article)
             <tr>
                 <th scope="row">{{$index}}</th>
-                <td>{{date('Y-m-d H:i:s',$article->create_date)}}</td>
+                <td>{{date('Y-m-d H:i:s',substr((string)$article->create_date,0,10))}} Cập nhật lần cuối vào {{date('Y-m-d H:i:s',substr((string)$article->update_date,0,10))}}</td>
                 <td> <img class="article-image" src="{{$article->thumb}}" alt=""></td>
                 <td> {{$article->title}}</td>
                 <td> {{$article->total_view}}</td>
