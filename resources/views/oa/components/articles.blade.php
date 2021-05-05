@@ -7,7 +7,6 @@
 
 @endsection
 @section('content')
-    <div class="article-container">
         <table class="table">
             <thead>
             <tr>
@@ -24,14 +23,14 @@
             <tbody>
             @foreach($articles as $article)
             <tr>
-                <th scope="row">{{$article['id']}}</th>
-                <td>{{date('d/m/Y',$article['create_date'])}}</td>
-                <td> <img src="{{$article['thumb']}}" alt=""></td>
-                <td> {{$article['title']}}</td>
-                <td> {{$article['total_view']}}</td>
-                <td>{{$article['total_share']}}</td>
+                <th scope="row">{{$article->id}}</th>
+                <td>{{date('d/m/Y',$article->create_date)}}</td>
+                <td> <img src="{{$article->thumb}}" alt=""></td>
+                <td> {{$article->title}}</td>
+                <td> {{$article->total_view}}</td>
+                <td>{{$article->total_share}}</td>
                 <td>
-                    @if($article['status']=="show")
+                    @if($article->status=="show")
                     <label class="checkbox-inline">
                         <input type="checkbox" checked data-toggle="toggle">
                     </label>
@@ -49,5 +48,4 @@
             @endforeach
             </tbody>
         </table>
-    </div>
 @endsection
