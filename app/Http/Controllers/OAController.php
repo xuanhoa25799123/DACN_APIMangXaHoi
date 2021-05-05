@@ -86,6 +86,7 @@ class OAController extends Controller
        $result = json_decode($res->getBody());
        $data = $result->data;
        $articles = $data->medias;
+       dd($articles);
         $oa_info = session('oa_info');
         $title="Bài viết";
        return view('oa.components.articles',compact('articles','oa_info','title'));
