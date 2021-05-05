@@ -48,8 +48,15 @@
     border-radius: 5px;
 }
 .sidebar-item:hover {
-    background-color: aqua;
+    color: #fa626b;
 }
+.sidebar-item:hover > .sidebar-item-text {
+    color: #fa626b;
+    transform: translateX(10px);
+    transition: all 0.3s ease, -webkit-transform 0.3s ease,
+    -moz-transform 0.3s ease, -o-transform 0.3s ease;
+}
+
 
 .sidebar-item-icon-container {
     width: 40px;
