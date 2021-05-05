@@ -1,7 +1,7 @@
 @extends('oa.layouts.admin')
 
 @section('css')
-
+    <link rel="stylesheet" href="{{asset('/css/article.css')}}">
 @endsection
 @section('js')
 
@@ -21,11 +21,11 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($articles as $article)
+            @foreach($articles as $index=>$article)
             <tr>
-                <th scope="row">{{$article->id}}</th>
-                <td>{{date('d/m/Y',$article->create_date)}}</td>
-                <td> <img src="{{$article->thumb}}" alt=""></td>
+                <th scope="row">{{$index}}</th>
+                <td>{{date('Y-m-d H:i:s',$article->create_date)}}</td>
+                <td> <img class="article-image" src="{{$article->thumb}}" alt=""></td>
                 <td> {{$article->title}}</td>
                 <td> {{$article->total_view}}</td>
                 <td>{{$article->total_share}}</td>
