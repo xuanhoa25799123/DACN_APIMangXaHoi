@@ -1,7 +1,9 @@
 .background{
     width:100vw;
     height:100vh;
-    background-image:url('https://wallpapercave.com/wp/wp7475942.png');
+    /*background-image:url('https://wallpapercave.com/wp/wp7475942.png');*/
+    background-image:url('https://icreativ.pro/blog/wp-content/uploads/2019/07/zalo-api-php-goi-zalo-api-tu-trinh-duyet.jpg');
+
     background-size:cover;
     filter:brightness(60%);
 }

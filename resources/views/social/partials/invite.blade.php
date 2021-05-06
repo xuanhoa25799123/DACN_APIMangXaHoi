@@ -7,7 +7,7 @@
         </div>
         <div class="item-footer">
             <p class="name">{{$friend['name']}}</p>
-            <a class="send-message" href="{{route('test-send-invite',['id'=>$friend['id']])}}"><i class="fa fa-send"></i> Mời tham gia</a>
+            <a class="send-message" href="{{route('test-send-invite',['id'=>$friend['id']])}}"></i> Mời tham gia</a>
         </div>
     </div>
 @endforeach

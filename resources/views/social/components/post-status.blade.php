@@ -21,7 +21,7 @@
                 <label>Tin nhắn</label>
                 <textarea class="form-control" name="message"></textarea>
             </div>
-            <button type="button" class="btn btn-primary send-btn"><i class="fa fa-send"></i>&nbsp;Đăng bài viết</button>
+            <button type="button" class="btn btn-primary send-btn">Đăng bài viết</button>
         </div>
         <div class="preview-container">
             <div class="preview-header">
