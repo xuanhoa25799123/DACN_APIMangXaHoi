@@ -107,7 +107,7 @@ $(document).ready(function() {
     })
     $('.delete-btn').on('click',function(){
         $('input[name=link]').val('');
-        $('input[name=message]').val('');
+        $('textarea[name=message]').val('');
     })
 });
 
