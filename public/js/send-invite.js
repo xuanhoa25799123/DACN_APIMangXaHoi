@@ -100,6 +100,9 @@ $(document).ready(function() {
 
         });
     })
+    $('.delete-btn').on('click',function(){
+        $('textarea[name=message]').val('');
+    })
 });
 
 

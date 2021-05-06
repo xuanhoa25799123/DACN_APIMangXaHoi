@@ -8,6 +8,8 @@
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 @endsection
 @section('content')
+
+        <a href="{{route('oa-create-article')}}" class="btn btn-primary">Tạo bài viết mới</a>
         <table class="table">
             <thead>
             <tr>

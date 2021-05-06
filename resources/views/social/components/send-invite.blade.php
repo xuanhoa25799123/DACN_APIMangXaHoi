@@ -31,7 +31,7 @@
                 <textarea class="form-control" name="message"></textarea>
             </div>
             <button type="button" class="btn btn-primary invite-btn"><i class="fa fa-send"></i>&nbsp;Gửi lời mời</button>
-            <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i>&nbsp;Xoá nội dung</button>
+            <button type="button" class="btn btn-danger delete-btn"><i class="fa fa-trash"></i>&nbsp;Xoá nội dung</button>
         </div>
     </div>
     <div class="preview-container">
