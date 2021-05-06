@@ -15,7 +15,7 @@
         </div>
         <div class="form-group">
             <label>Trích dẫn</label>
-            <textarea class="form-group" rows="5" maxlength="300"></textarea>
+            <textarea class="form-control" rows="5" maxlength="300"></textarea>
         </div>
         <div class="form-group">
             <label>Tác giả</label>
@@ -23,7 +23,7 @@
         </div>
         <div class="form-group">
             <label>Nội dung</label>
-            <textarea class="form-group" name="content" rows="10"></textarea>
+            <textarea class="form-control" name="content" rows="10"></textarea>
         </div>
     </form>
 

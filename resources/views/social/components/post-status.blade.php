@@ -22,7 +22,6 @@
                 <textarea class="form-control" name="message"></textarea>
             </div>
             <button type="button" class="btn btn-primary send-btn"><i class="fa fa-send"></i>&nbsp;Đăng bài viết</button>
-            <button type="button" class="btn btn-danger delete-btn"><i class="fa fa-trash"></i>&nbsp;Xoá nội dung</button>
         </div>
         <div class="preview-container">
             <div class="preview-header">

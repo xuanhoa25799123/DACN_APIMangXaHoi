@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Faker\Provider\DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Str;
 use Zalo\Zalo;
 use Zalo\ZaloEndPoint;
 use Goutte\Client;
@@ -111,7 +112,8 @@ class ZaloController extends Controller
         }
         else {
             foreach ($frs as $fr) {
-                if (stripos($fr['name'], $keyword) == true||stripos($fr['name'], $keyword) ===0) {
+
+                if ( stripos( Str::slug($fr['name']),  Str::slug($keyword)) == true|| stripos(Str::slug($fr['name']),  Str::slug($keyword)) ===0) {
                     array_push($friends, $fr);
                 }
             }
@@ -129,7 +131,7 @@ class ZaloController extends Controller
         }
         else {
             foreach ($frs as $fr) {
-                if (stripos($fr['name'], $keyword) == true||stripos($fr['name'], $keyword) ===0) {
+                if (stripos(Str::slug($fr['name']), Str::slug($keyword)) == true||stripos(Str::slug($fr['name']), Str::slug($keyword)) ===0) {
                     array_push($friends, $fr);
                 }
             }
