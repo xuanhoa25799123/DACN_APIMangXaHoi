@@ -11,7 +11,7 @@
     <form action="" method="POST">
         <div class="form-group">
             <label>Tiêu đề (*)</label>
-            <input class="form-control" name="title" placeholder="Tiêu đề bài viết" maxlength="50" ">
+            <input class="form-control" name="title" placeholder="Tiêu đề bài viết" maxlength="50">
         </div>
         <div class="form-group">
             <label>Trích dẫn</label>
