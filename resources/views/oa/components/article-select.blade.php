@@ -17,7 +17,7 @@
                     </div>
                     <p class="article-item-text">Bài viết văn bản</p>
                 </a>
-                <a class="article-item" href="{{route('video-article'}}">
+                <a class="article-item" href="{{route('video-article')}}">
                     <div class="article-item-circle">
                         <i class="article-item-icon fa fa-play"></i>
                     </div>
