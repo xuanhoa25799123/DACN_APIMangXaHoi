@@ -23,7 +23,7 @@
         <div class="form-group inline-form">
             <label>Video</label>
             <label for="upload-video" class="input-video">
-                <i class="fa fa-video photo-icon"></i>
+                <i class="fa fa-film photo-icon"></i>
                 <p class="photo-text">Click để chọn video</p>
             </label>
             <input type="file" name="video" id="upload-video" />
@@ -33,10 +33,10 @@
                 <div class="form-group">
                     <label>Ảnh đại diện</label>
                     <label for="upload-photo" class="cover-photo">
-                        <i class="fa fa-images photo-icon"></i>
+                        <i class="fa fa-image photo-icon"></i>
                         <p class="photo-text">Chọn ảnh cover sẽ xuất hiện khi video được chọn</p>
                     </label>
-                    <input type="file" name="photo" id="upload-photo" />
+                    <input type="file" name="photo" id="upload-photo" >
                 </div>
             </div>
         </div>

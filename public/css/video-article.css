@@ -1,12 +1,22 @@
-.input-video{
-    width:80%;
-    height:500px;
-    display:flex;
+.input-video {
+    width: 80%;
+    height: 400px;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-style: dotted;
+    border-style: ridge;
+    cursor: pointer;
 }
-.photo-icon{
-    font-size:20px;
+.photo-icon {
+    font-size: 20px;
+}
+#upload-video {
+    display: none;
+}
+#upload-photo {
+    display: none;
+}
+.photo-text {
+    font-weight: normal;
 }
