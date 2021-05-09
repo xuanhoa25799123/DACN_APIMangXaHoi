@@ -91,16 +91,22 @@ class OAController extends Controller
 
        return view('oa.components.articles',compact('articles','oa_info','title'));
     }
-    public function createArticle()
-    {
-        $oa_info = session('oa_info');
-        $title="Tạo bài viết";
-        return view('oa.components.create-article',compact('oa_info','title'));
-    }
     public function selectArticle()
     {
         $oa_info = session('oa_info');
         $title="Chọn bài viết";
         return view('oa.components.article-select',compact('oa_info','title'));
+    }
+    public function createTextArticle()
+    {
+        $oa_info = session('oa_info');
+        $title="Tạo bài viết văn bản";
+        return view('oa.components.create-text-article',compact('oa_info','title'));
+    }
+    public function createVideoArticle()
+    {
+        $oa_info = session('oa_info');
+        $title="Tạo bài viết video";
+        return view('oa.components.create-video-article',compact('oa_info','title'));
     }
 }

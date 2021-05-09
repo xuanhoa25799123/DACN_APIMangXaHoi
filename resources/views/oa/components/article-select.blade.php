@@ -11,13 +11,13 @@
         <div class="article-select-container">
             <p class="article-select-header">Chọn loại bài viết</p>
             <div class="article-container">
-                <a class="article-item">
+                <a class="article-item" href="{{route('create-text-article')}}">
                     <div class="article-item-circle">
                         <i class="article-item-icon fa fa-text"></i>
                     </div>
                     <p class="article-item-text">Bài viết văn bản</p>
                 </a>
-                <a class="article-item">
+                <a class="article-item" href="{{route('create-video-article'}}">
                     <div class="article-item-circle">
                         <i class="article-item-icon fa fa-video"></i>
                     </div>
