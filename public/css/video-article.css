@@ -20,3 +20,14 @@
 .photo-text {
     font-weight: normal;
 }
+
+.cover-photo {
+    width: 90%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-style: ridge;
+    cursor: pointer;
+}

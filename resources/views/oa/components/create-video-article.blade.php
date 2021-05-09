@@ -12,7 +12,7 @@
     <form action="" method="POST">
         <div class="create-container">
             <div class="left-content">
-        <div class="form-group form-inline">
+        <div class="form-group inline-form">
             <label>Tiêu đề</label>
             <input class="form-control" name="title" maxlength="150">
         </div>
