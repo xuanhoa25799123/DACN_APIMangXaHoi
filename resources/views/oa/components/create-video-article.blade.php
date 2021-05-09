@@ -2,6 +2,7 @@
 
 @section('css')
     <link rel="stylesheet" href="{{asset('/css/create-article.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/video-article.css')}}">
 
 @endsection
 @section('js')
@@ -10,9 +11,10 @@
 @section('content')
     <form action="" method="POST">
         <div class="create-container">
+            <div class="left-content">
         <div class="form-group form-inline">
             <label>Tiêu đề</label>
-            <input class="form-control" name="title" placeholder="Tiêu đề bài viết" maxlength="50">
+            <input class="form-control" name="title" maxlength="150">
         </div>
         <div class="form-group inline-form">
             <label>Trích dẫn</label>
@@ -20,8 +22,23 @@
         </div>
         <div class="form-group inline-form">
             <label>Video</label>
-            <input class="form-control" name="author">
+            <label for="upload-video" class="input-video">
+                <i class="fa fa-video photo-icon"></i>
+                <p class="photo-text">Click để chọn video</p>
+            </label>
+            <input type="file" name="video" id="upload-video" />
         </div>
+            </div>
+            <div class="right-content">
+                <div class="form-group">
+                    <label>Ảnh đại diện</label>
+                    <label for="upload-photo" class="cover-photo">
+                        <i class="fa fa-images photo-icon"></i>
+                        <p class="photo-text">Chọn ảnh cover sẽ xuất hiện khi video được chọn</p>
+                    </label>
+                    <input type="file" name="photo" id="upload-photo" />
+                </div>
+            </div>
         </div>
     </form>
 

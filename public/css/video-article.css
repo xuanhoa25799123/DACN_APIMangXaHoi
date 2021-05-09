@@ -1,0 +1,12 @@
+.input-video{
+    width:80%;
+    height:500px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-style: dotted;
+}
+.photo-icon{
+    font-size:20px;
+}
