@@ -1,0 +1,19 @@
+.create-container{
+    display:flex;
+    justify-content:space-between;
+}
+
+.left-content{
+    width:70%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.right-content{
+    width:30%;
+}
+
+.inline-form{
+    display:flex;
+    justify-content: space-between;
+}
