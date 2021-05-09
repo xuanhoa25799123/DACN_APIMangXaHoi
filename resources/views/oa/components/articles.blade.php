@@ -9,7 +9,7 @@
 @endsection
 @section('content')
 
-        <a href="{{route('oa-create-article')}}" class="btn btn-primary">Tạo bài viết mới</a>
+        <a href="{{route('oa-article-select')}}" class="btn btn-primary">Tạo bài viết mới</a>
         <table class="table">
             <thead>
             <tr>

@@ -97,4 +97,10 @@ class OAController extends Controller
         $title="Tạo bài viết";
         return view('oa.components.create-article',compact('oa_info','title'));
     }
+    public function selectArticle()
+    {
+        $oa_info = session('oa_info');
+        $title="Chọn bài viết";
+        return view('oa.components.article-select',compact('oa_info','title'));
+    }
 }

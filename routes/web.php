@@ -110,9 +110,9 @@ Route::prefix('oa')->group(function () {
         'as'=>'oa-article',
         'uses'=>'App\Http\Controllers\OAController@articleList',
     ]);
-    Route::get('/create-article',[
-        'as'=>'oa-create-article',
-        'uses'=>'App\Http\Controllers\OAController@createArticle',
+    Route::get('/select-article',[
+        'as'=>'oa-article-select',
+        'uses'=>'App\Http\Controllers\OAController@selectArticle',
     ]);
 });
 
