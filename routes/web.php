@@ -115,11 +115,11 @@ Route::prefix('oa')->group(function () {
         'uses'=>'App\Http\Controllers\OAController@selectArticle',
     ]);
     Route::get('/create-text-article',[
-        'as'=>'create-text-article',
+        'as'=>'text-article',
         'uses'=>'App\Http\Controllers\OAController@createTextArticle',
     ]);
     Route::get('/create-text-article',[
-        'as'=>'create-video-article',
+        'as'=>'video-article',
         'uses'=>'App\Http\Controllers\OAController@createVideoArticle',
     ]);
 });
