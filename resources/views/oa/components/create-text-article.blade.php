@@ -8,8 +8,9 @@
 
 @endsection
 @section('content')
-    <div class="create-container">
+
     <form action="" method="POST">
+        <div class="create-container">
         <div class="left-content">
         <div class="form-group inline-form">
             <label>Tiêu đề</label>
@@ -33,7 +34,8 @@
                 <label>Chọn ảnh đại diện</label>
             </div>
         </div>
+        </div>
     </form>
-    </div>
+
 
 @endsection
