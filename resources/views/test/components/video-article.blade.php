@@ -1,4 +1,4 @@
-@extends('oa.layouts.admin')
+@extends('test.layouts.admin')
 
 @section('css')
     <link rel="stylesheet" href="{{asset('/css/create-article.css')}}">
