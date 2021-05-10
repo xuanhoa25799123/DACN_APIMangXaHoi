@@ -330,4 +330,10 @@ class TestController extends Controller
         $time2 = 1617795697;
         dd(Date(date('Y-m-d H:i:s',$time)),Date(date('Y-m-d H:i:s',$time2)));
     }
+    public function videoArticle()
+    {
+           $profile=session('profile');
+        $title = "Article";
+        return view('test.components.video-article',compact('profile','title'));
+    }
 }
