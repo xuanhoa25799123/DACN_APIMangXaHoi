@@ -41,6 +41,20 @@
     text-align: center;
     position: relative;
 }
+.cover-image {
+    width: 90%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-style: dashed;
+    border-color: coral;
+    border-width: thin;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+}
 
 #cover-image {
     display: none;

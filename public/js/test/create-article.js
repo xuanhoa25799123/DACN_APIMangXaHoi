@@ -1,5 +1,6 @@
 $(document).ready(function() {
-    $('#upload-image').on('change',function(e) {
+    $('#upload-photo').on('change',function(e) {
+        console.log("asdasd");
         const image = e.target.files[0];
         var pattern = /image-*/;
         if (!image.type.match(pattern)) {
@@ -8,8 +9,7 @@ $(document).ready(function() {
         }
         let reader = new FileReader();
         $("#cover-image").css('display','initial');
-            $(".image-info").css('display','none');
-        $('.cover-image').addClass("hasImg");
+        $('.cover-photo').addClass("hasImg");
          let imgtag = document.getElementById('cover-image');
         reader.onload=function(e)
         {
@@ -31,7 +31,7 @@ $(document).ready(function() {
         $source.parent()[0].load();
             $(".video-change").css("display","initial");
         $(".video-player").css("display","initial");
-         $(".video-info").css('display','none');
+         $(".temp").css('display','none');
           }
     });
     $('.submit-button').on('click',function(e) {
@@ -39,7 +39,21 @@ $(document).ready(function() {
          let link = $("#link").val();
          let video = $('#upload-video').prop('files');
          console.log(video[0]);
-            let cover = $('#upload-image').prop('files');
+        // console.log(input_video);
+              let cover = $('#upload-photo').prop('files');
+              console.log(cover[0]);
+        //  let cover = input_cover.files[0];
+         if(!video)
+         {
+              Swal.fire({
+                    title: 'Thông tin',
+                    text: "Chọn video",
+                    icon: 'info',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText:"OK",        
+                })
+         }
+         video = video[0];
          let url = $(this).data('href');
             $.ajax({
             url: url,
@@ -63,7 +77,7 @@ $(document).ready(function() {
                   
                 }).then(result=>{
            
-                        window.location.href="/oa";
+                        window.location.href="/test/dashboard";
         
                 })
             }

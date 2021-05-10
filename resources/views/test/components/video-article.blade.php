@@ -6,7 +6,7 @@
 
 @endsection
 @section('js')
-        <script src="{{asset('/js/create-article.js')}}"></script>
+        <script src="{{asset('/js/test/create-article.js')}}"></script>
             <script src="{{asset('plugins/sweetalert2/sweetalert2@10.js')}}"></script>
 @endsection
 @section('content')
@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <button type="button" class="btn btn-primary submit-button">Xuất bản</button>
+        <button type="button" data-href="/create-video" class="btn btn-primary submit-button">Xuất bản</button>
     </form>
 
 @endsection

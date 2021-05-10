@@ -336,4 +336,8 @@ class TestController extends Controller
         $title = "Article";
         return view('test.components.video-article',compact('profile','title'));
     }
+    public function createVideo(Request $request)
+    {
+        return $request->json(['success'=>true]);
+    }
 }
