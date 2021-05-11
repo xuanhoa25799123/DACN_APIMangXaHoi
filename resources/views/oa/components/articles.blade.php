@@ -13,26 +13,26 @@
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Ngày xuất bản</th>
-                <th scope="col">Hình đại diện</th>
-                <th scope="col">Tên bài viết</th>
-                <th scope="col">Lượt xem</th>
-                <th scope="col">Lượt chia sẻ</th>
-                <th scope="col">Trạng thái</th>
-                <th scope="col">Thao tác</th>
+                <th style="width:8%;text-align:center" scope="col">#</th>
+                <th style="width:15%" scope="col">Ngày xuất bản</th>
+                <th style="width:10%;text-align:center"scope="col">Hình đại diện</th>
+                <th style="width:20%"scope="col">Tên bài viết</th>
+                <th style="width:8%;text-align:center"scope="col">Lượt xem</th>
+                <th style="width:8%;text-align:center"scope="col">Lượt chia sẻ</th>
+                <th style="width:8%;text-align:center"scope="col">Trạng thái</th>
+                <th style="width:20%;text-align:center"scope="col">Thao tác</th>
             </tr>
             </thead>
             <tbody>
             @foreach($articles as $index=>$article)
             <tr>
-                <th scope="row">{{$index}}</th>
+                <th style="text-align:center" scope="row">{{$index}}</th>
                 <td>{{date('d-m-Y H:i:s',substr((string)$article->create_date,0,10))}} <p>Cập nhật lần cuối vào {{date('d-m-Y H:i:s',substr((string)$article->update_date,0,10))}}</p></td>
-                <td> <img class="article-image" src="{{$article->thumb}}" alt=""></td>
+                <td  style="text-align:center"> <img class="article-image" src="{{$article->thumb}}" alt=""></td>
                 <td> {{$article->title}}</td>
-                <td> {{$article->total_view}}</td>
-                <td>{{$article->total_share}}</td>
-                <td>
+                <td  style="text-align:center"> {{$article->total_view}}</td>
+                <td  style="text-align:center">{{$article->total_share}}</td>
+                <td  style="text-align:center">
                     @if($article->status=="show")
                     <label class="checkbox-inline">
                         <input type="checkbox" checked data-toggle="toggle">
@@ -44,7 +44,7 @@
                         @endif
                 </td>
 
-                <td><button type="button" class="btn btn-outline-primary"><i class="fa fa-edit"></i>&nbsp; Sửa</button>
+                <td  style="text-align:center"><button type="button" class="btn btn-outline-primary"><i class="fa fa-edit"></i>&nbsp; Sửa</button>
                     <button type="button" class="btn btn-outline-primary">Khác</button>
                 </td>
             </tr>
