@@ -10,15 +10,14 @@
 
 @section('content')
     <div class="oa-dashboard">
-        <div class="oa-dashboard-header">
-        <p class="oa-dashboard-name">{{$oa_info['name']}}</p>
-            <p class="oa-dashboard-sub-name">{{$oa_info['oa_id']}}</p>
-            <p class="oa-dashboard-sub-name">{{$oa_info['description']}}</p>
-        </div>
         <div class="image-container">
-            <img alt="" src="{{$oa_info['cover']}}" class="background-image">
-            <img alt="" src="{{$oa_info['avatar']}}" class="oa-image">
+             <img alt="" src="{{$oa_info['cover']}}" class="background-image">
         </div>
+        <div class="logo-container">
+          <img alt="" src="{{$oa_info['avatar']}}" class="oa-image">
+            <p class="oa-dashboard-name">{{$oa_info['name']}}</p>
+        </div>
+            <p class="oa-dashboard-sub-name">{{$oa_info['description']}}</p>
 
 </div>
 
