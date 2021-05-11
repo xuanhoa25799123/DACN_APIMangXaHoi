@@ -143,7 +143,7 @@ class OAController extends Controller
         }
         else {
             foreach ($frs as $fr) {
-                if (stripos(Str::slug($fr['name']), Str::slug($keyword)) == true||stripos(Str::slug($fr['name']), Str::slug($keyword)) ===0) {
+                if (stripos(Str::slug($fr['display_name']), Str::slug($keyword)) == true||stripos(Str::slug($fr['name']), Str::slug($keyword)) ===0) {
                     array_push($followers, $fr);
                 }
             }
