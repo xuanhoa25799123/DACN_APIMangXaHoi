@@ -55,8 +55,9 @@
                             <div class="image-info">
                                 <div class="sub-image-info">
                                  <i class="fa fa-image icon"></i>
+                                    <p class="photo-text">Nhập url của ảnh</p>
                                  </div>
-                                <p class="photo-text">Nhập url của ảnh</p>
+                             
                                       <div class="image-preview">
                                     <img src="" class="preview-image">
                               </div>

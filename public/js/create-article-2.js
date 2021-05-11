@@ -3,11 +3,11 @@ $(document).ready(function() {
         let src = $(this).val();
         if(src=="")
         {
-              $('.image-info').css('display','flex');
+              $('.sub-image-info').css('display','flex');
               $('.image-preview').css('display','none');
         }
         else{
-        $('.image-info').css('display','none'); 
+        $('.sub-image-info').css('display','none'); 
         $('.preview-image').attr('src',src);
         $('.image-preview').css('display','initial');
         }
