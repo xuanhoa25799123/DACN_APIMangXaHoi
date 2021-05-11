@@ -39,7 +39,7 @@
                     </div>
                     <div class="cover-content">
                         <div class="select-content video-content">
-                            <div class="video-info">
+                            <div class="video-info"  data-toggle="modal" data-target="#exampleModal">
                                 <div class="sub-video-info">
                               <i class="fa fa-film icon"></i>
                               <p class="photo-text">Click để chọn video</p>
@@ -68,7 +68,22 @@
                 </div>
             </div>
         </div>
+        <div class="video-popup">
+            <div class="close-video-popup">
+                <i class="fa fa-close"></i>
+                X
+            </div>
+            <p>Chọn video</p>
+            <div class="video-container">
+                
+                @foreach($videos as $video)
+                    <div class="video-image">
+                        <img src="{{$video->thumb}}" class="video-thumb">
+                    </div>
+            </div>
         </div>
+        </div>
+
     </form>
 
 

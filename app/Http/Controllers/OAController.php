@@ -100,12 +100,22 @@ class OAController extends Controller
     public function createTextArticle()
     {
         $oa_info = session('oa_info');
+        $accessToken = session('access_token');
+              $client = new \GuzzleHttp\Client();
+        $response = $client->get('https://openapi.zalo.me/v2.0/article/getslice',['query'=>[
+               'offset'=>0,
+               'type'=>'video',
+               'access_token'=>$accessToken
+           ]]);
+           $videos = json_decode($response->getBody()->medias);
+
         $title="Tạo bài viết văn bản";
-        return view('oa.components.create-article',compact('oa_info','title'));
+        return view('oa.components.create-article',compact('oa_info','title','videos'));
     }
     public function createVideoArticle()
     {
         $oa_info = session('oa_info');
+        
         $title="Tạo bài viết video";
         return view('oa.components.create-video-article',compact('oa_info','title'));
     }

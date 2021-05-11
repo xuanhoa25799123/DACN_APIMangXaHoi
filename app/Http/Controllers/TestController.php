@@ -354,9 +354,30 @@ class TestController extends Controller
                     'video_id'=>'657c3ff306b6efe8b6a7',
                     'status'=>'show',
         ]);
-           $result = $client->request('POST',$url3,['body'=>$data]);
+        //    $result = $client->request('POST',$url3,['body'=>$data]);
+           $result = $client->get('https://openapi.zalo.me/v2.0/article/getslice',['query'=>[
+               'offset'=>0,
+               'limit'=>5,
+               'type'=>'video',
+               'access_token'=>$accessToken
+           ]]);
+           $rs = json_decode($result->getBody());
+        //    forEach($rs->data->medias as $item)
+        //    {
+        //         //   return response()->json(['success'=>true,'result'=>  $item->id]);
+        //        $id = $item->id;
+        //         $detail = $client->get('https://openapi.zalo.me/v2.0/article/getdetail',['query'=>[
+        //             'id'=>$id,
+        //             'access_token'=>$accessToken
+        //         ]]);
+        //         $abc = json_decode($detail->getBody());
+                   
+        //         $video_id = $abc->data->video_id;
+        //             return response()->json(['success'=>true,'result'=>  $abc]);
+        //         $item->video_id = $video_id;
+        //    }
         //  $result = $client->get($url2);
 
-        return response()->json(['success'=>true,'result'=>json_decode($result->getBody())]);
+        return response()->json(['success'=>true,'result'=>json_decode($rs)]);
     }
 }

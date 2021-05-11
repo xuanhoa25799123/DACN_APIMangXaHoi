@@ -24,4 +24,11 @@ $(document).ready(function() {
         $('.image-content').css('display','flex');
         $('.video-content').css('display','none');
     })
+    $('.video-info').on('click',function(){
+        $('.video-popup').css('display','flex');
+        
+    })
+    $('.close-video-popup').on('click',function(){
+        $('.video-popup').css('display','none');
+    })
 });
