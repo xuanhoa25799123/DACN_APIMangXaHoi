@@ -6,7 +6,7 @@ $(document).ready(function() {
             keyword="*";
         }
         $.ajax({
-            url: '/list/'+keyword,
+            url: '/oa/list/'+keyword,
             type: 'get',
             dataType: 'json',
             success: function(response) {
