@@ -100,7 +100,7 @@ class OAController extends Controller
     public function createTextArticle()
     {
         $oa_info = session('oa_info');
-        $accessToken = session('$oa_token');
+        $accessToken = session('oa_token');
               $client = new \GuzzleHttp\Client();
         $response = $client->get('https://openapi.zalo.me/v2.0/article/getslice',['query'=>[
                'offset'=>0,
@@ -108,7 +108,7 @@ class OAController extends Controller
                'access_token'=>$accessToken
            ]]);
            $rs= json_decode($response->getBody());
-            dd($rs);
+            // dd($rs);
            $videos = $rs->data->medias;
 
         $title="Tạo bài viết văn bản";
