@@ -59,12 +59,3 @@
     text-align: center;
     position: relative;
 }
-.header {
-    display: flex;
-    align-items: center;
-}
-
-.search {
-    width: 230px;
-    margin-right: 6px;
-}

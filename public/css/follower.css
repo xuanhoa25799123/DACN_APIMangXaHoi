@@ -9,3 +9,16 @@ td {
     text-align: center;
     vertical-align: middle;
 }
+
+.follower-header {
+    display: flex;
+    align-items: center;
+}
+
+.search {
+    width: 230px;
+    margin-right: 6px;
+    border-radius: 5px;
+    color: #464855;
+    outline: none;
+}
