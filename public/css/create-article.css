@@ -47,12 +47,14 @@
 }
 
 .video-button {
-    width: 30%;
+    width: 40%;
     background-color: none;
+    border: none;
+    outline: none;
 }
 
 .image-button {
-    width: 30%;
+    width: 40%;
     background-color: none;
     border: none;
     outline: none;
@@ -60,6 +62,7 @@
 .active-button {
     border-radius: 5px 5px 0 0;
     background-color: white;
+    border: 1px solid lightblue;
     border-bottom: none;
 }
 .cover-content {

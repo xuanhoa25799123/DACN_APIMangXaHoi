@@ -5,7 +5,7 @@
 
 @endsection
 @section('js')
- <link rel="stylesheet" href="{{asset('/js/create-article-2.js')}}">
+ <script src="{{asset('/js/create-article-2.js')}}"></script>
 @endsection
 @section('content')
 
