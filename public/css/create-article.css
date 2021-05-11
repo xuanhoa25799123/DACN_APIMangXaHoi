@@ -48,14 +48,14 @@
 
 .video-button {
     width: 40%;
-    background-color: none;
+    background: none;
     border: none;
     outline: none;
 }
 
 .image-button {
     width: 40%;
-    background-color: none;
+    background: none;
     border: none;
     outline: none;
 }

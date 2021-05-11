@@ -8,13 +8,13 @@ $(document).ready(function() {
     $('.video-button').on('click',function(){
         $(this).addClass('active-button');
         $('.image-button').removeClass('active-button');
-        $('.image-info').css('display','none');
-        $('.video-info').css('display','initial');
+        $('.video-content').css('display','flex');
+        $('.image-content').css('display','initial');
     })
      $('.image-button').on('click',function(){
         $(this).addClass('active-button');
         $('.video-button').removeClass('active-button');
-        $('.image-info').css('display','initial');
-        $('.video-info').css('display','none');
+        $('.image-content').css('display','flex');
+        $('.video-content').css('display','none');
     })
 });
