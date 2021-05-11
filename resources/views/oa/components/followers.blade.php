@@ -9,8 +9,8 @@
 @section('content')
     <div class="follower-header">
         <p class="total">Tổng số: <strong>{{$total}}</strong></p>
-        <input type="text" class="search" placeholder = "Nhập tên hiển thị">
-        <button class="btn btn-primary search-button"><i class="fa fa-search"></i>&nbsp; Tìm</button>
+        <input type="text" id="follower-search" class="search" placeholder = "Nhập tên hiển thị">
+
     </div>
     <table class="table">
         <thead>

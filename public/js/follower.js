@@ -1,5 +1,5 @@
 $(document).ready(function() {
-     $('.search').on('keyup',function() {
+     $('#follower-search').on('keyup',function() {
         var keyword = $(this).val();
         if(keyword=="")
         {
