@@ -100,7 +100,7 @@ class OAController extends Controller
     public function createTextArticle()
     {
         $oa_info = session('oa_info');
-        $accessToken = session('access_token');
+        $accessToken = session('$oa_token');
               $client = new \GuzzleHttp\Client();
         $response = $client->get('https://openapi.zalo.me/v2.0/article/getslice',['query'=>[
                'offset'=>0,
