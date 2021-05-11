@@ -17,8 +17,13 @@ td {
 
 .search {
     width: 230px;
-    margin-right: 6px;
+    margin: 0 10px;
     border-radius: 5px;
+    border: 1px solid green;
+    padding: 5px;
     color: #464855;
     outline: none;
+}
+.total {
+    margin: 0;
 }

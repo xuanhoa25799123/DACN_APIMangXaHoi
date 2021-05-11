@@ -8,7 +8,7 @@
 @endsection
 @section('content')
     <div class="follower-header">
-        <p>Tổng số: <strong>{{$total}}</strong></p>
+        <p class="total">Tổng số: <strong>{{$total}}</strong></p>
         <input type="text" class="search" placeholder = "Nhập tên hiển thị">
         <button class="btn btn-primary"><i class="fa fa-search"></i>&nbsp; Tìm</button>
     </div>
