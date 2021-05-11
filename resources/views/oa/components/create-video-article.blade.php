@@ -14,11 +14,11 @@
             <div class="left-content">
         <div class="form-group inline-form">
             <label>Tiêu đề</label>
-            <input class="form-control" name="title" maxlength="150">
+            <input class="form-control" id="title" maxlength="150">
         </div>
         <div class="form-group inline-form">
             <label>Trích dẫn</label>
-            <textarea class="form-control" rows="5" maxlength="300"></textarea>
+            <textarea class="form-control" id="description" rows="5" maxlength="300"></textarea>
         </div>
         <div class="form-group inline-form">
             <label>Video</label>

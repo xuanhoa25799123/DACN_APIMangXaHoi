@@ -109,4 +109,14 @@ class OAController extends Controller
         $title="Tạo bài viết video";
         return view('oa.components.create-video-article',compact('oa_info','title'));
     }
+    public function videoArticle(Request $request)
+    {
+         $client = new \GuzzleHttp\Client();
+            $accessToken = session('oa_token');
+        $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/upload_video/preparevideo?access_token='.$accessToken,[
+             'file'=>$request->video
+
+         ]);
+         return $request->json(['success'=>true,$result]);
+    }
 }

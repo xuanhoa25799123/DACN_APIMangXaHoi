@@ -36,22 +36,24 @@ $(document).ready(function() {
     });
     $('.submit-button').on('click',function(e) {
          let title = $("#title").val();
-         let link = $("#link").val();
+         let description = $("#description").val();
          let video = $('#upload-video').prop('files');
-         console.log(video[0]);
+        video = video[0];
             let cover = $('#upload-image').prop('files');
+                //  console.log(title,description,cover[0],video[0]);
          let url = $(this).data('href');
             $.ajax({
             url: url,
             type: 'POST',
             data:{
-                video,title,link,cover,
+                video,title,description,cover,
             },
             headers:{
                 'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
             },
             dataType: 'json',
             success: function(response) {
+                console.log(response.result);
                 Swal.fire({
                     title: 'Thành công',
                     text: "Đã đăng bài viết",

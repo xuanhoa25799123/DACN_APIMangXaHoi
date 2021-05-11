@@ -122,6 +122,9 @@ Route::prefix('oa')->group(function () {
         'as'=>'video-article',
         'uses'=>'App\Http\Controllers\OAController@createVideoArticle',
     ]);
+         Route::post('/submit-video', [
+        'uses'=>'App\Http\Controllers\TestController@videoArticle'
+    ]);
 });
 
 
