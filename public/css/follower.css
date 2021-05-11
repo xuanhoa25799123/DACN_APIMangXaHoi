@@ -1,6 +1,11 @@
-.follower-image{
-    width:40px;
-    height:40px;
+.follower-image {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     object-fit: cover;
+}
+th,
+td {
+    text-align: center;
+    vertical-align: middle;
 }

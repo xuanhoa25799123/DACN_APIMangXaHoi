@@ -65,6 +65,7 @@ class OAController extends Controller
         $response = $this->zalo->get(ZaloEndPoint::API_OA_GET_LIST_FOLLOWER, $accessToken, $data);
         $result = $response->getDecodedBody();
         $follower_ids = $result['data']['followers'];
+        $total = $result['data']['total'];
         $followers = array();
         foreach($follower_ids as $follower) {
             $data = ['data' => json_encode(array(
@@ -76,7 +77,7 @@ class OAController extends Controller
         }
         $oa_info = session('oa_info');
         $title="Người theo dõi";
-        return view('oa.components.followers',compact('followers','oa_info','title'));
+        return view('oa.components.followers',compact('followers','oa_info','title','total'));
     }
     public function articleList()
     {

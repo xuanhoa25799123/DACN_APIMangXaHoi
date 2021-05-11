@@ -1,5 +1,5 @@
 .oa-dashboard {
-    width: 40%;
+    width: 35%;
     padding: 10px;
     margin: 0 auto;
     position: relative;
@@ -48,8 +48,9 @@
     font-size: 1.6rem;
 }
 
-.oa-sub-container {
+.sub-container {
     width: 90%;
+    margin: 0 auto;
     padding: 10px;
     border-style: dashed;
     border-color: coral;
@@ -57,4 +58,13 @@
     cursor: pointer;
     text-align: center;
     position: relative;
+}
+.header {
+    display: flex;
+    align-items: center;
+}
+
+.search {
+    width: 230px;
+    margin-right: 6px;
 }
