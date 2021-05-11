@@ -10,6 +10,8 @@
 
 @section('content')
     <div class="oa-dashboard">
+        <p class="oa-info">THÔNG TIN OFFICIAL ACCOUNT</p>
+        <div class="sub-container">
         <div class="image-container">
              <img alt="" src="{{$oa_info['cover']}}" class="background-image">
         </div>
@@ -18,6 +20,7 @@
             <p class="oa-dashboard-name">{{$oa_info['name']}}</p>
         </div>
             <p class="oa-dashboard-sub-name">{{$oa_info['description']}}</p>
+        </div>
 
 </div>
 
