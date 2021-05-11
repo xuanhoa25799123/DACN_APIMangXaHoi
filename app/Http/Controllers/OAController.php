@@ -108,7 +108,7 @@ class OAController extends Controller
                'access_token'=>$accessToken
            ]]);
            $rs= json_decode($response->getBody());
-       
+            dd($rs);
            $videos = $rs->data->medias;
 
         $title="Tạo bài viết văn bản";
