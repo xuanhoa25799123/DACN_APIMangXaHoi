@@ -80,6 +80,7 @@
                     <div class="video-image">
                         <img src="{{$video->thumb}}" class="video-thumb">
                     </div>
+                    @endforeach
             </div>
         </div>
         </div>
