@@ -362,6 +362,7 @@ class TestController extends Controller
                'access_token'=>$accessToken
            ]]);
            $rs = json_decode($result->getBody());
+          $rs = $rs->data->medias;
         //    forEach($rs->data->medias as $item)
         //    {
         //         //   return response()->json(['success'=>true,'result'=>  $item->id]);
@@ -378,6 +379,6 @@ class TestController extends Controller
         //    }
         //  $result = $client->get($url2);
 
-        return response()->json(['success'=>true,'result'=>json_decode($rs)]);
+        return response()->json(['success'=>true,'result'=>$rs]);
     }
 }
