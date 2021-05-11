@@ -40,22 +40,28 @@
                     <div class="cover-content">
                         <div class="select-content video-content">
                             <div class="video-info">
+                                <div class="sub-video-info">
                               <i class="fa fa-film icon"></i>
                               <p class="photo-text">Click để chọn video</p>
                               </div>
-                              <div class="video-preview">
+                                      <div class="video-preview">
                                     <img src="" class="preview-video">
                               </div>
+                              </div>
+                      
                         </div>
                         <div class="select-content image-content">
                             <input type="text" class="form-control image-input" placeholder="Paste link tại đây...">
                             <div class="image-info">
+                                <div class="sub-image-info">
                                  <i class="fa fa-image icon"></i>
+                                 </div>
                                 <p class="photo-text">Nhập url của ảnh</p>
-                            </div>
-                            <div class="image-preview">
+                                      <div class="image-preview">
                                     <img src="" class="preview-image">
                               </div>
+                            </div>
+                      
                         </div>
                     </div>
                 </div>

@@ -44,6 +44,7 @@
     align-items: center;
     justify-content: space-around;
     border-radius: 5px 5px 0 0;
+    height: 50px;
 }
 
 .video-button {
@@ -55,7 +56,7 @@
 
 .image-button {
     width: 40%;
-    height: 50px;
+
     background: none;
     border: none;
     outline: none;
@@ -104,6 +105,24 @@
     border-width: thin;
     cursor: pointer;
     position: relative;
+}
+.sub-video-info {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.sub-image-info {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .photo-text {
     font-weight: normal;
