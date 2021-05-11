@@ -34,11 +34,11 @@
                 <label>Video / Ảnh đại diện</label>
                 <div class="cover-container">
                     <div class="cover-header">
-                        <button class="video-button active-button">Video</button>
-                        <button class="image-button">Ảnh</button>
+                        <button type="button"class="video-button active-button">Video</button>
+                        <button type="button"class="image-button">Ảnh</button>
                     </div>
                     <div class="cover-content">
-                        <div class="select-content video-content active">
+                        <div class="select-content video-content">
                             <div class="video-info">
                               <i class="fa fa-film icon"></i>
                               <p class="photo-text">Click để chọn video</p>

@@ -1,5 +1,6 @@
 $(document).ready(function() {
     $('.image-input').on('change',function(e) {
+        console.log(asdsad);
         let src = $(this).val();
         $('.image-info').css('display','none');
         $('.preview-image').attr('src',src);

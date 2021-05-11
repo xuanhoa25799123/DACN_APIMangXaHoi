@@ -101,13 +101,13 @@ class OAController extends Controller
     {
         $oa_info = session('oa_info');
         $title="Tạo bài viết văn bản";
-        return view('oa.components.create-text-article',compact('oa_info','title'));
+        return view('oa.components.create-article',compact('oa_info','title'));
     }
     public function createVideoArticle()
     {
         $oa_info = session('oa_info');
         $title="Tạo bài viết video";
-        return view('oa.components.create-article',compact('oa_info','title'));
+        return view('oa.components.create-video-article',compact('oa_info','title'));
     }
     public function videoArticle(Request $request)
     {
