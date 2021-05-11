@@ -4,11 +4,10 @@
     border-radius: 50%;
     object-fit: cover;
 }
-th,
+/* th,
 td {
-    text-align: center;
     vertical-align: middle;
-}
+} */
 
 .follower-header {
     display: flex;

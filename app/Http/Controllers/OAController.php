@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 use Zalo\Zalo;
 use GuzzleHttp;
 use Zalo\ZaloEndPoint;
+use Illuminate\Support\Str;
 
 class OAController extends Controller
 {
@@ -131,5 +132,23 @@ class OAController extends Controller
 
          ]);
          return $request->json(['success'=>true,$result]);
+    }
+    public function followerSearch($keyword)
+    {
+         $frs = session('followers');
+        $followers = array();
+        if($keyword=="*")
+        {
+            $friends=$frs;
+        }
+        else {
+            foreach ($frs as $fr) {
+                if (stripos(Str::slug($fr['name']), Str::slug($keyword)) == true||stripos(Str::slug($fr['name']), Str::slug($keyword)) ===0) {
+                    array_push($followers, $fr);
+                }
+            }
+        }
+        $html = view('oa.partials.followers')->with(compact('followers'))->render();
+        return response()->json(['success' => true, 'html' => $html]);
     }
 }

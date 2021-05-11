@@ -106,6 +106,9 @@ Route::prefix('oa')->group(function () {
         'as'=>'oa-list',
         'uses'=>'App\Http\Controllers\OAController@followersList',
     ]);
+       Route::get('/list/{keyword}', [
+        'uses'=>'App\Http\Controllers\OAController@followerSearch'
+    ]);
     Route::get('/article',[
         'as'=>'oa-article',
         'uses'=>'App\Http\Controllers\OAController@articleList',
@@ -123,6 +126,9 @@ Route::prefix('oa')->group(function () {
         'uses'=>'App\Http\Controllers\OAController@createVideoArticle',
     ]);
          Route::post('/submit-video', [
+        'uses'=>'App\Http\Controllers\TestController@videoArticle'
+    ]);
+       Route::post('/submit-video', [
         'uses'=>'App\Http\Controllers\TestController@videoArticle'
     ]);
 });
