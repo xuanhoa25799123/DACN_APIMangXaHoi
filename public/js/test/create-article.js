@@ -41,7 +41,7 @@ $(document).ready(function() {
          console.log(video[0]);
         // console.log(input_video);
               let cover = $('#upload-photo').prop('files');
-              console.log(cover[0]);
+            //   console.log(cover[0]);
         //  let cover = input_cover.files[0];
          if(!video)
          {
@@ -53,33 +53,31 @@ $(document).ready(function() {
                     confirmButtonText:"OK",        
                 })
          }
-         video = video[0];
+         video[0];
+            let formData = new FormData();
+            formData.append('video',video[0]);
          let url = $(this).data('href');
             $.ajax({
             url: url,
             type: 'POST',
-            data:{
-                video,title,link,cover,
-            },
+            data:{video:video[0]},
+              processData: false,
             headers:{
                 'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
             },
             dataType: 'json',
             success: function(response) {
-                Swal.fire({
-                    title: 'Thành công',
-                    text: "Đã đăng bài viết",
-                    icon: 'success',
+                console.log(response.result);
+                // Swal.fire({
+                //     title: response.message,
+                //     text: response.message,
+                //     icon: 'success',
                 
-                    confirmButtonColor: '#3085d6',
+                //     confirmButtonColor: '#3085d6',
               
-                    confirmButtonText:"abc",
+                //     confirmButtonText:"abc",
                   
-                }).then(result=>{
-           
-                        window.location.href="/test/dashboard";
-        
-                })
+                // })
             }
         });
     

@@ -139,7 +139,7 @@ Route::prefix('test')->group(function () {
         'uses'=>'App\Http\Controllers\TestController@videoArticle'
     ]);
     Route::post('/create-video', [
-        'as'=>'test-article',
+        'as'=>'test-create-video',
         'uses'=>'App\Http\Controllers\TestController@createVideo'
     ]);
     Route::get('/dashboard', [

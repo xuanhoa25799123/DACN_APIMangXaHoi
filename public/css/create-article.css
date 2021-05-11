@@ -30,3 +30,104 @@
 .form-control {
     width: 80% !important;
 }
+
+.cover-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cover-header {
+    background-color: lightblue;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 5px 5px 0 0;
+}
+
+.video-button {
+    width: 30%;
+    background-color: none;
+}
+
+.image-button {
+    width: 30%;
+    background-color: none;
+}
+.active-button {
+    border-radius: 5px 5px 0 0;
+    background-color: white;
+}
+.cover-content {
+    width: 100%;
+}
+.select-content {
+    width: 100%;
+    width: 200px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-style: dashed;
+    border-color: lightblue;
+    border-width: thin;
+    cursor: pointer;
+    position: relative;
+}
+.image-info {
+    width: 95%;
+    height: 130px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-style: dashed;
+    border-color: lightblue;
+    border-width: thin;
+    cursor: pointer;
+    position: relative;
+}
+.video-info {
+    width: 95%;
+    height: 130px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-style: dashed;
+    border-color: lightblue;
+    border-width: thin;
+    cursor: pointer;
+    position: relative;
+}
+.photo-text {
+    font-weight: normal;
+}
+.video-preview {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.image-preview {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.preview-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

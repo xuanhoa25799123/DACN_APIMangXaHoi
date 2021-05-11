@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <button type="button" data-href="/create-video" class="btn btn-primary submit-button">Xuất bản</button>
+        <button type="button" data-href="{{route('test-create-video')}}" class="btn btn-primary submit-button">Xuất bản</button>
     </form>
 
 @endsection

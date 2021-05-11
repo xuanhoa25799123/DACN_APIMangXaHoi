@@ -338,6 +338,25 @@ class TestController extends Controller
     }
     public function createVideo(Request $request)
     {
-        return $request->json(['success'=>true]);
+        // return response()->json(['success'=>true,$request->video]);
+        $accessToken = 'AEma5D8bHXGgwoWNrY1F4o7cAnVSDpHNO_in2UbkAajamqyYtn5NIoMsDHYd85LdCP4p3yygK4nifKCmaor2DJocH4x3ArOuUwvCRTmxJMf2laewk0LEEmoELKAM0KmTDgj9Gi4CB0TNlZLXsWjK3o63HL2rEKOLA95qRwajPWWWucLXZLvc91l5Nrc53L4vBR0oLx5w4J0KpGTgcm0qFnkCEagp1mmTAwmLVxyv7Iy6XovF-40T2mNC3a_uL3iGHjm6MEv0CX5XyL1kspOg5tomB59rOix_Lp7LFK4S';
+         $url2 = 'https://openapi.zalo.me/v2.0/article/getslice?offset=0&limit=5&type=normal&access_token=-jhyLUMxC2hutV1MuRuvBVFGyrRhgKD0-Sg2LvlL4bVdpwTLhkWEJl68n4oDht1Owh-aVuwbQcRXWyOUd-DSCep3uGZ2urqggFYMAFNsNL2ExlDEq-X1D9sCwJFlzdqsekorCUVNVmUQmxTvtyjt1vAnv2_XbquIh_F-EFF-PZYvtSeXvCHq5PdRn3J-uWmKuiM65l2g7Ig9oD45n-jc9hJExpVwso0qWlcA6uJ27cR2eR5ZW8zzUSY7pW22XWS5aOMc7UAt3o6efhmB-zmtSO3_dqtpx2DrZVISR2jN-KxYepSY';
+        $url ='https://openapi.zalo.me/v2.0/article/getslice?offset=0&limit=5&type=video&access_token=AEma5D8bHXGgwoWNrY1F4o7cAnVSDpHNO_in2UbkAajamqyYtn5NIoMsDHYd85LdCP4p3yygK4nifKCmaor2DJocH4x3ArOuUwvCRTmxJMf2laewk0LEEmoELKAM0KmTDgj9Gi4CB0TNlZLXsWjK3o63HL2rEKOLA95qRwajPWWWucLXZLvc91l5Nrc53L4vBR0oLx5w4J0KpGTgcm0qFnkCEagp1mmTAwmLVxyv7Iy6XovF-40T2mNC3a_uL3iGHjm6MEv0CX5XyL1kspOg5tomB59rOix_Lp7LFK4S';
+        $url3 = 'https://openapi.zalo.me/v2.0/article/create?access_token=AEma5D8bHXGgwoWNrY1F4o7cAnVSDpHNO_in2UbkAajamqyYtn5NIoMsDHYd85LdCP4p3yygK4nifKCmaor2DJocH4x3ArOuUwvCRTmxJMf2laewk0LEEmoELKAM0KmTDgj9Gi4CB0TNlZLXsWjK3o63HL2rEKOLA95qRwajPWWWucLXZLvc91l5Nrc53L4vBR0oLx5w4J0KpGTgcm0qFnkCEagp1mmTAwmLVxyv7Iy6XovF-40T2mNC3a_uL3iGHjm6MEv0CX5XyL1kspOg5tomB59rOix_Lp7LFK4S';
+        $client = new \GuzzleHttp\Client();
+        $data = json_encode([
+            
+                    'description'=>"bai viet moi",
+                    'comment'=>'show',
+                    'avatar'=>'https://genk.mediacdn.vn/2019/12/15/photo-1-15764031803621965695036.jpg',
+                    'type'=>'video',
+                    'title'=>'bai viet moi',
+                    'video_id'=>'657c3ff306b6efe8b6a7',
+                    'status'=>'show',
+        ]);
+           $result = $client->request('POST',$url3,['body'=>$data]);
+        //  $result = $client->get($url2);
+
+        return response()->json(['success'=>true,'result'=>json_decode($result->getBody())]);
     }
 }
