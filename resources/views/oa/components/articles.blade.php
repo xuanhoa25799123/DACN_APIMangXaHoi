@@ -6,17 +6,17 @@
 @endsection
 @section('js')
 <script src="{{asset('/js/article.js')}}"></script>
+    <script src="{{asset('plugins/sweetalert2/sweetalert2@10.js')}}"></script>
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 @endsection
 @section('content')
     <div class="article-header">
-    <div>
+    <div class="article-header-left">
         <p class="total">Tổng số: <strong>{{$total}}</strong></p>
         <input type="text" id="article-search" class="search" placeholder = "Nhập tên bài viết">
     </div>
     <a href="{{route('oa-article-select')}}" class="btn btn-primary">Tạo bài viết mới</a>
     </div>
-        <a href="{{route('oa-article-select')}}" class="btn btn-primary">Tạo bài viết mới</a>
         <table class="table">
             <thead>
             <tr>
