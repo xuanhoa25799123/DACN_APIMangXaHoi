@@ -238,7 +238,7 @@ class OAController extends Controller
             ],
             "status"=> "show"
             ]);
-             $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/update'.$accessToken,[
+             $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/update',[
                  'query'=>[
                      'access_token'=>$accessToken,
                  ],
