@@ -27,7 +27,7 @@
                         @endif
                 </td>
 
-                <td  style="text-align:center"><a type="button" data-id="{{$article->id}}"class="btn btn-outline-primary article-edit"><i class="fa fa-edit"></i>&nbsp; Sửa</button>
+                <td  style="text-align:center"><a href="/oa/article/edit/{{$article->id}}"class="btn btn-outline-primary"><i class="fa fa-edit"></i>&nbsp; Sửa</a>
                     <button type="button" data-id="{{$article->id}}" class="btn btn-outline-primary article-delete">Xoá bài viết</button>
                 </td>
             </tr>
