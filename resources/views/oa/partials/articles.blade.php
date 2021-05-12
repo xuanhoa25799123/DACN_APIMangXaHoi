@@ -4,8 +4,7 @@
                 <td>{{date('d-m-Y H:i:s',substr((string)$article->create_date,0,10))}} 
                 <div class="more-info">
                     <div class="info-icon">
-                    <i class="fa fa-info">
-                    </i>
+                        i
                     </div>
                     <div class="last-update">
                     <p>Cập nhật lần cuối vào {{date('d-m-Y H:i:s',substr((string)$article->update_date,0,10))}}</p>

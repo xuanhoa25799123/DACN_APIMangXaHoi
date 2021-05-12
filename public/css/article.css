@@ -32,8 +32,8 @@
     position: relative;
 }
 .info-icon {
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
     border: 1px solid lightgreen;
     display: flex;
@@ -43,8 +43,8 @@
 .last-update {
     position: absolute;
     top: 10px;
-    width: 100px;
-    height: 40px;
+    width: 200px;
+    height: 60px;
     padding: 10px;
     display: none;
     box-shadow: 0 10px 15px -7px black;
