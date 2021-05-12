@@ -451,13 +451,9 @@ class TestController extends Controller
          ]);
          $response = json_decode($result->getBody());
 
-         dd($response);
+        
          $oa_info = session('oa_info');
          $title = "Chỉnh sửa bài viết";
-         if($response->message=="Success")
-         {
-            $article  = $response->data;
-            return view('test.components.edit-article',compact('oa_info','title','article'));
-         }
+                return redirect('test/edit-article');
     }
 }

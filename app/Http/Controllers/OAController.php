@@ -214,7 +214,7 @@ class OAController extends Controller
             return view('oa.components.edit-article',compact('oa_info','title','article'));
          }
     }
-        public function updateArticle(Request $request)
+    public function updateArticle(Request $request)
     {
              $accessToken = session('oa_token');
            $client = new \GuzzleHttp\Client();
@@ -251,7 +251,7 @@ class OAController extends Controller
         //  $title = "Chỉnh sửa bài viết";
         //  if($response->message=="Success")
         //  {
-            return redirect('/oa/list');
+            return redirect('/oa/article');
             // $article  = $response->data;
             // return view('test.components.edit-article',compact('oa_info','title','article'));
         //  }

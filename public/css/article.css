@@ -32,13 +32,8 @@
     position: relative;
 }
 .info-icon {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    border: 1px solid lightgreen;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 12px;
+    cursor: pointer;
 }
 .last-update {
     position: absolute;

@@ -3,9 +3,7 @@
                 <th style="text-align:center" scope="row">{{$index+1}}</th>
                 <td>{{date('d-m-Y H:i:s',substr((string)$article->create_date,0,10))}} 
                 <div class="more-info">
-                    <div class="info-icon">
-                        i
-                    </div>
+                    <i class="fa fa-info-circle info-icon"></i>
                     <div class="last-update">
                     <p>Cập nhật lần cuối vào {{date('d-m-Y H:i:s',substr((string)$article->update_date,0,10))}}</p>
                     </div>
