@@ -146,7 +146,7 @@ class OAController extends Controller
         }
         else {
             foreach ($arr as $item) {
-                if (stripos(Str::slug($item->title), Str::slug($keyword)) == true||stripos(Str::slug($item->title), Str::slug($keyword)) ===0) {
+                if (stripos(Str::slug($item['title']), Str::slug($keyword)) == true||stripos(Str::slug($item['title']), Str::slug($keyword)) ===0) {
                     array_push($artiles, $item);
                 }
             }
@@ -176,10 +176,11 @@ class OAController extends Controller
     {
         $accessToken = session('oa_token');
            $client = new \GuzzleHttp\Client();
+           $data = json_encode([
+               'id'=>$id
+           ]);
              $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/remove?access_token='.$accessToken,[
-                'body'=>[
-                    'id'=>$id
-                ]
+                'body'=>$data
          ]);
          $response = json_decode($result->getBody());
          if($response.message=="Success")

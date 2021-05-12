@@ -345,6 +345,13 @@ class TestController extends Controller
         $url3 = 'https://openapi.zalo.me/v2.0/article/create?access_token=AEma5D8bHXGgwoWNrY1F4o7cAnVSDpHNO_in2UbkAajamqyYtn5NIoMsDHYd85LdCP4p3yygK4nifKCmaor2DJocH4x3ArOuUwvCRTmxJMf2laewk0LEEmoELKAM0KmTDgj9Gi4CB0TNlZLXsWjK3o63HL2rEKOLA95qRwajPWWWucLXZLvc91l5Nrc53L4vBR0oLx5w4J0KpGTgcm0qFnkCEagp1mmTAwmLVxyv7Iy6XovF-40T2mNC3a_uL3iGHjm6MEv0CX5XyL1kspOg5tomB59rOix_Lp7LFK4S';
         $url4='https://openapi.zalo.me/v2.0/article/upload_video/preparevideo?access_token=AEma5D8bHXGgwoWNrY1F4o7cAnVSDpHNO_in2UbkAajamqyYtn5NIoMsDHYd85LdCP4p3yygK4nifKCmaor2DJocH4x3ArOuUwvCRTmxJMf2laewk0LEEmoELKAM0KmTDgj9Gi4CB0TNlZLXsWjK3o63HL2rEKOLA95qRwajPWWWucLXZLvc91l5Nrc53L4vBR0oLx5w4J0KpGTgcm0qFnkCEagp1mmTAwmLVxyv7Iy6XovF-40T2mNC3a_uL3iGHjm6MEv0CX5XyL1kspOg5tomB59rOix_Lp7LFK4S';
         $client = new \GuzzleHttp\Client();
+        $data = json_encode([
+            'id'=>'e2c96d9734d2dd8c84c3'
+        ]);
+        $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/remove?access_token='.$accessToken,[
+                'body'=>$data
+         ]);
+         $rs = json_decode($result->getBody());
         // $data = json_encode([
             
         //             'description'=>"bai viet moi",
@@ -367,7 +374,7 @@ class TestController extends Controller
         // $fd = json_encode([
         //     'file'=>$data
         // ]);
-           $result = $client->request('POST',$url4,['body'=>$fd]);
+        //    $result = $client->request('POST',$url4,['body'=>$fd]);
         //    $result = $client->get('https://openapi.zalo.me/v2.0/article/getslice',['query'=>[
         //        'offset'=>0,
         //        'limit'=>5,
