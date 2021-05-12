@@ -9,7 +9,7 @@
                 <td  style="text-align:center">
                     @if($article->status=="show")
                     <label class="checkbox-inline">
-                        <input class="active-article" type="checkbox" checked data-toggle="toggle">
+                        <input type="checkbox" checked data-toggle="toggle">
                     </label>
                     @else
                         <label class="checkbox-inline">
@@ -19,7 +19,7 @@
                 </td>
 
                 <td  style="text-align:center"><button type="button" class="btn btn-outline-primary"><i class="fa fa-edit"></i>&nbsp; Sửa</button>
-                    <button type="button" class="article-delete" data-id="{{$article->id}}" class="btn btn-outline-primary">Xoá bài viết</button>
+                    <button type="button" data-id="{{$article->id}}" class="btn btn-outline-primary article-delete">Xoá bài viết</button>
                 </td>
             </tr>
 @endforeach

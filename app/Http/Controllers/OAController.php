@@ -151,6 +151,7 @@ class OAController extends Controller
                 }
             }
         }
+        return response()->json(['success' => true, 'html' => $keyword]);
         $html = view('oa.partials.articles')->with(compact('articles'))->render();
         return response()->json(['success' => true, 'html' => $html]);
     }
@@ -183,7 +184,7 @@ class OAController extends Controller
                 'body'=>$data
          ]);
          $response = json_decode($result->getBody());
-         if($response.message=="Success")
+         if($response->message=="Success")
          {
              return response()->json(['success'=>true]);
          }

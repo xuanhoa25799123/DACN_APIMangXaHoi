@@ -10,7 +10,8 @@ $(document).ready(function() {
             type: 'get',
             dataType: 'json',
             success: function(response) {
-                $('.article-rows').html(response.html);
+                console.log(response.html);
+                // $('.article-rows').html(response.html);
             }
         });
     });
