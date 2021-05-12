@@ -151,6 +151,10 @@ Route::prefix('oa')->group(function () {
          'as'=>'store-article',
         'uses'=>'App\Http\Controllers\OAController@storeArticle',
     ]);
+     Route::get('/broadcast',[
+         'as'=>'oa-broadcast',
+        'uses'=>'App\Http\Controllers\OAController@Broadcast',
+    ]);
 });
 
 

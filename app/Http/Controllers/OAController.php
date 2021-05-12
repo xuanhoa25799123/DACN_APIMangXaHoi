@@ -285,6 +285,27 @@ class OAController extends Controller
          $response = json_decode($result->getBody());
             return redirect('/oa/article'); 
     }
+    public function Broadcast()
+    {
+         $client = new GuzzleHttp\Client();
+        $accessToken = session('oa_token');
+        $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',[
+            'query'=>[
+                'offset'=>0,
+                'type'=>'normal',
+                'access_token'=>$accessToken
+            ]
+        ]);
+       $result = json_decode($res->getBody());
+       $data = $result->data;
+       $total = $data->total;
+       $articles = $data->medias;
+        $oa_info = session('oa_info');
+        $title="Gửi broadcast";
+        session(['articles'=>$articles]);
+
+       return view('oa.components.broadcast',compact('articles','oa_info','title','total'));   
+    }
 }
 
 

@@ -30,6 +30,12 @@
             </div>
             <p class='sidebar-item-text'>Trang chủ</p>
         </a>
+        <a class="sidebar-item" href="{{route('oa-broadcast')}}">
+            <div class="sidebar-item-icon-container">
+                <i class="fa fa-broadcast-tower sidebar-item-icon"></i>
+            </div>
+            <p class='sidebar-item-text'>Gửi broadcast</p>
+        </a>
         <a class="sidebar-item" href="{{route('oa-list')}}">
             <div class="sidebar-item-icon-container">
                 <i class="fa fa-users sidebar-item-icon"></i>
