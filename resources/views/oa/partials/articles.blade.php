@@ -1,5 +1,5 @@
  @foreach($articles as $index=>$article)
-            <tr>
+            <tr id="row-{{$article->id}}">
                 <th style="text-align:center" scope="row">{{$index+1}}</th>
                 <td>{{date('d-m-Y H:i:s',substr((string)$article->create_date,0,10))}} <p>Cập nhật lần cuối vào {{date('d-m-Y H:i:s',substr((string)$article->update_date,0,10))}}</p></td>
                 <td  style="text-align:center"> <img class="article-image" src="{{$article->thumb}}" alt=""></td>
@@ -19,7 +19,7 @@
                 </td>
 
                 <td  style="text-align:center"><button type="button" class="btn btn-outline-primary"><i class="fa fa-edit"></i>&nbsp; Sửa</button>
-                    <button type="button" class="btn btn-outline-primary">Khác</button>
+                    <button type="button" id="article-delete" data-id="{{$article->id}}" class="btn btn-outline-primary">Xoá bài viết</button>
                 </td>
             </tr>
-            @endforeach
+@endforeach

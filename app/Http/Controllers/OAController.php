@@ -146,7 +146,7 @@ class OAController extends Controller
         }
         else {
             foreach ($arr as $item) {
-                if (stripos(Str::slug($->itemtitle), Str::slug($keyword)) == true||stripos(Str::slug($item->title), Str::slug($keyword)) ===0) {
+                if (stripos(Str::slug($item->title), Str::slug($keyword)) == true||stripos(Str::slug($item->title), Str::slug($keyword)) ===0) {
                     array_push($artiles, $item);
                 }
             }
@@ -172,4 +172,24 @@ class OAController extends Controller
         $html = view('oa.partials.followers')->with(compact('followers'))->render();
         return response()->json(['success' => true, 'html' => $html]);
     }
+    public function deleteArticle($id)
+    {
+        $accessToken = session('oa_token');
+           $client = new \GuzzleHttp\Client();
+             $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/remove?access_token='.$accessToken,[
+                'body'=>[
+                    'id'=>$id
+                ]
+         ]);
+         $response = json_decode($result->getBody());
+         if($response.message=="Success")
+         {
+             return response()->json(['success'=>true]);
+         }
+         else{
+             return response()->json(['success'=>false]);
+         }
+    }
 }
+
+
