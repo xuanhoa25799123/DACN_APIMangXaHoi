@@ -3,7 +3,7 @@
 @section('css')
     <!-- 
         <link rel="stylesheet" href="{{asset('/css/create-article.css')}}"> -->
-        <link rel="stylesheet" href="{{asset('/css/create-article.css')}}">
+        <link rel="stylesheet" href="{{asset('/css/article-edit.css')}}">
 
 @endsection
 @section('js')
@@ -58,6 +58,6 @@
             </div>
         </div>
         </div>
-        <button type="submit" class="btn btn-primary">Sửa</button>
+        <button type="submit" class="btn btn-primary">Đăng bài</button>
     </form>
 @endsection

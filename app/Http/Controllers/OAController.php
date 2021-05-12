@@ -253,6 +253,38 @@ class OAController extends Controller
         $title="Tạo bài viết mới";
         return view('oa.components.create-article2',compact('oa_info','title'));
     }
+    public function storeArticle()
+    {
+         $accessToken = session('oa_token');
+           $client = new \GuzzleHttp\Client();
+           $data = json_encode([
+               "cover"=> [
+            "photo_url"=> $request->photo_url,
+            "cover_type"=> "photo",
+            "status"=> "show"
+            ],
+            "author"=> $request->author,
+            "description"=> $request->description,
+            "comment"=> "show",
+            "type"=>"normal",
+            "title"=>$request->title,
+            "body"=> [
+                [
+                    "type"=> "text",
+                    "content"=> $request->content,
+                ]
+            ],
+            "status"=> "show"
+            ]);
+             $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/create',[
+                 'query'=>[
+                     'access_token'=>$accessToken,
+                 ],
+                'body'=>$data
+         ]);
+         $response = json_decode($result->getBody());
+            return redirect('/oa/article'); 
+    }
 }
 
 
