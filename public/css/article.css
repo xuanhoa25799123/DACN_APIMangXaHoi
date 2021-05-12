@@ -49,6 +49,3 @@
     background-color: white;
     box-shadow: 0 10px 15px -7px black;
 }
-.info-icon:hover > .last-update {
-    display: initial;
-}

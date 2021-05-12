@@ -251,7 +251,7 @@ class OAController extends Controller
     {
         $oa_info = session('oa_info');
         $title="Tạo bài viết mới";
-        return view('oa.components.create-article2');
+        return view('oa.components.create-article2',compact('oa_info','title'));
     }
 }
 
