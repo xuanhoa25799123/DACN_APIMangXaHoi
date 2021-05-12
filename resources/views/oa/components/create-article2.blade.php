@@ -3,7 +3,7 @@
 @section('css')
     <!-- 
         <link rel="stylesheet" href="{{asset('/css/create-article.css')}}"> -->
-        <link rel="stylesheet" href="{{asset('/css/article-edit.css')}}">
+        <link rel="stylesheet" href="{{asset('/css/create-article.css')}}">
 
 @endsection
 @section('js')
@@ -48,8 +48,8 @@
                                     <p class="photo-text">Nhập url của ảnh</p>
                                  </div>
                                       <div class="image-preview">
-                                    <img src="" class="preview-image">
-                              </div>
+                                            <img src="" class="preview-image">
+                                     </div>
                             </div>
                       
                         </div>

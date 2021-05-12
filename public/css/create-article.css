@@ -153,10 +153,6 @@
     object-fit: cover;
 }
 
-.image-content {
-    display: none;
-}
-
 .image-input {
     margin: 5px auto;
 }
