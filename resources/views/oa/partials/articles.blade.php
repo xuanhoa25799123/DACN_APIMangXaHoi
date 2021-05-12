@@ -1,7 +1,17 @@
  @foreach($articles as $index=>$article)
             <tr id="row-{{$article->id}}">
                 <th style="text-align:center" scope="row">{{$index+1}}</th>
-                <td>{{date('d-m-Y H:i:s',substr((string)$article->create_date,0,10))}} <p>Cập nhật lần cuối vào {{date('d-m-Y H:i:s',substr((string)$article->update_date,0,10))}}</p></td>
+                <td>{{date('d-m-Y H:i:s',substr((string)$article->create_date,0,10))}} 
+                <div class="more-info">
+                    <div class="info-icon">
+                    <i class="fa fa-info">
+                    </i>
+                    </div>
+                    <div class="last-update">
+                    <p>Cập nhật lần cuối vào {{date('d-m-Y H:i:s',substr((string)$article->update_date,0,10))}}</p>
+                    </div>
+                </div>
+                </td>
                 <td  style="text-align:center"> <img class="article-image" src="{{$article->thumb}}" alt=""></td>
                 <td> {{$article->title}}</td>
                 <td  style="text-align:center"> {{$article->total_view}}</td>

@@ -28,3 +28,28 @@
 .total {
     margin: 0;
 }
+.more-info {
+    position: relative;
+}
+.info-icon {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid lightgreen;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.last-update {
+    position: absolute;
+    top: 10px;
+    width: 100px;
+    height: 40px;
+    padding: 10px;
+    display: none;
+    box-shadow: 0 10px 15px -7px black;
+    background-color: white;
+}
+.info-icon:hover > .last-update {
+    display: initial;
+}
