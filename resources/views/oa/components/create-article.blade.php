@@ -71,7 +71,7 @@
         <div class="video-popup">
             <div class="close-video-popup">
                 <i class="fa fa-close"></i>
-                X
+                
             </div>
             <p>Chọn video</p>
             <div class="video-container">

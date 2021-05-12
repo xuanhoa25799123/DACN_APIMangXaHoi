@@ -59,5 +59,11 @@ $(document).ready(function() {
                 })
       
     });
+
+     $('.article-edit').on('click',function() {
+           let id = $(this).data('id');
+            let url = `/oa/edit-article/${id}`;
+            window.location.href=url;
+    });
     
 });

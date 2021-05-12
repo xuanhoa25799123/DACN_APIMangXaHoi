@@ -192,6 +192,28 @@ class OAController extends Controller
              return response()->json(['success'=>false]);
          }
     }
+    public function editArticle($id)
+    {
+         $accessToken = session('oa_token');
+           $client = new \GuzzleHttp\Client();
+           $data = json_encode([
+               'id'=>$id
+           ]);
+             $result = $client->request('GET','https://openapi.zalo.me/v2.0/article/getdetail',[
+                'query'=>[
+                    'access_token'=>$accessToken,
+                    'id'=>$id,
+                ]
+         ]);
+         $response = json_decode($result->getBody());
+         $oa_info = session('oa_info');
+         $title = "Chỉnh sửa bài viết";
+         if($response->message=="Success")
+         {
+            $article  = $response->data;
+            return view('oa.components.edit-article',compact('oa_info','title','article'));
+         }
+    }
 }
 
 
