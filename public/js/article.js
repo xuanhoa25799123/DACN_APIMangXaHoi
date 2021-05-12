@@ -11,7 +11,7 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(response) {
                 console.log(response.html);
-                // $('.article-rows').html(response.html);
+                $('.article-rows').html(response.html);
             }
         });
     });
