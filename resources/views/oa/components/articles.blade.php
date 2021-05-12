@@ -15,7 +15,7 @@
         <p class="total">Tổng số: <strong>{{$total}}</strong></p>
         <input type="text" id="article-search" class="search" placeholder = "Nhập tên bài viết">
     </div>
-    <a href="{{route('oa-article-select')}}" class="btn btn-primary">Tạo bài viết mới</a>
+    <a href="/oa/create-article" class="btn btn-primary">Tạo bài viết mới</a>
     </div>
         <table class="table">
             <thead>

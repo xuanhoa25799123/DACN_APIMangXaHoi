@@ -30,9 +30,13 @@
 }
 .more-info {
     position: relative;
+    width: 15px;
+    height: 15px;
+}
+.more-info:hover > .last-update {
+    display: initial;
 }
 .info-icon {
-    font-size: 12px;
     cursor: pointer;
 }
 .last-update {
@@ -42,8 +46,8 @@
     height: 60px;
     padding: 10px;
     display: none;
-    box-shadow: 0 10px 15px -7px black;
     background-color: white;
+    box-shadow: 0 10px 15px -7px black;
 }
 .info-icon:hover > .last-update {
     display: initial;

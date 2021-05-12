@@ -144,6 +144,13 @@ Route::prefix('oa')->group(function () {
          'as'=>'update-article',
         'uses'=>'App\Http\Controllers\OAController@updateArticle',
     ]);
+     Route::get('/create-article',[
+        'uses'=>'App\Http\Controllers\OAController@createArticle',
+    ]);
+     Route::post('/store-article',[
+         'as'=>'store-article',
+        'uses'=>'App\Http\Controllers\OAController@storeArticle',
+    ]);
 });
 
 

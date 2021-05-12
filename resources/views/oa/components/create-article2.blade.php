@@ -3,56 +3,52 @@
 @section('css')
     <!-- 
         <link rel="stylesheet" href="{{asset('/css/create-article.css')}}"> -->
-        <link rel="stylesheet" href="{{asset('/css/article-edit.css')}}">
+        <link rel="stylesheet" href="{{asset('/css/create-article.css')}}">
 
 @endsection
 @section('js')
-    <script src="{{asset('/js/article-edit.js')}}"></script>
+    <script src="{{asset('/js/create-article.js')}}"></script>
 @endsection
 @section('content')
 
-    <form action="{{route('update-article')}}" method="POST">
+    <form action="{{route('store-article')}}" method="POST">
         @csrf;
         <div class="create-container">
         <div class="left-content">
         <div class="form-group inline-form">
             <label>Tiêu đề</label>
-            <input class="form-control" name="title" placeholder="Tiêu đề bài viết" maxlength="50" value="{{$article->title}}">
+            <input class="form-control" name="title" placeholder="Tiêu đề bài viết" maxlength="50" required>
         </div>
         <div class="form-group inline-form">
             <label>Trích dẫn</label>
-            <textarea name="description" class="form-control" rows="5" maxlength="300">{{$article->description}}</textarea>
+            <textarea name="description" class="form-control" rows="5" maxlength="300" required></textarea>
         </div>
         <div class="form-group inline-form">
             <label>Tác giả</label>
-            <input class="form-control" name="author" value="{{$article->author}}">
+            <input class="form-control" name="author">
         </div>
         <div class="form-group inline-form">
             <label>Nội dung</label>
-            <textarea class="form-control" name="content" rows="10">{{$article->body[0]->content}}</textarea>
+            <textarea class="form-control" name="content" rows="10"></textarea>
         </div>
-        </div>
-        <input type="hidden" name="id" value="{{$article->id}}">
-
-        
+        </div>        
         <div class="right-content">
               <div class="form-group">
                 <label>Video / Ảnh đại diện</label>
                 <div class="cover-container">
-                  
+                
                     <div class="cover-content">
                           
                         <div class="select-content image-content">
                            
-                            <input name="photo_url" type="text" class="form-control image-input" placeholder="Paste link tại đây..." value="{{$article->cover->photo_url}}">
+                            <input name="photo_url" type="text" class="form-control image-input" placeholder="Paste link tại đây...">
                             <div class="image-info">
                                 <div class="sub-image-info">
                                  <i class="fa fa-image icon"></i>
                                     <p class="photo-text">Nhập url của ảnh</p>
                                  </div>
-                             
                                       <div class="image-preview">
-                                    <img src="{{$article->cover->photo_url}}" class="preview-image">
+                                    <img src="" class="preview-image">
                               </div>
                             </div>
                       

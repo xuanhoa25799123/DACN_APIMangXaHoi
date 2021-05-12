@@ -245,16 +245,13 @@ class OAController extends Controller
                 'body'=>$data
          ]);
          $response = json_decode($result->getBody());
-
-        //  dd($response);
-        //  $oa_info = session('oa_info');
-        //  $title = "Chỉnh sửa bài viết";
-        //  if($response->message=="Success")
-        //  {
             return redirect('/oa/article');
-            // $article  = $response->data;
-            // return view('test.components.edit-article',compact('oa_info','title','article'));
-        //  }
+    }
+    public function createArticle()
+    {
+        $oa_info = session('oa_info');
+        $title="Tạo bài viết mới";
+        return view('oa.components.create-article2');
     }
 }
 
