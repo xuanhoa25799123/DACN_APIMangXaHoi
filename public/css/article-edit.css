@@ -1,3 +1,45 @@
+.content {
+    width: 95% !important;
+}
+
+.create-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px auto;
+    border-radius: 5px;
+    border: 1px solid lightgreen;
+    padding: 10px;
+}
+
+.left-content {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.right-content {
+    width: 30%;
+}
+
+.inline-form {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+}
+.form-control {
+    width: 80% !important;
+}
+
+.cover-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cover-content {
+    width: 100%;
+}
 .select-content {
     width: 100%;
     height: 160px;
@@ -8,7 +50,7 @@
 }
 .image-info {
     width: 95%;
-    height: 130px;
+    height: 180px;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -29,10 +71,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    display: none;
 }
 .photo-text {
     font-weight: normal;
 }
+
 .image-preview {
     width: 100%;
     height: 100%;
@@ -43,10 +87,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.image-content {
-    display: none;
 }
 
 .image-input {

@@ -134,11 +134,15 @@ Route::prefix('oa')->group(function () {
         'as'=>'video-article',
         'uses'=>'App\Http\Controllers\OAController@createVideoArticle',
     ]);
-         Route::post('/submit-video', [
-        'uses'=>'App\Http\Controllers\TestController@videoArticle'
-    ]);
-       Route::post('/submit-video', [
-        'uses'=>'App\Http\Controllers\TestController@videoArticle'
+    //      Route::post('/submit-video', [
+    //     'uses'=>'App\Http\Controllers\TestController@videoArticle'
+    // ]);
+    //    Route::post('/submit-video', [
+    //     'uses'=>'App\Http\Controllers\TestController@videoArticle'
+    // ]);
+        Route::post('/update-article',[
+         'as'=>'update-article',
+        'uses'=>'App\Http\Controllers\OAController@updateArticle',
     ]);
 });
 
@@ -234,6 +238,13 @@ Route::prefix('test')->group(function () {
     ]);
     Route::get('/test-date',[
         'uses'=>'App\Http\Controllers\TestController@testDate',
+    ]);
+       Route::get('/edit-article',[
+        'uses'=>'App\Http\Controllers\TestController@editArticle',
+    ]);
+     Route::post('/update-article',[
+         'as'=>'test-update-article',
+        'uses'=>'App\Http\Controllers\TestController@updateArticle',
     ]);
 });
 

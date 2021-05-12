@@ -214,6 +214,48 @@ class OAController extends Controller
             return view('oa.components.edit-article',compact('oa_info','title','article'));
          }
     }
+        public function updateArticle(Request $request)
+    {
+             $accessToken = session('oa_token');
+           $client = new \GuzzleHttp\Client();
+           $data = json_encode([
+               "cover"=> [
+            "photo_url"=> $request->photo_url,
+            "cover_type"=> "photo",
+            "status"=> "show"
+            ],
+            "author"=> $request->author,
+            "description"=> $request->description,
+            "comment"=> "show",
+            "id"=>$request->id,
+            "type"=>"normal",
+            "title"=>$request->title,
+            "body"=> [
+                [
+                    "type"=> "text",
+                    "content"=> $request->content,
+                ]
+            ],
+            "status"=> "show"
+            ]);
+             $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/update'.$accessToken,[
+                 'query'=>[
+                     'access_token'=>$accessToken;
+                 ],
+                'body'=>$data
+         ]);
+         $response = json_decode($result->getBody());
+
+        //  dd($response);
+        //  $oa_info = session('oa_info');
+        //  $title = "Chỉnh sửa bài viết";
+        //  if($response->message=="Success")
+        //  {
+            return redirect('/oa/list')
+            // $article  = $response->data;
+            // return view('test.components.edit-article',compact('oa_info','title','article'));
+        //  }
+    }
 }
 
 

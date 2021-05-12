@@ -11,7 +11,7 @@
 @endsection
 @section('content')
 
-    <form action="{{route('update-article')}}" method="POST">
+    <form action="{{route('test-update-article')}}" method="POST">
         @csrf;
         <div class="create-container">
         <div class="left-content">

@@ -1,5 +1,6 @@
 $(document).ready(function() {
-    $('.image-input').on('change',function(e) {
+   $('.image-input').on('keyup',function(e) {
+        console.log("asds");
         let src = $(this).val();
         if(src=="")
         {

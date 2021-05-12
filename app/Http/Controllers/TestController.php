@@ -401,4 +401,63 @@ class TestController extends Controller
 
         return response()->json(['success'=>true,'result'=>$rs]);
     }
+    public function editArticle()
+    {
+                $accessToken = 'AEma5D8bHXGgwoWNrY1F4o7cAnVSDpHNO_in2UbkAajamqyYtn5NIoMsDHYd85LdCP4p3yygK4nifKCmaor2DJocH4x3ArOuUwvCRTmxJMf2laewk0LEEmoELKAM0KmTDgj9Gi4CB0TNlZLXsWjK3o63HL2rEKOLA95qRwajPWWWucLXZLvc91l5Nrc53L4vBR0oLx5w4J0KpGTgcm0qFnkCEagp1mmTAwmLVxyv7Iy6XovF-40T2mNC3a_uL3iGHjm6MEv0CX5XyL1kspOg5tomB59rOix_Lp7LFK4S';
+        $id = '49e8a0e3f9a610f849b7';
+           $client = new \GuzzleHttp\Client();
+             $result = $client->request('GET','https://openapi.zalo.me/v2.0/article/getdetail',[
+                'query'=>[
+                    'access_token'=>$accessToken,
+                    'id'=>$id,
+                ]
+         ]);
+         $response = json_decode($result->getBody());
+         $oa_info = session('oa_info');
+         $title = "Chỉnh sửa bài viết";
+         if($response->message=="Success")
+         {
+            $article  = $response->data;
+            return view('test.components.edit-article',compact('oa_info','title','article'));
+         } 
+    }
+    public function updateArticle(Request $request)
+    {
+             $accessToken = 'AEma5D8bHXGgwoWNrY1F4o7cAnVSDpHNO_in2UbkAajamqyYtn5NIoMsDHYd85LdCP4p3yygK4nifKCmaor2DJocH4x3ArOuUwvCRTmxJMf2laewk0LEEmoELKAM0KmTDgj9Gi4CB0TNlZLXsWjK3o63HL2rEKOLA95qRwajPWWWucLXZLvc91l5Nrc53L4vBR0oLx5w4J0KpGTgcm0qFnkCEagp1mmTAwmLVxyv7Iy6XovF-40T2mNC3a_uL3iGHjm6MEv0CX5XyL1kspOg5tomB59rOix_Lp7LFK4S';
+        $id = '49e8a0e3f9a610f849b7';
+           $client = new \GuzzleHttp\Client();
+           $data = json_encode([
+               "cover"=> [
+    "photo_url"=> $request->photo_url,
+    "cover_type"=> "photo",
+    "status"=> "show"
+               ],
+  "author"=> $request->author,
+  "description"=> $request->description,
+  "comment"=> "show",
+  "id"=>$request->id,
+  "type"=>"normal",
+  "title"=>$request->title,
+  "body"=> [
+    [
+      "type"=> "text",
+      "content"=> $request->content,
+  ]
+  ],
+  "status"=> "show"
+]);
+             $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/update?access_token='.$accessToken,[
+                'body'=>$data
+         ]);
+         $response = json_decode($result->getBody());
+
+         dd($response);
+         $oa_info = session('oa_info');
+         $title = "Chỉnh sửa bài viết";
+         if($response->message=="Success")
+         {
+            $article  = $response->data;
+            return view('test.components.edit-article',compact('oa_info','title','article'));
+         }
+    }
 }
