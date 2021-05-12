@@ -9,7 +9,7 @@
                 <td  style="text-align:center">
                     @if($article->status=="show")
                     <label class="checkbox-inline">
-                        <input type="checkbox" checked data-toggle="toggle">
+                        <input class="active-article" type="checkbox" checked data-toggle="toggle">
                     </label>
                     @else
                         <label class="checkbox-inline">
