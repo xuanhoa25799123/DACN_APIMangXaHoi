@@ -253,7 +253,7 @@ class OAController extends Controller
         $title="Tạo bài viết mới";
         return view('oa.components.create-article2',compact('oa_info','title'));
     }
-    public function storeArticle()
+    public function storeArticle(Request $request)
     {
          $accessToken = session('oa_token');
            $client = new \GuzzleHttp\Client();
