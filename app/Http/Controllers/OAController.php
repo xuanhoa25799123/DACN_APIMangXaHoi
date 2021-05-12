@@ -146,12 +146,13 @@ class OAController extends Controller
         }
         else {
             foreach ($arr as $item) {
-                if (stripos(Str::slug($item['title']), Str::slug($keyword)) == true||stripos(Str::slug($item['title']), Str::slug($keyword)) ===0) {
+                 return response()->json(['success' => true, 'html' => $item->title]);
+                if (stripos(Str::slug($item->title), Str::slug($keyword)) == true||stripos(Str::slug($item->title), Str::slug($keyword)) ===0) {
                     array_push($artiles, $item);
                 }
             }
         }
-        return response()->json(['success' => true, 'html' => $keyword]);
+       
         $html = view('oa.partials.articles')->with(compact('articles'))->render();
         return response()->json(['success' => true, 'html' => $html]);
     }
