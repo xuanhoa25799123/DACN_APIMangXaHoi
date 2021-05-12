@@ -113,6 +113,9 @@ Route::prefix('oa')->group(function () {
         'as'=>'oa-article',
         'uses'=>'App\Http\Controllers\OAController@articleList',
     ]);
+      Route::get('/article/{keyword}',[
+        'uses'=>'App\Http\Controllers\OAController@articleSearch',
+    ]);
     Route::get('/select-article',[
         'as'=>'oa-article-select',
         'uses'=>'App\Http\Controllers\OAController@selectArticle',

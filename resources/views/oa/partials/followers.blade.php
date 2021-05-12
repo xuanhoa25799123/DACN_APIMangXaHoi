@@ -1,6 +1,6 @@
 @foreach($followers as $index=>$follower)
             <tr>
-                <th style="text-align:center"scope="row">{{$index}}</th>
+                <th style="text-align:center"scope="row">{{$index+1}}</th>
 
                 <td style="text-align:center"> <img class="follower-image" src="{{$follower['avatar']}}" alt=""></td>
                 <td> {{$follower['display_name']}}</td>

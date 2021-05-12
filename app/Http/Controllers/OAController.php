@@ -88,11 +88,13 @@ class OAController extends Controller
         $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice?offset=0&type=normal&access_token='.$accessToken);
        $result = json_decode($res->getBody());
        $data = $result->data;
+       $total = $data->total;
        $articles = $data->medias;
         $oa_info = session('oa_info');
         $title="Bài viết";
+        session(['articles'=>$articles]);
 
-       return view('oa.components.articles',compact('articles','oa_info','title'));
+       return view('oa.components.articles',compact('articles','oa_info','title','total'));
     }
     public function selectArticle()
     {
@@ -133,6 +135,24 @@ class OAController extends Controller
 
          ]);
          return $request->json(['success'=>true,$result]);
+    }
+    public function articleSearch($keyword)
+    {
+         $arr = session('articles');
+        $articles = array();
+        if($keyword=="*")
+        {
+            $articles=$arr;
+        }
+        else {
+            foreach ($arr as $item) {
+                if (stripos(Str::slug($->itemtitle), Str::slug($keyword)) == true||stripos(Str::slug($item->title), Str::slug($keyword)) ===0) {
+                    array_push($artiles, $item);
+                }
+            }
+        }
+        $html = view('oa.partials.articles')->with(compact('articles'))->render();
+        return response()->json(['success' => true, 'html' => $html]);
     }
     public function followerSearch($keyword)
     {
