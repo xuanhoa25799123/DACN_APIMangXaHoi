@@ -251,7 +251,7 @@ class OAController extends Controller
         //  $title = "Chỉnh sửa bài viết";
         //  if($response->message=="Success")
         //  {
-            return redirect('/oa/list')
+            return redirect('/oa/list');
             // $article  = $response->data;
             // return view('test.components.edit-article',compact('oa_info','title','article'));
         //  }
