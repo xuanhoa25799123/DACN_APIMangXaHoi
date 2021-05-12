@@ -19,7 +19,7 @@
                 </td>
 
                 <td  style="text-align:center"><button type="button" class="btn btn-outline-primary"><i class="fa fa-edit"></i>&nbsp; Sửa</button>
-                    <button type="button" id="article-delete" data-id="{{$article->id}}" class="btn btn-outline-primary">Xoá bài viết</button>
+                    <button type="button" class="article-delete" data-id="{{$article->id}}" class="btn btn-outline-primary">Xoá bài viết</button>
                 </td>
             </tr>
 @endforeach

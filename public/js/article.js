@@ -15,7 +15,7 @@ $(document).ready(function() {
         });
     });
     
-       $('#article-delete').on('click',function() {
+       $('.article-delete').on('click',function() {
            let id = $(this).data('id');
             let url = `/oa/delete-article/${id}`;
             Swal.fire({
