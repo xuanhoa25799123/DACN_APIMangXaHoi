@@ -44,7 +44,7 @@
             return;
        }
        let id_str=  selected_broadcast.join(',');
-       window.location.href=`oa/view-broadcast/${id_str}`;
+       window.location.href=`/oa/view-broadcast/${id_str}`;
     })
     $('.recipient-button').on('click',function(e) {
           e.stopPropagation();
