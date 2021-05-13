@@ -456,4 +456,102 @@ class TestController extends Controller
          $title = "Chỉnh sửa bài viết";
                 return redirect('test/edit-article');
     }
+    public function searchBroadcast()
+    {
+           $oa_info = session('oa_info');
+         $title = "Chỉnh sửa bài viết";
+        return view('test.components.search-broadcast',compact('oa_info','title'));
+    }
+        public function searchBroadcast2(Request $request)
+    {
+        $start = $request->start;
+        $end = $request->end;
+        dd(strtotime($start),strtotime($end));
+        return response()->json(['success' => true, 'html' => $html]);   
+    }
+    public function Broadcast()
+    {
+        $accessToken = "r-3lHTjGqI3Lv-D6trNO9zxgu4RLGgzGXwASKTfmhZ6ka_fItdYMTTEttXEwO84tqxFU0QXTcXJsYyGthqpy4Et-apQy3-5LvS-yHeSQWtsIvhvpsmk4IvR5k7N7TufHXfJbOVrmdbYEbS5uWKIP6EkWsG20Q9zjx9wXVAvjv67dX8HuZ7lzGepEmq_N9vfNYV2yODiCq06pleWtl5dcACgAg2wSNF0TwfAg9UformAWWQuIssx27ukH-IM5UwK1_xQVBPS0mWpsmuWKk1MwATJMn4gg8lbpSJCuXWjKt4ZMA0";
+
+         //$accessToken = 'AEma5D8bHXGgwoWNrY1F4o7cAnVSDpHNO_in2UbkAajamqyYtn5NIoMsDHYd85LdCP4p3yygK4nifKCmaor2DJocH4x3ArOuUwvCRTmxJMf2laewk0LEEmoELKAM0KmTDgj9Gi4CB0TNlZLXsWjK3o63HL2rEKOLA95qRwajPWWWucLXZLvc91l5Nrc53L4vBR0oLx5w4J0KpGTgcm0qFnkCEagp1mmTAwmLVxyv7Iy6XovF-40T2mNC3a_uL3iGHjm6MEv0CX5XyL1kspOg5tomB59rOix_Lp7LFK4S';
+            $client = new \GuzzleHttp\Client();
+                 $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',['query'=>[
+               'offset'=>0,
+               'limit'=>10,
+               'type'=>'normal',
+               'access_token'=>$accessToken
+           ]]);
+             $result = json_decode($res->getBody());
+       $data = $result->data;
+       $total = $data->total;
+       $articles = $data->medias;
+        $oa_info = session('oa_info');
+        $title="Gửi broadcast";
+        session(['broadcasts'=>$articles]);
+
+       return view('test.components.broadcast',compact('articles','oa_info','title','total')); 
+    }
+    public function viewBroadcast($id_str)
+    {
+        $id_arr = explode(",",$id_str);
+        $broadcasts = session("broadcasts");
+        $broadcast = array();
+        foreach($broadcasts as $item)
+        {
+            if(in_array($item->id,$id_arr))
+            {
+                array_push($broadcast,$item);
+            }
+        }
+           $oa_info = session('oa_info');
+        $title="Gửi broadcast";
+        return view('test.components.view-broadcast',compact('broadcast','oa_info','title')); 
+
+    }
+    public function sendBroadcast(Request $request)
+    {
+        $gender = $request->gender;
+ 
+        $age = implode(',',$request->age);
+        $platform = implode(',',$request->platform);
+        $id_arr = [];
+
+          foreach($request->id as $id)
+            {
+                array_push($id_arr,[
+                    'media_type'=>'article',
+                    'attachment_id'=>$id,
+                ]);
+            }
+            
+          $accessToken = 'AEma5D8bHXGgwoWNrY1F4o7cAnVSDpHNO_in2UbkAajamqyYtn5NIoMsDHYd85LdCP4p3yygK4nifKCmaor2DJocH4x3ArOuUwvCRTmxJMf2laewk0LEEmoELKAM0KmTDgj9Gi4CB0TNlZLXsWjK3o63HL2rEKOLA95qRwajPWWWucLXZLvc91l5Nrc53L4vBR0oLx5w4J0KpGTgcm0qFnkCEagp1mmTAwmLVxyv7Iy6XovF-40T2mNC3a_uL3iGHjm6MEv0CX5XyL1kspOg5tomB59rOix_Lp7LFK4S';
+          $data=json_encode([
+              'recipient'=>[
+                  'target'=>[
+                      'age'=>$age,
+                      'gender'=>$gender,
+                      'platform'=>$platform,
+                  ]
+                  ],
+                  'message'=>[
+                      'attachment'=>[
+                          'type'=>'template',
+                          'payload'=>[
+                              'template_type'=>'media',
+                              'elements'=>$id_arr,
+                          ]
+                      ]
+                  ]
+          ]);
+          $client = new \GuzzleHttp\Client();
+         $rs = $client->request('POST','https://openapi.zalo.me/v2.0/oa/message',['query'=>[
+        
+               'access_token'=>$accessToken
+                 ],
+                 'body'=>$data,
+           ]);
+           $result = json_decode($rs->getBody());
+           dd($result);
+        dd($request->age,$request->gender,$request->id,$request->platform);
+    }
 }

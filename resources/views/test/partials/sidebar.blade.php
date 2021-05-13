@@ -68,6 +68,18 @@
             </div>
             <p class='sidebar-item-text'>edit article</p>
         </a>
+           <a class="sidebar-item" href="/test/search-broadcast">
+            <div class="sidebar-item-icon-container">
+                <i class="fa fa-edit sidebar-item-icon"></i>
+            </div>
+            <p class='sidebar-item-text'>search-broadcast</p>
+        </a>
+           <a class="sidebar-item" href="/test/broadcast">
+            <div class="sidebar-item-icon-container">
+                <i class="fa fa-edit sidebar-item-icon"></i>
+            </div>
+            <p class='sidebar-item-text'>broadcast</p>
+        </a>
     </div>
 
 </div>

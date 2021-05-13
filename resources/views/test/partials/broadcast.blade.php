@@ -14,7 +14,8 @@
                 </td>
 
                 <td style="text-align:center">
-                    <button type="button" data-id="{{$article->id}}" class="btn btn-outline-primary select-broadcast broadcast-{{$article->id}}">Chọn</button>
+                    <button type="button" data-id="{{$article->id}}" class="btn btn-outline-primary select-broadcast">Chọn</button>
                 </td>
             </tr>
+            
 @endforeach

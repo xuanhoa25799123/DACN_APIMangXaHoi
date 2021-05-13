@@ -1,4 +1,4 @@
-@extends('oa.layouts.admin')
+@extends('test.layouts.admin')
 
 @section('css')
     <link rel="stylesheet" href="{{asset('/css/article.css')}}">
@@ -6,7 +6,7 @@
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 @endsection
 @section('js')
-<script src="{{asset('/js/broadcast.js')}}"></script>
+<script src="{{asset('/js/test/broadcast.js')}}"></script>
     <script src="{{asset('plugins/sweetalert2/sweetalert2@10.js')}}"></script>
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 @endsection
@@ -30,8 +30,8 @@
             </tr>
             </thead>
             <tbody class="article-rows">
-            @include('oa.partials.broadcast')
+            @include('test.partials.broadcast')
             </tbody>
         </table>
-         <button type="button" class="btn btn-primary send-broadcast">Gửi broadcast</button>
+        <button type="button" class="btn btn-primary send-broadcast">Gửi broadcast</button>
 @endsection

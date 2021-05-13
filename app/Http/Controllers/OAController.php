@@ -85,7 +85,13 @@ class OAController extends Controller
     {
         $client = new GuzzleHttp\Client();
         $accessToken = session('oa_token');
-        $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice?offset=0&type=normal&access_token='.$accessToken);
+        $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',
+    ['query'=>[
+        'offset'=>0,
+        'type'=>'normal',
+        'limit'=>10,
+        'access_token'=>$accessToken
+            ]]);
        $result = json_decode($res->getBody());
        $data = $result->data;
        $total = $data->total;
@@ -292,6 +298,7 @@ class OAController extends Controller
         $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',[
             'query'=>[
                 'offset'=>0,
+                'limit'=>10,
                 'type'=>'normal',
                 'access_token'=>$accessToken
             ]
@@ -302,10 +309,94 @@ class OAController extends Controller
        $articles = $data->medias;
         $oa_info = session('oa_info');
         $title="Gửi broadcast";
-        session(['articles'=>$articles]);
+        session(['broadcasts'=>$articles]);
 
        return view('oa.components.broadcast',compact('articles','oa_info','title','total'));   
     }
+    public function searchBroadcast()
+    {
+        $arr = session('broadcasts');
+        $articles = array();
+        if($keyword=="*")
+        {
+            $articles=$arr;
+        }
+        else {
+            foreach ($arr as $item) {
+                if (stripos(Str::slug($item->title), Str::slug($keyword)) == true||stripos(Str::slug($item->title), Str::slug($keyword)) ===0) {
+                    array_push($articles, $item);
+                }
+            }
+        }
+        $html = view('oa.partials.broadcast')->with(compact('articles'))->render();
+        return response()->json(['success' => true, 'html' => $html]);   
+    }
+ 
+
+        public function viewBroadcast($id_str)
+    {
+        $id_arr = explode(",",$id_str);
+        $broadcasts = session("broadcasts");
+        $broadcast = array();
+        foreach($broadcasts as $item)
+        {
+            if(in_array($item->id,$id_arr))
+            {
+                array_push($broadcast,$item);
+            }
+        }
+           $oa_info = session('oa_info');
+        $title="Gửi broadcast";
+        return view('oa.components.view-broadcast',compact('broadcast','oa_info','title')); 
+
+    }
+    public function sendBroadcast(Request $request)
+    {
+        $gender = $request->gender;
+ 
+        $age = implode(',',$request->age);
+        $platform = implode(',',$request->platform);
+        $id_arr = [];
+
+          foreach($request->id as $id)
+            {
+                array_push($id_arr,[
+                    'media_type'=>'article',
+                    'attachment_id'=>$id,
+                ]);
+            }
+            
+          $accessToken = 'AEma5D8bHXGgwoWNrY1F4o7cAnVSDpHNO_in2UbkAajamqyYtn5NIoMsDHYd85LdCP4p3yygK4nifKCmaor2DJocH4x3ArOuUwvCRTmxJMf2laewk0LEEmoELKAM0KmTDgj9Gi4CB0TNlZLXsWjK3o63HL2rEKOLA95qRwajPWWWucLXZLvc91l5Nrc53L4vBR0oLx5w4J0KpGTgcm0qFnkCEagp1mmTAwmLVxyv7Iy6XovF-40T2mNC3a_uL3iGHjm6MEv0CX5XyL1kspOg5tomB59rOix_Lp7LFK4S';
+          $data=json_encode([
+              'recipient'=>[
+                  'target'=>[
+                      'age'=>$age,
+                      'gender'=>$gender,
+                      'platform'=>$platform,
+                  ]
+                  ],
+                  'message'=>[
+                      'attachment'=>[
+                          'type'=>'template',
+                          'payload'=>[
+                              'template_type'=>'media',
+                              'elements'=>$id_arr,
+                          ]
+                      ]
+                  ]
+          ]);
+          $client = new \GuzzleHttp\Client();
+         $rs = $client->request('POST','https://openapi.zalo.me/v2.0/oa/message',['query'=>[
+        
+               'access_token'=>$accessToken
+                 ],
+                 'body'=>$data,
+           ]);
+           $result = json_decode($rs->getBody());
+           dd($result);
+             dd($request->age,$request->gender,$request->id,$request->platform);
+
+
 }
 
 

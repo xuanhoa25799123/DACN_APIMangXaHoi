@@ -155,6 +155,16 @@ Route::prefix('oa')->group(function () {
          'as'=>'oa-broadcast',
         'uses'=>'App\Http\Controllers\OAController@Broadcast',
     ]);
+     Route::get('/broadcast/{keyword}',[
+        'uses'=>'App\Http\Controllers\OAController@searchBroadcast',
+    ]);
+        Route::get('/view-broadcast/{id_str}',[
+        'uses'=>'App\Http\Controllers\OAController@viewBroadcast',
+    ]);
+    Route::post('/send-broadcast',[
+        'as'=>'oa-send-broadcast',
+        'uses'=>'App\Http\Controllers\OAController@sendBroadcast',
+    ]);
 });
 
 
@@ -256,6 +266,23 @@ Route::prefix('test')->group(function () {
      Route::post('/update-article',[
          'as'=>'test-update-article',
         'uses'=>'App\Http\Controllers\TestController@updateArticle',
+    ]);
+     Route::get('/search-broadcast',[
+        'uses'=>'App\Http\Controllers\TestController@searchBroadcast',
+    ]);
+     Route::post('/search-broadcast-2',[
+           'as'=>'test-search-broadcast',
+        'uses'=>'App\Http\Controllers\TestController@searchBroadcast2',
+    ]);
+     Route::get('/broadcast',[
+        'uses'=>'App\Http\Controllers\TestController@Broadcast',
+    ]);
+    Route::get('/view-broadcast/{id_str}',[
+        'uses'=>'App\Http\Controllers\TestController@viewBroadcast',
+    ]);
+    Route::post('/send-broadcast',[
+        'as'=>'test-send-broadcast',
+        'uses'=>'App\Http\Controllers\TestController@sendBroadcast',
     ]);
 });
 
