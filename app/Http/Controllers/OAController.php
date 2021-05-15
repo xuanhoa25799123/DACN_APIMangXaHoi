@@ -167,14 +167,14 @@ class OAController extends Controller
         $start = strtotime($request->st);
         $end = strtotime($request->en);
         $articles = array();
-        else {
+       
             foreach ($arr as $item) {
                 $date =(int)substr((string)$item->create_day,0,10)
                 if ($date>=$start && $date<=end) {
                     array_push($articles, $item);
                 }
             }
-        }
+        
         $html = view('oa.partials.articles')->with(compact('articles'))->render();
         return response()->json(['success' => true, 'html' => $html]);
     }
