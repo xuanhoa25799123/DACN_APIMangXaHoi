@@ -122,7 +122,7 @@ Route::prefix('oa')->group(function () {
     Route::post('/article/search-date',[
         'uses'=>'App\Http\Controllers\OAController@articleSearchDate',
     ]);
-       Route::post('/article/reset-date',[
+       Route::get('/article/reset-date',[
         'uses'=>'App\Http\Controllers\OAController@articleResetDate',
     ]);
       Route::get('/delete-article/{id}',[
@@ -163,6 +163,12 @@ Route::prefix('oa')->group(function () {
     ]);
      Route::get('/broadcast/{keyword}',[
         'uses'=>'App\Http\Controllers\OAController@searchBroadcast',
+    ]);
+     Route::post('/broadcast/search-date',[
+        'uses'=>'App\Http\Controllers\OAController@broadcastSearchDate',
+    ]);
+       Route::get('/broadcast/reset-date',[
+        'uses'=>'App\Http\Controllers\OAController@broadcastResetDate',
     ]);
         Route::get('/view-broadcast/{id_str}',[
         'uses'=>'App\Http\Controllers\OAController@viewBroadcast',

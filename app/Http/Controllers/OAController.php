@@ -353,6 +353,27 @@ class OAController extends Controller
         return response()->json(['success' => true, 'html' => $html]);   
     }
  
+       public function broadcastSearchDate(Request $request)
+    {
+         $arr = session('broadcasts');
+        $start = strtotime($request->st);
+        $end = strtotime($request->en);
+        $articles = array();
+            foreach ($arr as $item) {
+                $date =(int)substr((string)$item->create_date,0,10);
+                if ($date>=$start && $date<=$end) {
+                    array_push($articles, $item);
+                }
+            }
+        $html = view('oa.partials.broadcast')->with(compact('articles'))->render();
+        return response()->json(['success' => true, 'html' => $html]);
+    }
+    public function broadcastResetDate()
+    {
+       $articles = session('broadcasts');   
+               $html = view('oa.partials.broadcast')->with(compact('articles'))->render();
+        return response()->json(['success' => true, 'html' => $html]);
+    }
 
         public function viewBroadcast($id_str)
     {

@@ -11,12 +11,20 @@
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 @endsection
 @section('content')
+<div class="article-head">
+     <a href="/oa/create-article" class="btn btn-primary">Tạo bài viết mới</a>
+</div>
     <div class="article-header">
     <div class="article-header-left">
         <p class="total">Tổng số: <strong>{{$total}}</strong></p>
         <input type="text" id="broadcast-search" class="search" placeholder = "Nhập tên bài viết">
     </div>
-    <a href="/oa/create-article" class="btn btn-primary">Tạo bài viết mới</a>
+     <div class="article-header-right">
+        <input type="text" name="daterange" class="form-control">
+    </div>
+   
+
+   
     </div>
         <table class="table">
             <thead>
