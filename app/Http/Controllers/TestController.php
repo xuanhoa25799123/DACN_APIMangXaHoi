@@ -575,4 +575,66 @@ class TestController extends Controller
         $html="hehe";
         return response()->json(['success'=>true,'html'=>$html]);
     }
+    public function paginate(Request $request)
+    {
+         $current_page = 1;
+        if($request->has('page'))
+        {
+            $current_page = $request->query('page');
+        }
+        $limit = 1;
+        $offset = ($current_page-1)*$limit;
+        // dd($offset);
+           $accessToken = 'AEma5D8bHXGgwoWNrY1F4o7cAnVSDpHNO_in2UbkAajamqyYtn5NIoMsDHYd85LdCP4p3yygK4nifKCmaor2DJocH4x3ArOuUwvCRTmxJMf2laewk0LEEmoELKAM0KmTDgj9Gi4CB0TNlZLXsWjK3o63HL2rEKOLA95qRwajPWWWucLXZLvc91l5Nrc53L4vBR0oLx5w4J0KpGTgcm0qFnkCEagp1mmTAwmLVxyv7Iy6XovF-40T2mNC3a_uL3iGHjm6MEv0CX5XyL1kspOg5tomB59rOix_Lp7LFK4S';
+        $data =  json_encode(array(
+            'offset' => $offset,
+            'count' => $limit
+        ));
+          $client = new \GuzzleHttp\Client();
+                 $response = $client->get('https://openapi.zalo.me/v2.0/oa/getfollowers',['query'=>[
+                'data'=>$data,
+               'access_token'=>$accessToken
+           ]]);
+        $result = json_decode($response->getBody());
+        // dd($result);
+        $follower_ids = $result->data->followers;
+        $total = $result->data->total;
+        $total_page = (ceil($total / $limit));
+        $followers = array();
+                    // dd($current_page,$total_page);
+        $oa_info = session('oa_info');
+     
+        $title="Người theo dõi";
+        $paginate = "";
+        
+            if($current_page!=1)
+            {
+                $paginate .="<a class='paginate-item' href='/test/paginate?page=".($current_page-1)."'><</a>";
+            }
+        else{
+               $paginate .="<button class='current-page'><</button>";
+        }
+         for($i = $current_page-3;$i < $current_page;$i++)
+            {
+                if($i>0)
+                {
+                $paginate .="<a class='paginate-item' href='/test/paginate?page=".$i."'>".$i."</a>";
+                }
+        }
+           $paginate .="<button class='current-page'>".$i."</button>";
+           for($i = $current_page+1; $i<=$current_page+3 && $i<=$total_page;$i++)
+            {
+                 $paginate .="<a class='paginate-item' href='/test/paginate?page=".$i."'>".$i."</a>";
+            }
+            if($current_page != $total_page)
+            {
+                   $paginate .="<a class='paginate-item' href='/test/paginate?page=".($current_page+1)."'>></a>";
+                
+            }
+            else{
+                  $paginate .="<button class='current-page'>></button>";
+            }
+
+        return view('test.components.paginate',compact('total','paginate','title','oa_info'));
+    }
 }

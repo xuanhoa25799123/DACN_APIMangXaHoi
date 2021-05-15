@@ -2,6 +2,7 @@
 
 @section('css')
     <link rel="stylesheet" href="{{asset('/css/follower.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/paginate.css')}}">
 @endsection
 @section('js')
     <script src="{{asset('/js/follower.js')}}"></script>
@@ -25,4 +26,8 @@
             @include('oa.partials.followers')
         </tbody>
     </table>
+    <div class="paginate-container">
+        {!!$paginate!!}
+    </div>
+    
 @endsection

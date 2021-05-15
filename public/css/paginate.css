@@ -1,0 +1,24 @@
+.paginate-container {
+    display: flex;
+    align-items: center;
+}
+.paginate-item {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid lightblue;
+}
+.current-page {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    justify-content: center;
+    background-color: #bac9d6;
+    border: 1px solid lightblue;
+}

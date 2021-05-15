@@ -56,17 +56,26 @@ class OAController extends Controller
             return view('oa.dashboard', compact('oa_info', 'title'));
         }
     }
-    public function followersList()
+    public function followersList(Request $request)
     {
+        $current_page = 1;
+        if($request->has('page'))
+        {
+            $current_page = $request->query('page');
+        }
+        $limit = 20;
+        $offset = ($current_page-1)*$limit;
         $accessToken = session('oa_token');
         $data = ['data' => json_encode(array(
-            'offset' => 0,
-            'count' => 10
+            'offset' => ($current_page-1)*$limit,
+            'count' => $limit
         ))];
+
         $response = $this->zalo->get(ZaloEndPoint::API_OA_GET_LIST_FOLLOWER, $accessToken, $data);
         $result = $response->getDecodedBody();
         $follower_ids = $result['data']['followers'];
         $total = $result['data']['total'];
+           $total_page = (ceil($total / $limit));
         $followers = array();
         foreach($follower_ids as $follower) {
             $data = ['data' => json_encode(array(
@@ -79,7 +88,37 @@ class OAController extends Controller
         session(['followers'=>$followers]);
         $oa_info = session('oa_info');
         $title="Người theo dõi";
-        return view('oa.components.followers',compact('followers','oa_info','title','total'));
+        $paginate = "";
+            if($current_page!=1)
+            {
+                $paginate .="<a class='paginate-item' href='/test/paginate?page=".($current_page-1)."'><</a>";
+            }
+        else{
+               $paginate .="<button class='current-page'><</button>";
+        }
+         for($i = $current_page-3;$i < $current_page;$i++)
+            {
+                if($i>0)
+                {
+                $paginate .="<a class='paginate-item' href='/test/paginate?page=".$i."'>".$i."</a>";
+                }
+        }
+           $paginate .="<button class='current-page'>".$i."</button>";
+           for($i = $current_page+1; $i<=$current_page+3 && $i<=$total_page;$i++)
+            {
+                 $paginate .="<a class='paginate-item' href='/test/paginate?page=".$i."'>".$i."</a>";
+            }
+            if($current_page != $total_page)
+            {
+                   $paginate .="<a class='paginate-item' href='/test/paginate?page=".($current_page+1)."'>></a>";
+                
+            }
+            else{
+                  $paginate .="<button class='current-page'>></button>";
+            }
+
+
+        return view('oa.components.followers',compact('followers','oa_info','title','total','paginate'));
     }
     public function articleList()
     {

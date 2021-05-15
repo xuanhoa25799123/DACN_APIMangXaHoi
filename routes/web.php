@@ -299,6 +299,9 @@ Route::prefix('test')->group(function () {
       Route::get('/broadcast/reset-date',[
         'uses'=>'App\Http\Controllers\TestController@resetDate',
     ]);
+      Route::get('/paginate',[
+        'uses'=>'App\Http\Controllers\TestController@paginate',
+    ]);
 });
 
 //Route::get('/add/{id}', [

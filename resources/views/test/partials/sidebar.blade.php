@@ -74,12 +74,19 @@
             </div>
             <p class='sidebar-item-text'>search-broadcast</p>
         </a>
+         <a class="sidebar-item" href="/test/paginate">
+            <div class="sidebar-item-icon-container">
+                <i class="fa fa-edit sidebar-item-icon"></i>
+            </div>
+            <p class='sidebar-item-text'>Paginate</p>
+        </a>
            <a class="sidebar-item" href="/test/broadcast">
             <div class="sidebar-item-icon-container">
                 <i class="fa fa-edit sidebar-item-icon"></i>
             </div>
             <p class='sidebar-item-text'>broadcast</p>
         </a>
+        
     </div>
 
 </div>
