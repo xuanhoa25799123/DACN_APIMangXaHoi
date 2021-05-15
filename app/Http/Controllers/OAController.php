@@ -179,7 +179,7 @@ class OAController extends Controller
     public function articleResetDate()
     {
        $articles = session('articles');   
-               $html = view('oa.partials.articles')->with(compact('articles'))->render();
+        $html = view('oa.partials.articles')->with(compact('articles'))->render();
         return response()->json(['success' => true, 'html' => $html]);
     }
     public function followerSearch($keyword)
@@ -371,7 +371,7 @@ class OAController extends Controller
     public function broadcastResetDate()
     {
        $articles = session('broadcasts');   
-               $html = view('oa.partials.broadcast')->with(compact('articles'))->render();
+        $html = view('oa.partials.broadcast')->with(compact('articles'))->render();
         return response()->json(['success' => true, 'html' => $html]);
     }
 
@@ -429,7 +429,6 @@ class OAController extends Controller
           ]);
           $client = new \GuzzleHttp\Client();
          $rs = $client->request('POST','https://openapi.zalo.me/v2.0/oa/message',['query'=>[
-        
                'access_token'=>$accessToken
                  ],
                  'body'=>$data,

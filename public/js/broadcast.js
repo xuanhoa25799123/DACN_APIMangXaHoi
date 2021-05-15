@@ -14,6 +14,7 @@
             },
             dataType: 'json',
             success: function(response) {
+                
               $('.article-rows').html(response.html);
             },
             error:function(XMLHttpRequest, textStatus, errorThrown) { 
@@ -27,6 +28,7 @@
             type: 'get',
             dataType: 'json',
             success: function(response) {
+                console.log(response.html);
               $('.article-rows').html(response.html);
             }, 
               error:function(XMLHttpRequest, textStatus, errorThrown) { 

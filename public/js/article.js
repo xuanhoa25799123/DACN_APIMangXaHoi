@@ -26,6 +26,8 @@ $(document).ready(function() {
             type: 'get',
             dataType: 'json',
             success: function(response) {
+                console.log(response.html);
+                console.log("asd");
               $('.article-rows').html(response.html);
             }, 
               error:function(XMLHttpRequest, textStatus, errorThrown) { 
