@@ -17,11 +17,11 @@
                  $('.cancel-daterange').css('display','initial');
               $('.article-rows').html(response.html);
             },
-            error:function(XMLHttpRequest, textStatus, errorThrown) { 
-                    alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-            }      
+            error:function(XMLHttpRequest, textStatus, errorThrown) {
+                    alert("Status: " + textStatus); alert("Error: " + errorThrown);
+            }
         });
-  });  
+  });
    $('.cancel-daterange').on('click',function(){
         $.ajax({
             url: '/oa/reset-broadcast-date',
@@ -31,10 +31,10 @@
             console.log(response.html);
                $('.cancel-daterange').css('display','none');
               $('.article-rows').html(response.html);
-            }, 
-              error:function(XMLHttpRequest, textStatus, errorThrown) { 
-                    alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-            }   
+            },
+              error:function(XMLHttpRequest, textStatus, errorThrown) {
+                    alert("Status: " + textStatus); alert("Error: " + errorThrown);
+            }
         });
   })
     $('input[name="daterange"]').on('cancel.daterangepicker', function(ev, picker) {
@@ -46,14 +46,14 @@
                  $('.cancel-daterange').css('display','none');
                 console.log(response);
               $('.article-rows').html(response.html);
-            }, 
-              error:function(XMLHttpRequest, textStatus, errorThrown) { 
-                 alert("Error: " + errorThrown); 
-            }   
+            },
+              error:function(XMLHttpRequest, textStatus, errorThrown) {
+                 alert("Error: " + errorThrown);
+            }
         });
   });
  $('#broadcast-search').on('keyup',function() {
-       
+
         var keyword = $(this).val();
         if(keyword=="")
         {
@@ -71,6 +71,7 @@
     })
     $('.select-broadcast').on('click',function(){
         let id =  $(this).data("id");
+        console.log("asdasdsad");
         if($(this).hasClass("selected"))
         {
                 $(this).html("Chọn");
@@ -80,14 +81,14 @@
                     selected_broadcast.splice(index,1);
                 }
             $(this).removeClass("selected");
-        
+
         }
         else{
             $(this).html("Huỷ chọn");
                 selected_broadcast.push(id);
             $(this).addClass("selected");
         }
-    
+
     });
     $('.send-broadcast').on('click',function(){
        if(selected_broadcast.length<1)
