@@ -570,4 +570,9 @@ class TestController extends Controller
            dd($result);
         dd($request->age,$request->gender,$request->id,$request->platform);
     }
+    public function resetDate()
+    {
+        $html="hehe";
+        return response()->json(['success'=>true,'html'=>$html]);
+    }
 }

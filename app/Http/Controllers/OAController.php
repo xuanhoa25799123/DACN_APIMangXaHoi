@@ -178,8 +178,8 @@ class OAController extends Controller
     public function articleResetDate()
     {
     //    $articles = session('articles');   
-    //     $html = view('oa.partials.articles')->with(compact('articles'))->render();
-        return response()->json(['success' => true, 'html' => 'dit con me may']);
+        $html = "hehe";
+        return response()->json(['success' => true, 'html' => $html ]);
     }
     public function followerSearch($keyword)
     {
@@ -371,7 +371,8 @@ class OAController extends Controller
     {
     //    $articles = session('broadcasts');   
     //     $html = view('oa.partials.broadcast')->with(compact('articles'))->render();
-        return response()->json(['success' => true, 'html' => 'dit con me no']);
+    $html="hehe";
+        return response()->json(['success' => true, 'html' => $html]);
     }
 
         public function viewBroadcast($id_str)

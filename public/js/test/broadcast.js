@@ -24,6 +24,21 @@
             }
         });
   });   
+      $('input[name="daterange"]').on('cancel.daterangepicker', function(ev, picker) {
+         console.log("Asdasda");
+      $.ajax({
+            url: '/test/broadcast/reset-date',
+            type: 'get',
+            dataType: 'json',
+            success: function(response) {
+                console.log(response.html);
+            
+            }, 
+              error:function(XMLHttpRequest, textStatus, errorThrown) { 
+                    alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+            }   
+        });
+  });
  $('#broadcast-search').on('keyup',function() {
        
         var keyword = $(this).val();

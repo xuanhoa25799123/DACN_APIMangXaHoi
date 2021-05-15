@@ -21,14 +21,13 @@ $(document).ready(function() {
         });
   });  
     $('input[name="daterange"]').on('cancel.daterangepicker', function(ev, picker) {
-        console.log("Asdasda");
       $.ajax({
             url: '/oa/article/reset-date',
             type: 'get',
             dataType: 'json',
             success: function(response) {
                 console.log(response.html);
-            //     console.log(response.articles);
+              
             //   $('.article-rows').html(response.html);
             }, 
               error:function(XMLHttpRequest, textStatus, errorThrown) { 

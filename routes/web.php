@@ -296,6 +296,9 @@ Route::prefix('test')->group(function () {
         'as'=>'test-send-broadcast',
         'uses'=>'App\Http\Controllers\TestController@sendBroadcast',
     ]);
+      Route::get('/broadcast/reset-date',[
+        'uses'=>'App\Http\Controllers\TestController@resetDate',
+    ]);
 });
 
 //Route::get('/add/{id}', [

@@ -12,11 +12,11 @@
 @endsection
 @section('content')
 
-    <form action="{{route('test-search-broadcast')}}" method="POST">
-        @csrf 
-       <input type="text" name="daterange"/>
-        <button type="submit" class="btn btn-primary">Tìm</button>
-    </form>
+    <!-- <form action="{{route('test-search-broadcast')}}" method="POST">
+        @csrf  -->
+       <input type="text" name="daterange">
+        <!-- <button type="submit" class="btn btn-primary">Tìm</button>
+    </form> -->
 
 @endsection
 
