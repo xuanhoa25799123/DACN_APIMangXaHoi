@@ -183,7 +183,7 @@ class OAController extends Controller
                     array_push($articles, $item);
             }
         $html = view('oa.partials.articles')->with(compact('articles'))->render();
-        return response()->json(['success' => true, 'html' => $html,'articles'=>$articles]);
+        return response()->json(['success' => true, 'html' => 'asdasd']);
     }
     public function followerSearch($keyword)
     {
