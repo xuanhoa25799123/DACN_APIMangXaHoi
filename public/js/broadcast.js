@@ -69,7 +69,7 @@
             }
         });
     })
-    $('.select-broadcast').on('click',function(){
+    $('body').on('click','.select-broadcast',function(){
         let id =  $(this).data("id");
         console.log("asdasdsad");
         if($(this).hasClass("selected"))
@@ -128,31 +128,6 @@ $(".recipient-container").click(function(e){
 
 });
 
- function bindClicks() {
-     $('.select-broadcast').on('click',function(){
-         let id =  $(this).data("id");
-         console.log("asdasdsad");
-         if($(this).hasClass("selected"))
-         {
-             $(this).html("Chọn");
-             let index = selected_broadcast.indexOf(id);
-             if(index>-1)
-             {
-                 selected_broadcast.splice(index,1);
-             }
-             $(this).removeClass("selected");
-
-         }
-         else{
-             $(this).html("Huỷ chọn");
-             selected_broadcast.push(id);
-             $(this).addClass("selected");
-         }
-
-     });
- }
-
- $(document).ready(bindClicks);
 let SweetAlert = (message)=>{
     Swal.fire({
                     title: 'Lỗi',
