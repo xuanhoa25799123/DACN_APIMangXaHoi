@@ -29,6 +29,9 @@
             success: function(response) {
               $('.article-rows').html(response.html);
             }, 
+              error:function(XMLHttpRequest, textStatus, errorThrown) { 
+                    alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+            }   
         });
   });
  $('#broadcast-search').on('keyup',function() {
