@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Tra;
 use Goutte\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
-
+use App\Traits\PaginateTrait;
 class TestController extends Controller
 {
+    use paginateTrait;
     public function login()
     {
         return view('test.login');
@@ -353,7 +355,7 @@ class TestController extends Controller
          ]);
          $rs = json_decode($result->getBody());
         // $data = json_encode([
-            
+
         //             'description'=>"bai viet moi",
         //             'comment'=>'show',
         //             'avatar'=>'https://genk.mediacdn.vn/2019/12/15/photo-1-15764031803621965695036.jpg',
@@ -392,7 +394,7 @@ class TestController extends Controller
         //             'access_token'=>$accessToken
         //         ]]);
         //         $abc = json_decode($detail->getBody());
-                   
+
         //         $video_id = $abc->data->video_id;
         //             return response()->json(['success'=>true,'result'=>  $abc]);
         //         $item->video_id = $video_id;
@@ -419,7 +421,7 @@ class TestController extends Controller
          {
             $article  = $response->data;
             return view('test.components.edit-article',compact('oa_info','title','article'));
-         } 
+         }
     }
     public function updateArticle(Request $request)
     {
@@ -451,7 +453,7 @@ class TestController extends Controller
          ]);
          $response = json_decode($result->getBody());
 
-        
+
          $oa_info = session('oa_info');
          $title = "Chỉnh sửa bài viết";
                 return redirect('test/edit-article');
@@ -474,16 +476,16 @@ class TestController extends Controller
         $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice?offset=0&limit=5&type=normal&access_token=-jhyLUMxC2hutV1MuRuvBVFGyrRhgKD0-Sg2LvlL4bVdpwTLhkWEJl68n4oDht1Owh-aVuwbQcRXWyOUd-DSCep3uGZ2urqggFYMAFNsNL2ExlDEq-X1D9sCwJFlzdqsekorCUVNVmUQmxTvtyjt1vAnv2_XbquIh_F-EFF-PZYvtSeXvCHq5PdRn3J-uWmKuiM65l2g7Ig9oD45n-jc9hJExpVwso0qWlcA6uJ27cR2eR5ZW8zzUSY7pW22XWS5aOMc7UAt3o6efhmB-zmtSO3_dqtpx2DrZVISR2jN-KxYepSY');
         $result = json_decode($res->getBody());
         $arr=$result->data->medias;
-        
+
          $articles = array();
-            foreach ($arr as $item) {   
+            foreach ($arr as $item) {
                 $date =(int)substr((string)$item->create_date,0,10);
                 if ($date>=$start && $date<=$end) {
                     array_push($articles, $item);
                 }
             }
         dd($articles);
-        return response()->json(['start'=>$start,'end'=>$end]);   
+        return response()->json(['start'=>$start,'end'=>$end]);
     }
     public function Broadcast()
     {
@@ -505,7 +507,7 @@ class TestController extends Controller
         $title="Gửi broadcast";
         session(['broadcasts'=>$articles]);
 
-       return view('test.components.broadcast',compact('articles','oa_info','title','total')); 
+       return view('test.components.broadcast',compact('articles','oa_info','title','total'));
     }
     public function viewBroadcast($id_str)
     {
@@ -521,13 +523,13 @@ class TestController extends Controller
         }
            $oa_info = session('oa_info');
         $title="Gửi broadcast";
-        return view('test.components.view-broadcast',compact('broadcast','oa_info','title')); 
+        return view('test.components.view-broadcast',compact('broadcast','oa_info','title'));
 
     }
     public function sendBroadcast(Request $request)
     {
         $gender = $request->gender;
- 
+
         $age = implode(',',$request->age);
         $platform = implode(',',$request->platform);
         $id_arr = [];
@@ -539,7 +541,7 @@ class TestController extends Controller
                     'attachment_id'=>$id,
                 ]);
             }
-            
+
           $accessToken = 'AEma5D8bHXGgwoWNrY1F4o7cAnVSDpHNO_in2UbkAajamqyYtn5NIoMsDHYd85LdCP4p3yygK4nifKCmaor2DJocH4x3ArOuUwvCRTmxJMf2laewk0LEEmoELKAM0KmTDgj9Gi4CB0TNlZLXsWjK3o63HL2rEKOLA95qRwajPWWWucLXZLvc91l5Nrc53L4vBR0oLx5w4J0KpGTgcm0qFnkCEagp1mmTAwmLVxyv7Iy6XovF-40T2mNC3a_uL3iGHjm6MEv0CX5XyL1kspOg5tomB59rOix_Lp7LFK4S';
           $data=json_encode([
               'recipient'=>[
@@ -561,7 +563,7 @@ class TestController extends Controller
           ]);
           $client = new \GuzzleHttp\Client();
          $rs = $client->request('POST','https://openapi.zalo.me/v2.0/oa/message',['query'=>[
-        
+
                'access_token'=>$accessToken
                  ],
                  'body'=>$data,
@@ -603,37 +605,9 @@ class TestController extends Controller
         $followers = array();
                     // dd($current_page,$total_page);
         $oa_info = session('oa_info');
-     
+
         $title="Người theo dõi";
-        $paginate = "";
-        
-            if($current_page!=1)
-            {
-                $paginate .="<a class='paginate-item' href='/test/paginate?page=".($current_page-1)."'><</a>";
-            }
-        else{
-               $paginate .="<button class='current-page'><</button>";
-        }
-         for($i = $current_page-3;$i < $current_page;$i++)
-            {
-                if($i>0)
-                {
-                $paginate .="<a class='paginate-item' href='/test/paginate?page=".$i."'>".$i."</a>";
-                }
-        }
-           $paginate .="<button class='current-page'>".$i."</button>";
-           for($i = $current_page+1; $i<=$current_page+3 && $i<=$total_page;$i++)
-            {
-                 $paginate .="<a class='paginate-item' href='/test/paginate?page=".$i."'>".$i."</a>";
-            }
-            if($current_page != $total_page)
-            {
-                   $paginate .="<a class='paginate-item' href='/test/paginate?page=".($current_page+1)."'>></a>";
-                
-            }
-            else{
-                  $paginate .="<button class='current-page'>></button>";
-            }
+       $paginate = $this->paginateTrait('/test/paginate',$current_page,$total_page);
 
         return view('test.components.paginate',compact('total','paginate','title','oa_info'));
     }

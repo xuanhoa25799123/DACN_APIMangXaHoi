@@ -9,9 +9,10 @@ use Zalo\Zalo;
 use GuzzleHttp;
 use Zalo\ZaloEndPoint;
 use Illuminate\Support\Str;
-
+use App\Traits\PaginateTrait;
 class OAController extends Controller
 {
+    use paginateTrait;
     private $zalo;
     private $helper;
     public function __construct()
@@ -63,7 +64,7 @@ class OAController extends Controller
         {
             $current_page = $request->query('page');
         }
-        $limit = 1;
+        $limit = 20;
         $offset = ($current_page-1)*$limit;
         $accessToken = session('oa_token');
         $data = ['data' => json_encode(array(
@@ -111,7 +112,7 @@ class OAController extends Controller
             if($current_page != $total_page)
             {
                    $paginate .="<a class='paginate-item' href='/oa/list?page=".($current_page+1)."'>></a>";
-                
+
             }
             else{
                   $paginate .="<button class='current-page'>></button>";
@@ -123,23 +124,33 @@ class OAController extends Controller
     public function articleList()
     {
         $client = new GuzzleHttp\Client();
+         $current_page = 1;
+        if($request->has('page'))
+        {
+            $current_page = $request->query('page');
+        }
+        $limit = 10;
+        $offset = ($current_page-1)*$limit;
         $accessToken = session('oa_token');
         $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',
     ['query'=>[
-        'offset'=>0,
+        'offset'=>$offset,
         'type'=>'normal',
-        'limit'=>10,
+        'limit'=>$limit,
         'access_token'=>$accessToken
             ]]);
        $result = json_decode($res->getBody());
        $data = $result->data;
        $total = $data->total;
+         $total_page = (ceil($total / $limit));
+
        $articles = $data->medias;
         $oa_info = session('oa_info');
         $title="Bài viết";
         session(['articles'=>$articles]);
+        $paginate = $this->paginateTrait('/oa/article',$current_page,$total_page);
 
-       return view('oa.components.articles',compact('articles','oa_info','title','total'));
+       return view('oa.components.articles',compact('articles','oa_info','title','total','paginate'));
     }
     public function selectArticle()
     {
@@ -167,7 +178,7 @@ class OAController extends Controller
     public function createVideoArticle()
     {
         $oa_info = session('oa_info');
-        
+
         $title="Tạo bài viết video";
         return view('oa.components.create-video-article',compact('oa_info','title'));
     }
@@ -216,7 +227,7 @@ class OAController extends Controller
     }
     public function articleResetDate()
     {
-       $articles = session('articles');   
+       $articles = session('articles');
          $html = view('oa.partials.articles')->with(compact('articles'))->render();
         return response()->json(['success' => true, 'html' => $html ]);
     }
@@ -348,7 +359,7 @@ class OAController extends Controller
                 'body'=>$data
          ]);
          $response = json_decode($result->getBody());
-            return redirect('/oa/article'); 
+            return redirect('/oa/article');
     }
     public function Broadcast()
     {
@@ -370,7 +381,7 @@ class OAController extends Controller
         $title="Gửi broadcast";
         session(['broadcasts'=>$articles]);
 
-       return view('oa.components.broadcast',compact('articles','oa_info','title','total'));   
+       return view('oa.components.broadcast',compact('articles','oa_info','title','total'));
     }
     public function searchBroadcast()
     {
@@ -388,9 +399,9 @@ class OAController extends Controller
             }
         }
         $html = view('oa.partials.broadcast')->with(compact('articles'))->render();
-        return response()->json(['success' => true, 'html' => $html]);   
+        return response()->json(['success' => true, 'html' => $html]);
     }
- 
+
        public function broadcastSearchDate(Request $request)
     {
          $arr = session('broadcasts');
@@ -408,7 +419,7 @@ class OAController extends Controller
     }
     public function broadcastResetDate()
     {
-       $articles = session('broadcasts');   
+       $articles = session('broadcasts');
         $html = view('oa.partials.broadcast')->with(compact('articles'))->render();
         return response()->json(['success' => true, 'html' => $html]);
     }
@@ -427,13 +438,13 @@ class OAController extends Controller
         }
            $oa_info = session('oa_info');
         $title="Gửi broadcast";
-        return view('oa.components.view-broadcast',compact('broadcast','oa_info','title')); 
+        return view('oa.components.view-broadcast',compact('broadcast','oa_info','title'));
 
     }
     public function sendBroadcast(Request $request)
     {
         $gender = $request->gender;
- 
+
         $age = implode(',',$request->age);
         $platform = implode(',',$request->platform);
         $id_arr = [];
@@ -445,7 +456,7 @@ class OAController extends Controller
                     'attachment_id'=>$id,
                 ]);
             }
-            
+
           $accessToken = 'AEma5D8bHXGgwoWNrY1F4o7cAnVSDpHNO_in2UbkAajamqyYtn5NIoMsDHYd85LdCP4p3yygK4nifKCmaor2DJocH4x3ArOuUwvCRTmxJMf2laewk0LEEmoELKAM0KmTDgj9Gi4CB0TNlZLXsWjK3o63HL2rEKOLA95qRwajPWWWucLXZLvc91l5Nrc53L4vBR0oLx5w4J0KpGTgcm0qFnkCEagp1mmTAwmLVxyv7Iy6XovF-40T2mNC3a_uL3iGHjm6MEv0CX5XyL1kspOg5tomB59rOix_Lp7LFK4S';
           $data=json_encode([
               'recipient'=>[
