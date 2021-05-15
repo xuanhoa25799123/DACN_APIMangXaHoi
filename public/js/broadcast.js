@@ -29,7 +29,7 @@
             dataType: 'json',
             success: function(response) {
                 console.log(response.html);
-              $('.article-rows').html(response.html);
+            //   $('.article-rows').html(response.html);
             }, 
               error:function(XMLHttpRequest, textStatus, errorThrown) { 
                     alert("Status: " + textStatus); alert("Error: " + errorThrown); 

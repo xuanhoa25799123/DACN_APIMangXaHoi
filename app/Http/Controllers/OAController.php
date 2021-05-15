@@ -177,13 +177,9 @@ class OAController extends Controller
     }
     public function articleResetDate()
     {
-       $arr = session('articles');   
-        $articles = array();
-            foreach ($arr as $item) {
-                    array_push($articles, $item);
-            }
-        $html = view('oa.partials.articles')->with(compact('articles'))->render();
-        return response()->json(['success' => true, 'html' => 'asdasd']);
+    //    $articles = session('articles');   
+    //     $html = view('oa.partials.articles')->with(compact('articles'))->render();
+        return response()->json(['success' => true, 'html' => 'dit con me may']);
     }
     public function followerSearch($keyword)
     {
@@ -373,9 +369,9 @@ class OAController extends Controller
     }
     public function broadcastResetDate()
     {
-       $articles = session('broadcasts');   
-        $html = view('oa.partials.broadcast')->with(compact('articles'))->render();
-        return response()->json(['success' => true, 'html' => $html]);
+    //    $articles = session('broadcasts');   
+    //     $html = view('oa.partials.broadcast')->with(compact('articles'))->render();
+        return response()->json(['success' => true, 'html' => 'dit con me no']);
     }
 
         public function viewBroadcast($id_str)

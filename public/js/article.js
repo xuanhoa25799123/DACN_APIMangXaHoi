@@ -27,8 +27,8 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(response) {
                 console.log(response.html);
-                console.log(response.articles);
-              $('.article-rows').html(response.html);
+            //     console.log(response.articles);
+            //   $('.article-rows').html(response.html);
             }, 
               error:function(XMLHttpRequest, textStatus, errorThrown) { 
                     alert("Status: " + textStatus); alert("Error: " + errorThrown); 
