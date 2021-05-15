@@ -110,3 +110,10 @@
 .time-filter {
     display: flex;
 }
+.broadcast-footer {
+    border-top: 1px solid lightblue;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

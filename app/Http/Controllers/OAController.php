@@ -64,7 +64,7 @@ class OAController extends Controller
         {
             $current_page = $request->query('page');
         }
-        $limit = 20;
+        $limit = 1;
         $offset = ($current_page-1)*$limit;
         $accessToken = session('oa_token');
         $data = ['data' => json_encode(array(
@@ -89,35 +89,7 @@ class OAController extends Controller
         session(['followers'=>$followers]);
         $oa_info = session('oa_info');
         $title="Người theo dõi";
-        $paginate = "";
-            if($current_page!=1)
-            {
-                $paginate .="<a class='paginate-item' href='/oa/list?page=".($current_page-1)."'><</a>";
-            }
-        else{
-               $paginate .="<button class='current-page'><</button>";
-        }
-         for($i = $current_page-3;$i < $current_page;$i++)
-            {
-                if($i>0)
-                {
-                $paginate .="<a class='paginate-item' href='/oa/list?page=".$i."'>".$i."</a>";
-                }
-        }
-           $paginate .="<button class='current-page'>".$i."</button>";
-           for($i = $current_page+1; $i<=$current_page+3 && $i<=$total_page;$i++)
-            {
-                 $paginate .="<a class='paginate-item' href='/oa/list?page=".$i."'>".$i."</a>";
-            }
-            if($current_page != $total_page)
-            {
-                   $paginate .="<a class='paginate-item' href='/oa/list?page=".($current_page+1)."'>></a>";
-
-            }
-            else{
-                  $paginate .="<button class='current-page'>></button>";
-            }
-
+        $paginate = $this->paginateTrait("/oa/list",$current_page,$total_page);
 
         return view('oa.components.followers',compact('followers','oa_info','title','total','paginate'));
     }
@@ -129,7 +101,7 @@ class OAController extends Controller
         {
             $current_page = $request->query('page');
         }
-        $limit = 10;
+        $limit = 1;
         $offset = ($current_page-1)*$limit;
         $accessToken = session('oa_token');
         $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',
@@ -363,12 +335,20 @@ class OAController extends Controller
     }
     public function Broadcast(Request $request)
     {
+        $current_page = 1;
+        if($request->has('page'))
+        {
+            $current_page = $request->query('page');
+        }
+        $limit = 1;
+        $offset = ($current_page-1)*$limit;
+
          $client = new GuzzleHttp\Client();
         $accessToken = session('oa_token');
         $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',[
             'query'=>[
-                'offset'=>0,
-                'limit'=>10,
+                'offset'=>$offset,
+                'limit'=>$limit,
                 'type'=>'normal',
                 'access_token'=>$accessToken
             ]
@@ -376,12 +356,14 @@ class OAController extends Controller
        $result = json_decode($res->getBody());
        $data = $result->data;
        $total = $data->total;
+        $total_page = (ceil($total / $limit));
        $articles = $data->medias;
         $oa_info = session('oa_info');
         $title="Gửi broadcast";
         session(['broadcasts'=>$articles]);
+        $paginate = $this->paginateTrait("/oa/list",$current_page,$total_page);
 
-       return view('oa.components.broadcast',compact('articles','oa_info','title','total'));
+       return view('oa.components.broadcast',compact('articles','oa_info','title','total','paginate'));
     }
     public function searchBroadcast($keyword)
     {
