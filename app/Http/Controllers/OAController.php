@@ -63,7 +63,7 @@ class OAController extends Controller
         {
             $current_page = $request->query('page');
         }
-        $limit = 20;
+        $limit = 1;
         $offset = ($current_page-1)*$limit;
         $accessToken = session('oa_token');
         $data = ['data' => json_encode(array(

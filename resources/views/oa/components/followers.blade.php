@@ -26,8 +26,11 @@
             @include('oa.partials.followers')
         </tbody>
     </table>
+    <div class="follower-footer">
+    <p class="total">Hiển thị: <strong>20</strong></p>
     <div class="paginate-container">
         {!!$paginate!!}
+    </div>
     </div>
     
 @endsection
