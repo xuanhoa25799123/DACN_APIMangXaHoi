@@ -169,7 +169,7 @@ class OAController extends Controller
         $articles = array();
        
             foreach ($arr as $item) {
-                $date =(int)substr((string)$item->create_day,0,10)
+                $date =(int)substr((string)$item->create_day,0,10);
                 if ($date>=$start && $date<=end) {
                     array_push($articles, $item);
                 }
