@@ -14,7 +14,7 @@
             },
             dataType: 'json',
             success: function(response) {
-                
+                 $('.cancel-daterange').css('display','initial');
               $('.article-rows').html(response.html);
             },
             error:function(XMLHttpRequest, textStatus, errorThrown) { 
@@ -22,12 +22,28 @@
             }      
         });
   });  
+   $('.cancel-daterange').on('click',function(){
+        $.ajax({
+            url: '/oa/reset-broadcast-date',
+            type: 'get',
+            dataType: 'json',
+            success: function(response) {
+            console.log(response.html);
+               $('.cancel-daterange').css('display','none');
+              $('.article-rows').html(response.html);
+            }, 
+              error:function(XMLHttpRequest, textStatus, errorThrown) { 
+                    alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+            }   
+        });
+  })
     $('input[name="daterange"]').on('cancel.daterangepicker', function(ev, picker) {
       $.ajax({
             url: '/oa/reset-broadcast-date',
             type: 'GET',
             dataType: 'json',
             success: function(response) {
+                 $('.cancel-daterange').css('display','none');
                 console.log(response);
               $('.article-rows').html(response.html);
             }, 

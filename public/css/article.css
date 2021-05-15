@@ -60,3 +60,6 @@
     margin: 10px 0;
     border-bottom: 1px solid lightblue;
 }
+.cancel-daterange{
+    display:none;
+}

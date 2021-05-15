@@ -11,7 +11,7 @@
 @endsection
 @section('content')
 <div class="article-head">
-     <a href="/oa/create-article" class="btn btn-primary">Tạo bài viết mới</a>
+     <a href="/oa/create-article" class="btn btn-info">Tạo bài viết mới</a>
 </div>
     <div class="article-header">
     <div class="article-header-left">
@@ -19,6 +19,7 @@
         <input type="text" id="article-search" class="search" placeholder = "Nhập tên bài viết">
     </div>
       <div class="article-header-right">
+        <button class="btn btn-outline-info cancel-daterange"><i class="fa fa-cancel"></i> &nbsp; Xoá lọc</button>
         <input type="text" name="daterange" class="form-control" value="Lọc theo thời gian">
     </div>
    

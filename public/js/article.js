@@ -2,6 +2,7 @@ $(document).ready(function() {
       $('input[name="daterange"]').daterangepicker({
          format: 'dd/mm/yyyy',
   }, function(start, end, label) {
+     
       let st = start.format('DD-MM-YYYY');
       let en = end.format('DD-MM-YYYY');
         $.ajax({
@@ -13,6 +14,7 @@ $(document).ready(function() {
             },
             dataType: 'json',
             success: function(response) {
+                 $('.cancel-daterange').css('display','initial');
               $('.article-rows').html(response.html);
             },
             error:function(XMLHttpRequest, textStatus, errorThrown) { 
@@ -20,14 +22,31 @@ $(document).ready(function() {
             }      
         });
   });  
+  $('.cancel-daterange').on('click',function(){
+        $.ajax({
+            url: '/oa/reset-article-date',
+            type: 'get',
+            dataType: 'json',
+            success: function(response) {
+            console.log(response.html);
+               $('.cancel-daterange').css('display','none');
+              $('.article-rows').html(response.html);
+            }, 
+              error:function(XMLHttpRequest, textStatus, errorThrown) { 
+                    alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+            }   
+        });
+
+  })
     $('input[name="daterange"]').on('cancel.daterangepicker', function(ev, picker) {
+        
       $.ajax({
             url: '/oa/reset-article-date',
             type: 'get',
             dataType: 'json',
             success: function(response) {
                 console.log(response.html);
-              
+                 $('.cancel-daterange').css('display','none');
               $('.article-rows').html(response.html);
             }, 
               error:function(XMLHttpRequest, textStatus, errorThrown) { 

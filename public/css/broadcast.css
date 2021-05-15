@@ -101,3 +101,6 @@
 .radio-input {
     margin: 0 !important;
 }
+.cancel-daterange {
+    display: none;
+}
