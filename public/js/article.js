@@ -22,13 +22,13 @@ $(document).ready(function() {
   });  
     $('input[name="daterange"]').on('cancel.daterangepicker', function(ev, picker) {
       $.ajax({
-            url: '/oa/article/reset-date',
+            url: '/oa/reset-article-date',
             type: 'get',
             dataType: 'json',
             success: function(response) {
                 console.log(response.html);
               
-            //   $('.article-rows').html(response.html);
+              $('.article-rows').html(response.html);
             }, 
               error:function(XMLHttpRequest, textStatus, errorThrown) { 
                     alert("Status: " + textStatus); alert("Error: " + errorThrown); 

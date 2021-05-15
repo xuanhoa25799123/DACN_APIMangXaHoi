@@ -23,17 +23,16 @@
         });
   });  
     $('input[name="daterange"]').on('cancel.daterangepicker', function(ev, picker) {
-         console.log("Asdasda");
       $.ajax({
-            url: '/oa/broadcast/reset-date',
-            type: 'get',
+            url: '/oa/reset-broadcast-date',
+            type: 'GET',
             dataType: 'json',
             success: function(response) {
-                console.log(response.html);
-            //   $('.article-rows').html(response.html);
+                console.log(response);
+              $('.article-rows').html(response.html);
             }, 
               error:function(XMLHttpRequest, textStatus, errorThrown) { 
-                    alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+                 alert("Error: " + errorThrown); 
             }   
         });
   });
