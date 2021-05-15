@@ -89,7 +89,7 @@ class OAController extends Controller
     ['query'=>[
         'offset'=>0,
         'type'=>'normal',
-        'limit'=>10,
+        'limit'=>20,
         'access_token'=>$accessToken
             ]]);
        $result = json_decode($res->getBody());
@@ -157,7 +157,6 @@ class OAController extends Controller
                 }
             }
         }
-       
         $html = view('oa.partials.articles')->with(compact('articles'))->render();
         return response()->json(['success' => true, 'html' => $html]);
     }
@@ -180,7 +179,7 @@ class OAController extends Controller
     {
        $articles = session('articles');   
         $html = view('oa.partials.articles')->with(compact('articles'))->render();
-        return response()->json(['success' => true, 'html' => $html]);
+        return response()->json(['success' => true, 'html' => $html,'articles'=>$articles]);
     }
     public function followerSearch($keyword)
     {
