@@ -8,15 +8,15 @@
 @endsection
 @section('js')
     <script src="{{asset('/js/article-edit.js')}}"></script>
+     <script src="{{asset('/js/test/broadcast.js')}}"></script>
 @endsection
 @section('content')
 
-    <form action="{{route('test-search-broadcast')}}" method="POST">
-        @csrf;
-        <input type="datetime-local" name="start" class="form-control">
-        <input type="datetime-local" name="end" class="form-control">
-        <button type="submit" class="btn btn-primary">Tìm</button>
-    </form>
-
+    <!-- <form action="{{route('test-search-broadcast')}}" method="POST">
+        @csrf -->
+       <input type="text" name="daterange"/>
+        <!-- <button type="submit" class="btn btn-primary">Tìm</button>
+    </form> -->
 
 @endsection
+

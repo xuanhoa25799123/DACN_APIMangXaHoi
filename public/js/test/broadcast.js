@@ -1,5 +1,29 @@
+
  $(document).ready(function() {
      let selected_broadcast = [];
+     $('input[name="daterange"]').daterangepicker({
+         format: 'dd/mm/yyyy',
+  }, function(start, end, label) {
+      let st = start.format('DD-MM-YYYY');
+      let en = end.format('DD-MM-YYYY');
+      console.log(st,en);
+        $.ajax({
+            url: '/test/search-broadcast-2',
+            type: 'POST',
+            data:{st,en},
+            headers:{
+                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+            },
+            dataType: 'json',
+            success: function(response) {
+                console.log(response)
+            },
+            error:function()
+            {
+                console.log("error");
+            }
+        });
+  });   
  $('#broadcast-search').on('keyup',function() {
        
         var keyword = $(this).val();

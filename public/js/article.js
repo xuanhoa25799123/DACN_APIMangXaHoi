@@ -1,4 +1,26 @@
 $(document).ready(function() {
+      $('input[name="daterange"]').daterangepicker({
+         format: 'dd/mm/yyyy',
+  }, function(start, end, label) {
+      let st = start.format('DD-MM-YYYY');
+      let en = end.format('DD-MM-YYYY');
+        $.ajax({
+            url: '/oa/article/search-date',
+            type: 'POST',
+            data:{st,en},
+            headers:{
+                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+            },
+            dataType: 'json',
+            success: function(response) {
+              $('.article-rows').html(response.html);
+            },
+            error:function()
+            {
+                console.log("error");
+            }
+        });
+  });  
      $('#article-search').on('keyup',function() {
         var keyword = $(this).val();
         if(keyword=="")

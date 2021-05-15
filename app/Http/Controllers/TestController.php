@@ -464,10 +464,9 @@ class TestController extends Controller
     }
         public function searchBroadcast2(Request $request)
     {
-        $start = $request->start;
-        $end = $request->end;
-        dd(strtotime($start),strtotime($end));
-        return response()->json(['success' => true, 'html' => $html]);   
+        $start = strtotime($request->st);
+        $end = strtotime($request->en);
+        return response()->json(['start'=>$start,'end'=>$end]);   
     }
     public function Broadcast()
     {

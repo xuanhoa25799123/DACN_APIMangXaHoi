@@ -18,7 +18,6 @@
             <th style="width:8%;text-align:center">#</th>
             <th style="width:10%;text-align:center">Hình đại diện</th>
             <th style="width:40%">Tên hiển thị</th>
-        
             <th style="width:30%;text-align:center">Thao tác</th>
         </tr>
         </thead>
