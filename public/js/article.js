@@ -20,6 +20,16 @@ $(document).ready(function() {
             }      
         });
   });  
+    $('input[name="daterange"]').on('cancel.daterangepicker', function(ev, picker) {
+      $.ajax({
+            url: '/oa/article/reset-date',
+            type: 'get',
+            dataType: 'json',
+            success: function(response) {
+              $('.article-rows').html(response.html);
+            }, 
+        });
+  });
      $('#article-search').on('keyup',function() {
         var keyword = $(this).val();
         if(keyword=="")

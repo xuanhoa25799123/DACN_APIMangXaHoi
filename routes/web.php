@@ -122,6 +122,9 @@ Route::prefix('oa')->group(function () {
     Route::post('/article/search-date',[
         'uses'=>'App\Http\Controllers\OAController@articleSearchDate',
     ]);
+       Route::post('/article/reset-date',[
+        'uses'=>'App\Http\Controllers\OAController@articleResetDate',
+    ]);
       Route::get('/delete-article/{id}',[
         'uses'=>'App\Http\Controllers\OAController@deleteArticle',
     ]);

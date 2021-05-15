@@ -176,6 +176,12 @@ class OAController extends Controller
         $html = view('oa.partials.articles')->with(compact('articles'))->render();
         return response()->json(['success' => true, 'html' => $html]);
     }
+    public function articleResetDate()
+    {
+       $articles = session('articles');   
+               $html = view('oa.partials.articles')->with(compact('articles'))->render();
+        return response()->json(['success' => true, 'html' => $html]);
+    }
     public function followerSearch($keyword)
     {
          $frs = session('followers');
