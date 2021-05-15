@@ -64,7 +64,7 @@ class OAController extends Controller
         {
             $current_page = $request->query('page');
         }
-        $limit = 1;
+        $limit = 20;
         $offset = ($current_page-1)*$limit;
         $accessToken = session('oa_token');
         $data = ['data' => json_encode(array(
@@ -101,7 +101,7 @@ class OAController extends Controller
         {
             $current_page = $request->query('page');
         }
-        $limit = 1;
+        $limit = 10;
         $offset = ($current_page-1)*$limit;
         $accessToken = session('oa_token');
         $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',
@@ -340,7 +340,7 @@ class OAController extends Controller
         {
             $current_page = $request->query('page');
         }
-        $limit = 1;
+        $limit = 10;
         $offset = ($current_page-1)*$limit;
 
          $client = new GuzzleHttp\Client();
@@ -361,7 +361,7 @@ class OAController extends Controller
         $oa_info = session('oa_info');
         $title="Gửi broadcast";
         session(['broadcasts'=>$articles]);
-        $paginate = $this->paginateTrait("/oa/list",$current_page,$total_page);
+        $paginate = $this->paginateTrait("/oa/broadcast",$current_page,$total_page);
 
        return view('oa.components.broadcast',compact('articles','oa_info','title','total','paginate'));
     }

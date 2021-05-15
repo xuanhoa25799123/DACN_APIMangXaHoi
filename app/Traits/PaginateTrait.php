@@ -12,7 +12,7 @@ trait PaginateTrait
                 $paginate .="<a class='paginate-item' href='".$href."?page=".($current_page-1)."'><i class='fa fa-chevron-left'></i></a>";
             }
         else{
-               $paginate .="<button class='current-page'><</button>";
+               $paginate .="<button class='current-page'><i class='fa fa-chevron-left'></i></button>";
         }
          for($i = $current_page-3;$i < $current_page;$i++)
             {
@@ -32,7 +32,7 @@ trait PaginateTrait
 
             }
             else{
-                  $paginate .="<button class='current-page'>></button>";
+                  $paginate .="<button class='current-page'><i class='fa fa-chevron-right'></i></button>";
             }
             return $paginate;
     }
