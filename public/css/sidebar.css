@@ -7,12 +7,11 @@
 .sidebar-logo-container {
     width: 100%;
     height: 70px;
-
 }
 .sidebar-logo {
     width: 100%;
     height: 90%;
-    display:flex;
+    display: flex;
 
     align-items: center;
     justify-content: center;
@@ -24,7 +23,7 @@
 }
 .sidebar-logo-text {
     font-size: 23px;
-    font-weight:700;
+    font-weight: 700;
     color: #008000;
 }
 .sidebar-content {
@@ -34,18 +33,21 @@
     height: 100%;
     overflow-y: auto;
 }
-.sidebar-content-header{
-    font-size:18px;
-   font-weight:bold;
-    width:90%;
-
+.sidebar-content-header {
+    font-size: 18px;
+    font-weight: bold;
+    width: 90%;
 }
 .sidebar-item {
     width: 90%;
-    margin: 10px 0;
+    margin: 15px 0;
     display: flex;
     align-items: center;
     border-radius: 5px;
+    font-size: 15px;
+    font-family: Comfortaa;
+    font-weight: 400;
+    color: #2b345f;
 }
 .sidebar-item:hover {
     color: #fa626b;
@@ -54,9 +56,8 @@
     color: #fa626b;
     transform: translateX(10px);
     transition: all 0.3s ease, -webkit-transform 0.3s ease,
-    -moz-transform 0.3s ease, -o-transform 0.3s ease;
+        -moz-transform 0.3s ease, -o-transform 0.3s ease;
 }
-
 
 .sidebar-item-icon-container {
     width: 40px;
@@ -72,7 +73,7 @@
 .sidebar-item-icon {
     color: transparent;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #232222;
+    -webkit-text-stroke-color: #2b345f;
 }
 
 .sidebar-item-text {

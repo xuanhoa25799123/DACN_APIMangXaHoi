@@ -32,7 +32,7 @@
         </a>
         <a class="sidebar-item" href="{{route('oa-broadcast')}}">
             <div class="sidebar-item-icon-container">
-                <i class="fa fa-broadcast-tower sidebar-item-icon"></i>
+                <i class="fa fa-rss sidebar-item-icon"></i>
             </div>
             <p class='sidebar-item-text'>Gửi broadcast</p>
         </a>
