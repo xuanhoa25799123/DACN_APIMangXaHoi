@@ -21,6 +21,7 @@ $(document).ready(function() {
         });
   });  
     $('input[name="daterange"]').on('cancel.daterangepicker', function(ev, picker) {
+        console.log("Asdasda");
       $.ajax({
             url: '/oa/article/reset-date',
             type: 'get',

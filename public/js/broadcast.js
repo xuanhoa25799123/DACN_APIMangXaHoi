@@ -23,18 +23,19 @@
         });
   });  
     $('input[name="daterange"]').on('cancel.daterangepicker', function(ev, picker) {
-      $.ajax({
-            url: '/oa/broadcast/reset-date',
-            type: 'get',
-            dataType: 'json',
-            success: function(response) {
-                console.log(response.html);
-            //   $('.article-rows').html(response.html);
-            }, 
-              error:function(XMLHttpRequest, textStatus, errorThrown) { 
-                    alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-            }   
-        });
+         console.log("Asdasda");
+    //   $.ajax({
+    //         url: '/oa/broadcast/reset-date',
+    //         type: 'get',
+    //         dataType: 'json',
+    //         success: function(response) {
+    //             console.log(response.html);
+    //         //   $('.article-rows').html(response.html);
+    //         }, 
+    //           error:function(XMLHttpRequest, textStatus, errorThrown) { 
+    //                 alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+    //         }   
+    //     });
   });
  $('#broadcast-search').on('keyup',function() {
        
