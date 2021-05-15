@@ -2,6 +2,7 @@
 
 @section('css')
     <link rel="stylesheet" href="{{asset('/css/article.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/paginate.css')}}">
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 @endsection
 @section('js')
@@ -24,7 +25,7 @@
         <input type="text" name="daterange" class="form-control" value="Lọc theo thời gian">
         </div>
     </div>
-   
+
     </div>
         <table class="table">
             <thead>
@@ -43,4 +44,10 @@
             @include('oa.partials.articles')
             </tbody>
         </table>
+<div class="article-footer">
+    <p class="total">Hiển thị: <strong>10</strong></p>
+    <div class="paginate-container">
+        {!!$paginate!!}
+    </div>
+</div>
 @endsection

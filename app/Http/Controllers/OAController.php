@@ -68,7 +68,7 @@ class OAController extends Controller
         $offset = ($current_page-1)*$limit;
         $accessToken = session('oa_token');
         $data = ['data' => json_encode(array(
-            'offset' => ($current_page-1)*$limit,
+            'offset' => $offset,
             'count' => $limit
         ))];
 
@@ -121,7 +121,7 @@ class OAController extends Controller
 
         return view('oa.components.followers',compact('followers','oa_info','title','total','paginate'));
     }
-    public function articleList()
+    public function articleList(Request $request)
     {
         $client = new GuzzleHttp\Client();
          $current_page = 1;
@@ -361,7 +361,7 @@ class OAController extends Controller
          $response = json_decode($result->getBody());
             return redirect('/oa/article');
     }
-    public function Broadcast()
+    public function Broadcast(Request $request)
     {
          $client = new GuzzleHttp\Client();
         $accessToken = session('oa_token');
@@ -383,7 +383,7 @@ class OAController extends Controller
 
        return view('oa.components.broadcast',compact('articles','oa_info','title','total'));
     }
-    public function searchBroadcast()
+    public function searchBroadcast($keyword)
     {
         $arr = session('broadcasts');
         $articles = array();

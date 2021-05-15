@@ -66,3 +66,10 @@
 .time-filter {
     display: flex;
 }
+.article-footer {
+    border-top: 1px solid lightblue;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
