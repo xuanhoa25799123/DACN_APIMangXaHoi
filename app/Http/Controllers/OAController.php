@@ -91,7 +91,7 @@ class OAController extends Controller
         $paginate = "";
             if($current_page!=1)
             {
-                $paginate .="<a class='paginate-item' href='/test/paginate?page=".($current_page-1)."'><</a>";
+                $paginate .="<a class='paginate-item' href='/oa/list?page=".($current_page-1)."'><</a>";
             }
         else{
                $paginate .="<button class='current-page'><</button>";
@@ -100,17 +100,17 @@ class OAController extends Controller
             {
                 if($i>0)
                 {
-                $paginate .="<a class='paginate-item' href='/test/paginate?page=".$i."'>".$i."</a>";
+                $paginate .="<a class='paginate-item' href='/oa/list?page=".$i."'>".$i."</a>";
                 }
         }
            $paginate .="<button class='current-page'>".$i."</button>";
            for($i = $current_page+1; $i<=$current_page+3 && $i<=$total_page;$i++)
             {
-                 $paginate .="<a class='paginate-item' href='/test/paginate?page=".$i."'>".$i."</a>";
+                 $paginate .="<a class='paginate-item' href='/oa/list?page=".$i."'>".$i."</a>";
             }
             if($current_page != $total_page)
             {
-                   $paginate .="<a class='paginate-item' href='/test/paginate?page=".($current_page+1)."'>></a>";
+                   $paginate .="<a class='paginate-item' href='/oa/list?page=".($current_page+1)."'>></a>";
                 
             }
             else{
