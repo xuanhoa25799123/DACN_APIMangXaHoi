@@ -464,8 +464,25 @@ class TestController extends Controller
     }
         public function searchBroadcast2(Request $request)
     {
-        $start = strtotime($request->st);
-        $end = strtotime($request->en);
+        // $start = strtotime($request->st);
+        // $end = strtotime($request->en);
+        $date = $request->daterange;
+        $date = explode(' - ',$date);
+        $start = strtotime($date[0]);
+        $end = strtotime($date[1]);
+          $client = new \GuzzleHttp\Client();
+        $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice?offset=0&limit=5&type=normal&access_token=-jhyLUMxC2hutV1MuRuvBVFGyrRhgKD0-Sg2LvlL4bVdpwTLhkWEJl68n4oDht1Owh-aVuwbQcRXWyOUd-DSCep3uGZ2urqggFYMAFNsNL2ExlDEq-X1D9sCwJFlzdqsekorCUVNVmUQmxTvtyjt1vAnv2_XbquIh_F-EFF-PZYvtSeXvCHq5PdRn3J-uWmKuiM65l2g7Ig9oD45n-jc9hJExpVwso0qWlcA6uJ27cR2eR5ZW8zzUSY7pW22XWS5aOMc7UAt3o6efhmB-zmtSO3_dqtpx2DrZVISR2jN-KxYepSY');
+        $result = json_decode($res->getBody());
+        $arr=$result->data->medias;
+        
+         $articles = array();
+            foreach ($arr as $item) {   
+                $date =(int)substr((string)$item->create_date,0,10);
+                if ($date>=$start && $date<=$end) {
+                    array_push($articles, $item);
+                }
+            }
+        dd($articles);
         return response()->json(['start'=>$start,'end'=>$end]);   
     }
     public function Broadcast()

@@ -15,10 +15,9 @@ $(document).ready(function() {
             success: function(response) {
               $('.article-rows').html(response.html);
             },
-            error:function()
-            {
-                console.log("error");
-            }
+            error:function(XMLHttpRequest, textStatus, errorThrown) { 
+                    alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+            }      
         });
   });  
      $('#article-search').on('keyup',function() {
