@@ -69,7 +69,7 @@
             }
         });
     })
-    $('.select-broadcast').on('click',function(){
+    $('.select-broadcast').live('click',function(){
         let id =  $(this).data("id");
         console.log("asdasdsad");
         if($(this).hasClass("selected"))
