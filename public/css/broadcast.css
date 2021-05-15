@@ -103,4 +103,10 @@
 }
 .cancel-daterange {
     display: none;
+    background: none !important;
+    border: 1px solid lightcoral !important;
+    border-radius: 10px !important;
+}
+.time-filter {
+    display: flex;
 }

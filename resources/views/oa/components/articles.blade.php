@@ -19,8 +19,10 @@
         <input type="text" id="article-search" class="search" placeholder = "Nhập tên bài viết">
     </div>
       <div class="article-header-right">
-        <button class="btn btn-outline-info cancel-daterange"><i class="fa fa-cancel"></i> &nbsp; Xoá lọc</button>
+          <div class="time-filter">
+        <button class="btn btn-outline-info cancel-daterange"><i class="fa fa-close"></i> &nbsp; Xoá lọc</button>
         <input type="text" name="daterange" class="form-control" value="Lọc theo thời gian">
+        </div>
     </div>
    
     </div>
