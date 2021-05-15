@@ -89,7 +89,7 @@ class OAController extends Controller
     ['query'=>[
         'offset'=>0,
         'type'=>'normal',
-        'limit'=>20,
+        'limit'=>10,
         'access_token'=>$accessToken
             ]]);
        $result = json_decode($res->getBody());
