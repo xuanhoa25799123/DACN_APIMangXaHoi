@@ -160,7 +160,7 @@ class OAController extends Controller
         $html = view('oa.partials.articles')->with(compact('articles'))->render();
         return response()->json(['success' => true, 'html' => $html]);
     }
-      public function articleSearchDate(Request $request)
+    public function articleSearchDate(Request $request)
     {
          $arr = session('articles');
         $start = strtotime($request->st);
@@ -177,7 +177,11 @@ class OAController extends Controller
     }
     public function articleResetDate()
     {
-       $articles = session('articles');   
+       $arr = session('articles');   
+        $articles = array();
+            foreach ($arr as $item) {
+                    array_push($articles, $item);
+            }
         $html = view('oa.partials.articles')->with(compact('articles'))->render();
         return response()->json(['success' => true, 'html' => $html,'articles'=>$articles]);
     }
