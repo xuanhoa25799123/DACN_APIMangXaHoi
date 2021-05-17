@@ -114,6 +114,7 @@ class OAController extends Controller
        $result = json_decode($res->getBody());
        $data = $result->data;
        $total = $data->total;
+       session(['total_article'=>$total]);
          $total_page = (ceil($total / $limit));
 
        $articles = $data->medias;
@@ -339,6 +340,7 @@ class OAController extends Controller
                  }
              }
              $total -=1;
+             session(['articles'=>$articles]);
              session(['total_article'=>$total]);
              return response()->json(['success'=>true,'total'=>$total]);
          }
