@@ -352,7 +352,7 @@ class OAController extends Controller
              $videos = session('videos');
              array_filter($videos,function($video){
                  return $video->id!=$id
-             })
+             });
              session(['videos'=>$videos]);
              return response()->json(['success'=>true]);
          }
