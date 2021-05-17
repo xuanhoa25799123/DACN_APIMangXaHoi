@@ -354,7 +354,7 @@ class OAController extends Controller
              {
                  if($video->id == $id)
                  {
-                     $videos.spice(index,1);
+                     array_splice($videos,$index,1);
                      break;
                  }
              }
