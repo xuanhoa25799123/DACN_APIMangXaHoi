@@ -127,6 +127,7 @@ $(document).ready(function() {
             return;
         }
         else{
+            console.log("asd");
             $(".video-article-button").removeClass('selected-tab');
             $(this).addClass("selected-tab");
             $(".add-text").removeClass("unactive-add");
@@ -139,6 +140,7 @@ $(document).ready(function() {
             return;
         }
         else{
+             console.log("abc");
             $(".text-article-button").removeClass('selected_tab');
             $(this).addClass("selected_tab");
                 $(".add-video").removeClass("unactive-add");
