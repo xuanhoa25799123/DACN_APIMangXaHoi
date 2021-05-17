@@ -116,11 +116,17 @@ Route::prefix('oa')->group(function () {
      Route::get('/article/edit/{id}', [
         'uses'=>'App\Http\Controllers\OAController@editArticle'
     ]);
-      Route::get('/article/{keyword}',[
+      Route::get('/article/search/{keyword}',[
         'uses'=>'App\Http\Controllers\OAController@articleSearch',
     ]);
     Route::post('/article/search-date',[
         'uses'=>'App\Http\Controllers\OAController@articleSearchDate',
+    ]);
+      Route::get('/article/text-article',[
+        'uses'=>'App\Http\Controllers\OAController@textArticle',
+    ]);
+    Route::get('/article/video-article',[
+        'uses'=>'App\Http\Controllers\OAController@videoArticle',
     ]);
        Route::get('/reset-article-date',[
         'uses'=>'App\Http\Controllers\OAController@articleResetDate',
@@ -132,6 +138,7 @@ Route::prefix('oa')->group(function () {
         'as'=>'oa-article-select',
         'uses'=>'App\Http\Controllers\OAController@selectArticle',
     ]);
+      
     Route::get('/create-text-article',[
         'as'=>'text-article',
         'uses'=>'App\Http\Controllers\OAController@createTextArticle',
@@ -164,12 +171,13 @@ Route::prefix('oa')->group(function () {
          'as'=>'oa-broadcast',
         'uses'=>'App\Http\Controllers\OAController@Broadcast',
     ]);
-     Route::get('/broadcast/{keyword}',[
+     Route::get('/broadcast/search/{keyword}',[
         'uses'=>'App\Http\Controllers\OAController@searchBroadcast',
     ]);
      Route::post('/broadcast/search-date',[
         'uses'=>'App\Http\Controllers\OAController@broadcastSearchDate',
     ]);
+    
        Route::get('/reset-broadcast-date',[
         'uses'=>'App\Http\Controllers\OAController@broadcastResetDate',
     ]);

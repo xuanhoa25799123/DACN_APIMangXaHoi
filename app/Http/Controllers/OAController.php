@@ -154,15 +154,35 @@ class OAController extends Controller
         $title="Tạo bài viết video";
         return view('oa.components.create-video-article',compact('oa_info','title'));
     }
-    public function videoArticle(Request $request)
+    public function textArticle()
     {
-         $client = new \GuzzleHttp\Client();
-            $accessToken = session('oa_token');
-        $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/upload_video/preparevideo?access_token='.$accessToken,[
-             'file'=>$request->video
-
-         ]);
-         return $request->json(['success'=>true,$result]);
+          $articles = session('articles');
+            $html = view('oa.partials.articles')->with(compact('articles'))->render();
+              return response()->json(['success' => true, 'html' => $html]);
+     
+    }
+    public function videoArticle()
+    {
+        $articles = session('videos');
+        if(empty($articles))
+        {
+                $accessToken = session('oa_token');
+                 $client = new \GuzzleHttp\Client();  
+              $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',
+             ['query'=>[
+                'offset'=>0,
+            'type'=>'video',
+            'limit'=>10,
+            'access_token'=>$accessToken
+            ]]);
+            $result = json_decode($res->getBody());
+                   $data = $result->data;
+                    $articles = $data->medias;
+                    session(['videos'=>$articles]);
+        }
+         $html = view('oa.partials.articles')->with(compact('articles'))->render();
+        return response()->json(['success' => true, 'html' => $html]);
+     
     }
     public function articleSearch($keyword)
     {

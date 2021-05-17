@@ -62,7 +62,7 @@ $(document).ready(function() {
             keyword="*";
         }
         $.ajax({
-            url: '/oa/article/'+keyword,
+            url: '/oa/article/search/'+keyword,
             type: 'get',
             dataType: 'json',
             success: function(response) {
@@ -127,6 +127,14 @@ $(document).ready(function() {
             return;
         }
         else{
+              $.ajax({
+            url: '/oa/article/text-article',
+            type: 'GET',
+            dataType: 'json',
+            success: function(response) {
+              $('.article-rows').html(response.html);
+            },
+        });
             console.log("asd");
             $(".video-article-button").removeClass('selected-tab');
             $(this).addClass("selected-tab");
@@ -140,11 +148,19 @@ $(document).ready(function() {
             return;
         }
         else{
+             $.ajax({
+            url: '/oa/article/video-article',
+            type: 'GET',
+            dataType: 'json',
+            success: function(response) {
+              $('.article-rows').html(response.html);
+            },
+        })
              console.log("abc");
             $(".text-article-button").removeClass('selected-tab');
             $(this).addClass("selected-tab");
-                $(".add-video").removeClass("unactive-add");
-            $(".add-test").addClass("unactive-add");
+            $(".add-video").removeClass("unactive-add");
+            $(".add-text").addClass("unactive-add");
         }
     })
 });

@@ -60,7 +60,7 @@
             keyword="*";
         }
         $.ajax({
-            url: '/oa/broadcast/'+keyword,
+            url: '/oa/broadcast/search/'+keyword,
             type: 'get',
             dataType: 'json',
             success: function(response) {
