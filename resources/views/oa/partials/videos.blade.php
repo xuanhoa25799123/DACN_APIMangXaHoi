@@ -9,7 +9,7 @@
                     </div>
                 </div>
                 </td>
-                <td  style="text-align:center"> <img class="article-image" src="{{$video->thumb}}" alt=""></td>
+                <td  style="text-align:center"> <img class="video-image" src="{{$video->thumb}}" alt=""></td>
                 <td> {{$video->title}}</td>
                 <td  style="text-align:center"> {{$video->total_view}}</td>
                 <td  style="text-align:center">{{$video->total_share}}</td>
@@ -27,8 +27,8 @@
                         @endif
                 </td>
 
-                <td  style="text-align:center"><a href="/oa/article/edit/{{$video->id}}"class="btn btn-outline-primary"><i class="fa fa-edit"></i>&nbsp; Sửa</a>
-                    <button type="button" data-id="{{$video->id}}" class="btn btn-outline-primary article-delete">Xoá bài viết</button>
+                <td  style="text-align:center"><a href="/oa/video/edit/{{$video->id}}"class="btn btn-outline-primary"><i class="fa fa-edit"></i>&nbsp; Sửa</a>
+                    <button type="button" data-id="{{$video->id}}" class="btn btn-outline-primary video-delete">Xoá bài viết</button>
                 </td>
             </tr>
 @endforeach

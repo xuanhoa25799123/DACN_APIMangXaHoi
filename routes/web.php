@@ -119,8 +119,11 @@ Route::prefix('oa')->group(function () {
       Route::get('/article/search/{keyword}',[
         'uses'=>'App\Http\Controllers\OAController@articleSearch',
     ]);
-    Route::post('/article/search-date',[
-        'uses'=>'App\Http\Controllers\OAController@articleSearchDate',
+     Route::get('/video/search/{keyword}',[
+        'uses'=>'App\Http\Controllers\OAController@videoSearch',
+    ]);
+    Route::post('/video/search-date',[
+        'uses'=>'App\Http\Controllers\OAController@videoSearchDate',
     ]);
       Route::get('/article/text-article',[
         'uses'=>'App\Http\Controllers\OAController@textArticle',
@@ -131,8 +134,14 @@ Route::prefix('oa')->group(function () {
        Route::get('/reset-article-date',[
         'uses'=>'App\Http\Controllers\OAController@articleResetDate',
     ]);
+       Route::get('/reset-video-date',[
+        'uses'=>'App\Http\Controllers\OAController@videoResetDate',
+    ]);
       Route::get('/delete-article/{id}',[
         'uses'=>'App\Http\Controllers\OAController@deleteArticle',
+    ]);
+     Route::get('/delete-video/{id}',[
+        'uses'=>'App\Http\Controllers\OAController@deleteVideo',
     ]);
     Route::get('/select-article',[
         'as'=>'oa-article-select',
@@ -289,6 +298,9 @@ Route::prefix('test')->group(function () {
     ]);
        Route::get('/edit-article',[
         'uses'=>'App\Http\Controllers\TestController@editArticle',
+    ]);
+     Route::get('/edit-video',[
+        'uses'=>'App\Http\Controllers\TestController@editVideo',
     ]);
      Route::post('/update-article',[
          'as'=>'test-update-article',

@@ -233,6 +233,24 @@ class OAController extends Controller
         $html = view('oa.partials.articles')->with(compact('articles'))->render();
         return response()->json(['success' => true, 'html' => $html]);
     }
+      public function videoSearch($keyword)
+    {
+         $arr = session('videos');
+        $videos = array();
+        if($keyword=="*")
+        {
+            $videos=$arr;
+        }
+        else {
+            foreach ($arr as $item) {
+                if (stripos(Str::slug($item->title), Str::slug($keyword)) == true||stripos(Str::slug($item->title), Str::slug($keyword)) ===0) {
+                    array_push($videos, $item);
+                }
+            }
+        }
+        $html = view('oa.partials.videos')->with(compact('videos'))->render();
+        return response()->json(['success' => true, 'html' => $html]);
+    }
     public function articleSearchDate(Request $request)
     {
          $arr = session('articles');
@@ -248,10 +266,31 @@ class OAController extends Controller
         $html = view('oa.partials.articles')->with(compact('articles'))->render();
         return response()->json(['success' => true, 'html' => $html]);
     }
+     public function videoSearchDate(Request $request)
+    {
+         $arr = session('videos');
+        $start = strtotime($request->st);
+        $end = strtotime($request->en);
+        $videos = array();
+            foreach ($arr as $item) {
+                $date =(int)substr((string)$item->create_date,0,10);
+                if ($date>=$start && $date<=$end) {
+                    array_push($videos, $item);
+                }
+            }
+        $html = view('oa.partials.videos')->with(compact('videos'))->render();
+        return response()->json(['success' => true, 'html' => $html]);
+    }
     public function articleResetDate()
     {
        $articles = session('articles');
          $html = view('oa.partials.articles')->with(compact('articles'))->render();
+        return response()->json(['success' => true, 'html' => $html ]);
+    }
+       public function videoResetDate()
+    {
+       $articles = session('videos');
+         $html = view('oa.partials.videos')->with(compact('videos'))->render();
         return response()->json(['success' => true, 'html' => $html ]);
     }
     public function followerSearch($keyword)
@@ -294,6 +333,28 @@ class OAController extends Controller
              return response()->json(['success'=>false]);
          }
     }
+       public function deleteVideo($id)
+    {
+        $accessToken = session('oa_token');
+           $client = new \GuzzleHttp\Client();
+           $data = json_encode([
+               'id'=>$id
+           ]);
+             $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/remove'.$accessToken,[
+                 'query'=>[
+                     'access_token'=>$accessToken
+                 ],
+                'body'=>$data
+         ]);
+         $response = json_decode($result->getBody());
+         if($response->message=="Success")
+         {
+             return response()->json(['success'=>true]);
+         }
+         else{
+             return response()->json(['success'=>false]);
+         }
+    }
     public function editArticle($id)
     {
          $accessToken = session('oa_token');
@@ -314,6 +375,28 @@ class OAController extends Controller
          {
             $article  = $response->data;
             return view('oa.components.edit-article',compact('oa_info','title','article'));
+         }
+    }
+    public function editVideo($id)
+    {
+         $accessToken = session('oa_token');
+           $client = new \GuzzleHttp\Client();
+           $data = json_encode([
+               'id'=>$id
+           ]);
+             $result = $client->request('GET','https://openapi.zalo.me/v2.0/article/getdetail',[
+                'query'=>[
+                    'access_token'=>$accessToken,
+                    'id'=>$id,
+                ]
+         ]);
+         $response = json_decode($result->getBody());
+         $oa_info = session('oa_info');
+         $title = "Chỉnh sửa video";
+         if($response->message=="Success")
+         {
+            $video  = $response->data;
+            return view('oa.components.edit-video',compact('oa_info','title','video'));
          }
     }
     public function updateArticle(Request $request)
