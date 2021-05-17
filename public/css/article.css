@@ -82,8 +82,9 @@
 }
 
 .selected-tab {
-    border-radius: 5px;
-    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+
     outline: none;
     border: 1px solid lightblue;
+    border-bottom: 1px solid transparent;
 }
