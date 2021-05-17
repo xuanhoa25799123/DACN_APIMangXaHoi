@@ -136,7 +136,7 @@ class OAController extends Controller
         $offset = ($current_page-1)*$limit;
         $accessToken = session('oa_token');
         $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',
-    ['query'=>[
+        ['query'=>[
         'offset'=>$offset,
         'type'=>'video',
         'limit'=>$limit,
@@ -145,6 +145,7 @@ class OAController extends Controller
        $result = json_decode($res->getBody());
        $data = $result->data;
        $total = $data->total;
+       session(['total_video'=>$total]);
          $total_page = (ceil($total / $limit));
 
        $videos = $data->medias;
@@ -350,6 +351,7 @@ class OAController extends Controller
          if($response->message=="Success")
          {
              $videos = session('videos');
+             $total = session('total_video');
              foreach($videos as $index=>$video)
              {
                  if($video->id == $id)
@@ -358,7 +360,10 @@ class OAController extends Controller
                      break;
                  }
              }
-             session(['videos'=>$videos]);
+             $total -=1;
+             session(['total-video'=>$total]);
+             session(['videos'=>$videos,'total'=>$total]);
+
              return response()->json(['success'=>true]);
          }
          else{

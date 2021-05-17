@@ -46,7 +46,7 @@
             </tbody>
         </table>
 <div class="video-footer">
-    <p class="total">Hiển thị: <strong>10</strong></p>
+    <p class="total">Hiển thị: <strong class="total-video">10</strong></p>
     <div class="paginate-container">
         {!!$paginate!!}
     </div>
