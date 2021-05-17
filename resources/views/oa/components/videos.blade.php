@@ -12,11 +12,6 @@
 @endsection
 @section('content')
 <div class="video-head">
-    <div class="video-tab">
-        <button class="text-video-button selected-tab tab-button">Bài viết</button>
-           <button class="video-video-button tab-button">Video</button>
-    </div>
-     <a href="/oa/create-video" class="btn btn-info add-text">Tạo bài viết mới</a>
     <a href="/oa/create-video" class="btn btn-info add-video unactive-add">Tạo video mới</a>
 </div>
     <div class="video-header">

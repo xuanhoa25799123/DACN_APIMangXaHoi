@@ -289,7 +289,7 @@ class OAController extends Controller
     }
        public function videoResetDate()
     {
-       $articles = session('videos');
+       $videos = session('videos');
          $html = view('oa.partials.videos')->with(compact('videos'))->render();
         return response()->json(['success' => true, 'html' => $html ]);
     }
@@ -318,7 +318,7 @@ class OAController extends Controller
            $data = json_encode([
                'id'=>$id
            ]);
-             $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/remove'.$accessToken,[
+             $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/remove',[
                  'query'=>[
                      'access_token'=>$accessToken
                  ],
@@ -340,7 +340,7 @@ class OAController extends Controller
            $data = json_encode([
                'id'=>$id
            ]);
-             $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/remove'.$accessToken,[
+             $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/remove',[
                  'query'=>[
                      'access_token'=>$accessToken
                  ],

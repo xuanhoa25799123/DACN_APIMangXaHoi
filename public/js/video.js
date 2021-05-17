@@ -45,13 +45,9 @@ $(document).ready(function() {
             type: 'get',
             dataType: 'json',
             success: function(response) {
-                console.log(response.html);
-                 $('.cancel-daterange').css('display','none');
+                $('.cancel-daterange').css('display','none');
               $('.video-rows').html(response.html);
             }, 
-              error:function(XMLHttpRequest, textStatus, errorThrown) { 
-                    alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-            }   
         });
         
   });
@@ -77,7 +73,7 @@ $(document).ready(function() {
             let url = `/oa/delete-video/${id}`;
             Swal.fire({
                     title: 'Xoá bài viết',
-                    text: "Bạn có chắc muốn xoá bài viết",
+                    text: "Bạn có chắc muốn xoá video",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
