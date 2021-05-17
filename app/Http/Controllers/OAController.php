@@ -231,7 +231,7 @@ class OAController extends Controller
              $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/remove'.$accessToken,[
                  'query'=>[
                      'access_token'=>$accessToken
-                 ]
+                 ],
                 'body'=>$data
          ]);
          $response = json_decode($result->getBody());
