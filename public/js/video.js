@@ -16,10 +16,7 @@ $(document).ready(function() {
             success: function(response) {
                  $('.cancel-daterange').css('display','initial');
               $('.video-rows').html(response.html);
-            },
-            error:function(XMLHttpRequest, textStatus, errorThrown) { 
-                    alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-            }      
+            },     
         });
   });  
   $('.cancel-daterange').on('click',function(){
@@ -32,9 +29,6 @@ $(document).ready(function() {
                $('.cancel-daterange').css('display','none');
               $('.video-rows').html(response.html);
             }, 
-              error:function(XMLHttpRequest, textStatus, errorThrown) { 
-                    alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-            }   
         });
 
   })
