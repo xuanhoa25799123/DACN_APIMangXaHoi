@@ -11,7 +11,6 @@
     <div class="follower-header">
         <p class="total">Tổng số: <strong>{{$total}}</strong></p>
         <input type="text" id="follower-search" class="search" placeholder = "Nhập tên hiển thị">
-
     </div>
     <table class="table">
         <thead>

@@ -121,5 +121,24 @@ $(document).ready(function() {
             let url = `/oa/edit-article/${id}`;
             window.location.href=url;
     });
-    
+    $('.text-article-button').on('click',function(){
+        if($(this).hasClass("selected_tab"))
+        {
+            return;
+        }
+        else{
+            $(".video-article-button").removeClass('selected_tab');
+            $(this).add(Class("selected_tab"));
+        }
+    })
+     $('.video-article-button').on('click',function(){
+        if($(this).hasClass("selected_tab"))
+        {
+            return;
+        }
+        else{
+            $(".text-article-button").removeClass('selected_tab');
+            $(this).add(Class("selected_tab"));
+        }
+    })
 });

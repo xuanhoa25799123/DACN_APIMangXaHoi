@@ -12,6 +12,10 @@
 @endsection
 @section('content')
 <div class="article-head">
+    <div class="article-tab">
+        <button class="text-article-button selected-tab tab-button">Bài viết</button>
+           <button class="video-article-button tab-button">Video</button>
+    </div>
      <a href="/oa/create-article" class="btn btn-info">Tạo bài viết mới</a>
 </div>
     <div class="article-header">
@@ -21,6 +25,7 @@
     </div>
       <div class="article-header-right">
           <div class="time-filter">
+          <p class="total">Lọc theo thời gian</p>
         <button class="btn btn-outline-info cancel-daterange"><i class="fa fa-close"></i> &nbsp; Xoá lọc</button>
         <input type="text" name="daterange" class="form-control" value="Lọc theo thời gian">
         </div>

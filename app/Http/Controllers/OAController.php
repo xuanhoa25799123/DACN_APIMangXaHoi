@@ -228,7 +228,10 @@ class OAController extends Controller
            $data = json_encode([
                'id'=>$id
            ]);
-             $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/remove?access_token='.$accessToken,[
+             $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/remove'.$accessToken,[
+                 'query'=>[
+                     'access_token'=>$accessToken
+                 ]
                 'body'=>$data
          ]);
          $response = json_decode($result->getBody());
