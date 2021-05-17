@@ -128,7 +128,7 @@ $(document).ready(function() {
         }
         else{
             $(".video-article-button").removeClass('selected_tab');
-            $(this).add(Class("selected_tab"));
+            $(this).addClass("selected_tab"));
         }
     })
      $('.video-article-button').on('click',function(){
@@ -138,7 +138,7 @@ $(document).ready(function() {
         }
         else{
             $(".text-article-button").removeClass('selected_tab');
-            $(this).add(Class("selected_tab"));
+            $(this).addClass("selected_tab"));
         }
     })
 });

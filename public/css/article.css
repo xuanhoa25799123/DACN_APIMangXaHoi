@@ -49,14 +49,11 @@
     background-color: white;
     box-shadow: 0 10px 15px -7px black;
 }
-.article-header-right {
-    width: 200px;
-}
 
 .article-head {
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin: 10px 0;
     border-bottom: 1px solid lightblue;
 }
