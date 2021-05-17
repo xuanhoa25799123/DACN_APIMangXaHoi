@@ -328,7 +328,19 @@ class OAController extends Controller
          $response = json_decode($result->getBody());
          if($response->message=="Success")
          {
-             return response()->json(['success'=>true]);
+              $articles = session('articles');
+             $total = session('total_article');
+             foreach($articles as $index=>$article)
+             {
+                 if($article->id == $id)
+                 {
+                     array_splice($articles,$index,1);
+                     break;
+                 }
+             }
+             $total -=1;
+             session(['total_article'=>$total]);
+             return response()->json(['success'=>true,'total'=>$total]);
          }
          else{
              return response()->json(['success'=>false]);
@@ -361,7 +373,7 @@ class OAController extends Controller
                  }
              }
              $total -=1;
-             session(['total-video'=>$total]);
+             session(['total_video'=>$total]);
              session(['videos'=>$videos,'total'=>$total]);
 
              return response()->json(['success'=>true]);

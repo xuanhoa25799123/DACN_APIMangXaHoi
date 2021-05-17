@@ -92,6 +92,7 @@ $(document).ready(function() {
                                     icon: 'success',
                    
                             })
+                            $('.total-article').html(response.total);
                             $(`#row-${id}`).remove();
                             }
                             else{

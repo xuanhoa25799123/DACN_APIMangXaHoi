@@ -16,7 +16,7 @@
 </div>
     <div class="video-header">
     <div class="video-header-left">
-        <p class="total">Tổng số: <strong>{{$total}}</strong></p>
+        <p class="total">Tổng số: <strong class="total-video">{{$total}}</strong></p>
         <input type="text" id="video-search" class="search" placeholder = "Nhập tên bài viết">
     </div>
       <div class="video-header-right">
@@ -46,7 +46,7 @@
             </tbody>
         </table>
 <div class="video-footer">
-    <p class="total">Hiển thị: <strong class="total-video">10</strong></p>
+    <p class="total">Hiển thị: <strong>10</strong></p>
     <div class="paginate-container">
         {!!$paginate!!}
     </div>

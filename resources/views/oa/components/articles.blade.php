@@ -16,7 +16,7 @@
 </div>
     <div class="article-header">
     <div class="article-header-left">
-        <p class="total">Tổng số: <strong>{{$total}}</strong></p>
+        <p class="total">Tổng số: <strong class="total-article">{{$total}}</strong></p>
         <input type="text" id="article-search" class="search" placeholder = "Nhập tên bài viết">
     </div>
       <div class="article-header-right">

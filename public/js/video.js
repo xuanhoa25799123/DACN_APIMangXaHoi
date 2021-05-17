@@ -91,7 +91,7 @@ $(document).ready(function() {
                    
                             })
                             $(`#row-${id}`).remove();
-                            $('.total-video').innerHtml(response.total);
+                            $('.total-video').html(response.total);
                             }
                             else{
                                     Swal.fire({
