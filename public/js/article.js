@@ -121,7 +121,7 @@ $(document).ready(function() {
             let url = `/oa/edit-article/${id}`;
             window.location.href=url;
     });
-    $('.text-article-button').on('click',function(){
+    $('body').on('click','.text-article-button',function(){
         if($(this).hasClass("selected-tab"))
         {
             return;
@@ -134,15 +134,15 @@ $(document).ready(function() {
             $(".add-video").addClass("unactive-add");
         }
     })
-     $('.video-article-button').on('click',function(){
+     $('body').on('click','.video-article-button',function(){
         if($(this).hasClass("selected-tab"))
         {
             return;
         }
         else{
              console.log("abc");
-            $(".text-article-button").removeClass('selected_tab');
-            $(this).addClass("selected_tab");
+            $(".text-article-button").removeClass('selected-tab');
+            $(this).addClass("selected-tab");
                 $(".add-video").removeClass("unactive-add");
             $(".add-test").addClass("unactive-add");
         }
