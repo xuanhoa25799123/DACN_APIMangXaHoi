@@ -349,6 +349,11 @@ class OAController extends Controller
          $response = json_decode($result->getBody());
          if($response->message=="Success")
          {
+             $videos = session('videos');
+             array_filter($videos,function($video){
+                 return $video->id!=$id
+             })
+             session(['videos'=>$videos]);
              return response()->json(['success'=>true]);
          }
          else{
@@ -437,6 +442,12 @@ class OAController extends Controller
         $oa_info = session('oa_info');
         $title="Tạo bài viết mới";
         return view('oa.components.create-article2',compact('oa_info','title'));
+    }
+        public function createVideo()
+    {
+        $oa_info = session('oa_info');
+        $title="Tạo bài video mới";
+        return view('oa.components.create-video',compact('oa_info','title'));
     }
     public function storeArticle(Request $request)
     {
