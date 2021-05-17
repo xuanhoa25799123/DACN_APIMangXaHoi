@@ -350,9 +350,14 @@ class OAController extends Controller
          if($response->message=="Success")
          {
              $videos = session('videos');
-             array_filter($videos,function($video){
-                 return $video->id!=$id;
-             });
+             foreach($videos as $index=>$video)
+             {
+                 if($video->id == $id)
+                 {
+                     $videos.spice(index,1);
+                     break;
+                 }
+             }
              session(['videos'=>$videos]);
              return response()->json(['success'=>true]);
          }

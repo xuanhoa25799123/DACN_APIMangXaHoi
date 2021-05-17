@@ -160,7 +160,7 @@ Route::prefix('oa')->group(function () {
         'uses'=>'App\Http\Controllers\OAController@createTextArticle',
     ]);
     Route::get('/create-video',[
-        'uses'=>'App\Http\Controllers\OAController@createVideoArticle',
+        'uses'=>'App\Http\Controllers\OAController@createVideo',
     ]);
     Route::get('/create-video-article',[
         'as'=>'video-article',
