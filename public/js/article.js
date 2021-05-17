@@ -122,23 +122,27 @@ $(document).ready(function() {
             window.location.href=url;
     });
     $('.text-article-button').on('click',function(){
-        if($(this).hasClass("selected_tab"))
+        if($(this).hasClass("selected-tab"))
         {
             return;
         }
         else{
-            $(".video-article-button").removeClass('selected_tab');
-            $(this).addClass("selected_tab");
+            $(".video-article-button").removeClass('selected-tab');
+            $(this).addClass("selected-tab");
+            $(".add-text").removeClass("unactive-add");
+            $(".add-video").addClass("unactive-add");
         }
     })
      $('.video-article-button').on('click',function(){
-        if($(this).hasClass("selected_tab"))
+        if($(this).hasClass("selected-tab"))
         {
             return;
         }
         else{
             $(".text-article-button").removeClass('selected_tab');
             $(this).addClass("selected_tab");
+                $(".add-video").removeClass("unactive-add");
+            $(".add-test").addClass("unactive-add");
         }
     })
 });

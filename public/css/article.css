@@ -88,3 +88,7 @@
     border: 1px solid lightblue;
     border-bottom: 1px solid transparent;
 }
+
+.unactive-add {
+    display: none;
+}
