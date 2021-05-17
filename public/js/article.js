@@ -121,46 +121,4 @@ $(document).ready(function() {
             let url = `/oa/edit-article/${id}`;
             window.location.href=url;
     });
-    $('body').on('click','.text-article-button',function(){
-        if($(this).hasClass("selected-tab"))
-        {
-            return;
-        }
-        else{
-              $.ajax({
-            url: '/oa/article/text-article',
-            type: 'GET',
-            dataType: 'json',
-            success: function(response) {
-              $('.article-rows').html(response.html);
-            },
-        });
-            console.log("asd");
-            $(".video-article-button").removeClass('selected-tab');
-            $(this).addClass("selected-tab");
-            $(".add-text").removeClass("unactive-add");
-            $(".add-video").addClass("unactive-add");
-        }
-    })
-     $('body').on('click','.video-article-button',function(){
-        if($(this).hasClass("selected-tab"))
-        {
-            return;
-        }
-        else{
-             $.ajax({
-            url: '/oa/article/video-article',
-            type: 'GET',
-            dataType: 'json',
-            success: function(response) {
-              $('.article-rows').html(response.html);
-            },
-        })
-             console.log("abc");
-            $(".text-article-button").removeClass('selected-tab');
-            $(this).addClass("selected-tab");
-            $(".add-video").removeClass("unactive-add");
-            $(".add-text").addClass("unactive-add");
-        }
-    })
 });

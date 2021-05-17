@@ -48,6 +48,12 @@
             </div>
             <p class='sidebar-item-text'>Danh sách bài viết</p>
         </a>
+        <a class="sidebar-item" href="{{route('oa-video')}}">
+            <div class="sidebar-item-icon-container">
+                <i class="fa fa-edit sidebar-item-icon"></i>
+            </div>
+            <p class='sidebar-item-text'>Danh sách video</p>
+        </a>
 
         <p class="sidebar-content-header">Zalo xã hội</p>
         <a class="sidebar-item" href="/dashboard">

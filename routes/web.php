@@ -138,6 +138,10 @@ Route::prefix('oa')->group(function () {
         'as'=>'oa-article-select',
         'uses'=>'App\Http\Controllers\OAController@selectArticle',
     ]);
+     Route::get('/video',[
+        'as'=>'oa-video',
+        'uses'=>'App\Http\Controllers\OAController@videoList',
+    ]);
       
     Route::get('/create-text-article',[
         'as'=>'text-article',

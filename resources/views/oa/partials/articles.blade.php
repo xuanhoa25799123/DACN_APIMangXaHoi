@@ -15,13 +15,15 @@
                 <td  style="text-align:center">{{$article->total_share}}</td>
                 <td  style="text-align:center">
                     @if($article->status=="show")
-                    <label class="checkbox-inline">
+                    hiện
+                    <!-- <label class="checkbox-inline">
                         <input type="checkbox" checked data-toggle="toggle">
-                    </label>
+                    </label> -->
                     @else
-                        <label class="checkbox-inline">
+                    ẩn
+                        <!-- <label class="checkbox-inline">
                             <input type="checkbox" data-toggle="toggle">
-                        </label>
+                        </label> -->
                         @endif
                 </td>
 

@@ -12,7 +12,12 @@
 @endsection
 @section('content')
 <div class="article-head">
+    <div class="article-tab">
+        <button class="text-article-button selected-tab tab-button">Bài viết</button>
+           <button class="video-article-button tab-button">Video</button>
+    </div>
      <a href="/oa/create-article" class="btn btn-info add-text">Tạo bài viết mới</a>
+    <a href="/oa/create-video" class="btn btn-info add-video unactive-add">Tạo video mới</a>
 </div>
     <div class="article-header">
     <div class="article-header-left">
@@ -42,7 +47,7 @@
             </tr>
             </thead>
             <tbody class="article-rows">
-            @include('oa.partials.articles')
+            @include('oa.partials.videos')
             </tbody>
         </table>
 <div class="article-footer">
