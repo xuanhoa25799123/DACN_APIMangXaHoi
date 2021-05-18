@@ -125,6 +125,9 @@ Route::prefix('oa')->group(function () {
      Route::get('/video/search/{keyword}',[
         'uses'=>'App\Http\Controllers\OAController@videoSearch',
     ]);
+     Route::post('/article/search-date',[
+        'uses'=>'App\Http\Controllers\OAController@articleSearchDate',
+    ]);
     Route::post('/video/search-date',[
         'uses'=>'App\Http\Controllers\OAController@videoSearchDate',
     ]);

@@ -47,10 +47,5 @@
             </tbody>
         </table>
          <button type="button" class="btn btn-primary send-broadcast">Gửi broadcast</button>
-<div class="broadcast-footer">
-    <p class="total">Hiển thị: <strong>10</strong></p>
-    <div class="paginate-container">
-        {!!$paginate!!}
-    </div>
-</div>
+
 @endsection

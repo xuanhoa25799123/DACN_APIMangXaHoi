@@ -96,13 +96,6 @@ class OAController extends Controller
     public function articleList(Request $request)
     {
         $client = new GuzzleHttp\Client();
-        //  $current_page = 1;
-        // if($request->has('page'))
-        // {
-        //     $current_page = $request->query('page');
-        // }
-        // $limit = 10;
-        // $offset = ($current_page-1)*$limit;
         $accessToken = session('oa_token');
         $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',
     ['query'=>[
@@ -145,37 +138,45 @@ class OAController extends Controller
 
        return view('oa.components.articles',compact('articles','oa_info','title','total'));
     }
-        public function videoList(Request $request)
+        public function videoList()
     {
         $client = new GuzzleHttp\Client();
-         $current_page = 1;
-        if($request->has('page'))
-        {
-            $current_page = $request->query('page');
-        }
-        $limit = 10;
-        $offset = ($current_page-1)*$limit;
         $accessToken = session('oa_token');
         $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',
         ['query'=>[
-        'offset'=>$offset,
+        'offset'=>0,
         'type'=>'video',
-        'limit'=>$limit,
+        'limit'=>10,
         'access_token'=>$accessToken
             ]]);
        $result = json_decode($res->getBody());
        $data = $result->data;
        $total = $data->total;
-       session(['total_video'=>$total]);
-         $total_page = (ceil($total / $limit));
-
        $videos = $data->medias;
-        $oa_info = session('oa_info');
-        $title="Bài viết";
-        session(['videos'=>$videos]);
-        $paginate = $this->paginateTrait('/oa/video',$current_page,$total_page);
+        for($i = 1;$i<= ceil(($total-10)/10);$i++)
+       {
+               $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',
+        ['query'=>[
+        'offset'=>$i*10,
+        'type'=>'video',
+        'limit'=>10,
+        'access_token'=>$accessToken
+            ]]);
 
-       return view('oa.components.videos',compact('videos','oa_info','title','total','paginate'));
+              $result = json_decode($res->getBody());
+             $data = $result->data;
+             $arr = $data->medias;
+             foreach($arr as $index=>$item)
+             {
+                array_push($videos,$item);
+             }
+            
+       }
+       session(['total_video'=>$total]);
+        $oa_info = session('oa_info');
+        $title="Bài viết video";
+        session(['videos'=>$videos]);
+       return view('oa.components.videos',compact('videos','oa_info','title','total'));
     }
     public function selectArticle()
     {
@@ -527,20 +528,13 @@ class OAController extends Controller
     }
     public function Broadcast(Request $request)
     {
-        $current_page = 1;
-        if($request->has('page'))
-        {
-            $current_page = $request->query('page');
-        }
-        $limit = 10;
-        $offset = ($current_page-1)*$limit;
-
+       
          $client = new GuzzleHttp\Client();
         $accessToken = session('oa_token');
         $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',[
             'query'=>[
-                'offset'=>$offset,
-                'limit'=>$limit,
+                'offset'=>0,
+                'limit'=>10,
                 'type'=>'normal',
                 'access_token'=>$accessToken
             ]
@@ -548,14 +542,31 @@ class OAController extends Controller
        $result = json_decode($res->getBody());
        $data = $result->data;
        $total = $data->total;
-        $total_page = (ceil($total / $limit));
        $articles = $data->medias;
+        for($i = 1;$i<= ceil(($total-10)/10);$i++)
+       {
+               $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',
+        ['query'=>[
+        'offset'=>$i*10,
+        'type'=>'normal',
+        'limit'=>10,
+        'access_token'=>$accessToken
+            ]]);
+
+              $result = json_decode($res->getBody());
+             $data = $result->data;
+             $arr = $data->medias;
+             foreach($arr as $index=>$item)
+             {
+                array_push($articles,$item);
+             }
+            
+       }
         $oa_info = session('oa_info');
         $title="Gửi broadcast";
         session(['broadcasts'=>$articles]);
-        $paginate = $this->paginateTrait("/oa/broadcast",$current_page,$total_page);
 
-       return view('oa.components.broadcast',compact('articles','oa_info','title','total','paginate'));
+       return view('oa.components.broadcast',compact('articles','oa_info','title','total'));
     }
     public function searchBroadcast($keyword)
     {
