@@ -31,8 +31,8 @@ $(document).ready(function() {
         let author = $('input[name=author]').val();
         let content = $('textarea[name=content]').val();
         let photo_url = $('input[name=photo_url]').val();
-        let status = $('input[name=status]').is(':checked')?"Show":"Hide";
-        console.log(title,description,author,content,photo_url)
+        let status = $('input[name=status]').is(':checked')?"show":"hide";
+        console.log(title,description,author,content,photo_url,status)
         if($.trim(title)==""||$.trim(description)==""||$.trim(content)==""||$.trim(photo_url)=="")
         {
              Swal.fire({ 

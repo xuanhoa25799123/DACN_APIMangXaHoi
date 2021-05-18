@@ -27,10 +27,12 @@
         <div class="form-group inline-form">
             <label>Tác giả</label>
             <input class="form-control" name="author" >
-            <label>Trạng thái</label>
+        </div>
+        <div class="form-group inline-form">
+             <label>Trạng thái</label>
               <label class="checkbox-inline">
                         <input type="checkbox" checked data-toggle="toggle" name="status">
-                </label>
+            </label>
         </div>
         <div class="form-group inline-form">
             <label>Nội dung (<span style="color:red">*</span>)</label>
