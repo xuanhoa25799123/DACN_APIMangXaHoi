@@ -124,9 +124,15 @@ class OAController extends Controller
         'limit'=>10,
         'access_token'=>$accessToken
             ]]);
+
               $result = json_decode($res->getBody());
              $data = $result->data;
-             array_push($articles,$data->medias);
+             $arr = $data->medias;
+             foreach($arr as $index=>$item)
+             {
+                array_push($articles,$item);
+             }
+            
        }
     //    session(['total_article'=>$total]);
         //  $total_page = (ceil($total / $limit));
