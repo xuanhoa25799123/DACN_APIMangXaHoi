@@ -31,9 +31,10 @@ $(document).ready(function() {
         let author = $('input[name=author]').val();
         let content = $('input[name=content]').val();
         let photo_url = $('input[name=photo_url]').val();
+        console.log(title,description,author,content,photo_url)
         if($.trim(title)==""||$.trim(description)==""||$.trim(content)==""||$.trim(photo_url)=="")
         {
-             Swal.fire({
+             Swal.fire({ 
                     title: 'Vui lòng điền vào các trường bắt buộc',
                     icon: 'info',
                     confirmButtonColor: '#3085d6',

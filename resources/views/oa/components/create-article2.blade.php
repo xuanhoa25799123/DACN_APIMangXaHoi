@@ -15,11 +15,11 @@
         <div class="create-container">
         <div class="left-content">
         <div class="form-group inline-form">
-            <label>Tiêu đề</label>
+            <label>Tiêu đề <span style="color:red">*</span></label>
             <input class="form-control" name="title" placeholder="Tiêu đề bài viết" maxlength="50" required>
         </div>
         <div class="form-group inline-form">
-            <label>Trích dẫn</label>
+            <label>Trích dẫn <span style="color:red">*</span></label>
             <textarea name="description" class="form-control" rows="5" maxlength="300" required></textarea>
         </div>
         <div class="form-group inline-form">
@@ -27,13 +27,13 @@
             <input class="form-control" name="author" >
         </div>
         <div class="form-group inline-form">
-            <label>Nội dung</label>
+            <label>Nội dung <span style="color:red">*</span></label>
             <textarea class="form-control" name="content" rows="10"></textarea>
         </div>
         </div>        
         <div class="right-content">
               <div class="form-group">
-                <label>Ảnh đại diện</label>
+                <label>Ảnh đại diện <span style="color:red">*</span></label>
                 <div class="cover-container">
                     <div class="cover-content">
                         <div class="select-content image-content">
