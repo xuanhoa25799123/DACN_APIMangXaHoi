@@ -129,23 +129,33 @@ $(".recipient-container").click(function(e){
             $(this).removeAttr('name')
         }
     });
-    $('.submit-button').on('click',function(){
-        let age = $('input[name="age[]"]').val();
+    $('body').on('click','submit-button',function(){
+        let age = [];
+         $('input[name="age[]"]').map(function(){
+            age.push($(this).val());
+        });
+        
         let gender =$('input[name=gender]').val();
-        let platform = $('input[name="platform[]"]').val();
-        let id = $('input[name="id[]"]').val();
+        let platform = [];
+        let platform = $('input[name="platform[]"]').map(function(){
+            platform.push($this).val();
+        });
+        let id = [];
+         $('input[name="id[]"]').map(function(){
+            id.push($this).val();
+        })
         console.log(age,gender,platform,id);
-        if(age==[])
+        if(!age)
         {
             SweetAlert("Vui lòng chọn ít nhất 1 độ tuổi");
             return;
         }
-        if(platform==[])
+        if(!platform)
         {
             SweetAlert("Vui lòng chọn ít nhất 1 loại thiết bị");
             return;
         }
-        if(id==[])
+        if(!id)
         {
             SweetAlert("Vui lòng chọn ít nhất 1 bài viết");
             return;
