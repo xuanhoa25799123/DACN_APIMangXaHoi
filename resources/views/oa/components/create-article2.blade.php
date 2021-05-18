@@ -10,9 +10,7 @@
     <script src="{{asset('/js/create-article-2.js')}}"></script>
 @endsection
 @section('content')
-
-    <form action="{{route('store-article')}}" method="POST">
-        @csrf;
+    <div>
         <div class="create-container">
         <div class="left-content">
         <div class="form-group inline-form">
@@ -25,7 +23,7 @@
         </div>
         <div class="form-group inline-form">
             <label>Tác giả</label>
-            <input class="form-control" name="author">
+            <input class="form-control" name="author" >
         </div>
         <div class="form-group inline-form">
             <label>Nội dung</label>
@@ -34,13 +32,10 @@
         </div>        
         <div class="right-content">
               <div class="form-group">
-                <label>Video / Ảnh đại diện</label>
+                <label>Ảnh đại diện</label>
                 <div class="cover-container">
-                
                     <div class="cover-content">
-                          
                         <div class="select-content image-content">
-                           
                             <input name="photo_url" type="text" class="form-control image-input" placeholder="Paste link tại đây...">
                             <div class="image-info">
                                 <div class="sub-image-info">
@@ -58,6 +53,6 @@
             </div>
         </div>
         </div>
-        <button type="submit" class="btn btn-primary">Đăng bài</button>
-    </form>
+        <button type="submit" class="btn btn-primary submit-button" data-href="{{route('store-article')}}">Đăng bài</button>
+    </div>
 @endsection

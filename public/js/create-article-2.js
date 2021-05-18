@@ -25,6 +25,66 @@ $(document).ready(function() {
         $('.image-content').css('display','flex');
         $('.video-content').css('display','none');
     })
+    $('.submit-button').on('click',function(){
+        let title = $('input[name=title]').val();
+        let description = $('input[name=description]').val();
+        let author = $('input[name=author]').val();
+        let content = $('input[name=content]').val();
+        let photo_url = $('input[name=photo_url]').val();
+        if(str.trim(title)==""||str.trim(description)==""||str.trim(content)==""||str.trim(photo_url)=="")
+        {
+             Swal.fire({
+                    title: 'Vui lòng điền vào các trường bắt buộc',
+                    icon: 'info',
+                    confirmButtonColor: '#3085d6',
+                })
+                return;
+        }
+        else{
+            let url = $(this).data('href');
+                    $.ajax({
+            url: url,
+            type: 'POST',
+            data:{
+                title,description,author,content,photo_url
+            },
+            headers:{
+                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+            },
+            dataType: 'json',
+            success: function(response) {
+                if(response.message=="Success")
+                {
+                Swal.fire({
+                    title: 'Thành công',
+                    text: "Đã đăng bài viết",
+                    icon: 'success',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#6c800b',
+                    confirmButtonText:"OK",
+                    cancelButtonText:"Ở lại",
+                }).then(result=>{
+                    if(result.isConfirmed)
+                    {
+                        window.location.href="/oa/article";
+                    }
+                })
+            }
+            else{
+                Swal.fire({
+                    title: 'Bài viết chưa được đăng',
+                    text: response.message,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                })
+            }
+            }
+        });
+        }
+
+    })
     $('.video-info').on('click',function(){
         $('.video-popup').css('display','flex');
         // $.ajax({
