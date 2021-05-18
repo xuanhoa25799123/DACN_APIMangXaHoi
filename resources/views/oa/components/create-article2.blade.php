@@ -4,11 +4,13 @@
     <!-- 
         <link rel="stylesheet" href="{{asset('/css/create-article.css')}}"> -->
         <link rel="stylesheet" href="{{asset('/css/create-article.css')}}">
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
 @endsection
 @section('js')
   <script src="{{asset('plugins/sweetalert2/sweetalert2@10.js')}}"></script>
     <script src="{{asset('/js/create-article-2.js')}}"></script>
+     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 @endsection
 @section('content')
     <div>
@@ -25,6 +27,10 @@
         <div class="form-group inline-form">
             <label>Tác giả</label>
             <input class="form-control" name="author" >
+            <label>Trạng thái</label>
+              <label class="checkbox-inline">
+                        <input type="checkbox" checked data-toggle="toggle" name="status">
+                </label>
         </div>
         <div class="form-group inline-form">
             <label>Nội dung (<span style="color:red">*</span>)</label>

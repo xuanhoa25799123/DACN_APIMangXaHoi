@@ -31,6 +31,7 @@ $(document).ready(function() {
         let author = $('input[name=author]').val();
         let content = $('textarea[name=content]').val();
         let photo_url = $('input[name=photo_url]').val();
+        let status = $('input[name=status]').is(':checked')?"Show":"Hide";
         console.log(title,description,author,content,photo_url)
         if($.trim(title)==""||$.trim(description)==""||$.trim(content)==""||$.trim(photo_url)=="")
         {
@@ -39,7 +40,6 @@ $(document).ready(function() {
                     icon: 'info',
                     confirmButtonColor: '#3085d6',
                 })
-                return;
         }
         else{
             let url = $(this).data('href');
@@ -47,7 +47,7 @@ $(document).ready(function() {
             url: url,
             type: 'POST',
             data:{
-                title,description,author,content,photo_url
+                title,description,author,content,photo_url,status
             },
             headers:{
                 'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
