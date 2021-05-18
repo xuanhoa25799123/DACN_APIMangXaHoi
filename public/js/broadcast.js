@@ -137,7 +137,7 @@ $(".recipient-container").click(function(e){
         
         let gender =$('input[name=gender]').val();
         let platform = [];
-        let platform = $('input[name="platform[]"]').map(function(){
+         $('input[name="platform[]"]').map(function(){
             platform.push($this).val();
         });
         let id = [];
