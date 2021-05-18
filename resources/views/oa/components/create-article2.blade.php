@@ -13,7 +13,6 @@
      <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 @endsection
 @section('content')
-    <div>
         <div class="create-container">
         <div class="left-content">
         <div class="form-group inline-form">
@@ -63,5 +62,4 @@
         </div>
         </div>
         <button type="submit" class="btn btn-primary submit-button" data-href="{{route('store-article')}}">Đăng bài</button>
-    </div>
 @endsection

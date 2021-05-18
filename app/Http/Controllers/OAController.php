@@ -471,7 +471,7 @@ class OAController extends Controller
                     "content"=> $request->content,
                 ]
             ],
-            "status"=> "show"
+            "status"=> $request->status,
             ]);
              $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/update',[
                  'query'=>[
@@ -480,7 +480,7 @@ class OAController extends Controller
                 'body'=>$data
          ]);
          $response = json_decode($result->getBody());
-            return redirect('/oa/article');
+            return response()->json($response);
     }
     public function createArticle()
     {

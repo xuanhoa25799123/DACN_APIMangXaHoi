@@ -4,16 +4,17 @@
     <!-- 
         <link rel="stylesheet" href="{{asset('/css/create-article.css')}}"> -->
         <link rel="stylesheet" href="{{asset('/css/article-edit.css')}}">
+         <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
 @endsection
 @section('js')
     <script src="{{asset('/js/article-edit.js')}}"></script>
       <script src="{{asset('plugins/sweetalert2/sweetalert2@10.js')}}"></script>
+        <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 @endsection
 @section('content')
 
-    <form action="{{route('update-article')}}" method="POST">
-        @csrf;
+
         <div class="create-container">
         <div class="left-content">
         <div class="form-group inline-form">
@@ -27,6 +28,21 @@
         <div class="form-group inline-form">
             <label>Tác giả</label>
             <input class="form-control" name="author" value="{{$article->author}}">
+        </div>
+       
+ 
+       <div class="form-group inline-form">
+             <label>Trạng thái</label>
+                @if($article->status=="show")
+                    <label class="checkbox-inline">
+                        <input type="checkbox" checked data-toggle="toggle" name="status">
+                    </label>
+                    @else
+            
+                        <label class="checkbox-inline">
+                            <input type="checkbox" data-toggle="toggle" name="status">
+                        </label>
+                @endif
         </div>
         <div class="form-group inline-form">
             <label>Nội dung</label>
@@ -63,6 +79,6 @@
             </div>
         </div>
         </div>
-        <button type="submit" class="btn btn-primary">Sửa</button>
-    </form>
+        <button type="submit" class="btn btn-primary" data-href="{{route('update-article)}}">Sửa</button>
+    
 @endsection
