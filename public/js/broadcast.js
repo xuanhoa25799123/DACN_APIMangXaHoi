@@ -145,21 +145,13 @@ $(".recipient-container").click(function(e){
             id.push($(this).val());
         })
         console.log(age,gender,platform,id);
-        if(age==[])
+        if(age==[] || platform==[])
         {
-            SweetAlert("Vui lòng chọn ít nhất 1 độ tuổi");
-            return;
+            console.log("am here");
+            SweetAlert("Vui lòng chọn ít nhất 1 đối tượng");
+
         }
-        if(platform==[])
-        {
-            SweetAlert("Vui lòng chọn ít nhất 1 loại thiết bị");
-            return;
-        }
-        if(id==[])
-        {
-            SweetAlert("Vui lòng chọn ít nhất 1 bài viết");
-            return;
-        }
+        else{
         let url = $(this).data('href');
                  $.ajax({
             url: url,
@@ -206,8 +198,10 @@ $(".recipient-container").click(function(e){
             }
             }
         });
+    }
 
     })
+
 
 
 });
