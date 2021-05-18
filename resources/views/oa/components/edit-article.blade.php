@@ -79,6 +79,6 @@
             </div>
         </div>
         </div>
-        <button type="submit" class="btn btn-primary" data-href="{{route('update-article)}}">Sửa</button>
+        <button type="submit" class="btn btn-primary" data-href="{{route('update-article')}}">Sửa</button>
     
 @endsection
