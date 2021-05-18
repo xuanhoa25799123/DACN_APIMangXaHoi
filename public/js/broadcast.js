@@ -197,6 +197,11 @@ $(".recipient-container").click(function(e){
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
+                }).then(result=>{
+                    if(result.confirmed)
+                    {
+                        window.location.href="/oa/broadcast";
+                    }
                 })
             }
             }
