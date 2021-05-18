@@ -8,6 +8,7 @@
 @endsection
 @section('js')
     <script src="{{asset('/js/article-edit.js')}}"></script>
+      <script src="{{asset('plugins/sweetalert2/sweetalert2@10.js')}}"></script>
 @endsection
 @section('content')
 
