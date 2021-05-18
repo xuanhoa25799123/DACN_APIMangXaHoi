@@ -138,11 +138,11 @@ $(".recipient-container").click(function(e){
         let gender =$('input[name=gender]').val();
         let platform = [];
          $('input[name="platform[]"]').map(function(){
-            platform.push($this).val();
+            platform.push($(this).val());
         });
         let id = [];
          $('input[name="id[]"]').map(function(){
-            id.push($this).val();
+            id.push($(this).val());
         })
         console.log(age,gender,platform,id);
         if(!age)
