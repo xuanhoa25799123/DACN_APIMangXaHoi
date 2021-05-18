@@ -31,7 +31,7 @@ $(document).ready(function() {
         let author = $('input[name=author]').val();
         let content = $('input[name=content]').val();
         let photo_url = $('input[name=photo_url]').val();
-        if(trim(title)==""||trim(description)==""||trim(content)==""||trim(photo_url)=="")
+        if($.trim(title)==""||$.trim(description)==""||$.trim(content)==""||$.trim(photo_url)=="")
         {
              Swal.fire({
                     title: 'Vui lòng điền vào các trường bắt buộc',
