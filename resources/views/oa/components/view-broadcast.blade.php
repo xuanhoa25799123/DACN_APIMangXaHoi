@@ -81,7 +81,7 @@
               <p class="checkbox-label">Android</p>
             </div>
              <div class="checkbox-item">
-                 <input class="checkbox-input" data-name="platform" name="platform[]" type="checkbox" checked value="3      "> 
+                 <input class="checkbox-input" data-name="platform" name="platform[]" type="checkbox" checked value="3"> 
               <p class="checkbox-label">Thiết bị khác</p>
             </div>
     </div>

@@ -145,17 +145,17 @@ $(".recipient-container").click(function(e){
             id.push($(this).val());
         })
         console.log(age,gender,platform,id);
-        if(!age)
+        if(age==[])
         {
             SweetAlert("Vui lòng chọn ít nhất 1 độ tuổi");
             return;
         }
-        if(!platform)
+        if(platform==[])
         {
             SweetAlert("Vui lòng chọn ít nhất 1 loại thiết bị");
             return;
         }
-        if(!id)
+        if(id==[])
         {
             SweetAlert("Vui lòng chọn ít nhất 1 bài viết");
             return;
@@ -198,7 +198,7 @@ $(".recipient-container").click(function(e){
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                 }).then(result=>{
-                    if(result.confirmed)
+                    if(result.isConfirmed)
                     {
                         window.location.href="/oa/broadcast";
                     }
