@@ -129,7 +129,7 @@ $(".recipient-container").click(function(e){
             $(this).removeAttr('name')
         }
     });
-    $('body').on('click','submit-button',function(){
+    $('body').on('click','.submit-button',function(){
         let age = [];
          $('input[name="age[]"]').map(function(){
             age.push($(this).val());
