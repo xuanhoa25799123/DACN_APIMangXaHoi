@@ -27,9 +27,9 @@ $(document).ready(function() {
     })
     $('.submit-button').on('click',function(){
         let title = $('input[name=title]').val();
-        let description = $('input[name=description]').val();
+        let description = $('textarea[name=description]').val();
         let author = $('input[name=author]').val();
-        let content = $('input[name=content]').val();
+        let content = $('textarea[name=content]').val();
         let photo_url = $('input[name=photo_url]').val();
         console.log(title,description,author,content,photo_url)
         if($.trim(title)==""||$.trim(description)==""||$.trim(content)==""||$.trim(photo_url)=="")
