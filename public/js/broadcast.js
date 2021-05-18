@@ -145,10 +145,14 @@ $(".recipient-container").click(function(e){
             id.push($(this).val());
         })
         console.log(age,gender,platform,id);
-        if(!age || !platform)
+        if(age.length==0)
         {
-            console.log("am here");
-            SweetAlert("Vui lòng chọn ít nhất 1 đối tượng");
+       
+            SweetAlert("Vui lòng chọn ít nhất 1 độ tuổi");
+        }
+        else if(platform.length==0)
+        {
+                 SweetAlert("Vui lòng chọn ít nhất 1 loại thiết bị");
         }
         else{
         let url = $(this).data('href');
