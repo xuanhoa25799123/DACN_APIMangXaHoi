@@ -70,6 +70,11 @@
         });
     })
     $('body').on('click','.select-broadcast',function(){
+        if(selected_broadcast.length==5)
+        {
+            SweetAlert("Chọn tối đa 5 bài viết");
+            return;
+        }
         let id =  $(this).data("id");
         console.log("asdasdsad");
         if($(this).hasClass("selected"))
@@ -129,6 +134,7 @@ $(".recipient-container").click(function(e){
         let gender =$('input[name=gender]').val();
         let platform = $('input[name=platform]').val();
         let id = $('input[name=id]').val();
+        console.log(age,gender,platform,id);
         if(age==[])
         {
             SweetAlert("Vui lòng chọn ít nhất 1 độ tuổi");
