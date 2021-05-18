@@ -130,10 +130,10 @@ $(".recipient-container").click(function(e){
         }
     });
     $('.submit-button').on('click',function(){
-        let age = $('input[name=age[]]').val();
+        let age = $('input[name="age[]"]').val();
         let gender =$('input[name=gender]').val();
-        let platform = $('input[name=platform[]]').val();
-        let id = $('input[name=id[]]').val();
+        let platform = $('input[name="platform[]"]').val();
+        let id = $('input[name="id[]"]').val();
         console.log(age,gender,platform,id);
         if(age==[])
         {
