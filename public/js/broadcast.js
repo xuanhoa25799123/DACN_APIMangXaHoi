@@ -145,11 +145,10 @@ $(".recipient-container").click(function(e){
             id.push($(this).val());
         })
         console.log(age,gender,platform,id);
-        if(age==[] || platform==[])
+        if(!age || !platform)
         {
             console.log("am here");
             SweetAlert("Vui lòng chọn ít nhất 1 đối tượng");
-
         }
         else{
         let url = $(this).data('href');
