@@ -16,6 +16,7 @@ $(document).ready(function() {
         $('.submit-button').on('click',function(){
         Swal.fire({
                     title: 'Sửa bài viết',
+                    message:'Bạn có chắc muốn sửa bài viết?',
                     icon: 'info',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
@@ -58,7 +59,7 @@ $(document).ready(function() {
                 {
                 Swal.fire({
                     title: 'Thành công',
-                    text: "Đã đăng bài viết",
+                    text: "Đã sửa bài viết",
                     icon: 'success',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',

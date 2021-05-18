@@ -668,8 +668,7 @@ class OAController extends Controller
                  'body'=>$data,
            ]);
            $result = json_decode($rs->getBody());
-           dd($result);
-             dd($request->age,$request->gender,$request->id,$request->platform);
+           return response()->json($result);
 
 
 }

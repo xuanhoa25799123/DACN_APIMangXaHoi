@@ -124,6 +124,69 @@ $(".recipient-container").click(function(e){
             $(this).removeAttr('name')
         }
     });
+    $('.submit-button').on('click',function(){
+        let age = $('input[name=age]').val();
+        let gender =$('input[name=gender]').val();
+        let platform = $('input[name=platform]').val();
+        let id = $('input[name=id]').val();
+        if(age==[])
+        {
+            SweetAlert("Vui lòng chọn ít nhất 1 độ tuổi");
+            return;
+        }
+        if(platform==[])
+        {
+            SweetAlert("Vui lòng chọn ít nhất 1 loại thiết bị");
+            return;
+        }
+        if(id==[])
+        {
+            SweetAlert("Vui lòng chọn ít nhất 1 bài viết");
+            return;
+        }
+        let url = $(this).data('href');
+                 $.ajax({
+            url: url,
+            type: 'POST',
+            data:{
+                id,age,gender,platform,
+            },
+            headers:{
+                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+            },
+            dataType: 'json',
+            success: function(response) {
+                if(response.message=="Success")
+                {
+                Swal.fire({
+                    title: 'Thành công',
+                    text: "Đã gửi broadcast",
+                    icon: 'success',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#6c800b',
+                    confirmButtonText:"OK",
+                    cancelButtonText:"Ở lại",
+                }).then(result=>{
+                    if(result.isConfirmed)
+                    {
+                        window.location.href="/oa/broadcast";
+                    }
+                })
+            }
+            else{
+                Swal.fire({
+                    title: 'Bài viết chưa được gửi',
+                    text: response.message,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                })
+            }
+            }
+        });
+
+    })
 
 
 });
