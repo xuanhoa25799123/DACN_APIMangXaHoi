@@ -25,6 +25,7 @@ $(document).ready(function() {
                 }).then(result=>{
                     if(result.isConfirmed)
                     {
+                             let id = $('input[name=id]').val();
                               let title = $('input[name=title]').val();
         let description = $('textarea[name=description]').val();
         let author = $('input[name=author]').val();
@@ -46,7 +47,7 @@ $(document).ready(function() {
             url: url,
             type: 'POST',
             data:{
-                title,description,author,content,photo_url,status
+                id,title,description,author,content,photo_url,status
             },
             headers:{
                 'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
