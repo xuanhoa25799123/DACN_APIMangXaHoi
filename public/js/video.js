@@ -62,7 +62,7 @@ $(document).ready(function() {
         });
     });
     
-       $('.video-delete').on('click',function() {
+       $('body').on('click','.video-delete',function() {
            let id = $(this).data('id');
             let url = `/oa/delete-video/${id}`;
             Swal.fire({

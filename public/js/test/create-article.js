@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('#upload-photo').on('change',function(e) {
-        console.log("asdasd");
+      
         const image = e.target.files[0];
         var pattern = /image-*/;
         if (!image.type.match(pattern)) {
@@ -21,9 +21,9 @@ $(document).ready(function() {
       $('#upload-video').on('change',function(e) {
           let video = e.target.files[0];
           let size = video.size;
-          if(size>62914560)
+          if(size>41943040)
           {
-              alert("file nhỏ hơn 60MB");
+              alert("file nhỏ hơn 40MB");
           }
           else{
          var $source = $('#video_here');
@@ -38,11 +38,7 @@ $(document).ready(function() {
          let title = $("#title").val();
          let link = $("#link").val();
          let video = $('#upload-video').prop('files');
-         console.log(video[0]);
-        // console.log(input_video);
               let cover = $('#upload-photo').prop('files');
-            //   console.log(cover[0]);
-        //  let cover = input_cover.files[0];
          if(!video)
          {
               Swal.fire({
@@ -53,31 +49,31 @@ $(document).ready(function() {
                     confirmButtonText:"OK",        
                 })
          }
-         video[0];
+         let text= "Asdasdas";
+         
             let formData = new FormData();
-            formData.append('video',video[0]);
+            formData.append('video',video[0],video[0].name);
+                    let accessToken = 'AEma5D8bHXGgwoWNrY1F4o7cAnVSDpHNO_in2UbkAajamqyYtn5NIoMsDHYd85LdCP4p3yygK4nifKCmaor2DJocH4x3ArOuUwvCRTmxJMf2laewk0LEEmoELKAM0KmTDgj9Gi4CB0TNlZLXsWjK3o63HL2rEKOLA95qRwajPWWWucLXZLvc91l5Nrc53L4vBR0oLx5w4J0KpGTgcm0qFnkCEagp1mmTAwmLVxyv7Iy6XovF-40T2mNC3a_uL3iGHjm6MEv0CX5XyL1kspOg5tomB59rOix_Lp7LFK4S';
          let url = $(this).data('href');
             $.ajax({
             url: url,
             type: 'POST',
-            data:{video:video[0]},
-              processData: false,
-            headers:{
+            data:formData,
+             headers:{
                 'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
             },
+            processData: false,  // tell jQuery not to process the data
+             contentType: false, 
             dataType: 'json',
             success: function(response) {
-                console.log(response.result);
-                // Swal.fire({
-                //     title: response.message,
-                //     text: response.message,
-                //     icon: 'success',
-                
-                //     confirmButtonColor: '#3085d6',
-              
-                //     confirmButtonText:"abc",
-                  
-                // })
+                console.log(response);
+                // if(response.success)
+                // {
+                // console.log(response.result);
+                // }
+                // else{
+                //     console.log(response.message);
+                // }
             }
         });
     

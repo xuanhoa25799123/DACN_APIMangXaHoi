@@ -7,6 +7,8 @@ use Goutte\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
 use App\Traits\PaginateTrait;
+use mysql_xdevapi\Exception;
+
 class TestController extends Controller
 {
     use paginateTrait;
@@ -340,18 +342,28 @@ class TestController extends Controller
     }
     public function createVideo(Request $request)
     {
-        // return response()->json(['success'=>true,$request->video]);
+        try{
+        // return response()->json(['success'=>true,'result'=>$request->video]);
         $accessToken = 'AEma5D8bHXGgwoWNrY1F4o7cAnVSDpHNO_in2UbkAajamqyYtn5NIoMsDHYd85LdCP4p3yygK4nifKCmaor2DJocH4x3ArOuUwvCRTmxJMf2laewk0LEEmoELKAM0KmTDgj9Gi4CB0TNlZLXsWjK3o63HL2rEKOLA95qRwajPWWWucLXZLvc91l5Nrc53L4vBR0oLx5w4J0KpGTgcm0qFnkCEagp1mmTAwmLVxyv7Iy6XovF-40T2mNC3a_uL3iGHjm6MEv0CX5XyL1kspOg5tomB59rOix_Lp7LFK4S';
          $url2 = 'https://openapi.zalo.me/v2.0/article/getslice?offset=0&limit=5&type=normal&access_token=-jhyLUMxC2hutV1MuRuvBVFGyrRhgKD0-Sg2LvlL4bVdpwTLhkWEJl68n4oDht1Owh-aVuwbQcRXWyOUd-DSCep3uGZ2urqggFYMAFNsNL2ExlDEq-X1D9sCwJFlzdqsekorCUVNVmUQmxTvtyjt1vAnv2_XbquIh_F-EFF-PZYvtSeXvCHq5PdRn3J-uWmKuiM65l2g7Ig9oD45n-jc9hJExpVwso0qWlcA6uJ27cR2eR5ZW8zzUSY7pW22XWS5aOMc7UAt3o6efhmB-zmtSO3_dqtpx2DrZVISR2jN-KxYepSY';
         $url ='https://openapi.zalo.me/v2.0/article/getslice?offset=0&limit=5&type=video&access_token=AEma5D8bHXGgwoWNrY1F4o7cAnVSDpHNO_in2UbkAajamqyYtn5NIoMsDHYd85LdCP4p3yygK4nifKCmaor2DJocH4x3ArOuUwvCRTmxJMf2laewk0LEEmoELKAM0KmTDgj9Gi4CB0TNlZLXsWjK3o63HL2rEKOLA95qRwajPWWWucLXZLvc91l5Nrc53L4vBR0oLx5w4J0KpGTgcm0qFnkCEagp1mmTAwmLVxyv7Iy6XovF-40T2mNC3a_uL3iGHjm6MEv0CX5XyL1kspOg5tomB59rOix_Lp7LFK4S';
         $url3 = 'https://openapi.zalo.me/v2.0/article/create?access_token=AEma5D8bHXGgwoWNrY1F4o7cAnVSDpHNO_in2UbkAajamqyYtn5NIoMsDHYd85LdCP4p3yygK4nifKCmaor2DJocH4x3ArOuUwvCRTmxJMf2laewk0LEEmoELKAM0KmTDgj9Gi4CB0TNlZLXsWjK3o63HL2rEKOLA95qRwajPWWWucLXZLvc91l5Nrc53L4vBR0oLx5w4J0KpGTgcm0qFnkCEagp1mmTAwmLVxyv7Iy6XovF-40T2mNC3a_uL3iGHjm6MEv0CX5XyL1kspOg5tomB59rOix_Lp7LFK4S';
         $url4='https://openapi.zalo.me/v2.0/article/upload_video/preparevideo?access_token=AEma5D8bHXGgwoWNrY1F4o7cAnVSDpHNO_in2UbkAajamqyYtn5NIoMsDHYd85LdCP4p3yygK4nifKCmaor2DJocH4x3ArOuUwvCRTmxJMf2laewk0LEEmoELKAM0KmTDgj9Gi4CB0TNlZLXsWjK3o63HL2rEKOLA95qRwajPWWWucLXZLvc91l5Nrc53L4vBR0oLx5w4J0KpGTgcm0qFnkCEagp1mmTAwmLVxyv7Iy6XovF-40T2mNC3a_uL3iGHjm6MEv0CX5XyL1kspOg5tomB59rOix_Lp7LFK4S';
         $client = new \GuzzleHttp\Client();
-        $data = json_encode([
-            'id'=>'e2c96d9734d2dd8c84c3'
-        ]);
-        $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/remove?access_token='.$accessToken,[
-                'body'=>$data
+
+        // $data = fopen($video,'rb');
+        // $size =filesize($video);
+        // $contents=fread($data,$size);
+        // fclose($data);
+        // $encode = base64_encode($contents);
+
+        $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/upload_video/preparevideo',[
+                'query'=>[
+                    'access_token'=>$accessToken,
+                ],
+                'body'=>[
+                    'file'=>$request->video
+                ]
          ]);
          $rs = json_decode($result->getBody());
         // $data = json_encode([
@@ -402,6 +414,10 @@ class TestController extends Controller
         //  $result = $client->get($url2);
 
         return response()->json(['success'=>true,'result'=>$rs]);
+        }catch(Exception $e)
+        {
+            return response()->json(['success'=>false,'message'=>$e->getMessage()]);
+        }
     }
     public function editArticle()
     {

@@ -39,15 +39,15 @@ $(document).ready(function() {
          let description = $("#description").val();
          let video = $('#upload-video').prop('files');
         video = video[0];
+        let formData = new FormData();
+        formData.append('file',video);
             let cover = $('#upload-image').prop('files');
                 //  console.log(title,description,cover[0],video[0]);
          let url = $(this).data('href');
             $.ajax({
             url: url,
             type: 'POST',
-            data:{
-                video,title,description,cover,
-            },
+            data:formData,
             headers:{
                 'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
             },
@@ -58,11 +58,8 @@ $(document).ready(function() {
                     title: 'Thành công',
                     text: "Đã đăng bài viết",
                     icon: 'success',
-                
                     confirmButtonColor: '#3085d6',
-              
                     confirmButtonText:"abc",
-                  
                 }).then(result=>{
            
                         window.location.href="/oa";

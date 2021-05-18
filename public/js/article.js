@@ -64,7 +64,7 @@ $(document).ready(function() {
         });
     });
     
-       $('.article-delete').on('click',function() {
+       $('body').on('click','.article-delete',function() {
            let id = $(this).data('id');
             let url = `/oa/delete-article/${id}`;
             Swal.fire({

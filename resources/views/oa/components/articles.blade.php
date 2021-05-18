@@ -45,10 +45,10 @@
             @include('oa.partials.articles')
             </tbody>
         </table>
-<div class="article-footer">
+<!-- <div class="article-footer">
     <p class="total">Hiển thị: <strong>10</strong></p>
     <div class="paginate-container">
         {!!$paginate!!}
     </div>
-</div>
+</div> -->
 @endsection

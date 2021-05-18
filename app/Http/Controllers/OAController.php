@@ -96,34 +96,48 @@ class OAController extends Controller
     public function articleList(Request $request)
     {
         $client = new GuzzleHttp\Client();
-         $current_page = 1;
-        if($request->has('page'))
-        {
-            $current_page = $request->query('page');
-        }
-        $limit = 10;
-        $offset = ($current_page-1)*$limit;
+        //  $current_page = 1;
+        // if($request->has('page'))
+        // {
+        //     $current_page = $request->query('page');
+        // }
+        // $limit = 10;
+        // $offset = ($current_page-1)*$limit;
         $accessToken = session('oa_token');
         $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',
     ['query'=>[
-        'offset'=>$offset,
+        'offset'=>0,
         'type'=>'normal',
-        'limit'=>$limit,
+        'limit'=>10,
         'access_token'=>$accessToken
             ]]);
        $result = json_decode($res->getBody());
        $data = $result->data;
        $total = $data->total;
-       session(['total_article'=>$total]);
-         $total_page = (ceil($total / $limit));
+        $articles = $data->medias;
+       for($i = 1;$i<= ceil(($total-10)/10);$i++)
+       {
+               $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',
+        ['query'=>[
+        'offset'=>$i*10,
+        'type'=>'normal',
+        'limit'=>10,
+        'access_token'=>$accessToken
+            ]]);
+              $result = json_decode($res->getBody());
+             $data = $result->data;
+             array_push($articles,$data->medias);
+       }
+    //    session(['total_article'=>$total]);
+        //  $total_page = (ceil($total / $limit));
 
-       $articles = $data->medias;
+      
         $oa_info = session('oa_info');
         $title="Bài viết";
         session(['articles'=>$articles]);
-        $paginate = $this->paginateTrait('/oa/article',$current_page,$total_page);
+        // $paginate = $this->paginateTrait('/oa/article',$current_page,$total_page);
 
-       return view('oa.components.articles',compact('articles','oa_info','title','total','paginate'));
+       return view('oa.components.articles',compact('articles','oa_info','title','total'));
     }
         public function videoList(Request $request)
     {
@@ -376,9 +390,9 @@ class OAController extends Controller
              }
              $total -=1;
              session(['total_video'=>$total]);
-             session(['videos'=>$videos,'total'=>$total]);
+             session(['videos'=>$videos]);
 
-             return response()->json(['success'=>true]);
+             return response()->json(['success'=>true,'total'=>$total]);
          }
          else{
              return response()->json(['success'=>false]);
