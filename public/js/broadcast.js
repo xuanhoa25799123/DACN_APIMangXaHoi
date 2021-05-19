@@ -1,11 +1,19 @@
  $(document).ready(function() {
      let selected_broadcast = [];
+    let date = new Date();
+    $('input[name="daterange"]').val("");
+    $('input[name="daterange"]').attr("placeholder","Lọc theo thời gian");
            $('input[name="daterange"]').daterangepicker({
          format: 'dd/mm/yyyy',
-  }, function(start, end, label) {
-      let st = start.format('DD-MM-YYYY');
-      let en = end.format('DD-MM-YYYY');
-        $.ajax({
+        showDropdowns: true,
+        maxDate:date,
+        autoUpdateInput: false,
+           });
+    $('input[name="daterange"]').on('apply.daterangepicker', function(ev, picker) {
+        let st = picker.startDate.format('DD-MM-YYYY');
+      let en = picker.endDate.format('DD-MM-YYYY');
+      $(this).val(`${picker.startDate.format('DD/MM/YYYY')} - ${picker.endDate.format('DD/MM/YYYY')}`);
+      $.ajax({
             url: '/oa/broadcast/search-date',
             type: 'POST',
             data:{st,en},
