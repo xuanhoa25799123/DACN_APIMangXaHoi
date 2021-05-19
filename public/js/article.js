@@ -1,11 +1,18 @@
 $(document).ready(function() {
+    let date = new Date();
+    $('input[name="daterange"]').val("");
+    $('input[name="daterange"]').attr("placeholder","Lọc theo thời gian");
       $('input[name="daterange"]').daterangepicker({
          format: 'dd/mm/yyyy',
-  }, function(start, end, label) {
-     
-      let st = start.format('DD-MM-YYYY');
+        showDropdowns: true,
+        maxDate:date,
+        autoUpdateInput: false,
+  });  
+   $('input[name="daterange"]').on('apply.daterangepicker', function(ev, picker) {
+         let st = start.format('DD-MM-YYYY');
       let en = end.format('DD-MM-YYYY');
-        $.ajax({
+      $(this).val(`${picker.startDate.format('DD/MM/YYYY')} - ${picker.endDate.format('DD/MM/YYYY')}`);
+          $.ajax({
             url: '/oa/article/search-date',
             type: 'POST',
             data:{st,en},
@@ -18,8 +25,10 @@ $(document).ready(function() {
               $('.article-rows').html(response.html);
             },    
         });
-  });  
+  });
   $('.cancel-daterange').on('click',function(){
+       $('input[name="daterange"]').val("");
+        $('input[name="daterange"]').attr("placeholder","Lọc theo thời gian");
         $.ajax({
             url: '/oa/reset-article-date',
             type: 'get',
@@ -29,12 +38,11 @@ $(document).ready(function() {
                $('.cancel-daterange').css('display','none');
               $('.article-rows').html(response.html);
             }, 
-
         });
-
   })
     $('input[name="daterange"]').on('cancel.daterangepicker', function(ev, picker) {
-        
+         $('input[name="daterange"]').val("");
+        $('input[name="daterange"]').attr("placeholder","Lọc theo thời gian");
       $.ajax({
             url: '/oa/reset-article-date',
             type: 'get',

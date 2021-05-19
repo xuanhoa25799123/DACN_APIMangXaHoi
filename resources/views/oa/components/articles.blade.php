@@ -21,7 +21,7 @@
     </div>
       <div class="article-header-right">
           <div class="time-filter">
-          <p class="total">Lọc theo thời gian</p>
+          <!-- <p class="total">Lọc theo thời gian</p> -->
         <button class="btn btn-outline-info cancel-daterange"><i class="fa fa-close"></i> &nbsp; Xoá lọc</button>
         <input type="text" name="daterange" class="form-control" value="Lọc theo thời gian">
         </div>

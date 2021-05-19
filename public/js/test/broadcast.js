@@ -1,12 +1,21 @@
 
  $(document).ready(function() {
      let selected_broadcast = [];
+      
+     let date= new Date();
+        $('#daterange').val("");
+     $('#daterange').attr("placeholder","Check In");
+     $("input[placeholder]").attr("placeholder", "This is new text");
      $('input[name="daterange"]').daterangepicker({
          format: 'dd/mm/yyyy',
-  }, function(start, end, label) {
-      let st = start.format('DD-MM-YYYY');
-      let en = end.format('DD-MM-YYYY');
-      console.log(st,en);
+            showDropdowns: true,
+            maxDate:date,
+              autoUpdateInput: false,
+  });
+   $('input[name="daterange"]').on('apply.daterangepicker', function(ev, picker) {
+          let st = picker.startDate.format('DD/MM/YYYY');
+      let en = picker.endDate.format('DD/MM/YYYY');
+      $(this).val(`${st} - ${en}`);
         $.ajax({
             url: '/test/search-broadcast-2',
             type: 'POST',
@@ -23,7 +32,7 @@
                 console.log("error");
             }
         });
-  });   
+  });
       $('input[name="daterange"]').on('cancel.daterangepicker', function(ev, picker) {
          console.log("Asdasda");
       $.ajax({

@@ -14,7 +14,9 @@
 
     <!-- <form action="{{route('test-search-broadcast')}}" method="POST">
         @csrf  -->
-       <input type="text" name="daterange">
+        <div class="form-inline">
+       <input type="text" id="daterange" name="daterange">
+       </div>
         <!-- <button type="submit" class="btn btn-primary">Tìm</button>
     </form> -->
 
