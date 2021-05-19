@@ -119,9 +119,8 @@
                 success: function(response) {
                     if(response.success)
                     {
-            // $(this).html("Huỷ chọn");
-            selected_broadcast.push(id);
-            // $(this).addClass("selected");
+                          selected_broadcast.push(id);
+            $('.article-rows').html(response.html);
                     }
 
         }
