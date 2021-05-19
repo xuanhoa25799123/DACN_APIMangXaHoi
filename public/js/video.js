@@ -1,11 +1,12 @@
 $(document).ready(function() {
       $('input[name="daterange"]').daterangepicker({
          format: 'dd/mm/yyyy',
-  }, function(start, end, label) {
-     
-      let st = start.format('DD-MM-YYYY');
-      let en = end.format('DD-MM-YYYY');
-        $.ajax({
+      });  
+   $('input[name="daterange"]').on('apply.daterangepicker', function(ev, picker) {
+        let st = picker.startDate.format('DD-MM-YYYY');
+      let en = picker.endDate.format('DD-MM-YYYY');
+      $(this).val(`${picker.startDate.format('DD/MM/YYYY')} - ${picker.endDate.format('DD/MM/YYYY')}`);
+      $.ajax({
             url: '/oa/video/search-date',
             type: 'POST',
             data:{st,en},
@@ -18,7 +19,7 @@ $(document).ready(function() {
               $('.video-rows').html(response.html);
             },     
         });
-  });  
+  });
   $('.cancel-daterange').on('click',function(){
         $.ajax({
             url: '/oa/reset-video-date',
