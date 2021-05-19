@@ -87,9 +87,10 @@
             return;
         }
         let id =  $(this).data("id");
-        console.log("asdasdsad");
+     
         if($(this).hasClass("selected"))
         {
+               console.log("selected");
                   $.ajax({
                 url: `/oa/unselect-broadcast/${id}`,
                 type: 'get',
@@ -110,6 +111,7 @@
                 });
         }
         else{
+             console.log("unselected");
               $.ajax({
                 url: `/oa/select-broadcast/${id}`,
                 type: 'get',
