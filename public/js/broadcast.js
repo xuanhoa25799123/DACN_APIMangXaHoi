@@ -31,6 +31,8 @@
         });
   });
    $('.cancel-daterange').on('click',function(){
+        $('input[name="daterange"]').val("");
+        $('input[name="daterange"]').attr("placeholder","Lọc theo thời gian");
         $.ajax({
             url: '/oa/reset-broadcast-date',
             type: 'get',
@@ -46,6 +48,8 @@
         });
   })
     $('input[name="daterange"]').on('cancel.daterangepicker', function(ev, picker) {
+         $('input[name="daterange"]').val("");
+        $('input[name="daterange"]').attr("placeholder","Lọc theo thời gian");
       $.ajax({
             url: '/oa/reset-broadcast-date',
             type: 'GET',
@@ -61,7 +65,6 @@
         });
   });
  $('#broadcast-search').on('keyup',function() {
-
         var keyword = $(this).val();
         if(keyword=="")
         {

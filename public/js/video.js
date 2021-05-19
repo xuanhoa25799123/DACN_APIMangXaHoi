@@ -1,6 +1,12 @@
 $(document).ready(function() {
+        let date = new Date();
+            $('input[name="daterange"]').val("");
+    $('input[name="daterange"]').attr("placeholder","Lọc theo thời gian");
       $('input[name="daterange"]').daterangepicker({
          format: 'dd/mm/yyyy',
+          showDropdowns: true,
+        maxDate:date,
+        autoUpdateInput: false,
       });  
    $('input[name="daterange"]').on('apply.daterangepicker', function(ev, picker) {
         let st = picker.startDate.format('DD-MM-YYYY');
@@ -21,6 +27,8 @@ $(document).ready(function() {
         });
   });
   $('.cancel-daterange').on('click',function(){
+       $('input[name="daterange"]').val("");
+        $('input[name="daterange"]').attr("placeholder","Lọc theo thời gian");
         $.ajax({
             url: '/oa/reset-video-date',
             type: 'get',
@@ -34,7 +42,8 @@ $(document).ready(function() {
 
   })
     $('input[name="daterange"]').on('cancel.daterangepicker', function(ev, picker) {
-        
+         $('input[name="daterange"]').val("");
+        $('input[name="daterange"]').attr("placeholder","Lọc theo thời gian");
       $.ajax({
             url: '/oa/reset-video-date',
             type: 'get',

@@ -1,12 +1,12 @@
- @foreach($articles as $index=>$article)
+ @foreach($broadcasts as $index=>$broadcast)
             <tr>
                 <th style="text-align:center" scope="row">{{$index+1}}</th>
-                <td>{{date('d-m-Y H:i:s',substr((string)$article->create_date,0,10))}} 
+                <td>{{date('d-m-Y H:i:s',substr((string)$broadcast->create_date,0,10))}} 
                 </td>
-                <td  style="text-align:center"> <img class="article-image" src="{{$article->thumb}}" alt=""></td>
-                <td> {{$article->title}}</td>
+                <td  style="text-align:center"> <img class="article-image" src="{{$broadcast->thumb}}" alt=""></td>
+                <td> {{$broadcast->title}}</td>
                 <td  style="text-align:center">
-                    @if($article->status=="show")
+                    @if($broadcast->status=="show")
                     hiện
                     @else
                        ẩn
@@ -14,6 +14,7 @@
                 </td>
 
                 <td style="text-align:center">
+                    @if(@broadcast->select)
                     <button type="button" data-id="{{$article->id}}" class="btn btn-outline-primary select-broadcast broadcast-{{$article->id}}">Chọn</button>
                 </td>
             </tr>

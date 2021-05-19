@@ -542,7 +542,7 @@ class OAController extends Controller
        $result = json_decode($res->getBody());
        $data = $result->data;
        $total = $data->total;
-       $articles = $data->medias;
+       $broadcasts = $data->medias;
         for($i = 1;$i<= ceil(($total-10)/10);$i++)
        {
                $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',
@@ -558,32 +558,32 @@ class OAController extends Controller
              $arr = $data->medias;
              foreach($arr as $index=>$item)
              {
-                array_push($articles,$item);
+                array_push($broadcasts,$item);
              }
             
        }
         $oa_info = session('oa_info');
         $title="Gửi broadcast";
-        session(['broadcasts'=>$articles]);
+        session(['broadcasts'=>$broadcasts]);
 
-       return view('oa.components.broadcast',compact('articles','oa_info','title','total'));
+       return view('oa.components.broadcast',compact('broadcasts','oa_info','title','total'));
     }
     public function searchBroadcast($keyword)
     {
         $arr = session('broadcasts');
-        $articles = array();
+        $broadcasts = array();
         if($keyword=="*")
         {
-            $articles=$arr;
+            $broadcasts=$arr;
         }
         else {
             foreach ($arr as $item) {
                 if (stripos(Str::slug($item->title), Str::slug($keyword)) == true||stripos(Str::slug($item->title), Str::slug($keyword)) ===0) {
-                    array_push($articles, $item);
+                    array_push($broadcasts, $item);
                 }
             }
         }
-        $html = view('oa.partials.broadcast')->with(compact('articles'))->render();
+        $html = view('oa.partials.broadcast')->with(compact('broadcasts'))->render();
         return response()->json(['success' => true, 'html' => $html]);
     }
 
@@ -592,20 +592,20 @@ class OAController extends Controller
          $arr = session('broadcasts');
         $start = strtotime($request->st);
         $end = strtotime($request->en);
-        $articles = array();
+        $broadcasts = array();
             foreach ($arr as $item) {
                 $date =(int)substr((string)$item->create_date,0,10);
                 if ($date>=$start && $date<=$end) {
-                    array_push($articles, $item);
+                    array_push($broadcasts, $item);
                 }
             }
-        $html = view('oa.partials.broadcast')->with(compact('articles'))->render();
+        $html = view('oa.partials.broadcast')->with(compact('broadcasts'))->render();
         return response()->json(['success' => true, 'html' => $html]);
     }
     public function broadcastResetDate()
     {
-       $articles = session('broadcasts');
-        $html = view('oa.partials.broadcast')->with(compact('articles'))->render();
+       $broadcasts = session('broadcasts');
+        $html = view('oa.partials.broadcast')->with(compact('broadcasts'))->render();
         return response()->json(['success' => true, 'html' => $html]);
     }
 
