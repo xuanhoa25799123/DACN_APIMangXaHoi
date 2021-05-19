@@ -319,12 +319,6 @@ Route::prefix('test')->group(function () {
            'as'=>'test-search-broadcast',
         'uses'=>'App\Http\Controllers\TestController@searchBroadcast2',
     ]);
-    Route::get('/select-broadcast',[
-        'uses'=>'App\Http\Controllers\TestController@selectBroadcast'
-    ])
-    Route::get('/unselect-broadcast',[
-        'uses'=>'App\Http\Controllers\TestController@unselectBroadcast'
-    ])
      Route::get('/broadcast',[
         'uses'=>'App\Http\Controllers\TestController@Broadcast',
     ]);
