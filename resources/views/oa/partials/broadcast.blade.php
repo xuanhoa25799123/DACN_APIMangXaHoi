@@ -14,8 +14,11 @@
                 </td>
 
                 <td style="text-align:center">
-                    @if(@broadcast->select)
-                    <button type="button" data-id="{{$article->id}}" class="btn btn-outline-primary select-broadcast broadcast-{{$article->id}}">Chọn</button>
+                    @if($broadcast->selected)
+                    <button type="button" data-id="{{$article->id}}" class="btn btn-outline-primary select-broadcast broadcast-{{$article->id}} selected">Đã chọn</button>
+                    @else
+                      <button type="button" data-id="{{$article->id}}" class="btn btn-outline-primary select-broadcast broadcast-{{$article->id}}">Chọn</button>
+                    @endif
                 </td>
             </tr>
 @endforeach

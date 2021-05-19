@@ -27,9 +27,6 @@
         <input type="text" name="daterange" class="form-control" value="Lọc theo thời gian">
         </div>
     </div>
-
-
-
     </div>
         <table class="table">
             <thead>
