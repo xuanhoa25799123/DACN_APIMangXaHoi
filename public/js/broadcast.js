@@ -90,20 +90,41 @@
         console.log("asdasdsad");
         if($(this).hasClass("selected"))
         {
-                $(this).html("Chọn");
+                  $.ajax({
+                url: `/oa/unselect-broadcast/${id}`,
+                type: 'get',
+                dataType: 'json',
+                success: function(response) {
+                    if(response.success)
+                    {
+                            // $(this).html("Chọn");
                 let index = selected_broadcast.indexOf(id);
                 if(index>-1)
                 {
                     selected_broadcast.splice(index,1);
                 }
-            $(this).removeClass("selected");
-
+            // $(this).removeClass("selected");
+                        $('.article-rows').html(response.html);
+                    }
+                    }
+                });
         }
         else{
-            $(this).html("Huỷ chọn");
-                selected_broadcast.push(id);
-            $(this).addClass("selected");
+              $.ajax({
+                url: `/oa/select-broadcast/${id}`,
+                type: 'get',
+                dataType: 'json',
+                success: function(response) {
+                    if(response.success)
+                    {
+            // $(this).html("Huỷ chọn");
+            selected_broadcast.push(id);
+            // $(this).addClass("selected");
+                    }
+
         }
+    })
+}
 
     });
     $('.send-broadcast').on('click',function(){

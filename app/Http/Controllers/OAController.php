@@ -543,6 +543,10 @@ class OAController extends Controller
        $data = $result->data;
        $total = $data->total;
        $broadcasts = $data->medias;
+       foreach($broadcasts as $idex=>$item)
+       {
+           $item->selected=false;
+       }
         for($i = 1;$i<= ceil(($total-10)/10);$i++)
        {
                $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',
@@ -558,6 +562,7 @@ class OAController extends Controller
              $arr = $data->medias;
              foreach($arr as $index=>$item)
              {
+                 $item->selected=false;
                 array_push($broadcasts,$item);
              }
             
@@ -568,13 +573,35 @@ class OAController extends Controller
 
        return view('oa.components.broadcast',compact('broadcasts','oa_info','title','total'));
     }
-    public function selectBroadcast()
+    public function selectBroadcast($id)
     {
-
+        $broadcasts=session('broadcasts');
+        foreach($broadcasts as $broadcast=>$item)
+        {
+            if($item->id==$id)
+            {
+                $item->selected=true;
+                break;
+            }
+        }
+        session(['broadcasts'=>$broadcasts]);
+        $html = view('oa.partials.broadcast')->with(compact('broadcasts'))->render();
+        return response()->json(['success'=>true,'html'=>$html]);
     }
     public function unselectBroadcast()
     {
-        
+        $broadcasts=session('broadcasts');
+        foreach($broadcasts as $broadcast=>$item)
+        {
+            if($item->id==$id)
+            {
+                $item->selected=false;
+                break;
+            }
+        }
+        session(['broadcasts'=>$broadcasts]);
+        $html = view('oa.partials.broadcast')->with(compact('broadcasts'))->render();
+        return response()->json(['success'=>true,'html'=>$html]);
     }
     public function searchBroadcast($keyword)
     {
