@@ -568,6 +568,14 @@ class OAController extends Controller
 
        return view('oa.components.broadcast',compact('broadcasts','oa_info','title','total'));
     }
+    public function selectBroadcast()
+    {
+
+    }
+    public function unselectBroadcast()
+    {
+        
+    }
     public function searchBroadcast($keyword)
     {
         $arr = session('broadcasts');
