@@ -9,8 +9,8 @@ $(document).ready(function() {
         autoUpdateInput: false,
   });  
    $('input[name="daterange"]').on('apply.daterangepicker', function(ev, picker) {
-         let st = start.format('DD-MM-YYYY');
-      let en = end.format('DD-MM-YYYY');
+         let st = picker.startDate.format('DD-MM-YYYY');
+      let en = picker.endDate.format('DD-MM-YYYY');
       $(this).val(`${picker.startDate.format('DD/MM/YYYY')} - ${picker.endDate.format('DD/MM/YYYY')}`);
           $.ajax({
             url: '/oa/article/search-date',
