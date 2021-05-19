@@ -190,10 +190,10 @@ Route::prefix('oa')->group(function () {
          'as'=>'oa-broadcast',
         'uses'=>'App\Http\Controllers\OAController@Broadcast',
     ]);
-    Route::get('/select-broadcast/:id',[
+    Route::get('/select-broadcast/{id}',[
         'uses'=>'App\Http\Controllers\OAController@selectBroadcast'
     ]);
-    Route::get('/unselect-broadcast/:id',[
+    Route::get('/unselect-broadcast/{id}',[
         'uses'=>'App\Http\Controllers\OAController@unselectBroadcast'
     ]);
      Route::get('/broadcast/search/{keyword}',[
