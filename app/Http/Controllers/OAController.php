@@ -588,7 +588,7 @@ class OAController extends Controller
         $html = view('oa.partials.broadcast')->with(compact('broadcasts'))->render();
         return response()->json(['success'=>true,'html'=>$html]);
     }
-    public function unselectBroadcast()
+    public function unselectBroadcast($id)
     {
         $broadcasts=session('broadcasts');
         foreach($broadcasts as $broadcast=>$item)
