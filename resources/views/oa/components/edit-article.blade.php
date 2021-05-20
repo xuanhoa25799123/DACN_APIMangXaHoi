@@ -54,7 +54,7 @@
         
         <div class="right-content">
               <div class="form-group">
-                   <label style="font-size:12px">Video / Ảnh đại diện (<span style="color:red">*</span>)</label>
+                   <label style="font-size:12px">Ảnh đại diện / Video (<span style="color:red">*</span>)</label>
                 <div class="cover-container">
                   
                     <div class="cover-content">
@@ -83,14 +83,14 @@
                             </div>
                       
                         </div>
-                             <div class="select-content video-content" style="display:none">
+                        <div class="select-content video-content" style="display:none">
                             <div class="video-info">
                                 <div class="sub-video-info" data-toggle="modal" data-target="#myModal">
                               <i class="fa fa-film icon"></i>
                               <p class="photo-text">Click để chọn video</p>
                               </div>
                                       <div class="video-preview">
-                                    <img src="{{$article->cover->photo_url}}" class="preview-video">
+                                    <img src="" class="preview-video">
                               </div>
                               </div>
                       
@@ -98,7 +98,7 @@
                         @include('oa.partials.video-popup')
                         @else
                          <div class="select-content image-content" style="display:none">        
-                            <input name="photo_url" type="text" class="form-control image-input" placeholder="Paste link tại đây..." value="{{$article->cover->photo_url}}">
+                            <input name="photo_url" type="text" class="form-control image-input" placeholder="Paste link tại đây...">
                             <div class="image-info">
                                 <div class="sub-image-info">
                                  <i class="fa fa-image icon"></i>
@@ -106,7 +106,7 @@
                                  </div>
                         
                                       <div class="image-preview">
-                                    <img src="{{$article->cover->photo_url}}" class="preview-image">
+                                    <img src="" class="preview-image">
                               </div>
                             </div>
                       
