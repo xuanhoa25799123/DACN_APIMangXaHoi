@@ -42,14 +42,50 @@ $(document).ready(function() {
                     icon: 'info',
                     confirmButtonColor: '#3085d6',
                 })
+                return;
+        }
+         if($('.image-button').hasClass('active-button'))
+        {
+            if($.trim(photo_url)=="")
+            {
+              Swal.fire({ 
+                    title: 'Vui lòng điền vào ảnh đại diện',
+                    icon: 'info',
+                    confirmButtonColor: '#3085d6',
+                })
+                return;
+            }
+            cover={
+                cover_type:"photo",
+                photo_url,
+                status:"show"
+            }
         }
         else{
+            if(selected_video_id==null)
+            {
+                 Swal.fire({ 
+                    title: 'Vui lòng chọn video đại diện',
+                    icon: 'info',
+                    confirmButtonColor: '#3085d6',
+                })
+                return;
+            }
+            cover = {
+                cover_type:"video",
+                cover_view: "horizontal",
+                video_id: selected_video_id,
+                status: "show"
+            }
+        }
+
+  
             let url = $(this).data('href');
                     $.ajax({
             url: url,
             type: 'POST',
             data:{
-                id,title,description,author,content,photo_url,status
+                id,title,description,author,content,cover,status
             },
             headers:{
                 'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
@@ -85,7 +121,7 @@ $(document).ready(function() {
             }
             }
         });
-        }
+        
                     }
                 })
     })
