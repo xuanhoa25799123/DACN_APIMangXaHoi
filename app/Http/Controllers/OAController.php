@@ -436,26 +436,26 @@ class OAController extends Controller
          $response = json_decode($result->getBody());
          $oa_info = session('oa_info');
          $title = "Chỉnh sửa bài viết";
-         $videos = session('videos');
+         $articles = session('articles');
         if(empty($videos))
         {
         $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',
         ['query'=>[
         'offset'=>0,
-        'type'=>'video',
+        'type'=>'normal',
         'limit'=>10,
         'access_token'=>$accessToken
             ]]);
        $result = json_decode($res->getBody());
        $data = $result->data;
        $total = $data->total;
-       $videos = $data->medias;
+       $articles = $data->medias;
         for($i = 1;$i<= ceil(($total-10)/10);$i++)
        {
                $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',
         ['query'=>[
         'offset'=>$i*10,
-        'type'=>'video',
+        'type'=>'normal',
         'limit'=>10,
         'access_token'=>$accessToken
             ]]);
@@ -464,23 +464,23 @@ class OAController extends Controller
              $arr = $data->medias;
              foreach($arr as $index=>$item)
              {
-                array_push($videos,$item);
+                array_push($articles,$item);
              }
        };
     }
-    dd($videos);
+    
      if($response->data->type=="video")
          {
-             foreach($videos as $video)
+             foreach($articles as $item)
              {
-                 if($video->id == $id)
+                 if($item->id == $id)
                  {
-                     $response->data->cover->photo_url = $video->thumb;
+                     $response->data->cover->photo_url = $item->thumb;
                      break;
                  }
              }
          }
-         dd($response);
+        dd($response,$articles);
          if($response->message=="Success")
          {
             $article  = $response->data;
