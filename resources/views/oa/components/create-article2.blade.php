@@ -73,7 +73,7 @@
                               </div>
                       
                         </div>
-                        @include(oa.partials.video-popup)
+                        @include('oa.partials.video-popup')
                       
                     </div>
                 </div>
