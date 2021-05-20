@@ -54,13 +54,22 @@
         
         <div class="right-content">
               <div class="form-group">
-                <label>Video / Ảnh đại diện</label>
+                   <label style="font-size:12px">Video / Ảnh đại diện (<span style="color:red">*</span>)</label>
                 <div class="cover-container">
                   
                     <div class="cover-content">
-                          
-                        <div class="select-content image-content">
-                           
+                          <div class="cover-header">
+                          @if($article->cover->cover_type=="photo")
+                       <button type="button"class="image-button active-button">Ảnh</button>
+                        <button type="button"class="video-button">Video</button>
+                        @else
+                              <button type="button"class="image-button">Ảnh</button>
+                        <button type="button"class="video-button active-button">Video</button>
+                        @endif
+                         </div>
+                          <div class="cover-content">
+                          @if($article->cover->cover_type=="photo")
+                        <div class="select-content image-content">        
                             <input name="photo_url" type="text" class="form-control image-input" placeholder="Paste link tại đây..." value="{{$article->cover->photo_url}}">
                             <div class="image-info">
                                 <div class="sub-image-info">
@@ -74,6 +83,23 @@
                             </div>
                       
                         </div>
+                        @else
+                        <div class="select-content video-content">
+                            <div class="video-info">
+                                <div class="sub-video-info" data-toggle="modal" data-target="#myModal">
+                              <i class="fa fa-film icon"></i>
+                              <p class="photo-text">Click để chọn video</p>
+                              </div>
+                                      <div class="video-preview">
+                                    <img src="{{$article->cover->photo_url}}" class="preview-video">
+                              </div>
+                              </div>
+                      
+                        </div>
+                        @include('oa.partials.video-popup')
+                        </div>
+                        
+                        @endif
                     </div>
                 </div>
             </div>

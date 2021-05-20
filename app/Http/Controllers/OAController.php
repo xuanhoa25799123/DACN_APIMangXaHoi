@@ -434,6 +434,8 @@ class OAController extends Controller
                 ]
          ]);
          $response = json_decode($result->getBody());
+         $video = [];
+         
          $oa_info = session('oa_info');
          $title = "Chỉnh sửa bài viết";
          if($response->message=="Success")
@@ -446,6 +448,41 @@ class OAController extends Controller
     {
          $accessToken = session('oa_token');
            $client = new \GuzzleHttp\Client();
+           if(empty($videos))
+        {
+         $client = new GuzzleHttp\Client();
+        $accessToken = session('oa_token');
+        $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',
+        ['query'=>[
+        'offset'=>0,
+        'type'=>'video',
+        'limit'=>10,
+        'access_token'=>$accessToken
+            ]]);
+       $result = json_decode($res->getBody());
+       $data = $result->data;
+       $total = $data->total;
+       $videos = $data->medias;
+        for($i = 1;$i<= ceil(($total-10)/10);$i++)
+       {
+               $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',
+        ['query'=>[
+        'offset'=>$i*10,
+        'type'=>'video',
+        'limit'=>10,
+        'access_token'=>$accessToken
+            ]]);
+
+              $result = json_decode($res->getBody());
+             $data = $result->data;
+             $arr = $data->medias;
+             foreach($arr as $index=>$item)
+             {
+                array_push($videos,$item);
+             }
+       };
+    }
+    
            $data = json_encode([
                'id'=>$id
            ]);
@@ -456,12 +493,22 @@ class OAController extends Controller
                 ]
          ]);
          $response = json_decode($result->getBody());
+         if($response->data->type=="video")
+         {
+             foreach($videos as $video)
+             {
+                 if($video->id == $id)
+                 {
+                     $response->data->cover->photo_url = $video->thumb;
+                 }
+             }
+         }
          $oa_info = session('oa_info');
          $title = "Chỉnh sửa video";
          if($response->message=="Success")
          {
             $video  = $response->data;
-            return view('oa.components.edit-video',compact('oa_info','title','video'));
+            return view('oa.components.edit-video',compact('oa_info','title','videos'));
          }
     }
     public function updateArticle(Request $request)
