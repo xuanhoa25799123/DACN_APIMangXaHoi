@@ -538,6 +538,7 @@ class OAController extends Controller
             
               $result = json_decode($res->getBody());
              $data = $result->data;
+             dd($data);
              $video->video_id = $data->cover->video_id;
 
     }
