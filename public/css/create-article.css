@@ -176,3 +176,7 @@
     height: 100px;
     object-fit: cover;
 }
+
+.active-video {
+    border: 2px solid lightblue;
+}
