@@ -46,7 +46,7 @@ $(document).ready(function() {
                 })
                 return;
         }
-        if(('.image-button').hasClass('active-button'))
+        if($('.image-button').hasClass('active-button'))
         {
             if($.trim(photo_url)=="")
             {
