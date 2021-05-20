@@ -538,9 +538,7 @@ class OAController extends Controller
             
               $result = json_decode($res->getBody());
              $data = $result->data;
-             dd($data);
-             $video->video_id = $data->cover->video_id;
-
+             $video->video_id = $data->video_id;
     }
     dd($videos);
         return $videos;
@@ -652,7 +650,6 @@ class OAController extends Controller
         $title="Tạo bài viết mới";
         $videos = session('videos');
         $videos = $this->getListVideos();
-        dd($videos);
         return view('oa.components.create-article2',compact('oa_info','title','videos'));
     }
         public function createVideo()
