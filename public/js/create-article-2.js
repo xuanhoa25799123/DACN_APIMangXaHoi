@@ -1,4 +1,6 @@
+
 $(document).ready(function() {
+ let selected_video_id = null;
     $('.image-input').on('change',function(e) {
         console.log("asds");
         let src = $(this).val();
@@ -26,6 +28,8 @@ $(document).ready(function() {
         $('.video-content').css('display','none');
     })
     $('.submit-button').on('click',function(){
+        let cover=null;
+
         let title = $('input[name=title]').val();
         let description = $('textarea[name=description]').val();
         let author = $('input[name=author]').val();
@@ -33,21 +37,56 @@ $(document).ready(function() {
         let photo_url = $('input[name=photo_url]').val();
         let status = $('input[name=status]').is(':checked')?"show":"hide";
         console.log(title,description,author,content,photo_url,status)
-        if($.trim(title)==""||$.trim(description)==""||$.trim(content)==""||$.trim(photo_url)=="")
+        if($.trim(title)==""||$.trim(description)==""||$.trim(content)=="")
         {
              Swal.fire({ 
                     title: 'Vui lòng điền vào các trường bắt buộc',
                     icon: 'info',
                     confirmButtonColor: '#3085d6',
                 })
+                return;
+        }
+        if(('.image-button').hasClass('active-button'))
+        {
+            if($.trim(photo_url)=="")
+            {
+              Swal.fire({ 
+                    title: 'Vui lòng điền vào ảnh đại diện',
+                    icon: 'info',
+                    confirmButtonColor: '#3085d6',
+                })
+                return;
+            }
+            cover={
+                cover_type:"photo",
+                photo_url,
+                status:"show"
+            }
         }
         else{
+            if(selected_video_id==null)
+            {
+                 Swal.fire({ 
+                    title: 'Vui lòng chọn video đại diện',
+                    icon: 'info',
+                    confirmButtonColor: '#3085d6',
+                })
+                return;
+            }
+            cover = {
+                cover_type:"video",
+                cover_view: "horizontal",
+    video_id: selected_video_id,
+    status: "show"
+            }
+        }
+      
             let url = $(this).data('href');
                     $.ajax({
             url: url,
             type: 'POST',
             data:{
-                title,description,author,content,photo_url,status
+                title,description,author,content,cover,status
             },
             headers:{
                 'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
@@ -83,7 +122,7 @@ $(document).ready(function() {
             }
             }
         });
-        }
+        
 
     })
     $('.video-info').on('click',function(){
@@ -128,7 +167,7 @@ $(document).ready(function() {
     $('.video-popup-item').on('click',function(){
         $('.video-popup-item').removeClass("active-video");
         let id = $(this).data('id');
-        selected_video = id;
+        selected_video_id = id;
         $(`#video-${id}`).addClass("active-video");
              $('.select-video').css('display','initial');
     })

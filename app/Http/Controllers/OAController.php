@@ -540,7 +540,6 @@ class OAController extends Controller
              $data = $result->data;
              $video->video_id = $data->video_id;
     }
-    dd($videos);
         return $videos;
     }
     public function editVideo($id)
@@ -663,11 +662,7 @@ class OAController extends Controller
          $accessToken = session('oa_token');
            $client = new \GuzzleHttp\Client();
            $data = json_encode([
-               "cover"=> [
-            "photo_url"=> $request->photo_url,
-            "cover_type"=> "photo",
-            "status"=> "show"
-            ],
+               "cover"=> $request->cover,
             "author"=> $request->author,
             "description"=> $request->description,
             "comment"=> "show",
