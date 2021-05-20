@@ -1,13 +1,15 @@
 @extends('test.layouts.admin')
 
 @section('css')
-    <!-- 
-        <link rel="stylesheet" href="{{asset('/css/create-article.css')}}"> -->
+    
+        <link rel="stylesheet" href="{{asset('/css/create-article.css')}}">
         <link rel="stylesheet" href="{{asset('/css/article-edit.css')}}">
 
 @endsection
 @section('js')
-    <script src="{{asset('/js/article-edit.js')}}"></script>
+<script src="{{asset('/js/create-article-2.js')}}"></script>
+    <!-- <script src="{{asset('/js/article-edit.js')}}"></script> -->
+        
 @endsection
 @section('content')
 
@@ -39,7 +41,11 @@
               <div class="form-group">
                 <label>Video / Ảnh đại diện</label>
                 <div class="cover-container">
-                  
+                     <div class="cover-header">
+                        
+                        <button type="button"class="image-button active-button">Ảnh</button>
+                        <button type="button"class="video-button">Video</button>
+                    </div>
                     <div class="cover-content">
                           
                         <div class="select-content image-content">
@@ -50,13 +56,40 @@
                                  <i class="fa fa-image icon"></i>
                                     <p class="photo-text">Nhập url của ảnh</p>
                                  </div>
-                             
                                       <div class="image-preview">
                                     <img src="{{$article->cover->photo_url}}" class="preview-image">
                               </div>
                             </div>
                       
                         </div>
+                        <div class="select-content video-content">
+                            <div class="video-info">
+                                <div class="sub-video-info" data-toggle="modal" data-target="#myModal">
+                              <i class="fa fa-film icon"></i>
+                              <p class="photo-text">Click để chọn video</p>
+                              </div>
+                                      <div class="video-preview">
+                                    <img src="" class="preview-video">
+                              </div>
+                              </div>
+                      
+                        </div>
+                        <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-@extends('oa.layouts.admin')
+@extends('test.layouts.admin')
 
 @section('css')
         <link rel="stylesheet" href="{{asset('/css/create-article.css')}}">
@@ -9,10 +9,11 @@
   <script src="{{asset('plugins/sweetalert2/sweetalert2@10.js')}}"></script>
     <script src="{{asset('/js/create-article-2.js')}}"></script>
      <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 @endsection
 @section('content')
+
         <div class="create-container">
         <div class="left-content">
         <div class="form-group inline-form">
@@ -63,7 +64,7 @@
                         </div>
                         <div class="select-content video-content">
                             <div class="video-info">
-                                <div class="sub-video-info" data-toggle="modal" data-target="#myModal">
+                                <button type="button" class="sub-video-info" data-toggle="modal" data-target="#myModal">
                               <i class="fa fa-film icon"></i>
                               <p class="photo-text">Click để chọn video</p>
                               </div>
@@ -73,8 +74,25 @@
                               </div>
                       
                         </div>
-                        @include(oa.partials.video-popup)
-                      
+                        <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
                     </div>
                 </div>
             </div>

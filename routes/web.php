@@ -117,6 +117,7 @@ Route::prefix('oa')->group(function () {
         'as'=>'oa-article',
         'uses'=>'App\Http\Controllers\OAController@articleList',
     ]);
+ 
      Route::get('/article/edit/{id}', [
         'uses'=>'App\Http\Controllers\OAController@editArticle'
     ]);
@@ -229,6 +230,9 @@ Route::prefix('test')->group(function () {
       Route::get('/create-video-article', [
         'as'=>'test-article',
         'uses'=>'App\Http\Controllers\TestController@videoArticle'
+    ]);
+     Route::get('/create-article', [
+        'uses'=>'App\Http\Controllers\TestController@createArticle'
     ]);
     Route::post('/create-video', [
         'as'=>'test-create-video',

@@ -94,8 +94,8 @@
 }
 .video-info {
     width: 95%;
-    height: 130px;
-    margin: auto;
+    height: 170px;
+    margin: 10px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -109,7 +109,7 @@
 .sub-video-info {
     width: 100%;
     height: 100%;
-    margin: auto;
+    margin: 10px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -183,6 +183,9 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+}
+.video-content {
+    display: none;
 }
 
 .video-thumb {
