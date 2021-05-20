@@ -96,7 +96,7 @@
                         </div>
                         @include('oa.partials.video-popup')
                         @else
-                         <div class="select-content image-content" invisible>        
+                         <div class="select-content image-content invisible" >        
                             <input name="photo_url" type="text" class="form-control image-input" placeholder="Paste link tại đây...">
                             <div class="image-info">
                                 <div class="sub-image-info">
