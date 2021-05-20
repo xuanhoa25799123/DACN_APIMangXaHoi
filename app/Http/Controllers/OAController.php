@@ -468,6 +468,7 @@ class OAController extends Controller
              }
        };
     }
+    dd($videos);
      if($response->data->type=="video")
          {
              foreach($videos as $video)
@@ -475,6 +476,7 @@ class OAController extends Controller
                  if($video->id == $id)
                  {
                      $response->data->cover->photo_url = $video->thumb;
+                     break;
                  }
              }
          }
