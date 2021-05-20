@@ -10,7 +10,7 @@
         <div class="modal-body">
         <div class="video-popup-container">
           @foreach($videos as $video)
-          <div class="video-popup-item" id="video-{{$video->id}}" data-id={{$video->id}>
+          <div class="video-popup-item" id="video-{{$video->id}}" data-id="{{$video->id}}">
             <img class="video-popup-image" id="image-{{$video->id}}" src="{{$video->thumb}}" alt="">
           </div>
           @endforeach
