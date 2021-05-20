@@ -480,12 +480,54 @@ class OAController extends Controller
                  }
              }
          }
+         $videos = $this->getListVideos();
         // dd($response,$articles);
          if($response->message=="Success")
          {
             $article  = $response->data;
             return view('oa.components.edit-article',compact('oa_info','title','article','videos'));
          }
+    }
+    public function getListVideos()
+    {
+         $accessToken = session('oa_token');
+           $client = new \GuzzleHttp\Client();
+           $videos = session('videos');
+           if(empty($videos))
+        {
+         $client = new GuzzleHttp\Client();
+        $accessToken = session('oa_token');
+        $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',
+        ['query'=>[
+        'offset'=>0,
+        'type'=>'video',
+        'limit'=>10,
+        'access_token'=>$accessToken
+            ]]);
+       $result = json_decode($res->getBody());
+       $data = $result->data;
+       $total = $data->total;
+       $videos = $data->medias;
+        for($i = 1;$i<= ceil(($total-10)/10);$i++)
+       {
+               $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',
+        ['query'=>[
+        'offset'=>$i*10,
+        'type'=>'video',
+        'limit'=>10,
+        'access_token'=>$accessToken
+            ]]);
+
+              $result = json_decode($res->getBody());
+             $data = $result->data;
+             $arr = $data->medias;
+             foreach($arr as $index=>$item)
+             {
+                array_push($videos,$item);
+             }
+       };
+    }
+        return $videos;
     }
     public function editVideo($id)
     {
