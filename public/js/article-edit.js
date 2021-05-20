@@ -91,13 +91,13 @@ $(document).ready(function() {
         $('.video-button').on('click',function(){
         $(this).addClass('active-button');
         $('.image-button').removeClass('active-button');
-        $('.video-content').css('display','flex');
+        $('.video-content').removeClass('invisible');
         $('.image-content').css('display','none');
     })
      $('.image-button').on('click',function(){
         $(this).addClass('active-button');
         $('.video-button').removeClass('active-button');
-        $('.image-content').css('display','flex');
+        $('.image-content').removeClass('invisible');
         $('.video-content').css('display','none');
     })
 });

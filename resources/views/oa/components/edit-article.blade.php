@@ -11,6 +11,8 @@
     <script src="{{asset('/js/article-edit.js')}}"></script>
       <script src="{{asset('plugins/sweetalert2/sweetalert2@10.js')}}"></script>
         <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 @endsection
 @section('content')
 
