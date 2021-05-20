@@ -1,8 +1,8 @@
 @extends('oa.layouts.admin')
 
 @section('css')
-    <!-- 
-        <link rel="stylesheet" href="{{asset('/css/create-article.css')}}"> -->
+    
+        <link rel="stylesheet" href="{{asset('/css/video-popup.css')}}">
         <link rel="stylesheet" href="{{asset('/css/article-edit.css')}}">
          <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
@@ -86,7 +86,7 @@
                         </div>
                         <div class="select-content video-content invisible">
                             <div class="video-info">
-                                <div class="sub-video-info" data-toggle="modal" data-target="#myModal">
+                                <div class="sub-video-info" style="cursor:pointer" data-toggle="modal" data-target="#myModal">
                               <i class="fa fa-film icon"></i>
                               <p class="photo-text">Click để chọn video</p>
                               </div>
@@ -111,7 +111,7 @@
                             </div>
                         </div>
                         <div class="select-content video-content">      
-                               <div class="sub-video-info" data-toggle="modal" data-target="#myModal">
+                               <div class="sub-video-info" style="cursor:pointer"data-toggle="modal" data-target="#myModal">
                                       <div class="video-preview">
                                     <img src="{{$article->cover->photo_url}}" class="preview-video">
                                     </div>

@@ -92,12 +92,15 @@ $(document).ready(function() {
         $(this).addClass('active-button');
         $('.image-button').removeClass('active-button');
         $('.video-content').removeClass('invisible');
+         $('.video-content').css('display','flex');
         $('.image-content').css('display','none');
     })
      $('.image-button').on('click',function(){
         $(this).addClass('active-button');
         $('.video-button').removeClass('active-button');
         $('.image-content').removeClass('invisible');
+         $('.image-content').css('display','flex');
+
         $('.video-content').css('display','none');
     })
 });
