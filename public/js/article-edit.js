@@ -4,7 +4,7 @@ $(document).ready(function() {
         let src = $(this).val();
         if(src=="")
         {
-              $('.sub-image-info').css('display','flex');
+              $('.sub-image-info').removeClass('invisible');
               $('.image-preview').css('display','none');
         }
         else{

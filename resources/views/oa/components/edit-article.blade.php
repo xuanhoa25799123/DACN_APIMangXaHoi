@@ -72,7 +72,7 @@
                         <div class="select-content image-content">        
                             <input name="photo_url" type="text" class="form-control image-input" placeholder="Paste link tại đây..." value="{{$article->cover->photo_url}}">
                             <div class="image-info">
-                                <div class="sub-image-info">
+                                <div class="sub-image-info invisible">
                                  <i class="fa fa-image icon"></i>
                                     <p class="photo-text">Nhập url của ảnh</p>
                                  </div>
@@ -103,24 +103,17 @@
                                  <i class="fa fa-image icon"></i>
                                     <p class="photo-text">Nhập url của ảnh</p>
                                  </div>
-                        
-                                      <div class="image-preview">
+                                <div class="image-preview">
                                     <img src="" class="preview-image">
                               </div>
                             </div>
-                      
                         </div>
-                        <div class="select-content video-content">
-                            <div class="video-info">
-                                <div class="sub-video-info" data-toggle="modal" data-target="#myModal">
-                              <i class="fa fa-film icon"></i>
-                              <p class="photo-text">Click để chọn video</p>
-                              </div>
+                        <div class="select-content video-content">      
+                               <div class="sub-video-info" data-toggle="modal" data-target="#myModal">
                                       <div class="video-preview">
                                     <img src="{{$article->cover->photo_url}}" class="preview-video">
+                                    </div>
                               </div>
-                              </div>
-                      
                         </div>
                         @include('oa.partials.video-popup')
                         </div>
@@ -129,6 +122,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         </div>
         </div>
