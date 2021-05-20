@@ -86,13 +86,15 @@
                         </div>
                         <div class="select-content video-content invisible">
                             <div class="video-info">
-                                <div class="sub-video-info" style="cursor:pointer" data-toggle="modal" data-target="#myModal">
+                                <div style="cursor:pointer" data-toggle="modal" data-target="#myModal">
+                                <div class="sub-video-info">
                               <i class="fa fa-film icon"></i>
                               <p class="photo-text">Click để chọn video</p>
-                              </div>
+                             </div>
                              <div class="video-preview" style="display:none">
                                     <img src="" class="preview-video">
                               </div>
+                               </div>
                               </div>
                       
                         </div>
@@ -111,7 +113,7 @@
                             </div>
                         </div>
                         <div class="select-content video-content">      
-                               <div class="sub-video-info" style="cursor:pointer"data-toggle="modal" data-target="#myModal">
+                               <div style="cursor:pointer"data-toggle="modal" data-target="#myModal">
                                       <div class="video-preview">
                                     <img src="{{$article->cover->photo_url}}" class="preview-video">
                                     </div>
