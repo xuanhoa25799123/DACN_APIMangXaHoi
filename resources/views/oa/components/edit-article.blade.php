@@ -90,7 +90,7 @@
                               <i class="fa fa-film icon"></i>
                               <p class="photo-text">Click để chọn video</p>
                               </div>
-                             <div class="video-preview">
+                             <div class="video-preview" style="display:none">
                                     <img src="" class="preview-video">
                               </div>
                               </div>
@@ -105,7 +105,7 @@
                                  <i class="fa fa-image icon"></i>
                                     <p class="photo-text">Nhập url của ảnh</p>
                                  </div>
-                                <div class="image-preview">
+                                <div class="image-preview" style="display:none">
                                     <img src="" class="preview-image">
                               </div>
                             </div>
