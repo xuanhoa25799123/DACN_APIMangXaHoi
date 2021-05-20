@@ -9,7 +9,7 @@
         </div>
         <div class="modal-body">
         <div class="video-popup-container">
-          @foreach($videos => $video)
+          @foreach($videos as $video)
           <div class="video-popup-item">
             <img src="{{$video->thumb}}" alt="">
           </div>

@@ -537,7 +537,6 @@ class OAController extends Controller
             
        };
     }
-    dd($videos);
         return view('oa.components.create-article2',compact('oa_info','title','videos'));
     }
         public function createVideo()
