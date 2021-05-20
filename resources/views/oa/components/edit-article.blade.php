@@ -113,7 +113,7 @@
                             </div>
                         </div>
                         <div class="select-content video-content">      
-                               <div style="cursor:pointer"data-toggle="modal" data-target="#myModal">
+                               <div class="video-info" style="cursor:pointer"data-toggle="modal" data-target="#myModal">
                                       <div class="video-preview">
                                     <img src="{{$article->cover->photo_url}}" class="preview-video">
                                     </div>

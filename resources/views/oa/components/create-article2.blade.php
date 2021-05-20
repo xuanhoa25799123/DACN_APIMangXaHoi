@@ -63,8 +63,8 @@
                       
                         </div>
                         <div class="select-content video-content">
-                            <div class="video-info">
-                                <div class="sub-video-info" data-toggle="modal" data-target="#myModal">
+                            <div class="video-info" data-toggle="modal" data-target="#myModal">
+                                <div class="sub-video-info">
                               <i class="fa fa-film icon"></i>
                               <p class="photo-text">Click để chọn video</p>
                               </div>
