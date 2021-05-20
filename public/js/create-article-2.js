@@ -168,7 +168,7 @@ $(document).ready(function() {
         $('.video-popup-item').removeClass("active-video");
         let id = $(this).data('id');
         selected_video_id = id;
-        $(`.video-${id}`).addClass("active-video");
+        $(`.image-${id}`).addClass("active-video");
         $('.select-video').css('display','initial');
     })
         $('.select-video').on('click',function(){
