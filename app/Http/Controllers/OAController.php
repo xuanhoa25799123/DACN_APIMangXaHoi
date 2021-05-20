@@ -469,7 +469,7 @@ class OAController extends Controller
        };
     }
     
-     if($response->data->type=="video")
+     if($response->data->cover_type=="video")
          {
              foreach($articles as $item)
              {
@@ -480,7 +480,7 @@ class OAController extends Controller
                  }
              }
          }
-        dd($response,$articles);
+        // dd($response,$articles);
          if($response->message=="Success")
          {
             $article  = $response->data;
