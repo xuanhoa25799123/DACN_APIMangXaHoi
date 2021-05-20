@@ -11,7 +11,7 @@
         <div class="video-popup-container">
           @foreach($videos as $video)
           <div class="video-popup-item" style="cursor:pointer" id="video-{{$video->video_id}}" data-id="{{$video->video_id}}">
-            <img class="video-popup-image image-{{$video->video_id}}" src="{{$video->thumb}}" alt="">
+            <img class="video-popup-image video-{{$video->video_id}}" src="{{$video->thumb}}" alt="">
           </div>
           @endforeach
         </div>
