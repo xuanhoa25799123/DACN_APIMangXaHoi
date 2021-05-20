@@ -71,7 +71,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    display: none;
 }
 .photo-text {
     font-weight: normal;
@@ -180,4 +179,8 @@
     width: 100px;
     height: 100px;
     object-fit: cover;
+}
+
+.invisible {
+    display: none;
 }

@@ -167,10 +167,6 @@
     align-items: center;
     justify-content: space-between;
 }
-.video-content {
-    display: none;
-}
-
 .video-thumb {
     width: 100px;
     height: 100px;
