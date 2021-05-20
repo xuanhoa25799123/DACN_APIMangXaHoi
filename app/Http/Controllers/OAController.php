@@ -478,7 +478,7 @@ class OAController extends Controller
                  }
              }
          }
-
+         dd($response);
          if($response->message=="Success")
          {
             $article  = $response->data;
