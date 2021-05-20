@@ -1,5 +1,5 @@
    <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
     
       <!-- Modal content-->
       <div class="modal-content">
@@ -11,7 +11,7 @@
         <div class="video-popup-container">
           @foreach($videos as $video)
           <div class="video-popup-item">
-            <img src="{{$video->thumb}}" alt="">
+            <img class="video-popup-image" src="{{$video->thumb}}" alt="">
           </div>
           @endforeach
         </div>

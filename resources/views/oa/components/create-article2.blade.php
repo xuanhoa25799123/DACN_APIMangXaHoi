@@ -80,6 +80,7 @@
                 </div>
             </div>
         </div>
+             <button type="submit" class="btn btn-primary submit-button" data-href="{{route('store-article')}}">Đăng bài</button>
         </div>
-        <button type="submit" class="btn btn-primary submit-button" data-href="{{route('store-article')}}">Đăng bài</button>
+   
 @endsection
