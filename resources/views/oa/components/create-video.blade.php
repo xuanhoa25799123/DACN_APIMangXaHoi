@@ -3,6 +3,7 @@
 @section('css')
     <link rel="stylesheet" href="{{asset('/css/create-article.css')}}">
     <link rel="stylesheet" href="{{asset('/css/video-article.css')}}">
+      <link rel="stylesheet" href="{{asset('/css/video-popup.css')}}">
 
 @endsection
 @section('js')
@@ -33,6 +34,7 @@
 </div>
           </div>
             @include('oa.partials.video-popup')
+</div>
             <!-- <input type="file" name="video" id="upload-video" /> -->
         </div>
             </div>
