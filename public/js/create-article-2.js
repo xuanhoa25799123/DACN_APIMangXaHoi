@@ -168,11 +168,11 @@ $(document).ready(function() {
         $('.video-popup-item').removeClass("active-video");
         let id = $(this).data('id');
         selected_video_id = id;
-        $(`#video-${id}`).addClass("active-video");
-             $('.select-video').css('display','initial');
+        $(`.video-${id}`).addClass("active-video");
+        $('.select-video').css('display','initial');
     })
         $('.select-video').on('click',function(){
-        let image_src = $(`.image-${selected_video}`).attr('src');
+        let image_src = $(`.image-${selected_video_id}`).attr('src');
         $('.sub-video-info').css('display','none');
         $('.video-preview').css('display','flex');
         $('.preview-video').attr('src',image_src);
