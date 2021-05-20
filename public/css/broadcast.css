@@ -121,5 +121,6 @@
     float: right;
 }
 .selected {
-    background-color: rgb(216, 174, 255);
+    background-color: #232222;
+    color: white;
 }

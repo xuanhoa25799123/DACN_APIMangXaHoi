@@ -5,7 +5,6 @@
             <p class="sidebar-logo-text">Zalo API</p>
         </a>
     </div>
-=
     <div class="sidebar-content">
         <p class="sidebar-content-header">Zalo xã hội</p>
         <a class="sidebar-item" href="/dashboard">

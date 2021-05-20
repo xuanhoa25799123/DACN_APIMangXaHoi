@@ -93,6 +93,21 @@ class OAController extends Controller
 
         return view('oa.components.followers',compact('followers','oa_info','title','total','paginate'));
     }
+
+    // public function updateUser($id)
+    // {
+    //     $data = json_encode(['user_id' => $id]);
+    //      $client = new GuzzleHttp\Client();
+    //     $accessToken = session('oa_token');
+    //     $res = $client->get('https://openapi.zalo.me/v2.0/oa/getprofile',
+    // ['query'=>[
+    //     'data'=>$data,
+    //     'access_token'=>$accessToken
+    //         ]]);
+    //    $result = json_decode($res->getBody());
+    //    $data = $result->data;
+
+    // }
     public function articleList(Request $request)
     {
         $client = new GuzzleHttp\Client();

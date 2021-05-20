@@ -109,6 +109,10 @@ Route::prefix('oa')->group(function () {
        Route::get('/list/{keyword}', [
         'uses'=>'App\Http\Controllers\OAController@followerSearch'
     ]);
+    //   Route::get('/update-user/{id}', [
+    //       'as'=>'update-user'
+    //     'uses'=>'App\Http\Controllers\OAController@updateUser'
+    // ]);
     Route::get('/article',[
         'as'=>'oa-article',
         'uses'=>'App\Http\Controllers\OAController@articleList',

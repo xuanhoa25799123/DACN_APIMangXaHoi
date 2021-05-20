@@ -1,8 +1,6 @@
 @extends('oa.layouts.admin')
 
 @section('css')
-    <!-- 
-        <link rel="stylesheet" href="{{asset('/css/create-article.css')}}"> -->
         <link rel="stylesheet" href="{{asset('/css/create-article.css')}}">
 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
@@ -40,8 +38,12 @@
         </div>        
         <div class="right-content">
               <div class="form-group">
-                <label>Ảnh đại diện (<span style="color:red">*</span>)</label>
+                <label style="font-size:12px">Video / Ảnh đại diện (<span style="color:red">*</span>)</label>
                 <div class="cover-container">
+                <div class="cover-header">
+                        <button type="button"class="video-button active-button">Video</button>
+                        <button type="button"class="image-button">Ảnh</button>
+                    </div>
                     <div class="cover-content">
                         <div class="select-content image-content">
                             <input name="photo_url" type="text" class="form-control image-input" placeholder="Paste link tại đây...">
@@ -54,6 +56,18 @@
                                             <img src="" class="preview-image">
                                      </div>
                             </div>
+                      
+                        </div>
+                        <div class="select-content video-content">
+                            <div class="video-info">
+                                <div class="sub-video-info">
+                              <i class="fa fa-film icon"></i>
+                              <p class="photo-text">Click để chọn video</p>
+                              </div>
+                                      <div class="video-preview">
+                                    <img src="" class="preview-video">
+                              </div>
+                              </div>
                       
                         </div>
                     </div>
