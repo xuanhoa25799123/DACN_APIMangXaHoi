@@ -55,3 +55,6 @@ a:focus {
 .daterangepicker {
     min-width: 600px !important;
 }
+label {
+    font-size: 12px;
+}

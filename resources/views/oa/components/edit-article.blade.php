@@ -76,14 +76,41 @@
                                  <i class="fa fa-image icon"></i>
                                     <p class="photo-text">Nhập url của ảnh</p>
                                  </div>
-                             
+                        
                                       <div class="image-preview">
                                     <img src="{{$article->cover->photo_url}}" class="preview-image">
                               </div>
                             </div>
                       
                         </div>
+                             <div class="select-content video-content" style="display:none">
+                            <div class="video-info">
+                                <div class="sub-video-info" data-toggle="modal" data-target="#myModal">
+                              <i class="fa fa-film icon"></i>
+                              <p class="photo-text">Click để chọn video</p>
+                              </div>
+                                      <div class="video-preview">
+                                    <img src="{{$article->cover->photo_url}}" class="preview-video">
+                              </div>
+                              </div>
+                      
+                        </div>
+                        @include('oa.partials.video-popup')
                         @else
+                         <div class="select-content image-content" style="display:none">        
+                            <input name="photo_url" type="text" class="form-control image-input" placeholder="Paste link tại đây..." value="{{$article->cover->photo_url}}">
+                            <div class="image-info">
+                                <div class="sub-image-info">
+                                 <i class="fa fa-image icon"></i>
+                                    <p class="photo-text">Nhập url của ảnh</p>
+                                 </div>
+                        
+                                      <div class="image-preview">
+                                    <img src="{{$article->cover->photo_url}}" class="preview-image">
+                              </div>
+                            </div>
+                      
+                        </div>
                         <div class="select-content video-content">
                             <div class="video-info">
                                 <div class="sub-video-info" data-toggle="modal" data-target="#myModal">
@@ -103,6 +130,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         </div>
         <button type="submit" class="btn btn-primary submit-button" data-href="{{route('update-article')}}">Sửa</button>
