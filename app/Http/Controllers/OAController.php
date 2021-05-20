@@ -469,7 +469,7 @@ class OAController extends Controller
        };
     }
     
-     if($response->data->cover_type=="video")
+     if($response->data->cover->cover_type=="video")
          {
              foreach($articles as $item)
              {
