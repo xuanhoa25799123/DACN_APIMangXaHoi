@@ -531,9 +531,10 @@ class OAController extends Controller
     {
          $res = $client->get('https://openapi.zalo.me/v2.0/article/getdetail',
         ['query'=>[
-        'id'=>$video->id
+        'id'=>$video->id,
         'access_token'=>$accessToken
-            ]]);
+            ]
+            ]);
             
               $result = json_decode($res->getBody());
              $data = $result->data;
