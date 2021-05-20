@@ -1,5 +1,18 @@
-.video-popup {
-    background-color: white;
-    display: none;
-    position: absolute;
+.video-popup-container {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.video-popup-item {
+    width: 200px;
+    height: 200px;
+    margin: 0 5px;
+}
+
+.video-popup-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

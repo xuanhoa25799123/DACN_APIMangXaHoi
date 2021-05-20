@@ -2,6 +2,7 @@
 
 @section('css')
         <link rel="stylesheet" href="{{asset('/css/create-article.css')}}">
+          <link rel="stylesheet" href="{{asset('/css/video-popup.css')}}">
 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
 @endsection
