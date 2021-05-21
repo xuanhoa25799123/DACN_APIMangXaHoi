@@ -690,6 +690,7 @@ class OAController extends Controller
             "title"=>$request->title,
             "description"=> $request->description,
             "comment"=> "show",
+            'video_id'=>$request->video_id,
             "type"=>"video",
             ]);
              $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/create',[

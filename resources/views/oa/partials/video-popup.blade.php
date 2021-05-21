@@ -17,7 +17,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary select-video" data-dismiss="modal" style="display:none">Chọn video</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+          <button type="button" class="btn btn-default cancel-select" data-dismiss="modal">Đóng</button>
         </div>
       </div>
       
