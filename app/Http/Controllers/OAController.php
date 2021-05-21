@@ -678,36 +678,6 @@ class OAController extends Controller
          $response = json_decode($result->getBody());
         return response()->json($response);
     }
-
-       public function storeArticle(Request $request)
-    {
-         $accessToken = session('oa_token');
-           $client = new \GuzzleHttp\Client();
-           $data = json_encode([
-               "cover"=> $request->cover,
-            "author"=> $request->author,
-            "description"=> $request->description,
-            "comment"=> "show",
-            "type"=>"normal",
-            "title"=>$request->title,
-            'comment'=>$request->comment,
-            "body"=> [
-                [
-                    "type"=> "text",
-                    "content"=> $request->content,
-                ]
-            ],
-            "status"=> $request->status,
-            ]);
-             $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/create',[
-                 'query'=>[
-                     'access_token'=>$accessToken,
-                 ],
-                'body'=>$data
-         ]);
-         $response = json_decode($result->getBody());
-        return response()->json($response);
-    }
     public function Broadcast(Request $request)
     {
        
