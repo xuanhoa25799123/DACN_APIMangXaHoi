@@ -168,6 +168,7 @@
 .inline {
     display: flex;
     flex-wrap: wrap;
+    width: 95%;
 }
 .checkbox-inline {
     margin: 0 15px;
