@@ -117,6 +117,7 @@
                         @include('oa.partials.video-popup')
                         @else
                          <div class="select-content image-content invisible" >        
+                             <input id="hidden-video-id" type="hidden" value="{{$article->cover->video_id}}">
                             <input name="photo_url" type="text" class="form-control image-input" placeholder="Paste link tại đây...">
                             <div class="image-info">
                                 <div class="sub-image-info">

@@ -1,5 +1,9 @@
 $(document).ready(function() {
     let selected_video_id = null;
+           if($('.video-button').hasClass('active-button'))
+           {
+                selected_video_id= $("#hidden-video-id").val();
+           }
    $('.image-input').on('keyup',function(e) {
         console.log("asds");
         let src = $(this).val();

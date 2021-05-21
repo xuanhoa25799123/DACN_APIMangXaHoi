@@ -18,11 +18,11 @@
         <div class="create-container">
             <div class="left-content">
         <div class="form-group inline-form">
-            <label>Tiêu đề</label>
+            <label>Tiêu đề (<span style="color:red">*</span>)</label>
             <input class="form-control" name="title" maxlength="150">
         </div>
         <div class="form-group inline-form">
-            <label>Trích dẫn</label>
+            <label>Trích dẫn (<span style="color:red">*</span>)</label>
             <textarea class="form-control" name="description" rows="5" maxlength="300"></textarea>
         </div>
         <div class="form-group inline">
@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="form-group inline-form">
-            <label>Video</label>
+            <label>Video (<span style="color:red">*</span>)</label>
             <div class="video-container" data-toggle="modal" data-target="#myModal">
                 <div class="sub-video-info">
                         <i class="fa fa-film icon"></i>
@@ -58,7 +58,7 @@
             </div>
             <div class="right-content">
                 <div class="form-group">
-                    <label>Ảnh đại diện</label>
+                    <label>Ảnh đại diện (<span style="color:red">*</span>)</label>
                     <div class="select-content image-content">
                             <input name="photo_url" type="text" class="form-control image-input" placeholder="Paste link tại đây...">
                             <div class="image-info">
