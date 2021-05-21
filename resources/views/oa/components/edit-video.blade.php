@@ -39,7 +39,7 @@
              <div class="form-group">
              <label>Bình luận</label>
               <label class="checkbox-inline">
-                            @if($article->comment=="show")
+                            @if($video->comment=="show")
                         <input type="checkbox" checked data-toggle="toggle" name="comment">
                     @else
                             <input type="checkbox" data-toggle="toggle" name="comment">
