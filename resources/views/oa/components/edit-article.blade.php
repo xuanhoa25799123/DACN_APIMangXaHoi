@@ -33,7 +33,8 @@
         </div>
        
  
-       <div class="form-group inline-form">
+       <div class="form-group inline">
+           <div class="form-group">
              <label>Trạng thái</label>
                 @if($article->status=="show")
                     <label class="checkbox-inline">
@@ -45,6 +46,21 @@
                             <input type="checkbox" data-toggle="toggle" name="status">
                         </label>
                 @endif
+                </div>
+                <div class="form-group">
+                    <label>Bình luận</label>
+                    @if($article->comment=="show")
+                    <label class="checkbox-inline">
+                        <input type="checkbox" checked data-toggle="toggle" name="comment">
+                    </label>
+                    @else
+            
+                        <label class="checkbox-inline">
+                            <input type="checkbox" data-toggle="toggle" name="comment">
+                        </label>
+                @endif
+
+                </div>
         </div>
         <div class="form-group inline-form">
             <label>Nội dung</label>

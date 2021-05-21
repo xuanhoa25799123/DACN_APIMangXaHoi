@@ -622,6 +622,7 @@ class OAController extends Controller
             "id"=>$request->id,
             "type"=>"normal",
             "title"=>$request->title,
+            "comment"=>$request->comment,
             "body"=> [
                 [
                     "type"=> "text",
@@ -665,6 +666,7 @@ class OAController extends Controller
             "comment"=> "show",
             "type"=>"normal",
             "title"=>$request->title,
+            'comment'=>$request->comment,
             "body"=> [
                 [
                     "type"=> "text",

@@ -28,13 +28,21 @@
             <label>Tác giả</label>
             <input class="form-control" name="author" >
         </div>
-        <div class="form-group inline-form">
+         <div class="form-group inline">
+            <div class="form-group">
              <label>Trạng thái</label>
               <label class="checkbox-inline">
                         <input type="checkbox" checked data-toggle="toggle" name="status">
             </label>
+            </div>
+             <div class="form-group">
+             <label>Bình luận</label>
+              <label class="checkbox-inline">
+                        <input type="checkbox" checked data-toggle="toggle" name="comment">
+            </label>
+            </div>
         </div>
-        
+
         <div class="form-group inline-form">
             <label>Nội dung (<span style="color:red">*</span>)</label>
             <textarea class="form-control" name="content" rows="10"></textarea>

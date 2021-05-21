@@ -25,7 +25,7 @@
             <label>Trích dẫn</label>
             <textarea class="form-control" name="description" rows="5" maxlength="300"></textarea>
         </div>
-        <div class="form-group inline-form">
+        <div class="form-group inline">
             <div class="form-group">
              <label>Trạng thái</label>
               <label class="checkbox-inline">

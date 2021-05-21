@@ -165,6 +165,14 @@
     object-fit: cover;
 }
 
+.inline {
+    display: flex;
+    flex-wrap: wrap;
+}
+.checkbox-inline {
+    margin: 0 15px;
+}
+
 .video-container {
     display: flex;
     flex-wrap: wrap;

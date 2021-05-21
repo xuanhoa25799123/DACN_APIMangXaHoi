@@ -34,6 +34,7 @@ $(document).ready(function() {
         let content = $('textarea[name=content]').val();
         let photo_url = $('input[name=photo_url]').val();
         let status = $('input[name=status]').is(':checked')?"show":"hide";
+          let comment = $('input[name=comment]').is(':checked')?"show":"hide";
         console.log(title,description,author,content,photo_url,status)
         if($.trim(title)==""||$.trim(description)==""||$.trim(content)==""||$.trim(photo_url)=="")
         {
@@ -85,7 +86,7 @@ $(document).ready(function() {
             url: url,
             type: 'POST',
             data:{
-                id,title,description,author,content,cover,status
+                id,title,description,author,content,cover,status,comment
             },
             headers:{
                 'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
