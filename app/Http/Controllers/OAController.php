@@ -595,6 +595,11 @@ class OAController extends Controller
     {
          $accessToken = session('oa_token');
            $client = new \GuzzleHttp\Client();
+             $avatar = null;
+           if(trim($request->avatar)!="")
+           {
+               $avatar = ['avatar'=>$request->avatar];
+           }
            $data = json_encode([
             "title"=>$request->title,
             "description"=> $request->description,
@@ -602,7 +607,7 @@ class OAController extends Controller
             'video_id'=>$request->video_id,
             "type"=>"video",
             'id'=>$id,  
-            'avatar'=>$request->avatar,
+            $avatar,
             ]);
              $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/update',[
                  'query'=>[
@@ -662,13 +667,18 @@ class OAController extends Controller
     {
          $accessToken = session('oa_token');
            $client = new \GuzzleHttp\Client();
+           $avatar = null;
+           if(trim($request->avatar)!="")
+           {
+               $avatar = ['avatar'=>$request->avatar];
+           }
            $data = json_encode([
             "title"=>$request->title,
             "description"=> $request->description,
             "comment"=> $request->comment,
             'video_id'=>$request->video_id,
             "type"=>"video",
-            'avatar'=>$request->avatar,
+            $avatar,
             ]);
              $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/create',[
                  'query'=>[

@@ -63,7 +63,7 @@
             </div>
             <div class="right-content">
                 <div class="form-group">
-                    <label>Ảnh đại diện (<span style="color:red">*</span>)</label>
+                    <label>Ảnh đại diện</label>
                     <div class="select-content image-content">
                             <input name="photo_url" value="{{$video->avatar}}" type="text" class="form-control image-input" placeholder="Paste link tại đây...">
                             <div class="image-info">

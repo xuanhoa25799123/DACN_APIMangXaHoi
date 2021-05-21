@@ -35,7 +35,7 @@ $(document).ready(function() {
         let video_id = selected_video_id;
         let status = $('input[name=status]').is(':checked')?"show":"hide";
         let comment = $('input[name=comment]').is(':checked')?"show":"hide";
-        if($.trim(title)==""||$.trim(description)==""||$.trim(photo_url)==""||!video_id)
+        if($.trim(title)==""||$.trim(description)==""||!video_id)
         {
              Swal.fire({ 
                     title: 'Vui lòng điền vào các trường bắt buộc',
