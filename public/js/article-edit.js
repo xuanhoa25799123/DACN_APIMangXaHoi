@@ -1,8 +1,10 @@
 $(document).ready(function() {
     let selected_video_id = null;
+    let temp_id = null;
            if($('.video-button').hasClass('active-button'))
            {
                 selected_video_id= $("#hidden-video-id").val();
+                console.log("asdada");
            }
    $('.image-input').on('keyup',function(e) {
         console.log("asds");
@@ -40,7 +42,7 @@ $(document).ready(function() {
         let status = $('input[name=status]').is(':checked')?"show":"hide";
           let comment = $('input[name=comment]').is(':checked')?"show":"hide";
         console.log(title,description,author,content,photo_url,status)
-        if($.trim(title)==""||$.trim(description)==""||$.trim(content)==""||$.trim(photo_url)=="")
+        if($.trim(title)==""||$.trim(description)==""||$.trim(content)=="")
         {
              Swal.fire({ 
                     title: 'Vui lòng điền vào các trường bắt buộc',
@@ -148,11 +150,12 @@ $(document).ready(function() {
     $('.video-popup-item').on('click',function(){
         $('.video-popup-item').removeClass("active-video");
         let id = $(this).data('id');
-        selected_video_id = id;
+        temp_id = id;
         $(`.image-${id}`).addClass("active-video");
         $('.select-video').css('display','initial');
     })
     $('.select-video').on('click',function(){
+        selected_video_id=temp_id;
         let image_src = $(`.image-${selected_video_id}`).attr('src');
         $('.sub-video-info').css('display','none');
         $('.video-preview').css('display','flex');

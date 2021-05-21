@@ -20,11 +20,11 @@
         <div class="create-container">
         <div class="left-content">
         <div class="form-group inline-form">
-            <label>Tiêu đề</label>
+            <label>Tiêu đề (<span style="color:red">*</span>)</label>
             <input class="form-control" name="title" placeholder="Tiêu đề bài viết" maxlength="50" value="{{$article->title}}">
         </div>
         <div class="form-group inline-form">
-            <label>Trích dẫn</label>
+            <label>Trích dẫn (<span style="color:red">*</span>)</label>
             <textarea name="description" class="form-control" rows="5" maxlength="300">{{$article->description}}</textarea>
         </div>
         <div class="form-group inline-form">
@@ -63,7 +63,7 @@
                 </div>
         </div>
         <div class="form-group inline-form">
-            <label>Nội dung</label>
+            <label>Nội dung (<span style="color:red">*</span>)</label>
             <textarea class="form-control" name="content" rows="10">{{$article->body[0]->content}}</textarea>
         </div>
         </div>
