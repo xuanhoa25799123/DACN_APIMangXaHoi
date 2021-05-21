@@ -546,21 +546,13 @@ class OAController extends Controller
     {
          $accessToken = session('oa_token');
            $client = new \GuzzleHttp\Client();
-           $videos = session('videos');
-           if(empty($videos))
-        {
-         $client = new GuzzleHttp\Client();
-        $accessToken = session('oa_token');
-        $videos = $this->getListVideos();
-           $data = json_encode([
-               'id'=>$id
-           ]);
              $result = $client->request('GET','https://openapi.zalo.me/v2.0/article/getdetail',[
                 'query'=>[
                     'access_token'=>$accessToken,
                     'id'=>$id,
                 ]
          ]);
+         $videos = $this->getListVideos();
          $response = json_decode($result->getBody());
          $oa_info = session('oa_info');
          $title = "Chỉnh sửa video";
@@ -569,7 +561,8 @@ class OAController extends Controller
             $video  = $response->data;
             return view('oa.components.edit-video',compact('oa_info','title','videos','video'));
          }
-    }
+    
+}
     public function updateArticle(Request $request)
     {
              $accessToken = session('oa_token');
