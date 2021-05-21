@@ -561,8 +561,7 @@ class OAController extends Controller
             $video  = $response->data;
             return view('oa.components.edit-video',compact('oa_info','title','videos','video'));
          }
-    
-}
+    }
     public function updateArticle(Request $request)
     {
              $accessToken = session('oa_token');
