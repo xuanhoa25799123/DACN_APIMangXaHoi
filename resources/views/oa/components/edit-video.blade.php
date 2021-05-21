@@ -8,7 +8,7 @@
 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 @endsection
 @section('js')
-        <script src="{{asset('/js/create-video.js')}}"></script>
+        <script src="{{asset('/js/edit-video.js')}}"></script>
             <script src="{{asset('plugins/sweetalert2/sweetalert2@10.js')}}"></script>
               <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
                      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -50,10 +50,7 @@
         <div class="form-group inline-form">
             <label>Video (<span style="color:red">*</span>)</label>
             <div class="video-container" data-toggle="modal" data-target="#myModal">
-                <div class="sub-video-info" style="display:none">
-                        <i class="fa fa-film icon"></i>
-                        <p class="photo-text">Click để chọn video</p>
-                </div>
+                  <input id="hidden-video-id" type="hidden" value="{{$video->video_id}}"> 
                    <div class="video-preview">
                              <p class="video-change"><i class="fa fa-video"></i> &nbsp; Chọn lại</p>
                             <img src="{{$video->avatar}}" class="preview-video">
@@ -68,7 +65,7 @@
                 <div class="form-group">
                     <label>Ảnh đại diện (<span style="color:red">*</span>)</label>
                     <div class="select-content image-content">
-                            <input name="photo_url" type="text" class="form-control image-input" placeholder="Paste link tại đây...">
+                            <input name="photo_url" value="{{$video->avatar}}" type="text" class="form-control image-input" placeholder="Paste link tại đây...">
                             <div class="image-info">
                                 <div class="sub-image-info" style="display:none">
                                  <i class="fa fa-image icon"></i>
@@ -84,7 +81,7 @@
             </div>
         </div>
 
-        <button type="button"  data-href="{{route('store-video')}}" class="btn btn-primary submit-button">Xuất bản</button>
+        <button type="button"  data-href="{{route('update-video',['id'=>$video->id])}}" class="btn btn-primary submit-button">Xuất bản</button>
 
 
 

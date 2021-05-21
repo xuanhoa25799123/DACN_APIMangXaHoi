@@ -174,6 +174,10 @@ Route::prefix('oa')->group(function () {
          'as'=>'store-video',
         'uses'=>'App\Http\Controllers\OAController@storeVideo',
     ]);
+     Route::post('/update-video/{id}',[
+         'as'=>'update-video',
+        'uses'=>'App\Http\Controllers\OAController@updateVideo',
+    ]);
     Route::get('/create-video-article',[
         'as'=>'video-article',
         'uses'=>'App\Http\Controllers\OAController@createVideoArticle',
