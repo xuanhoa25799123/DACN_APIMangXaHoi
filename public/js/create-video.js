@@ -88,6 +88,8 @@ $(document).ready(function() {
         $('.sub-video-info').css('display','none');
         $('.video-preview').css('display','flex');
         $('.preview-video').attr('src',image_src);
+        $('.sub-image-info').css('display','none');
+        $('.preview-image').css('display','initial');
         $('.preview-image').attr('src',image_src);
         $('.image-input').val(image_src);
     })
