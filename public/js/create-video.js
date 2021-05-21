@@ -23,7 +23,7 @@ $(document).ready(function() {
         let photo_url = $('input[name=photo_url]').val();
         let video_id = selected_video_id;
         let status = $('input[name=status]').is(':checked')?"show":"hide";
-        let status = $('input[name=comment]').is(':checked')?"show":"hide";
+        let comment = $('input[name=comment]').is(':checked')?"show":"hide";
         if($.trim(title)==""||$.trim(description)==""||$.trim(photo_url)==""||!video_id)
         {
              Swal.fire({ 
