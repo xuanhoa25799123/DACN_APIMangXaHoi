@@ -1,13 +1,14 @@
 @extends('oa.layouts.admin')
 
 @section('css')
-    <link rel="stylesheet" href="{{asset('/css/create-article.css')}}">
+    <!-- <link rel="stylesheet" href="{{asset('/css/create-article.css')}}"> -->
+    <link rel="stylesheet" href="{{asset('/css/create-video.css')}}">
     <link rel="stylesheet" href="{{asset('/css/video-article.css')}}">
       <link rel="stylesheet" href="{{asset('/css/video-popup.css')}}">
 
 @endsection
 @section('js')
-        <script src="{{asset('/js/test/create-article.js')}}"></script>
+        <script src="{{asset('/js/create-video.js')}}"></script>
             <script src="{{asset('plugins/sweetalert2/sweetalert2@10.js')}}"></script>
                      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -26,12 +27,14 @@
         <div class="form-group inline-form">
             <label>Video</label>
             <div class="video-container" data-toggle="modal" data-target="#myModal">
-
-                <p class="video-change"><i class="fa fa-video"></i> &nbsp; Chọn lại</p>
-                <div class="temp">
-                <i class="fa fa-film icon"></i>
-                <p class="photo-text">Click để chọn video</p>
-</div>
+                <div class="sub-video-info">
+                        <i class="fa fa-film icon"></i>
+                        <p class="photo-text">Click để chọn video</p>
+                </div>
+                   <div class="video-preview" style="display:none">
+                             <p class="video-change"><i class="fa fa-video"></i> &nbsp; Chọn lại</p>
+                            <img src="" class="preview-video">
+                    </div>
           </div>
             @include('oa.partials.video-popup')
 </div>

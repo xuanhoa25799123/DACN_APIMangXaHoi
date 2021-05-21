@@ -142,7 +142,7 @@ class OAController extends Controller
              }
             
        }
-    //    session(['total_article'=>$total]);
+       session(['total_article'=>$total]);
         //  $total_page = (ceil($total / $limit));
 
       
