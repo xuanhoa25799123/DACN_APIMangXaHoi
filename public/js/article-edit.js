@@ -148,7 +148,7 @@ $(document).ready(function() {
         $('.video-content').css('display','none');
     })
     $('.video-popup-item').on('click',function(){
-        $('.video-popup-item').removeClass("active-video");
+        $('.video-popup-image').removeClass("active-video");
         let id = $(this).data('id');
         temp_id = id;
         $(`.image-${id}`).addClass("active-video");

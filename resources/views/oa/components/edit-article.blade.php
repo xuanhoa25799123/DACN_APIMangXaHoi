@@ -36,30 +36,24 @@
        <div class="form-group inline">
            <div class="form-group">
              <label>Trạng thái</label>
+              <label class="checkbox-inline">
                 @if($article->status=="show")
-                    <label class="checkbox-inline">
                         <input type="checkbox" checked data-toggle="toggle" name="status">
-                    </label>
                     @else
-            
-                        <label class="checkbox-inline">
                             <input type="checkbox" data-toggle="toggle" name="status">
-                        </label>
                 @endif
+                   </label>
                 </div>
                 <div class="form-group">
                     <label>Bình luận</label>
+                       <label class="checkbox-inline">
                     @if($article->comment=="show")
-                    <label class="checkbox-inline">
                         <input type="checkbox" checked data-toggle="toggle" name="comment">
                     </label>
                     @else
-            
-                        <label class="checkbox-inline">
                             <input type="checkbox" data-toggle="toggle" name="comment">
-                        </label>
                 @endif
-
+                 </label>
                 </div>
         </div>
         <div class="form-group inline-form">
