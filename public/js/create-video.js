@@ -21,7 +21,8 @@ $(document).ready(function() {
         let description = $('textarea[name=description]').val();
         let photo_url = $('input[name=photo_url]').val();
         let video_id = selected_video_id;
-
+        let status = $('input[name=status]').is(':checked')?"show":"hide";
+        let status = $('input[name=comment]').is(':checked')?"show":"hide";
         if($.trim(title)==""||$.trim(description)==""||$.trim(photo_url)==""||!video_id)
         {
              Swal.fire({ 
@@ -37,7 +38,7 @@ $(document).ready(function() {
             url: url,
             type: 'POST',
             data:{
-                title,description,avatar:photo_url,video_id
+                title,description,avatar:photo_url,video_id,status,comment,
             },
             headers:{
                 'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
@@ -75,7 +76,7 @@ $(document).ready(function() {
         });
     })
     $('.video-popup-item').on('click',function(){
-        $('.video-popup-item').removeClass("active-video");
+        $('.video-popup-image   ').removeClass("active-video");
         let id = $(this).data('id');
         selected_video_id = id;
         $(`.image-${id}`).addClass("active-video");

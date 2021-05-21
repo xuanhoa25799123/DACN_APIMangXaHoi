@@ -34,6 +34,7 @@
                         <input type="checkbox" checked data-toggle="toggle" name="status">
             </label>
         </div>
+        
         <div class="form-group inline-form">
             <label>Nội dung (<span style="color:red">*</span>)</label>
             <textarea class="form-control" name="content" rows="10"></textarea>

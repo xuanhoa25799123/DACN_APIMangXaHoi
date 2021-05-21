@@ -5,11 +5,12 @@
     <link rel="stylesheet" href="{{asset('/css/create-video.css')}}">
     <link rel="stylesheet" href="{{asset('/css/video-article.css')}}">
       <link rel="stylesheet" href="{{asset('/css/video-popup.css')}}">
-
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 @endsection
 @section('js')
         <script src="{{asset('/js/create-video.js')}}"></script>
             <script src="{{asset('plugins/sweetalert2/sweetalert2@10.js')}}"></script>
+              <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
                      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 @endsection
@@ -23,6 +24,20 @@
         <div class="form-group inline-form">
             <label>Trích dẫn</label>
             <textarea class="form-control" name="description" rows="5" maxlength="300"></textarea>
+        </div>
+        <div class="form-group inline-form">
+            <div class="form-group">
+             <label>Trạng thái</label>
+              <label class="checkbox-inline">
+                        <input type="checkbox" checked data-toggle="toggle" name="status">
+            </label>
+            </div>
+             <div class="form-group">
+             <label>Bình luận</label>
+              <label class="checkbox-inline">
+                        <input type="checkbox" checked data-toggle="toggle" name="comment">
+            </label>
+            </div>
         </div>
         <div class="form-group inline-form">
             <label>Video</label>
