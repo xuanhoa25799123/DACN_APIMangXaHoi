@@ -5,7 +5,7 @@ $(document).ready(function() {
         let src = $(this).val();
         if(src=="")
         {
-              $('.sub-image-info').removeClass('invisible');
+              $('.sub-image-info').display('flex');
               $('.image-preview').css('display','none');
         }
         else{

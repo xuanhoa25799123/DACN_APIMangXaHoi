@@ -44,21 +44,24 @@
             <div class="right-content">
                 <div class="form-group">
                     <label>Ảnh đại diện</label>
-                    <label for="upload-photo" class="cover-photo">
-                        <img id="cover-image" src="">
-                                   <p class="cover-change"><i class="fa fa-camera"></i> &nbsp; Thay đổi ảnh</p>
-                        <div class="temp">
-             
-                        <i class="fa fa-photo icon"></i>
-                        <p class="photo-text">Chọn ảnh cover sẽ xuất hiện khi video được chọn</p>
+                    <div class="select-content image-content">
+                            <input name="photo_url" type="text" class="form-control image-input" placeholder="Paste link tại đây...">
+                            <div class="image-info">
+                                <div class="sub-image-info">
+                                 <i class="fa fa-image icon"></i>
+                                    <p class="photo-text">Nhập url của ảnh</p>
+                                 </div>
+                                      <div class="image-preview" style="display:none">
+                                            <img src="" class="preview-image">
+                                     </div>
+                            </div>
+                      
                         </div>
-                    </label>
-                    <input type="file" name="photo" id="upload-photo" >
                 </div>
             </div>
         </div>
 
-        <button type="button"  data-href="{{route('test-create-video')}}" class="btn btn-primary submit-button">Xuất bản</button>
+        <button type="button"  data-href="{{route('store-video')}}" class="btn btn-primary submit-button">Xuất bản</button>
 
 
 
