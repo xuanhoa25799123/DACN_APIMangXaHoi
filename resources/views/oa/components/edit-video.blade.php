@@ -81,7 +81,7 @@
             </div>
         </div>
 
-        <button type="button"  data-href="{{route('update-video',['id'=>$video->id])}}" class="btn btn-primary submit-button">Xuất bản</button>
+        <button type="button"  data-href="{{route('update-video',['id'=>$video->id])}}" class="btn btn-primary submit-button">Cập nhật</button>
 
 
 

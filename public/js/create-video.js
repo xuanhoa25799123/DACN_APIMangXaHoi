@@ -33,7 +33,6 @@ $(document).ready(function() {
                 })
                 return;
         }
-      
             let url = $(this).data('href');
                     $.ajax({
             url: url,
@@ -89,6 +88,8 @@ $(document).ready(function() {
         $('.sub-video-info').css('display','none');
         $('.video-preview').css('display','flex');
         $('.preview-video').attr('src',image_src);
+        $('.preview-image').attr('src',image_src);
+        $('.image-input').val(image_src);
     })
 
 });
