@@ -1,5 +1,41 @@
+.content {
+    width: 95% !important;
+}
+
+.create-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px auto;
+    border-radius: 5px;
+    border: 1px solid lightgreen;
+    padding: 10px;
+}
+
+.left-content {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.right-content {
+    width: 30%;
+}
+
+.inline-form {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+}
+.form-control {
+    width: 80% !important;
+}
+
 .video-preview {
     width: 100%;
     height: 100%;
     position: relative;
+}
+.active-video {
+    border: 2px solid lightblue;
 }
