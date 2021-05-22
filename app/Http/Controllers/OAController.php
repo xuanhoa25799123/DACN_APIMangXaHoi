@@ -767,7 +767,7 @@ class OAController extends Controller
                 array_push($videos,$item);
              }
        }
-        foreach($vides as $video)
+        foreach($videos as $video)
         {
             array_push($broadcasts,$video);
         }
