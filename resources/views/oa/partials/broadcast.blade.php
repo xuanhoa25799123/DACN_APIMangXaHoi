@@ -5,7 +5,7 @@
                 <th style="text-align:center" scope="row">{{$index+1}}</th>
                 <td>{{date('d-m-Y H:i:s',substr((string)$broadcast->create_date,0,10))}} 
                 </td>
-                <td  style="text-align:center"> <img class="broadcast-image" src="{{$broadcast->thumb}}" alt=""></td>
+                <td  style="text-align:center"> <img class="article-image" src="{{$broadcast->thumb}}" alt=""></td>
                 <td> {{$broadcast->title}}</td>
                 <td  style="text-align:center">
                     @if($broadcast->status=="show")
@@ -26,14 +26,14 @@
             @endif
 @endforeach
 </div>
- <div class='video-rows'>
+ <div class='video-rows' style="display:none">
  @foreach($broadcasts as $index=>$broadcast)
  @if($broadcast->type=="video")
             <tr>
                 <th style="text-align:center" scope="row">{{$index+1}}</th>
                 <td>{{date('d-m-Y H:i:s',substr((string)$broadcast->create_date,0,10))}} 
                 </td>
-                <td  style="text-align:center"> <img class="broadcast-image" src="{{$broadcast->thumb}}" alt=""></td>
+                <td  style="text-align:center"> <img class="article-image" src="{{$broadcast->thumb}}" alt=""></td>
                 <td> {{$broadcast->title}}</td>
                 <td  style="text-align:center">
                     @if($broadcast->status=="show")
