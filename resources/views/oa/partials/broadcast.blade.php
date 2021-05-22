@@ -23,7 +23,10 @@
                     @endif
                 </td>
             </tr>
+            @else
+            <p>asdasd</p>
             @endif
+            
 @endforeach
 </div>
  <div class='video-broadcast-rows' style="display:none">

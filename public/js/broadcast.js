@@ -254,7 +254,7 @@ $(document).ready(function () {
         $(".button-create-article").css("display", "none");
         $(".button-create-video").css("display", "initial");
         $(".total-article").css("display", "none");
-        $(".total-video").css("display", "initital");
+        $(".total-video").css("display", "initial");
         $(".video-broadcast-rows").css("display", "initial");
         $(".article-broadcast-rows").css("display", "none");
     });
