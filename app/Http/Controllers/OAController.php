@@ -742,7 +742,7 @@ class OAController extends Controller
         ]);
        $result = json_decode($res->getBody());
        $data = $result->data;
-       $totle_video = $data->total;
+       $total_video = $data->total;
        $videos = $data->medias;
        foreach($videos as $idex=>$item)
        {
