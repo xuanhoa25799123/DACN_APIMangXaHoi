@@ -324,6 +324,13 @@ Route::prefix('test')->group(function () {
     Route::get('/test-date',[
         'uses'=>'App\Http\Controllers\TestController@testDate',
     ]);
+        Route::get('/upload-video',[
+        'uses'=>'App\Http\Controllers\TestController@uploadVideo',
+    ]);
+     Route::post('/uploading-video',[
+         'as'=>'uploading-video',
+        'uses'=>'App\Http\Controllers\TestController@uploadingVideo',
+    ]);
        Route::get('/edit-article',[
         'uses'=>'App\Http\Controllers\TestController@editArticle',
     ]);

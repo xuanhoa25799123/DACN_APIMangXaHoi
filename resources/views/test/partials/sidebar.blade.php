@@ -62,6 +62,12 @@
             </div>
             <p class='sidebar-item-text'>Test article</p>
         </a>
+                <a class="sidebar-item" href="/test/upload-video">
+            <div class="sidebar-item-icon-container">
+                <i class="fa fa-camera sidebar-item-icon"></i>
+            </div>
+            <p class='sidebar-item-text'>Test upload video</p>
+        </a>
          <a class="sidebar-item" href="/test/edit-article">
             <div class="sidebar-item-icon-container">
                 <i class="fa fa-edit sidebar-item-icon"></i>
