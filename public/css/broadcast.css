@@ -182,12 +182,13 @@
     border: none;
     outline: none;
     padding: 10px;
-    font-weight: normal;
     color: black;
+    background: none;
 }
 
 .active-tab {
     border-radius: 10px 10px 0 0;
-    border: 1px solid #3498db;
+    border: 1px solid lightblue;
+    border-bottom: none;
     font-weight: bold;
 }

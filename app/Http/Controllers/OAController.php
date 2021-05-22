@@ -706,13 +706,13 @@ class OAController extends Controller
         ]);
        $result = json_decode($res->getBody());
        $data = $result->data;
-       $total = $data->total;
+       $total_article = $data->total;
        $broadcasts = $data->medias;
        foreach($broadcasts as $idex=>$item)
        {
            $item->selected=false;
        }
-        for($i = 1;$i<= ceil(($total-10)/10);$i++)
+        for($i = 1;$i<= ceil(($total_article-10)/10);$i++)
        {
                $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',
         ['query'=>[
@@ -730,13 +730,51 @@ class OAController extends Controller
                  $item->selected=false;
                 array_push($broadcasts,$item);
              }
-            
        }
+       
+       $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',[
+            'query'=>[
+                'offset'=>0,
+                'limit'=>10,
+                'type'=>'video',
+                'access_token'=>$accessToken
+            ]
+        ]);
+       $result = json_decode($res->getBody());
+       $data = $result->data;
+       $totle_video = $data->total;
+       $videos = $data->medias;
+       foreach($videos as $idex=>$item)
+       {
+           $item->selected=false;
+       }
+        for($i = 1;$i<= ceil(($total_video-10)/10);$i++)
+       {
+               $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',
+        ['query'=>[
+        'offset'=>$i*10,
+        'type'=>'video',
+        'limit'=>10,
+        'access_token'=>$accessToken
+            ]]);
+
+              $result = json_decode($res->getBody());
+             $data = $result->data;
+             $arr = $data->medias;
+             foreach($arr as $index=>$item)
+             {
+                 $item->selected=false;
+                array_push($videos,$item);
+             }
+       }
+        foreach($vides as $video)
+        {
+            array_push($broadcasts,$video);
+        }
         $oa_info = session('oa_info');
         $title="Gửi broadcast";
         session(['broadcasts'=>$broadcasts]);
-
-       return view('oa.components.broadcast',compact('broadcasts','oa_info','title','total'));
+       return view('oa.components.broadcast',compact('broadcasts','oa_info','title','total_article','total_video'));
     }
     public function selectBroadcast($id)
     {

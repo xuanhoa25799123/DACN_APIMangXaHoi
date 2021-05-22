@@ -20,9 +20,11 @@
      <a href="/oa/create-article" class="btn btn-primary button-create-article">Tạo bài viết mới</a>
     <a href="/oa/create-article" class="btn btn-primary button-create-video" style="display:none">Tạo video mới</a>
 </div>
+<div class="article-broadcast">
     <div class="article-header">
     <div class="article-header-left">
-        <p class="total">Tổng số: <strong>{{$total}}</strong></p>
+        <p class="total-article">Tổng số: <strong>{{$total_article}}</strong></p>
+         <p class="total-video" style="display:none">Tổng số: <strong>{{$total_video}}</strong></p>
         <input type="text" id="broadcast-search" class="search" placeholder = "Nhập tên bài viết">
     </div>
      <div class="article-header-right">
@@ -48,6 +50,6 @@
             @include('oa.partials.broadcast')
             </tbody>
         </table>
+        </div>
          <button type="button" class="btn btn-primary send-broadcast">Gửi broadcast</button>
-
 @endsection
