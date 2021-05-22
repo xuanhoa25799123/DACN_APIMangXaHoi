@@ -34,7 +34,7 @@
         <p class="sidebar-content-header">Zalo doanh nghiệp</p>
         <a class="sidebar-item" href="{{route('oa-token')}}">
             <div class="sidebar-item-icon-container">
-                <i class="fa fa-building sidebar-item-icon"></i>
+                <i class="fa fa-briefcase sidebar-item-icon"></i>
             </div>
             <p class='sidebar-item-text'>Chọn doanh nghiệp</p>
         </a>

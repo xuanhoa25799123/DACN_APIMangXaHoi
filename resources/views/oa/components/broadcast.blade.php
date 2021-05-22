@@ -13,7 +13,12 @@
 @endsection
 @section('content')
 <div class="article-head">
-     <a href="/oa/create-article" class="btn btn-primary">Tạo bài viết mới</a>
+    <div class="tab-container">
+        <button class="tab-item tab-article active-tab">Bài viết</button>
+        <button class="tab-item tab-video">Video</button>
+    </div>
+     <a href="/oa/create-article" class="btn btn-primary button-create-article">Tạo bài viết mới</a>
+    <a href="/oa/create-article" class="btn btn-primary button-create-video" style="display:none">Tạo video mới</a>
 </div>
     <div class="article-header">
     <div class="article-header-left">

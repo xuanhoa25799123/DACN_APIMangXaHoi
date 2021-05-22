@@ -238,6 +238,18 @@ $(document).ready(function () {
             });
         }
     });
+    $(".tab-article").on("click", function () {
+        $(this).addClass("active-tab");
+        $(".tab-video").removeClass("active-tab");
+        $(".button-create-article").css("display", "initial");
+        $(".button-create-video").css("display", "none");
+    });
+    $(".tab-video").on("click", function () {
+        $(this).addClass("active-tab");
+        $(".tab-article").removeClass("active-tab");
+        $(".button-create-article").css("display", "none");
+        $(".button-create-video").css("display", "initial");
+    });
 });
 
 let SweetAlert = (message) => {
