@@ -1,6 +1,7 @@
  <div class='article-rows'>
  @foreach($broadcasts as $index=>$broadcast)
  @if($broadcast->type=="normal")
+ <p>{{$broadcast->type}}</p>
             <tr>
                 <th style="text-align:center" scope="row">{{$index+1}}</th>
                 <td>{{date('d-m-Y H:i:s',substr((string)$broadcast->create_date,0,10))}} 
