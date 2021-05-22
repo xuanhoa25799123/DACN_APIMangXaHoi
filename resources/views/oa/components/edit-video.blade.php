@@ -79,6 +79,9 @@
                         </div>
                 </div>
             </div>
+                      <div class="loader-container">
+                <div class="loader"></div>
+            </div>
         </div>
 
         <button type="button"  data-href="{{route('update-video',['id'=>$video->id])}}" class="btn btn-primary submit-button">Cập nhật</button>

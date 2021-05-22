@@ -11,6 +11,7 @@
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 @endsection
 @section('content')
+<div class="broadcast-view-container">
     <div class="send-recipient">
     <button type="button" class="btn btn-outline-primary recipient-button">Chọn đối tượng gửi</button>
     <div class="recipient-container">
@@ -103,6 +104,9 @@
         @endforeach
     </div>
     
+              <div class="loader-container">
+                <div class="loader"></div>
+            </div>
     <button type="submit" class="btn btn-primary submit-button" data-href="{{route('oa-send-broadcast')}}">Gửi broadcast</button>
-
+</div>
 @endsection
