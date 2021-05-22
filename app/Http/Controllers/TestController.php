@@ -652,9 +652,7 @@ class TestController extends Controller
              'multipart' => [
         [
             'name'=>'file',
-            'contents'     => $video,
-            
-         
+            'contents' => $video,
         ],
            ]]);
     $result = json_decode($response->getBody());

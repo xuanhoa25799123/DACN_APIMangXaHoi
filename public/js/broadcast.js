@@ -228,12 +228,7 @@ $(document).ready(function () {
                             title: "Bài viết chưa được gửi",
                             text: response.message,
                             icon: "warning",
-                            showCancelButton: true,
                             confirmButtonColor: "#3085d6",
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                window.location.href = "/oa/broadcast";
-                            }
                         });
                     }
                 },

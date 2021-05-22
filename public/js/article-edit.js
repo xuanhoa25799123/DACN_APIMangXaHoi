@@ -141,8 +141,8 @@ $(document).ready(function () {
                             });
                         }
                     },
-                    beforeSend: function () {
-                        $(".loader-container").css("display", "flex");
+                    complete: function () {
+                        $(".loader-container").css("display", "none");
                     },
                 });
             }
