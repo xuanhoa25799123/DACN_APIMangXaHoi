@@ -151,67 +151,14 @@ $(document).ready(function () {
             });
         }
     });
-    $("body").on("click", ".select-broadcast", function () {
-        let id = $(this).data("id");
-
-        if ($(this).hasClass("selected")) {
-            $(`.item-${id}`).remove();
-            $.ajax({
-                url: `/oa/unselect-broadcast/${id}`,
-                type: "get",
-                dataType: "json",
-                success: function (response) {
-                    if (response.success) {
-                        // $(this).html("Chọn");
-                        let index = selected_broadcast.indexOf(id);
-                        if (index > -1) {
-                            selected_broadcast.splice(index, 1);
-                        }
-                        // $(this).removeClass("selected");
-                        $(".article-rows").html(response.article_html);
-                        $(".video-rows").html(response.video_html);
-                    }
-                },
-            });
-        } else {
-            if (selected_broadcast.length == 5) {
-                SweetAlert("Chọn tối đa 5 nội dung trong 1 broadcast");
-                return;
-            }
-            let thumb = $(this).data("thumb");
-            let title = $(this).data("title");
-            let html = `<div class="broadcast-item item-${id}">
-                <button class="remove-item" data-id="${id}"><i class="fa fa-times remove-icon"></i></button>
-                <input type="hidden" name="id[]" value="${id}">
-                <img class="broadcast-image" src="${thumb}">
-                <p class="broadcast-title">${title}</p>
-                <div class="broadcast-more-info" style="width:80%"></div>
-                <div class="broadcast-more-info" style="width:50%"></div>
-                <div class="broadcast-more-info" style="width:20%"></div>
-            </div>`;
-            $(".broadcast-content").append(html);
-            $.ajax({
-                url: `/oa/select-broadcast/${id}`,
-                type: "get",
-                dataType: "json",
-                success: function (response) {
-                    if (response.success) {
-                        selected_broadcast.push(id);
-                        $(".article-rows").html(response.article_html);
-                        $(".video-rows").html(response.video_html);
-                    }
-                },
-            });
-        }
-    });
-    $(".send-broadcast").on("click", function () {
-        if (selected_broadcast.length < 1) {
-            SweetAlert("Vui lòng chọn ít nhất 1 bài viết");
-            return;
-        }
-        let id_str = selected_broadcast.join(",");
-        window.location.href = `/oa/view-broadcast/${id_str}`;
-    });
+    // $(".send-broadcast").on("click", function () {
+    //     if (selected_broadcast.length < 1) {
+    //         SweetAlert("Vui lòng chọn ít nhất 1 bài viết");
+    //         return;
+    //     }
+    //     let id_str = selected_broadcast.join(",");
+    //     window.location.href = `/oa/view-broadcast/${id_str}`;
+    // });
     $(".recipient-button").on("click", function (e) {
         e.stopPropagation();
         $(".recipient-container").css("display", "flex");
