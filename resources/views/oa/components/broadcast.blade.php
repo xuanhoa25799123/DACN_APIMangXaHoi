@@ -69,7 +69,7 @@
 
         </table>
                  <a href="#broadcast-123" class="btn btn-primary">Gửi broadcast</a>
-                 @include('oa.particle.view-broadcast')
+                 @include('oa.partials.view-broadcast')
         </div>
 
 @endsection
