@@ -18,7 +18,7 @@
         <button class="tab-item tab-video">Video</button>
     </div>
      <a href="/oa/create-article" class="btn btn-primary button-create-article">Tạo bài viết mới</a>
-    <a href="/oa/create-article" class="btn btn-primary button-create-video" style="display:none">Tạo video mới</a>
+    <a href="/oa/create-video" class="btn btn-primary button-create-video" style="display:none">Tạo video mới</a>
 </div>
 <div class="article-broadcast">
     <div class="article-header">

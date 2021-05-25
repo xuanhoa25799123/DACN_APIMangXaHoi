@@ -31,8 +31,8 @@ $(document).ready(function () {
                 dataType: "json",
                 success: function (response) {
                     $(".cancel-daterange").css("display", "initial");
-                    $(".article-rows").html(response.html);
-                    $(".video-rows").html(response.html);
+                    $(".article-rows").html(response.article_html);
+                    $(".video-rows").html(response.video_html);
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     alert("Status: " + textStatus);
@@ -49,10 +49,9 @@ $(document).ready(function () {
             type: "get",
             dataType: "json",
             success: function (response) {
-                console.log(response.html);
                 $(".cancel-daterange").css("display", "none");
-                $(".article-rows").html(response.html);
-                $(".video-rows").html(response.html);
+                $(".article-rows").html(response.article_html);
+                $(".video-rows").html(response.video_html);
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert("Status: " + textStatus);
@@ -75,8 +74,8 @@ $(document).ready(function () {
                 success: function (response) {
                     $(".cancel-daterange").css("display", "none");
                     console.log(response);
-                    $(".article-rows").html(response.html);
-                    $(".video-rows").html(response.html);
+                    $(".article-rows").html(response.article_html);
+                    $(".video-rows").html(response.video_html);
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     alert("Error: " + errorThrown);
@@ -94,9 +93,8 @@ $(document).ready(function () {
             type: "get",
             dataType: "json",
             success: function (response) {
-                console.log(response.html);
-                $(".article-rows").html(response.html);
-                $(".video-rows").html(response.html);
+                $(".article-rows").html(response.article_html);
+                $(".video-rows").html(response.video_html);
             },
         });
     });
@@ -121,8 +119,8 @@ $(document).ready(function () {
                             selected_broadcast.splice(index, 1);
                         }
                         // $(this).removeClass("selected");
-                        $(".article-rows").html(response.html);
-                        $(".video-rows").html(response.html);
+                        $(".article-rows").html(response.article_html);
+                        $(".video-rows").html(response.video_html);
                     }
                 },
             });
@@ -135,8 +133,8 @@ $(document).ready(function () {
                 success: function (response) {
                     if (response.success) {
                         selected_broadcast.push(id);
-                        $(".article-rows").html(response.html);
-                        $(".video-rows").html(response.html);
+                        $(".article-rows").html(response.article_html);
+                        $(".video-rows").html(response.video_html);
                     }
                 },
             });

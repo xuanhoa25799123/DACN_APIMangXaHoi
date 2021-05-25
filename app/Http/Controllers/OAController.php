@@ -788,8 +788,9 @@ class OAController extends Controller
             }
         }
         session(['broadcasts'=>$broadcasts]);
-        $html = view('oa.partials.broadcast')->with(compact('broadcasts'))->render();
-        return response()->json(['success'=>true,'html'=>$html]);
+      $article_html = view('oa.partials.broadcast')->with(compact('broadcasts'))->render();
+        $video_html = view('oa.partials.video-broadcast')->with(compact('broadcasts'))->render();
+        return response()->json(['success' => true, 'article_html' => $article_html,'video_html'=>$video_html]);
     }
     public function unselectBroadcast($id)
     {
@@ -803,8 +804,9 @@ class OAController extends Controller
             }
         }
         session(['broadcasts'=>$broadcasts]);
-        $html = view('oa.partials.broadcast')->with(compact('broadcasts'))->render();
-        return response()->json(['success'=>true,'html'=>$html]);
+      $article_html = view('oa.partials.broadcast')->with(compact('broadcasts'))->render();
+        $video_html = view('oa.partials.video-broadcast')->with(compact('broadcasts'))->render();
+        return response()->json(['success' => true, 'article_html' => $article_html,'video_html'=>$video_html]);
     }
     public function searchBroadcast($keyword)
     {
@@ -821,8 +823,9 @@ class OAController extends Controller
                 }
             }
         }
-        $html = view('oa.partials.broadcast')->with(compact('broadcasts'))->render();
-        return response()->json(['success' => true, 'html' => $html]);
+        $article_html = view('oa.partials.broadcast')->with(compact('broadcasts'))->render();
+        $video_html = view('oa.partials.video-broadcast')->with(compact('broadcasts'))->render();
+        return response()->json(['success' => true, 'article_html' => $article_html,'video_html'=>$video_html]);
     }
 
        public function broadcastSearchDate(Request $request)
@@ -837,14 +840,16 @@ class OAController extends Controller
                     array_push($broadcasts, $item);
                 }
             }
-        $html = view('oa.partials.broadcast')->with(compact('broadcasts'))->render();
-        return response()->json(['success' => true, 'html' => $html]);
+    $article_html = view('oa.partials.broadcast')->with(compact('broadcasts'))->render();
+        $video_html = view('oa.partials.video-broadcast')->with(compact('broadcasts'))->render();
+        return response()->json(['success' => true, 'article_html' => $article_html,'video_html'=>$video_html]);
     }
     public function broadcastResetDate()
     {
        $broadcasts = session('broadcasts');
-        $html = view('oa.partials.broadcast')->with(compact('broadcasts'))->render();
-        return response()->json(['success' => true, 'html' => $html]);
+       $article_html = view('oa.partials.broadcast')->with(compact('broadcasts'))->render();
+        $video_html = view('oa.partials.video-broadcast')->with(compact('broadcasts'))->render();
+        return response()->json(['success' => true, 'article_html' => $article_html,'video_html'=>$video_html]);
     }
 
         public function viewBroadcast($id_str)
