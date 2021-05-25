@@ -32,6 +32,7 @@ $(document).ready(function () {
                 success: function (response) {
                     $(".cancel-daterange").css("display", "initial");
                     $(".article-rows").html(response.html);
+                    $(".video-rows").html(response.html);
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     alert("Status: " + textStatus);
@@ -51,6 +52,7 @@ $(document).ready(function () {
                 console.log(response.html);
                 $(".cancel-daterange").css("display", "none");
                 $(".article-rows").html(response.html);
+                $(".video-rows").html(response.html);
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert("Status: " + textStatus);
@@ -74,6 +76,7 @@ $(document).ready(function () {
                     $(".cancel-daterange").css("display", "none");
                     console.log(response);
                     $(".article-rows").html(response.html);
+                    $(".video-rows").html(response.html);
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     alert("Error: " + errorThrown);
@@ -93,12 +96,13 @@ $(document).ready(function () {
             success: function (response) {
                 console.log(response.html);
                 $(".article-rows").html(response.html);
+                $(".video-rows").html(response.html);
             },
         });
     });
     $("body").on("click", ".select-broadcast", function () {
         if (selected_broadcast.length == 5) {
-            SweetAlert("Chọn tối đa 5 bài viết");
+            SweetAlert("Chọn tối đa 5 nội dung trong 1 broadcast");
             return;
         }
         let id = $(this).data("id");
@@ -118,6 +122,7 @@ $(document).ready(function () {
                         }
                         // $(this).removeClass("selected");
                         $(".article-rows").html(response.html);
+                        $(".video-rows").html(response.html);
                     }
                 },
             });
@@ -131,6 +136,7 @@ $(document).ready(function () {
                     if (response.success) {
                         selected_broadcast.push(id);
                         $(".article-rows").html(response.html);
+                        $(".video-rows").html(response.html);
                     }
                 },
             });

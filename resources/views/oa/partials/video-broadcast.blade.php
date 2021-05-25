@@ -1,7 +1,7 @@
 
 @foreach($broadcasts as $index=>$broadcast)
             <tr>
-            @if($broadcast->video=="normal")
+            @if($broadcast->type=="video")
                 <th style="text-align:center" scope="row">{{$index+1}}</th>
                 <td>{{date('d-m-Y H:i:s',substr((string)$broadcast->create_date,0,10))}} 
                 </td>
