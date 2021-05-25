@@ -14,7 +14,6 @@
                        ẩn
                     @endif
                 </td>
-
                 <td style="text-align:center">
                     @if($broadcast->selected)
                     <button type="button" data-id="{{$broadcast->id}}" class="btn btn-outline-primary select-broadcast broadcast-{{$broadcast->id}} selected">Bỏ chọn</button>
@@ -25,4 +24,3 @@
                 @endif
             </tr>
 @endforeach
-</div>

@@ -50,7 +50,7 @@
             <tbody class="article-rows">
             @include('oa.partials.broadcast')
             </tbody>
-              <tbody class="video-rows">
+            <tbody class="video-rows">
             @include('oa.partials.video-broadcast')
             </tbody>
 

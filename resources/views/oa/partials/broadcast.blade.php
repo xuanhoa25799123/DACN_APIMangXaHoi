@@ -23,9 +23,5 @@
                     @endif
                 </td>
                 @endif
-            </tr>
-    
-            
-            
+            </tr> 
 @endforeach
-</div>
