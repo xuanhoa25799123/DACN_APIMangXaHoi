@@ -1,7 +1,8 @@
 
 @foreach($broadcasts as $index=>$broadcast)
+   @if($broadcast->type=="normal")
             <tr>
-            @if($broadcast->type=="normal")
+         
                 <th style="text-align:center" scope="row">{{$index+1}}</th>
                 <td>{{date('d-m-Y H:i:s',substr((string)$broadcast->create_date,0,10))}} 
                 </td>
@@ -22,6 +23,7 @@
                       <button type="button" data-id="{{$broadcast->id}}" class="btn btn-outline-primary select-broadcast broadcast-{{$broadcast->id}}">Chọn</button>
                     @endif
                 </td>
-                @endif
+            
             </tr> 
+        @endif
 @endforeach
