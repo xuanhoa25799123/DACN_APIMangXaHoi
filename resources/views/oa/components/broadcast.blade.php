@@ -52,7 +52,7 @@
             @include('oa.partials.broadcast')
             </tbody>
         </table>
-         <table class="video-table table">
+         <table class="video-table table" style="display:none">
             <thead>
             <tr>
                 <th style="width:8%;text-align:center" scope="col">#</th>
@@ -68,6 +68,7 @@
             </tbody>
 
         </table>
+                 <button type="button" class="btn btn-primary send-broadcast">Gửi broadcast</button>
         </div>
-         <button type="button" class="btn btn-primary send-broadcast">Gửi broadcast</button>
+
 @endsection

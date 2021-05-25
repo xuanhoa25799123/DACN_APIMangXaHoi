@@ -24,6 +24,27 @@
     border-style: dashed;
     border-color: coral;
     border-width: thin;
+    position: relative;
+}
+.broadcast-item:hover > .remove-item {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+}
+
+.remove-item {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 12px;
+    height: 12px;
+    border: none;
+    border-radius: 50%;
+    display: none;
+    background-color: #232222;
+}
+.remove-icon {
+    color: white;
 }
 
 .broadcast-image {

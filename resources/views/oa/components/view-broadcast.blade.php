@@ -12,6 +12,7 @@
 @endsection
 @section('content')
 <div class="broadcast-view-container">
+  <button class="btn btn-outline-primary back-button"><i class="fa fa-arrow-left"></i> Quay lại</button>
     <div class="send-recipient">
     <button type="button" class="btn btn-outline-primary recipient-button">Chọn đối tượng gửi</button>
     <div class="recipient-container">
@@ -94,6 +95,7 @@
     <div class="broadcast-content">
         @foreach($broadcast as $item)
             <div class="broadcast-item">
+              <button class="remove-item"><i class="fa fa-times remove-icon"></i></button>
                 <input type="hidden" name="id[]" value="{{$item->id}}">
                 <img class="broadcast-image" src="{{$item->thumb}}">
                 <p class="broadcast-title">{{$item->title}}</p>
@@ -103,7 +105,6 @@
             </div>
         @endforeach
     </div>
-    
               <div class="loader-container">
                 <div class="loader"></div>
             </div>

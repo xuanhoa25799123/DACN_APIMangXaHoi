@@ -262,6 +262,9 @@ $(document).ready(function () {
         $(".video-table").css("display", "initial");
         $(".article-table").css("display", "none");
     });
+    $(".back-button").on("click", function () {
+        window.history.go(-1);
+    });
 });
 
 let SweetAlert = (message) => {
