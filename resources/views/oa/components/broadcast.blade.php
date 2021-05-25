@@ -68,7 +68,8 @@
             </tbody>
 
         </table>
-                 <button type="button" class="btn btn-primary send-broadcast">Gửi broadcast</button>
+                 <a href="#broadcast-123" class="btn btn-primary">Gửi broadcast</button>
+                 @inlcude('oa.particle.view-broadcast')
         </div>
 
 @endsection

@@ -99,14 +99,10 @@ $(document).ready(function () {
         });
     });
     $("body").on("click", ".select-broadcast", function () {
-        if (selected_broadcast.length == 5) {
-            SweetAlert("Chọn tối đa 5 nội dung trong 1 broadcast");
-            return;
-        }
         let id = $(this).data("id");
 
         if ($(this).hasClass("selected")) {
-            console.log("selected");
+            $(`.item-${id}`).remove();
             $.ajax({
                 url: `/oa/unselect-broadcast/${id}`,
                 type: "get",
@@ -125,7 +121,22 @@ $(document).ready(function () {
                 },
             });
         } else {
-            console.log("unselected");
+            if (selected_broadcast.length == 5) {
+                SweetAlert("Chọn tối đa 5 nội dung trong 1 broadcast");
+                return;
+            }
+            let thumb = $(this).data("thumb");
+            let title = $(this).data("title");
+            let html = `<div class="broadcast-item item-${id}">
+                <button class="remove-item"><i class="fa fa-times remove-icon"></i></button>
+                <input type="hidden" name="id[]" value="${id}">
+                <img class="broadcast-image" src="${thumb}">
+                <p class="broadcast-title">${title}</p>
+                <div class="broadcast-more-info" style="width:80%"></div>
+                <div class="broadcast-more-info" style="width:50%"></div>
+                <div class="broadcast-more-info" style="width:20%"></div>
+            </div>`;
+            $(".broadcast-content").append(html);
             $.ajax({
                 url: `/oa/select-broadcast/${id}`,
                 type: "get",
