@@ -35,7 +35,8 @@
         </div>
     </div>
     </div>
-        <table class="article-table">
+        </div>
+                <table class="article-table table">
             <thead>
             <tr>
                 <th style="width:8%;text-align:center" scope="col">#</th>
@@ -51,8 +52,7 @@
             @include('oa.partials.broadcast')
             </tbody>
         </table>
-        </div>
-         <table class="video-table">
+         <table class="video-table table">
             <thead>
             <tr>
                 <th style="width:8%;text-align:center" scope="col">#</th>
