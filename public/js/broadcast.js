@@ -251,8 +251,8 @@ $(document).ready(function () {
         $(".button-create-video").css("display", "none");
         $(".total-article").css("display", "initial");
         $(".total-video").css("display", "none");
-        $(".video-rows").css("visibility", "hidden");
-        $(".article-rows").css("visibility", "visible");
+        $(".video-table").css("visibility", "hidden");
+        $(".article-table").css("visibility", "visible");
     });
     $(".tab-video").on("click", function () {
         $(this).addClass("active-tab");
@@ -261,8 +261,8 @@ $(document).ready(function () {
         $(".button-create-video").css("display", "initial");
         $(".total-article").css("display", "none");
         $(".total-video").css("display", "initial");
-        $(".video-rows").css("visibility", "visible");
-        $(".article-rows").css("visibility", "hidden");
+        $(".video-table").css("visibility", "visible");
+        $(".article-table").css("visibility", "hidden");
     });
 });
 

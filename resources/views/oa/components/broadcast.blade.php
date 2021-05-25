@@ -35,7 +35,7 @@
         </div>
     </div>
     </div>
-        <table class="table">
+        <table class="article-table">
             <thead>
             <tr>
                 <th style="width:8%;text-align:center" scope="col">#</th>
@@ -50,6 +50,19 @@
             <tbody class="article-rows">
             @include('oa.partials.broadcast')
             </tbody>
+        </table>
+        </div>
+         <table class="video-table">
+            <thead>
+            <tr>
+                <th style="width:8%;text-align:center" scope="col">#</th>
+                <th style="width:15%" scope="col">Ngày xuất bản</th>
+                <th style="width:10%;text-align:center"scope="col">Hình đại diện</th>
+                <th style="width:20%"scope="col">Tên bài viết</th>
+                <th style="width:8%;text-align:center"scope="col">Trạng thái</th>
+                <th style="width:20%;text-align:center"scope="col">Thao tác</th>
+            </tr>
+            </thead>
             <tbody class="video-rows">
             @include('oa.partials.video-broadcast')
             </tbody>
