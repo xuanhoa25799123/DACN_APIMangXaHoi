@@ -68,7 +68,7 @@
             </tbody>
 
         </table>
-                 <a href="#broadcast-123" class="btn btn-primary">Gửi broadcast</a>
+                 <a href="#broadcast-123" class="btn btn-primary">Xem broadcast</a>
                  @include('oa.partials.view-broadcast')
         </div>
 

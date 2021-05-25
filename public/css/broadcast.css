@@ -74,12 +74,12 @@
 .recipient-container {
     display: none;
     position: absolute;
+    z-index: 10;
     right: -500px;
     top: 0;
     padding: 20px;
     border-radius: 10px;
     width: 400px;
-
     box-shadow: 0 10px 15px -7px black;
     flex-direction: column;
     background-color: white;
