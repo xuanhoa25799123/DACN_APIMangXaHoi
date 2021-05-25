@@ -79,17 +79,7 @@
     </div>
 
     <div class="broadcast-content">
-        <!-- @foreach($broadcast as $item)
-            <div class="broadcast-item">
-              <button class="remove-item"><i class="fa fa-times remove-icon"></i></button>
-                <input type="hidden" name="id[]" value="{{$item->id}}">
-                <img class="broadcast-image" src="{{$item->thumb}}">
-                <p class="broadcast-title">{{$item->title}}</p>
-                <div class="broadcast-more-info" style="width:80%"></div>
-                <div class="broadcast-more-info" style="width:50%"></div>
-                <div class="broadcast-more-info" style="width:20%"></div>
-            </div>
-        @endforeach -->
+
     </div>
               <div class="loader-container">
                 <div class="loader"></div>
