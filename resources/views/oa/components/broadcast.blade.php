@@ -46,9 +46,14 @@
                 <th style="width:20%;text-align:center"scope="col">Thao tác</th>
             </tr>
             </thead>
+            
             <tbody class="article-rows">
             @include('oa.partials.broadcast')
             </tbody>
+              <tbody class="video-rows">
+            @include('oa.partials.video-broadcast')
+            </tbody>
+
         </table>
         </div>
          <button type="button" class="btn btn-primary send-broadcast">Gửi broadcast</button>
