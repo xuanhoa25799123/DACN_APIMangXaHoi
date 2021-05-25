@@ -68,8 +68,8 @@
             </tbody>
 
         </table>
-                 <a href="#broadcast-123" class="btn btn-primary">Gửi broadcast</button>
-                 @inlcude('oa.particle.view-broadcast')
+                 <a href="#broadcast-123" class="btn btn-primary">Gửi broadcast</a>
+                 @include('oa.particle.view-broadcast')
         </div>
 
 @endsection
