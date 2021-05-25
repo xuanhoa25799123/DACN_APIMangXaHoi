@@ -265,6 +265,9 @@ $(document).ready(function () {
     $(".back-button").on("click", function () {
         window.history.go(-1);
     });
+    $(".remove-item").on("click", function () {
+        $(this).parent().remove();
+    });
 });
 
 let SweetAlert = (message) => {

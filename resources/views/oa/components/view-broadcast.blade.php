@@ -12,8 +12,8 @@
 @endsection
 @section('content')
 <div class="broadcast-view-container">
-  <button class="btn btn-outline-primary back-button"><i class="fa fa-arrow-left"></i> Quay lại</button>
     <div class="send-recipient">
+    <button class="btn btn-outline-primary back-button"><i class="fa fa-arrow-left"></i> Quay lại</button>
     <button type="button" class="btn btn-outline-primary recipient-button">Chọn đối tượng gửi</button>
     <div class="recipient-container">
         <div class="recipient-header">
