@@ -100,7 +100,7 @@ class OAController extends Controller
        $data = [
            'offset'=>0,
            'count'=>10,
-       ]
+       ];
            $client = new GuzzleHttp\Client();
             $res = $client->get('https://openapi.zalo.me/v2.0/oa/listrecentchat',
     ['query'=>[
@@ -113,7 +113,7 @@ class OAController extends Controller
                  'offset'=>0,
                  'user_id'=>$id,
                  'count'=>10,
-             ]
+             ];
                $res = $client->get('https://openapi.zalo.me/v2.0/oa/conversation',
     ['query'=>[
         'data'=>$data,
@@ -123,9 +123,9 @@ class OAController extends Controller
               $userMessages = $result->data;
               dd(recentMessages,userMessages);
 
-
-        $title = 
-        return view('oa.components.followers-chat',compact('followers','oa_info','title','total','paginate'));
+         $oa_info = session('oa_info');
+        $title = 'Gửi tin nhắn';
+        return view('oa.components.followers-chat',compact('title','oa_info'));
     }
     public function articleList(Request $request)
     {
