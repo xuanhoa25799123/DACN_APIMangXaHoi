@@ -27,4 +27,21 @@
         </div>
         @endforeach
     </div>
+    <div class="user-message">
+        <div class="user-message-header">
+            <div class="user-info">
+            <div class="user-avatar">
+                <img class="user-image" src="{{$userMessages[0].to_avatar}}">
+
+            </div>
+            <p class="username">{{$userMessages[0].to_display_name}}</p>
+            </div>
+            <div class="message-container">
+            
+            </div>
+            <div class="form-group">
+                <input class="form-control" placeholder="Nhập nội dung tin nhắn...">
+            </div>
+        
+    </div>
 @endsection
