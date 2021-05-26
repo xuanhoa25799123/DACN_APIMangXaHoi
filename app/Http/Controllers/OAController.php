@@ -191,13 +191,7 @@ class OAController extends Controller
                 'body'=>$data
          ]);
                   $response = json_decode($result->getBody());
-                  if($response->message=="Success")
-                  {
-                      return response()->json(['success'=>true]);
-                  }
-                  else{
-                      return response()->json(['success'=>false,'message'=>$response->message]);
-                  }
+                  return reponse()->json($response);
 
     }
     public function getTime($time)

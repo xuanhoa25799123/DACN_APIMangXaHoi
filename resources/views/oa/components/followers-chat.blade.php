@@ -88,7 +88,7 @@
                 @endforeach
             </div>
             <div class="form-group">
-                <input data-id="{{$user->user_id}}" data-href="{{route('follower-send-message')}}"class="form-control message-enter" placeholder="Nhập nội dung tin nhắn...">
+                <input data-img="{{$$oa_info->avatar}}" data-name="{{$oa_info->name}}"data-id="{{$user->user_id}}" data-href="{{route('follower-send-message')}}"class="form-control message-enter" placeholder="Nhập nội dung tin nhắn...">
             </div>
         
     </div>
