@@ -96,7 +96,6 @@ class OAController extends Controller
 
     public function followerChat($id)
     {
-        dd($id);
         $accessToken = session('oa_token');
        $data = json_encode([
            'offset'=>0,
@@ -112,7 +111,7 @@ class OAController extends Controller
              $recentMessages = $result->data;
              $data = json_encode([
                  'offset'=>0,
-                 'user_id'=>$id,
+                 'user_id'=>(int)$id,
                  'count'=>10,
              ]);
                $res = $client->get('https://openapi.zalo.me/v2.0/oa/conversation',
@@ -123,7 +122,6 @@ class OAController extends Controller
               $result = json_decode($res->getBody());
               $userMessages = $result->data;
               dd(recentMessages,userMessages);
-
          $oa_info = session('oa_info');
         $title = 'Gửi tin nhắn';
         return view('oa.components.followers-chat',compact('title','oa_info'));
