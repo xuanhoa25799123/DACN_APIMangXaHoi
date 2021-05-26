@@ -16,12 +16,16 @@
         <div class="recent-item">
             <div class="user-info">
             <div class="user-avatar">
-                <img class="user-image" src="{{$message->to_avatar}}" href="">
+                <img class="user-image" src="{{$message->user->avatar}}" href="">
             </div>
             <div class="message-info">
-                <p class="username">{{$message->to_display_name}}</p>
-                <p class="message">{{$message->message}}</p>
-
+                <p class="username">{{$message->user->display_name}}</p>
+                <p class="message">
+                @if($message->to_id == $message->user->user_id)
+                    <i class="fa fa-reply icon"></i>
+                @endif
+                {{$message->message}}
+                </p>
             </div>
             </div>
             <p class="time">{{$message->time}}</p>
