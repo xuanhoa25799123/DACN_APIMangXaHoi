@@ -185,7 +185,7 @@ class OAController extends Controller
     {
          $time =(int)substr((string)$time,0,10);
   
-             return date("H:i, d tháng m năm Y",$time);
+             return date("H:i, d/m/Y",$time);
          
     }
     public function articleList(Request $request)

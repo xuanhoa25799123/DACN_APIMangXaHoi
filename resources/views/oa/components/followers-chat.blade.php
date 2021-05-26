@@ -25,7 +25,9 @@
                 @if($message->to_id == $message->user->user_id)
                     <i class="fa fa-reply icon"></i>
                 @endif
+               
                 {{$message->message}}
+                
                 </p>
             </div>
             </div>
@@ -46,28 +48,36 @@
                 @foreach($userMessages as $message)
                     <div class="message-date">{{$message->time}}</div>
                     @if($message->src)
-                        <div class="message-item-left">
+                    <div class="message-left">
+                        <div class="message-item">
                             <div class="user-avatar" style="width:40px;height:40px">
                                 <img class="user-image" src="{{$message->from_avatar}}">
                             </div>
                             <div class="message-item-info">
                                 <p class="username">{{$message->from_display_name}}</p>
                                 <div class="message-content">
+                                    <p>
                                     {{$message->message}}
+                                    </p>
                                 </div>
                             </div>
                         </div>
+                        </div>
                     @else
-                      <div class="message-item-right">
+                    <div class="message-right">
+                      <div class="message-item">
                             <div class="message-item-info">
                                 <p class="username">{{$message->from_display_name}}</p>
                                 <div class="message-content">
+                                    <p>
                                     {{$message->message}}
+                                    </p>
                                 </div>
                             </div>
                                <div class="user-avatar" style="width:40px;height:40px">
                                 <img class="user-image" src="{{$message->from_avatar}}">
                             </div>
+                        </div>
                         </div>
                     
   
