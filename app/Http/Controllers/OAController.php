@@ -173,8 +173,10 @@ class OAController extends Controller
     }
     public function followerSendMessage(Request $request)
     {
+        
         $user_id = $request->user_id;
         $message= $request->message;
+        dd($user_id,$message);
           $accessToken = session('oa_token');
        $data = json_encode([
           'recipient'=>[
@@ -183,14 +185,13 @@ class OAController extends Controller
           'message'=>[
               'text'=>$message,
           ],
-
        ]);
            $client = new GuzzleHttp\Client();
          $result = $client->request('POST','https://openapi.zalo.me/v2.0/oa/message',[
                  'query'=>[
-                     'access_token'=>$accessToken
+                     'access_token'=>$accessToken,
                  ],
-                'body'=>$data
+                'body'=>$data,
          ]);
                   $response = json_decode($result->getBody());
                   return reponse()->json($response);

@@ -46,7 +46,7 @@
             <p class="username2">{{$user->display_name}}</p>
             </div>
             </div>
-            <div class="message-container">
+            <div class="message-container" id="scroll-div">
                 @foreach($userMessages as $message)
                     <div class="message-date">{{$message->time}}</div>
                     @if($message->src)
