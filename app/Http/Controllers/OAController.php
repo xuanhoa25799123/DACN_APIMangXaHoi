@@ -122,6 +122,7 @@ class OAController extends Controller
             ]]);
               $result = json_decode($res->getBody());
               $userMessages = $result->data;
+              $user = null;
               foreach($recentMessages as $message)
               {
                     $data = json_encode([
@@ -135,6 +136,10 @@ class OAController extends Controller
                        $result = json_decode($res->getBody());
                        if($result->message=="Success")
                        {
+                           if($result->data->user_id == $id)
+                           {
+                               $user = $result->data;
+                           }
                             $message->user = $result->data;
                        }
                        else{
@@ -147,6 +152,10 @@ class OAController extends Controller
                     'access_token'=>$accessToken
                     ]]);
                        $result = json_decode($res->getBody());
+                        if($result->data->user_id == $id)
+                           {
+                               $user = $result->data;
+                           }
                        $message->user = $result->data;
                        }
 
@@ -154,7 +163,7 @@ class OAController extends Controller
               }
          $oa_info = session('oa_info');
         $title = 'Gửi tin nhắn';
-        return view('oa.components.followers-chat',compact('title','oa_info','recentMessages','userMessages'));
+        return view('oa.components.followers-chat',compact('title','oa_info','recentMessages','userMessages','user'));
     }
     public function getTime($time)
     {

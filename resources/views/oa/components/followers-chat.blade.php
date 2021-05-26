@@ -13,7 +13,7 @@
     <div class="chat-container">
     <div class="recent-message">
         @foreach($recentMessages as $message)
-        <div class="recent-item">
+        <a class="recent-item" href="{{route('follower-chat',['id'=>$message->user->user_id])}}">
             <div class="user-info">
             <div class="user-avatar">
                 <img class="user-image" src="{{$message->user->avatar}}" href="">
@@ -29,18 +29,16 @@
             </div>
             </div>
             <p class="time">{{$message->time}}</p>
-        </div>
+        </a>
         @endforeach
     </div>
     <div class="user-message">
         <div class="user-message-header">
             <div class="user-info">
             <div class="user-avatar">
-                <img class="user-image" src="{{$userMessages[0]->to_avatar}}">
-
+                <img class="user-image" src="{{$user->avatar}}">
             </div>
-            
-            <p class="username2">{{$userMessages[0]->to_display_name}}</p>
+            <p class="username2">{{$user->display_name}}</p>
             </div>
             </div>
             <div class="message-container">
