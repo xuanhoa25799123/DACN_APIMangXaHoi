@@ -10,6 +10,7 @@
           <!-- <link rel="stylesheet" href="{{asset('/plugins/select2/select2.min.js')}}"> -->
 @endsection
 @section('content')
+    <div class="chat-container">
     <div class="recent-message">
         @foreach($recentMessages as $message)
         <div class="recent-item">
@@ -34,7 +35,9 @@
                 <img class="user-image" src="{{$userMessages[0]->to_avatar}}">
 
             </div>
-            <p class="username">{{$userMessages[0]->to_display_name}}</p>
+            
+            <p class="username2">{{$userMessages[0]->to_display_name}}</p>
+            </div>
             </div>
             <div class="message-container">
             
@@ -43,5 +46,6 @@
                 <input class="form-control" placeholder="Nhập nội dung tin nhắn...">
             </div>
         
+    </div>
     </div>
 @endsection
