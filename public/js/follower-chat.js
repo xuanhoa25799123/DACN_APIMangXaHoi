@@ -32,17 +32,17 @@ $(document).ready(function () {
                             let date = null;
                             if (first) {
                                 date = new Date();
-                                date =
-                                    today.getHours() +
+                                let datehtml =
+                                    date.getHours() +
                                     ":" +
-                                    today.getMinutes() +
+                                    date.getMinutes() +
                                     ", " +
-                                    today.getDate() +
+                                    date.getDate() +
                                     "/" +
-                                    (today.getMonth() + 1) +
+                                    (date.getMonth() + 1) +
                                     "/" +
-                                    today.getFullYear();
-                                date = `<div class="message-date">${date}</div>`;
+                                    date.getFullYear();
+                                date = `<div class="message-date">${datehtml}</div>`;
                             }
                             first = false;
                             let html =
