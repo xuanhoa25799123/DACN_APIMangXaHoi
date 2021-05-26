@@ -12,6 +12,10 @@
 }
 .chat-container {
     display: flex;
+    width: 99%;
+    padding: 20px;
+    margin: auto;
+    overflow-y: auto;
 }
 .recent-item {
     display: flex;
@@ -84,4 +88,25 @@
 .icon {
     margin: 0;
     color: grey;
+}
+
+.message-item {
+    display: flex;
+}
+.message-item-info {
+    margin: 0 10px;
+}
+
+.message-content {
+    background-color: #ebf7ff;
+    border-radius: 10px;
+    border: none;
+    border-bottom: 1px solid grey;
+}
+.message-date {
+    width: 230px;
+    padding: 10px;
+    border: 50%;
+    background-color: grey;
+    color: white;
 }

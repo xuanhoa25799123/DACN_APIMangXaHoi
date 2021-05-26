@@ -123,6 +123,10 @@ class OAController extends Controller
               $result = json_decode($res->getBody());
               $userMessages = $result->data;
               $user = null;
+              foreach($userMessages as $message)
+              {
+                  $message->time = $this->getTime2($message->time);
+              }
               foreach($recentMessages as $message)
               {
                     $data = json_encode([
@@ -176,6 +180,13 @@ class OAController extends Controller
          else{
              return date("d/m",$time);
          }
+    }
+        public function getTime2($time)
+    {
+         $time =(int)substr((string)$time,0,10);
+  
+             return date("H:i, d tháng m năm Y",$time);
+         
     }
     public function articleList(Request $request)
     {

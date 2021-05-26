@@ -42,7 +42,24 @@
             </div>
             </div>
             <div class="message-container">
-            
+                @foreach($userMessages as $message)
+                    <div class="message-date">{{$message->time}}</div>
+                    @if($message->src)
+                    {
+                        <div class="message-item">
+                            <div class="user-avatar" style="width:40px;height:40px;">
+                                <img class="user-image" src="{{$message->from_avatar}}">
+                            </div>
+                            <div class="message-item-info">
+                                <p class="username">{{$message->from_display_name}}</p>
+                                <div class="message-content">
+                                    {{$message->message}}
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                @endforeach
             </div>
             <div class="form-group">
                 <input class="form-control" placeholder="Nhập nội dung tin nhắn...">
