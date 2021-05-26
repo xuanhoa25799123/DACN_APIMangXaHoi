@@ -121,11 +121,13 @@ class OAController extends Controller
                 'access_token'=>$accessToken
             ]]);
               $result = json_decode($res->getBody());
-              $userMessages = $result->data;
+              $userMsgs = $result->data;
               $user = null;
-              foreach($userMessages as $message)
+              $userMessages = array();
+              foreach($userMsgs as $message)
               {
                   $message->time = $this->getTime2($message->time);
+                   array_unshift($userMessages,$message);
               }
               foreach($recentMessages as $message)
               {
