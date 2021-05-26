@@ -12,6 +12,7 @@
 @section('content')
     <div class="chat-container">
     <div class="recent-message">
+        <h4>Tin nhắn gần đây</h4>
         @foreach($recentMessages as $message)
         <a class="recent-item" href="{{route('follower-chat',['id'=>$message->user->user_id])}}">
             <div class="user-info">
