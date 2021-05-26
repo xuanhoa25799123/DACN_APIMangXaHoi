@@ -62,7 +62,7 @@
                                 </div>
                             </div>
                         </div>
-                        </div>
+                    </div>
                     @else
                     <div class="message-right">
                       <div class="message-item">
@@ -78,7 +78,7 @@
                                 <img class="user-image" src="{{$message->from_avatar}}">
                             </div>
                         </div>
-                        </div>
+                    </div>
                     
   
                     @endif
