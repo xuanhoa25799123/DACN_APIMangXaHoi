@@ -110,3 +110,10 @@
     background-color: grey;
     color: white;
 }
+
+.message-left {
+    float: left;
+}
+.message-right {
+    float: right;
+}
