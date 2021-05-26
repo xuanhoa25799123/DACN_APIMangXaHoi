@@ -121,6 +121,7 @@
     text-align: center;
     width: fit-content;
     padding: 5px 15px;
+    max-width: 350px;
 }
 
 .message-content-right {
@@ -132,6 +133,7 @@
     width: fit-content;
     padding: 5px 15px;
     float: right;
+    max-width: 350px;
 }
 .message-date {
     padding: 5px 15px;

@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    let first = true;
     var objDiv = document.getElementById("scroll-div");
     objDiv.scrollTop = objDiv.scrollHeight;
     $(".message-enter").keypress(function (e) {
@@ -28,7 +29,25 @@ $(document).ready(function () {
                     dataType: "json",
                     success: function (response) {
                         if (response.message == "Success") {
-                            let html = `<div class="message-right">
+                            let date = null;
+                            if (first) {
+                                date = new Date();
+                                date =
+                                    today.getHours() +
+                                    ":" +
+                                    today.getMinutes() +
+                                    ", " +
+                                    today.getDate() +
+                                    "/" +
+                                    (today.getMonth() + 1) +
+                                    "/" +
+                                    today.getFullYear();
+                                date = `<div class="message-date">${date}</div>`;
+                            }
+                            first = false;
+                            let html =
+                                date +
+                                `<div class="message-right">
                       <div class="message-item">
                             <div class="message-item-info">
                                 <p class="username">${name}</p>
