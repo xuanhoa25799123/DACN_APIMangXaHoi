@@ -110,7 +110,7 @@ Route::prefix('oa')->group(function () {
         'uses'=>'App\Http\Controllers\OAController@followerSearch'
     ]);
       Route::get('/follower-chat/{id}', [
-          'as'=>'follower-chat'
+          'as'=>'follower-chat',
         'uses'=>'App\Http\Controllers\OAController@followerChat'
     ]);
     Route::get('/article',[
