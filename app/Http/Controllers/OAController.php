@@ -97,10 +97,10 @@ class OAController extends Controller
     public function followerChat($id)
     {
         $accessToken = session('oa_token');
-       $data = [
+       $data = json_encode([
            'offset'=>0,
            'count'=>10,
-       ];
+       ]);
            $client = new GuzzleHttp\Client();
             $res = $client->get('https://openapi.zalo.me/v2.0/oa/listrecentchat',
     ['query'=>[
@@ -109,11 +109,11 @@ class OAController extends Controller
             ]]);
              $result = json_decode($res->getBody());
              $recentMessages = $result->data;
-             $data = [
+             $data = json_encode([
                  'offset'=>0,
                  'user_id'=>$id,
                  'count'=>10,
-             ];
+             ]);
                $res = $client->get('https://openapi.zalo.me/v2.0/oa/conversation',
     ['query'=>[
         'data'=>$data,
