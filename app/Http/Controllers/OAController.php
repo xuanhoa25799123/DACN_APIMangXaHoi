@@ -121,9 +121,25 @@ class OAController extends Controller
             ]]);
               $result = json_decode($res->getBody());
               $userMessages = $result->data;
+              foreach($recentMessages as $message)
+              {
+                  $message->time = $this->getTime($message->time);
+              }
          $oa_info = session('oa_info');
         $title = 'Gửi tin nhắn';
         return view('oa.components.followers-chat',compact('title','oa_info','recentMessages','userMessages'));
+    }
+    public function getTime($time)
+    {
+         $time =(int)substr((string)$time,0,10);
+         $date = $start = strtotime(date("Y-m-d H:i:s"));
+         if($date - $time < 86400)
+         {
+             return date("H:i",$time);
+         }
+         else{
+             return date("d/m",$time);
+         }
     }
     public function articleList(Request $request)
     {

@@ -17,13 +17,13 @@
             <div class="user-avatar">
                 <img class="user-image" src="{{$message->to_avatar}}" href="">
             </div>
-            <div class="message-info"
+            <div class="message-info">
                 <p class="username">{{$message->to_display_name}}</p>
                 <p class="message">{{$message->message}}</p>
 
             </div>
             </div>
-            <div class="time">{{$message->time}}</div>
+            <p class="time">{{$message->time}}</p>
         </div>
         @endforeach
     </div>
