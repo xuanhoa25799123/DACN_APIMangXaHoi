@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var objDiv = document.getElementById("message-container");
+    var objDiv = document.getElementsByClassName("message-container");
     objDiv.scrollTop = objDiv.scrollHeight;
     $(".message-enter").keypress(function (e) {
         if (e.which == 13) {
