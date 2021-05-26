@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    var objDiv = document.getElementById("message-container");
+    objDiv.scrollTop = objDiv.scrollHeight;
     $(".message-enter").keypress(function (e) {
         if (e.which == 13) {
             e.preventDefault();
@@ -6,7 +8,7 @@ $(document).ready(function () {
             let user_id = $(this).data("id");
             let url = $(this).data("href");
             let image = $(this).data("img");
-            let name = $(This).data("name");
+            let name = $(this).data("name");
             console.log(message, user_id, url);
             if ($.trim(message) == "") {
                 return;
