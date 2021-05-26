@@ -173,7 +173,6 @@ class OAController extends Controller
     }
     public function followerSendMessage(Request $request)
     {
-        try{
         $user_id = $request->user_id;
         $message= $request->message;
         $accessToken = session('oa_token');
@@ -193,12 +192,8 @@ class OAController extends Controller
                 'body'=>$data,
          ]);
                   $response = json_decode($result->getBody());
-        return reponse()->json($response);
-            }
-               catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()]);
-        }
-
+        return response()->json($response);
+    
     }
     public function getTime($time)
     {
