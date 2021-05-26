@@ -121,10 +121,9 @@ class OAController extends Controller
             ]]);
               $result = json_decode($res->getBody());
               $userMessages = $result->data;
-              dd($recentMessages,$userMessages);
          $oa_info = session('oa_info');
         $title = 'Gửi tin nhắn';
-        return view('oa.components.followers-chat',compact('title','oa_info'));
+        return view('oa.components.followers-chat',compact('title','oa_info','recentMessages','userMessages'));
     }
     public function articleList(Request $request)
     {
