@@ -176,7 +176,6 @@ class OAController extends Controller
         
         $user_id = $request->user_id;
         $message= $request->message;
-        dd($user_id,$message);
           $accessToken = session('oa_token');
        $data = json_encode([
           'recipient'=>[
@@ -194,7 +193,7 @@ class OAController extends Controller
                 'body'=>$data,
          ]);
                   $response = json_decode($result->getBody());
-                  return reponse()->json($response);
+        return reponse()->json($response);
 
     }
     public function getTime($time)
