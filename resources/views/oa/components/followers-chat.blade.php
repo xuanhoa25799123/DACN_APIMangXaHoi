@@ -31,10 +31,10 @@
         <div class="user-message-header">
             <div class="user-info">
             <div class="user-avatar">
-                <img class="user-image" src="{{$userMessages[0].to_avatar}}">
+                <img class="user-image" src="{{$userMessages[0]->to_avatar}}">
 
             </div>
-            <p class="username">{{$userMessages[0].to_display_name}}</p>
+            <p class="username">{{$userMessages[0]->to_display_name}}</p>
             </div>
             <div class="message-container">
             
