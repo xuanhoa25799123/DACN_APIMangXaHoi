@@ -113,6 +113,10 @@ Route::prefix('oa')->group(function () {
           'as'=>'follower-chat',
         'uses'=>'App\Http\Controllers\OAController@followerChat'
     ]);
+      Route::post('/follower-send-message', [
+          'as'=>'follower-send-message',
+        'uses'=>'App\Http\Controllers\OAController@followerSendMessage'
+    ]);
     Route::get('/article',[
         'as'=>'oa-article',
         'uses'=>'App\Http\Controllers\OAController@articleList',

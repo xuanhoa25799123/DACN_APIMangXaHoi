@@ -7,6 +7,7 @@
 @endsection
 @section('js')
     <script src="{{asset('/js/follower.js')}}"></script>
+ 
           <link rel="stylesheet" href="{{asset('/plugins/select2/select2.min.js')}}">
 @endsection
 @section('content')

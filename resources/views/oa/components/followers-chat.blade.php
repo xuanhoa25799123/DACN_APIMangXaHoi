@@ -7,6 +7,8 @@
 @endsection
 @section('js')
     <script src="{{asset('/js/follower.js')}}"></script>
+    <script src="{{asset('/js/follower-chat.js')}}"></script>
+     <script src="{{asset('plugins/sweetalert2/sweetalert2@10.js')}}"></script>
           <!-- <link rel="stylesheet" href="{{asset('/plugins/select2/select2.min.js')}}"> -->
 @endsection
 @section('content')
@@ -55,7 +57,7 @@
                             </div>
                             <div class="message-item-info">
                                 <p class="username">{{$message->from_display_name}}</p>
-                                <div class="message-content">
+                                <div class="message-content-left">
                                     <p>
                                     {{$message->message}}
                                     </p>
@@ -68,7 +70,7 @@
                       <div class="message-item">
                             <div class="message-item-info">
                                 <p class="username">{{$message->from_display_name}}</p>
-                                <div class="message-content">
+                                <div class="message-content-right">
                                     <p>
                                     {{$message->message}}
                                     </p>
@@ -86,7 +88,7 @@
                 @endforeach
             </div>
             <div class="form-group">
-                <input class="form-control" placeholder="Nhập nội dung tin nhắn...">
+                <input data-id="{{$user->user_id}}" data-href="{{route('follower-send-message')}}"class="form-control message-enter" placeholder="Nhập nội dung tin nhắn...">
             </div>
         
     </div>

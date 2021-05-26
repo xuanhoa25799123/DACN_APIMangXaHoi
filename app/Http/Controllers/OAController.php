@@ -169,6 +169,37 @@ class OAController extends Controller
         $title = 'Gửi tin nhắn';
         return view('oa.components.followers-chat',compact('title','oa_info','recentMessages','userMessages','user'));
     }
+    public function followerSendMessage(Request $request)
+    {
+        $user_id = $request->user_id;
+        $message= $request->message;
+          $accessToken = session('oa_token');
+       $data = json_encode([
+          'recipient'=>[
+              'user_id'=>$user_id,
+          ],
+          'message'=>[
+              'text'=>$message,
+          ],
+
+       ]);
+           $client = new GuzzleHttp\Client();
+         $result = $client->request('POST','https://openapi.zalo.me/v2.0/oa/message',[
+                 'query'=>[
+                     'access_token'=>$accessToken
+                 ],
+                'body'=>$data
+         ]);
+                  $response = json_decode($result->getBody());
+                  if($response->message=="Success")
+                  {
+                      return response()->json(['success'=>true]);
+                  }
+                  else{
+                      return response()->json(['success'=>false,'message'=>$response->message]);
+                  }
+
+    }
     public function getTime($time)
     {
          $time =(int)substr((string)$time,0,10);

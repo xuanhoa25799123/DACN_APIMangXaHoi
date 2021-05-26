@@ -112,7 +112,7 @@
     margin: 0 10px;
 }
 
-.message-content {
+.message-content-left {
     background-color: #ebf7ff;
     border-radius: 10px;
     border: none;
@@ -120,6 +120,17 @@
     text-align: center;
     width: fit-content;
     padding: 5px 15px;
+}
+
+.message-content-right {
+    background-color: #ebf7ff;
+    border-radius: 10px;
+    border: none;
+    border-bottom: 1px solid grey;
+    text-align: center;
+    width: fit-content;
+    padding: 5px 15px;
+    float: right;
 }
 .message-date {
     padding: 5px 15px;
