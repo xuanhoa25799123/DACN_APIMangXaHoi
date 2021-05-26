@@ -4,7 +4,8 @@
 
                 <td style="text-align:center"> <img class="follower-image" src="{{$follower['avatar']}}" alt=""></td>
                 <td> {{$follower['display_name']}}</td>
-                <!-- <td style="text-align:center"><a href="{{route('update-user',['id'=>$follower['id'])}}" class="btn btn-outline-primary"><i class="fa fa-chat"></i>&nbsp; Cập nhật thông tin</button> -->
+            
+                <td style="text-align:center"><a href="{{route('follower-chat',['id'=>$follower['id']])}}" class="btn btn-outline-primary"><i class="fa fa-chat"></i>&nbsp; Chat</a>
                 </td>
             </tr>
         @endforeach

@@ -94,20 +94,39 @@ class OAController extends Controller
         return view('oa.components.followers',compact('followers','oa_info','title','total','paginate'));
     }
 
-    // public function updateUser($id)
-    // {
-    //     $data = json_encode(['user_id' => $id]);
-    //      $client = new GuzzleHttp\Client();
-    //     $accessToken = session('oa_token');
-    //     $res = $client->get('https://openapi.zalo.me/v2.0/oa/getprofile',
-    // ['query'=>[
-    //     'data'=>$data,
-    //     'access_token'=>$accessToken
-    //         ]]);
-    //    $result = json_decode($res->getBody());
-    //    $data = $result->data;
+    public function followerChat($id)
+    {
+        $accessToken = session('oa_token');
+       $data = [
+           'offset'=>0,
+           'count'=>10,
+       ]
+           $client = new GuzzleHttp\Client();
+            $res = $client->get('https://openapi.zalo.me/v2.0/oa/listrecentchat',
+    ['query'=>[
+        'data'=>$data,
+        'access_token'=>$accessToken
+            ]]);
+             $result = json_decode($res->getBody());
+             $recentMessages = $result->data;
+             $data = [
+                 'offset'=>0,
+                 'user_id'=>$id,
+                 'count'=>10,
+             ]
+               $res = $client->get('https://openapi.zalo.me/v2.0/oa/conversation',
+    ['query'=>[
+        'data'=>$data,
+        'access_token'=>$accessToken
+            ]]);
+              $result = json_decode($res->getBody());
+              $userMessages = $result->data;
+              dd(recentMessages,userMessages);
 
-    // }
+
+        $title = 
+        return view('oa.components.followers-chat',compact('followers','oa_info','title','total','paginate'));
+    }
     public function articleList(Request $request)
     {
         $client = new GuzzleHttp\Client();
