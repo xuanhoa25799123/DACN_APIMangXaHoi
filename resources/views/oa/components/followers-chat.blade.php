@@ -45,7 +45,7 @@
                 @foreach($userMessages as $message)
                     <div class="message-date">{{$message->time}}</div>
                     @if($message->src)
-                        <div class="message-item message-left">
+                        <div class="message-item-left">
                             <div class="user-avatar" style="width:40px;height:40px">
                                 <img class="user-image" src="{{$message->from_avatar}}">
                             </div>
@@ -57,7 +57,7 @@
                             </div>
                         </div>
                     @else
-                      <div class="message-item message-right">
+                      <div class="message-item-right">
                             <div class="message-item-info">
                                 <p class="username">{{$message->from_display_name}}</p>
                                 <div class="message-content">

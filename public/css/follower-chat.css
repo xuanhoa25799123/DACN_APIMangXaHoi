@@ -90,8 +90,14 @@
     color: grey;
 }
 
-.message-item {
+.message-item-left {
     display: flex;
+    width: 100%;
+}
+.message-item-right {
+    display: flex;
+    width: 100%;
+    margin-right: 0;
 }
 .message-item-info {
     margin: 0 10px;
@@ -102,18 +108,13 @@
     border-radius: 10px;
     border: none;
     border-bottom: 1px solid grey;
+    text-align: center;
 }
 .message-date {
-    width: 230px;
     padding: 10px;
-    border: 50%;
+    border-radius: 50%;
+    text-align: center;
+    margin: 0 auto;
     background-color: grey;
     color: white;
-}
-
-.message-left {
-    float: left;
-}
-.message-right {
-    float: right;
 }
