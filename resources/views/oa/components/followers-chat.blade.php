@@ -27,8 +27,14 @@
                 @if($message->to_id == $message->user->user_id)
                     <i class="fa fa-reply icon"></i>
                 @endif
-               
-                {{$message->message}}
+
+                 @if($message->type=="text")
+                                    <p>
+                                    {{$message->message}}
+                                    </p>
+                                    @elseif($message->type=="sticker")
+                                    <p>[Biểu cảm]</p>
+                    @endif
                 
                 </p>
             </div>
