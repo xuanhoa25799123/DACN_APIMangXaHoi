@@ -1,134 +1,130 @@
-@keyframes popup{
-    0%{
+@keyframes popup {
+    0% {
         transform: scale(0);
-        opacity:0;
+        opacity: 0;
     }
-    100%{
-        transform:scale(1);
+    100% {
+        transform: scale(1);
         opacity: 1;
     }
 }
-.preview-container{
-    position:fixed;
-    top:100px;
-    left:40%;
-    width:400px;
-    height:fit-content;
-    display:none;
-    border-radius:5px;
-    box-shadow:0 10px 15px -7px black;
-    z-index:2;
-    background-color:white;
-    animation:0.3s popup ease-in-out;
+.preview-container {
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 400px;
+    height: fit-content;
+    display: none;
+    border-radius: 5px;
+    box-shadow: 0 10px 15px -7px black;
+    z-index: 2;
+    background-color: white;
+    animation: 0.3s popup ease-in-out;
 }
-.preview-sub-container{
-    width:100%;
+.preview-sub-container {
+    width: 100%;
 }
-.preview-header{
-    position:relative;
-    top:0;
-    left:0;
-    width:100%;
-    background-color:orange;
-    border-radius:5px 5px 0 0;
-    padding:5px;
-    color:white;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    justify-content: center;
-}
-.preview-header-p{
-    font-size:14px;
-    font-weight:bold;
-
-}
-.preview-profile{
-    width:90%;
-    margin:0 auto;
-    display:flex;
-    position:relative;
-}
-.preview-profile-img{
-    width:50px;
-    height:50px;
-    border-radius:50%;
-    object-fit:contain;
-}
-.preview-profile-info
-{
-    display:flex;
-    flex-direction: column;
-    margin-left:10px;
-}
-.preview-name{
-    color:black;
-    font-weight:bold;
-    font-size:14px;
-}
-.preview-recent{
-    color:grey;
-    font-size:12px;
-}
-
-.preview-content{
-    width:90%;
-    margin:10px auto;
-
-}
-.preview-interact{
-    width:100%;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    justify-content: space-between;
-    height:50px;
-}
-.btn-interact{
-    border:1px solid white;
-    width:100%;
-    outline:none;
-    padding:10px;
-    background:none;
-}
-.btn-interact:hover{
-    border-radius:5px;
-    border:1px solid aqua;
-}
-.btn-close{
-    position:absolute;
-    top:5px;
-    right:5px;
-    width:30px;
-    height:30px;
-    border:1px solid grey;
-    border-radius:50%;
-    outline:none;
-    background:none;
-    color:grey;
-    display:flex;
+.preview-header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: orange;
+    border-radius: 5px 5px 0 0;
+    padding: 5px;
+    color: white;
+    margin: auto;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
-.btn-close:hover{
-    border:1px solid white;
-    color:white;
+.preview-header-p {
+    font-size: 14px;
+    font-weight: bold;
 }
-.preview-footer{
-    width:90%;
-    margin:10px auto;
+.preview-profile {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    position: relative;
+}
+.preview-profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: contain;
+}
+.preview-profile-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+.preview-name {
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+}
+.preview-recent {
+    color: grey;
+    font-size: 12px;
+}
 
-    display:flex;
-    align-items:center;
+.preview-content {
+    width: 90%;
+    margin: 10px auto;
+}
+.preview-interact {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+}
+.btn-interact {
+    border: 1px solid white;
+    width: 100%;
+    outline: none;
+    padding: 10px;
+    background: none;
+}
+.btn-interact:hover {
+    border-radius: 5px;
+    border: 1px solid aqua;
+}
+.btn-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid grey;
+    border-radius: 50%;
+    outline: none;
+    background: none;
+    color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-close:hover {
+    border: 1px solid white;
+    color: white;
+}
+.preview-footer {
+    width: 90%;
+    margin: 10px auto;
+
+    display: flex;
+    align-items: center;
     justify-content: flex-end;
-
 }
-.btn-margin{
-    margin-right:5px;
+.btn-margin {
+    margin-right: 5px;
 }
-.icon{
+.icon {
     color: transparent;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
 }
-

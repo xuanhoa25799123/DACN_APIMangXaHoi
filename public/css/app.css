@@ -21,6 +21,7 @@ a:focus {
 
 .big-container {
     display: flex;
+    width: 100%;
 }
 .left {
     width: 320px;
