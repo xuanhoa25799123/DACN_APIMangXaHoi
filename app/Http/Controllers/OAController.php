@@ -152,7 +152,7 @@ class OAController extends Controller
                   }
                 
                     $data = json_encode([
-                        'user_id'=>$message->from_id,
+                        'user_id'=>$user_id,
                     ]);
                      $res = $client->get('https://openapi.zalo.me/v2.0/oa/getprofile',
                     ['query'=>[
