@@ -58,9 +58,13 @@
                             <div class="message-item-info">
                                 <p class="username">{{$message->from_display_name}}</p>
                                 <div class="message-content-left">
+                                @if($message->type=="text")
                                     <p>
                                     {{$message->message}}
                                     </p>
+                                    @elseif($message->type=="sticker")
+                                    <img src="{{$message->url}}">
+                                    @endif
                                 </div>
                             </div>
                         </div>

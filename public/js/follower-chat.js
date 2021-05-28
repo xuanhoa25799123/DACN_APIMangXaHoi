@@ -28,6 +28,7 @@ $(document).ready(function () {
                     },
                     dataType: "json",
                     success: function (response) {
+                        $(".message-enter").val("");
                         if (response.message == "Success") {
                             let date = null;
                             if (first) {
@@ -72,7 +73,6 @@ $(document).ready(function () {
                                 confirmButtonColor: "#3085d6",
                             });
                         }
-                        $(this).val("");
                     },
                 });
             }
