@@ -123,7 +123,18 @@ class OAController extends Controller
               $result = json_decode($res->getBody());
               $userMsgs = $result->data;
               $user = null;
+              $data = json_encode([
+                        'user_id'=>$message->from_id,
+                    ]);
+                      $res = $client->get('https://openapi.zalo.me/v2.0/oa/getprofile',
+                    ['query'=>[
+                    'data'=>$data,
+                    'access_token'=>$accessToken
+                    ]]);
+                       $result = json_decode($res->getBody());
+                        $user = $result->data;
               $userMessages = array();
+              
               foreach($userMsgs as $message)
               {
                   $message->time = $this->getTime2($message->time);
@@ -131,6 +142,15 @@ class OAController extends Controller
               }
               foreach($recentMessages as $message)
               {
+                  $user_id = null;
+                  if($message->src)
+                  {
+                    $user_id = $message->from_id;
+                  }
+                  else{
+                      $user_id = $message->to_id;
+                  }
+                
                     $data = json_encode([
                         'user_id'=>$message->from_id,
                     ]);
@@ -140,31 +160,7 @@ class OAController extends Controller
                     'access_token'=>$accessToken
                     ]]);
                        $result = json_decode($res->getBody());
-                       if($result->message=="Success")
-                       {
-                           if($result->data->user_id == $id)
-                           {
-                               $user = $result->data;
-                           }
-                            $message->user = $result->data;
-                       }
-                       else{
-                             $data = json_encode([
-                        'user_id'=>$message->to_id,
-                    ]);
-                     $res = $client->get('https://openapi.zalo.me/v2.0/oa/getprofile',
-                    ['query'=>[
-                    'data'=>$data,
-                    'access_token'=>$accessToken
-                    ]]);
-                       $result = json_decode($res->getBody());
-                        if($result->data->user_id == $id)
-                           {
-                               $user = $result->data;
-                           }
-                       $message->user = $result->data;
-                       }
-
+                        $message->user = $result->data;
                   $message->time = $this->getTime($message->time);
               }
          $oa_info = session('oa_info');
