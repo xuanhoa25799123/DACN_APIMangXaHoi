@@ -8,6 +8,7 @@
     @yield('title')
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
     <link rel="stylesheet" href="{{asset('/css/sidebar.css')}}">
+     <link rel="stylesheet" href="{{asset('/css/toggle-sidebar.css')}}">
     <link rel="stylesheet" href="{{asset('/css/header.css')}}">
     <link rel="stylesheet" href="{{asset('/css/content.css')}}">
     <link rel="stylesheet" href="{{asset('/plugins/fontawesome-free/css/all.min.css')}}">
@@ -28,9 +29,10 @@
     @include('test.partials.sidebar')
     </div>
     <div class="right">
+          @include('test.partials.toggle-sidebar')
     @include('test.partials.header')
 
-        <div class="content">
+    <div class="content">
 
     @yield('content')
         </div>
