@@ -149,7 +149,8 @@
     border-top: 2px solid #1890ff;
 }
 .message-enter {
-    padding: 10px;
+    padding: 20px;
+    border: none;
 }
 
 .btn-send-message {

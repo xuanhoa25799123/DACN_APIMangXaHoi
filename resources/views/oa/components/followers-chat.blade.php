@@ -79,7 +79,7 @@
                                 <p class="username">{{$message->from_display_name}}</p>
                                 <div class="message-content-right">
                                       @if($message->type=="text")
-                                    <p>
+                                    <p message-text>
                                     {{$message->message}}
                                     </p>
                                     @elseif($message->type=="sticker")
