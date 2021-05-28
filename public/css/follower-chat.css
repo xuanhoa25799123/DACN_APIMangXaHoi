@@ -143,3 +143,18 @@
     background-color: grey;
     color: white;
 }
+
+.message-enter {
+    padding: 10px;
+    border: none;
+    border-top: 1px solid black;
+}
+
+.btn-send-message {
+    padding: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #528fe5;
+    border: none;
+    outline: none;
+}

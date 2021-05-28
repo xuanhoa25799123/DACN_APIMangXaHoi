@@ -27,15 +27,12 @@
                 @if($message->to_id == $message->user->user_id)
                     <i class="fa fa-reply icon"></i>
                 @endif
-
                  @if($message->type=="text")
-                                    <p>
-                                    {{$message->message}}
-                                    </p>
+                                    {{substr($message->message,0,20)}}
+                          
                                     @elseif($message->type=="sticker")
-                                    <p>[Biểu cảm]</p>
+                                  [Biểu cảm]
                     @endif
-                
                 </p>
             </div>
             </div>
@@ -69,7 +66,7 @@
                                     {{$message->message}}
                                     </p>
                                     @elseif($message->type=="sticker")
-                                    <img src="{{$message->url}}">
+                                    <img src="https://api.zaloapp.com/{{substr($message->url,19,strlen($message->url)-19}}">
                                     @endif
                                 </div>
                             </div>
@@ -101,8 +98,9 @@
 
                 @endforeach
             </div>
-            <div class="form-group">
+            <div class="form-group send-message-container">
                 <input data-img="{{$oa_info['avatar']}}" data-name="{{$oa_info['name']}}"data-id="{{$user->user_id}}" data-href="{{route('follower-send-message')}}"class="form-control message-enter" placeholder="Nhập nội dung tin nhắn...">
+                <button class="btn-send-message" data-img="{{$oa_info['avatar']}}" data-name="{{$oa_info['name']}}"data-id="{{$user->user_id}}" data-href="{{route('follower-send-message')}}">GỬI</button>
             </div>
         
     </div>
