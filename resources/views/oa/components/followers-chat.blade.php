@@ -66,7 +66,7 @@
                                     {{$message->message}}
                                     </p>
                                     @elseif($message->type=="sticker")
-                                    <img src="https://api.zaloapp.com/{{substr($message->url,19,strlen($message->url)-19}}">
+                                    <img src="https://api.zaloapp.com/{{substr($message->url,19,strlen($message->url)-19)}}">
                                     @endif
                                 </div>
                             </div>
