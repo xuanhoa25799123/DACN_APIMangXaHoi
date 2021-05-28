@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
     <link rel="stylesheet" href="{{asset('/css/sidebar.css')}}">
     <link rel="stylesheet" href="{{asset('/css/header.css')}}">
+            <link rel="stylesheet" href="{{asset('/css/toggle-sidebar.css')}}">
     <link rel="stylesheet" href="{{asset('/plugins/fontawesome-free/css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('/plugins/bootstrap-css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -26,6 +27,9 @@
         @include('social.partials.sidebar')
     </div>
     <div class="right">
+
+     @include('social.partials.toggle-sidebar')
+ 
         @include('social.partials.header')
         <div class="content">
             @yield('content')
@@ -37,6 +41,7 @@
 <script src="{{asset('/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('/js/main.js')}}"></script>
 <script src="{{asset('/js/menu-dropdown.js')}}"></script>
+ <script src="{{asset('/js/toggle-sidebar.js')}}"></script>
 {{--<script src="{{asset('/js/refresh-token.js')}}"></script>--}}
 
 @yield('js')

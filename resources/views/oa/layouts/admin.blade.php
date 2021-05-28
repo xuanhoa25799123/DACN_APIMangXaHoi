@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{asset('/css/sidebar.css')}}">
     <link rel="stylesheet" href="{{asset('/css/header.css')}}">
     <link rel="stylesheet" href="{{asset('/css/oa-content.css')}}">
+          <link rel="stylesheet" href="{{asset('/css/toggle-sidebar.css')}}">
     <link rel="stylesheet" href="{{asset('/plugins/fontawesome-free/css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('/plugins/bootstrap-css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -26,6 +27,9 @@
     @include('oa.partials.sidebar')
     </div>
     <div class="right">
+          
+   @include('social.partials.toggle-sidebar')
+
     @include('oa.partials.header')
         <div class="oa-content">
     @yield('content')
@@ -36,6 +40,7 @@
 <script src="{{asset('/plugins/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('/js/menu-dropdown.js')}}"></script>
+ <script src="{{asset('/js/toggle-sidebar.js')}}"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
