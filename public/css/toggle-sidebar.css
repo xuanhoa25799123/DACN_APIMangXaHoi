@@ -128,10 +128,10 @@
 }
 
 @media only screen and (max-width: 1000px) {
-    .toggle-sidebar-text {
+    .toggle-sidebar-item-text {
         color: white;
     }
-    .toggle-sidebar-logo {
+    .toggle-sidebar-logo-text {
         color: orange;
         font-size: 25px;
     }
