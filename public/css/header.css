@@ -96,7 +96,7 @@
 .header {
     width: inherit;
     max-width: inherit;
-    height: 80px;
+    height: 81px;
     background-image: linear-gradient(to right, #9f78ff, #32cafe);
     background-repeat: repeat-x;
     position: fixed;

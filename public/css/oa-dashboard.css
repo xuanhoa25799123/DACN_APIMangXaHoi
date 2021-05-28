@@ -9,6 +9,11 @@
     color: #464855;
 }
 
+@media only screen and (max-width: 1000px) {
+    .oa-dashboard {
+        width: auto;
+    }
+}
 .oa-dashboard-name {
     font-size: 1.6rem;
     font-weight: 700;

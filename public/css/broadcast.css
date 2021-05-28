@@ -16,6 +16,14 @@
     grid-gap: 10px;
     margin: 10px 0;
 }
+@media only screen and (max-width: 600px) {
+    .broadcast-content {
+        grid-template-columns: 1fr 1fr;
+    }
+    .broadcast-item {
+        width: 180px;
+    }
+}
 
 .broadcast-item {
     width: 260px;
