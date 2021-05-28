@@ -1,4 +1,4 @@
-
+<button class="toggle-sidebar-button"><i class="fas fa-bars fa-1x"></i></button>
 <div class="toggle-sidebar">
     <div class="toggle-sidebar-logo-container">
         <a class="toggle-sidebar-logo" href="/admin">
