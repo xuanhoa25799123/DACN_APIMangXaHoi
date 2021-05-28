@@ -144,10 +144,12 @@
     color: white;
 }
 
+.send-message-container {
+    display: flex;
+    border-top: 2px solid #1890ff;
+}
 .message-enter {
     padding: 10px;
-    border: none;
-    border-top: 1px solid black;
 }
 
 .btn-send-message {
@@ -157,4 +159,7 @@
     color: #528fe5;
     border: none;
     outline: none;
+}
+.message-text {
+    overflow-wrap: break-word;
 }
