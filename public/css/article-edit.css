@@ -22,6 +22,18 @@
 .right-content {
     width: 30%;
 }
+@media only screen and (max-width: 800px) {
+    .create-container {
+        flex-direction: column;
+        justify-content: initial;
+    }
+    .left-content {
+        width: 100%;
+    }
+    .right-content {
+        width: 100%;
+    }
+}
 
 .inline-form {
     display: flex;
