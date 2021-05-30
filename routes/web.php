@@ -336,7 +336,7 @@ Route::prefix('test')->group(function () {
         'uses'=>'App\Http\Controllers\TestController@uploadVideo',
     ]);
      Route::post('/uploading-video',[
-         'as'=>'uploading-video',
+         'as'=>'test-upload-video',
         'uses'=>'App\Http\Controllers\TestController@uploadingVideo',
     ]);
        Route::get('/edit-article',[

@@ -28,18 +28,27 @@ $(document).ready(function () {
             $.ajax({
                 url: url,
                 type: "POST",
-                data: { video: file },
+                data: formData,
+                contentType: false,
+                enctype: "multipart/form-data",
+                processData: false,
                 headers: {
                     "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
                         "content"
                     ),
                 },
-                dataType: "json",
-                processData: false,
+                beforeSend: function () {
+                    $(".upload-text").text("Đang tải video lên...");
+                },
                 success: function (response) {
-                    if (response.message == "Success") {
+                    if (response.success) {
                         console.log(response.result);
                     }
+                },
+                complete: function () {
+                    $(".upload-text").text(
+                        "Tải lên từ máy tính (tối đa 50 MB)"
+                    );
                 },
             });
         }

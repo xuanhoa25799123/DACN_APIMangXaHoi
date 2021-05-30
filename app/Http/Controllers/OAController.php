@@ -1019,8 +1019,7 @@ class OAController extends Controller
 }
     public function uploadingVideo(Request $request)
     {
-        $video = $request->video;
-        return response()->json(['success'=>true,'result'=>$request]);
+            $video = $request->file;
          $accessToken = session('oa-token');
          $client = new \GuzzleHttp\Client();
                  $response = $client->request('POST','https://openapi.zalo.me/v2.0/article/upload_video/preparevideo',['query'=>[
@@ -1033,7 +1032,13 @@ class OAController extends Controller
             'contents' =>  fopen($video,'r'),
         ],
            ]]);
-             $result = json_decode($response->getBody());
+  $response = $client->get('https://openapi.zalo.me/v2.0/article/upload_video/verify',['query'=>[
+               'access_token'=>$accessToken,
+               'token'=>$result->data->token,
+                 ],
+             ]);
+        $result = json_decode($response->getBody());
+        return response()->json(['success'=>true,'result'=>$result]);
    
 
         }
