@@ -28,13 +28,14 @@ $(document).ready(function () {
             $.ajax({
                 url: url,
                 type: "POST",
-                data: formData,
+                data: { video: file },
                 headers: {
                     "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
                         "content"
                     ),
                 },
                 dataType: "json",
+                processData: false,
                 success: function (response) {
                     if (response.message == "Success") {
                         console.log(response.result);
