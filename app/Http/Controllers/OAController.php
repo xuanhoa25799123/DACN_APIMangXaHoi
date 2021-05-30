@@ -1020,6 +1020,7 @@ class OAController extends Controller
     public function uploadingVideo(Request $request)
     {
          $accessToken = session('oa_token');
+                 return response()->json(['success'=>true,'result'=>$accessToken]);
          $video = $request->file;
     
          $client = new \GuzzleHttp\Client();
