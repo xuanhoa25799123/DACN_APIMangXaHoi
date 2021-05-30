@@ -10,6 +10,7 @@ use GuzzleHttp;
 use Zalo\ZaloEndPoint;
 use Illuminate\Support\Str;
 use App\Traits\PaginateTrait;
+
 class OAController extends Controller
 {
     use paginateTrait;
