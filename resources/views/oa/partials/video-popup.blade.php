@@ -9,7 +9,13 @@
         </div>
         <div class="modal-body">
         <div class="video-popup-container">
+          <label for="inputVideo" class="inputVideo">
+              <i class="fa fa-upload icon"></i>
+              <p class="upload-text">Tải lên từ máy tính (tối đa 50 MB)</p>
+          </label>
+          <input type="file" id="inputVideo" name="inputVideo">
           @foreach($videos as $video)
+
           <div class="video-popup-item" style="cursor:pointer" id="video-{{$video->video_id}}" data-id="{{$video->video_id}}">
             <img class="video-popup-image image-{{$video->video_id}}" src="{{$video->thumb}}" alt="">
           </div>

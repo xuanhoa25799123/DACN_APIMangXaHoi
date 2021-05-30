@@ -11,6 +11,27 @@
     margin: 5px;
 }
 
+.inputVideo {
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-style: dashed;
+    border-color: rgb(53, 30, 255);
+    border-width: thick;
+    cursor: pointer;
+}
+.icon {
+    font-size: 40px;
+    color: rgb(65, 194, 236);
+}
+.upload-text {
+    width: 50%;
+}
+
 .video-popup-image {
     width: 100%;
     height: 100%;
