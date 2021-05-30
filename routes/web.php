@@ -230,6 +230,10 @@ Route::prefix('oa')->group(function () {
         'as'=>'oa-send-broadcast',
         'uses'=>'App\Http\Controllers\OAController@sendBroadcast',
     ]);
+        Route::post('/uploading-video',[
+         'as'=>'upload-video',
+        'uses'=>'App\Http\Controllers\OAContorller@uploadingVideo',
+    ]);
 });
 
 

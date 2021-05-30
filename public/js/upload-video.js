@@ -11,15 +11,36 @@ $(document).ready(function () {
             alert("Please select a file before clicking 'Load'");
         } else {
             var file = input.files[0];
-            var ext = file.split(".").pop();
+            var ext = file.name.split(".").pop();
             if (ext !== "mp4") {
+                $("#inputVideo").val(null);
                 alert("Chọn file mp4");
                 return;
             }
             if (file.size > 50000000) {
+                $("#inputvideo").val(null);
                 alert("Chọn file ít hơn 50 MB");
                 return;
             }
+            let url = $(this).data("href");
+            $.ajax({
+                url: url,
+                type: "POST",
+                contentType: "multipart/form-data",
+                processData: false,
+                data: file,
+                headers: {
+                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+                        "content"
+                    ),
+                },
+                dataType: "json",
+                success: function (response) {
+                    if (response.message == "Success") {
+                        console.log(response.result);
+                    }
+                },
+            });
         }
     });
 });

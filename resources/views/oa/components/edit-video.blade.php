@@ -9,6 +9,7 @@
 @endsection
 @section('js')
         <script src="{{asset('/js/edit-video.js')}}"></script>
+            <script src="{{asset('/js/video-upload.js')}}"></script>
             <script src="{{asset('plugins/sweetalert2/sweetalert2@10.js')}}"></script>
               <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
                      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

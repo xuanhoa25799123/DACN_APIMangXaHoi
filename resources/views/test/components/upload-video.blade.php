@@ -8,8 +8,11 @@
 @section('content')
     <!-- <form action="{{route('uploading-video')}}" method="POST" enctype="multipart/form-data" >
     @csrf -->
-    <input type="file" name="video"id="uploadFile">
-    <button class="submit-button">submit vidoe</button>
+    <label for="uploadFile">
+        <p>ahehehe</p>
+    </label>
+    <input type="file" name="video"id="uploadFile" style="display:none">
+    <!-- <button class="submit-button">submit vidoe</button> -->
     <!-- </form> -->
 @endsection
 
