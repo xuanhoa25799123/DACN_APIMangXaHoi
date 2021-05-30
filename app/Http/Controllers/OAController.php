@@ -1032,6 +1032,7 @@ class OAController extends Controller
             'contents' =>  fopen($video,'r'),
         ],
            ]]);
+           $result = json_decode($response->getBody());
   $response = $client->get('https://openapi.zalo.me/v2.0/article/upload_video/verify',['query'=>[
                'access_token'=>$accessToken,
                'token'=>$result->data->token,
