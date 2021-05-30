@@ -36,6 +36,8 @@ $(document).ready(function () {
                     "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
                         "content"
                     ),
+                    "Access-Control-Allow-Headers":
+                        "X-CSRF-Token, Content-Type",
                 },
                 beforeSend: function () {
                     $(".upload-text").text("Đang tải video lên...");

@@ -1020,9 +1020,7 @@ class OAController extends Controller
     public function uploadingVideo(Request $request)
     {
          $accessToken = session('oa_token');
-                 return response()->json(['success'=>true,'result'=>$accessToken]);
          $video = $request->file;
-    
          $client = new \GuzzleHttp\Client();
                  $response = $client->request('POST','https://openapi.zalo.me/v2.0/article/upload_video/preparevideo',['query'=>[
                'access_token'=>$accessToken
