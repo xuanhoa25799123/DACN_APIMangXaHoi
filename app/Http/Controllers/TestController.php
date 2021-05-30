@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Tra;
 use Goutte\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;

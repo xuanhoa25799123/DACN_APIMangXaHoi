@@ -10,6 +10,7 @@ use GuzzleHttp;
 use Zalo\ZaloEndPoint;
 use Illuminate\Support\Str;
 use App\Traits\PaginateTrait;
+use mysql_xdevapi\Exception;
 
 class OAController extends Controller
 {
@@ -1016,8 +1017,7 @@ class OAController extends Controller
            $result = json_decode($rs->getBody());
            return response()->json($result);
 
-
-}
+        }
     public function uploadVideo(Request $request)
     {
         try {
@@ -1034,25 +1034,26 @@ class OAController extends Controller
             'contents' =>  fopen($video,'r'),
         ],
            ]]);
+                  return response()->json(['success'=>true,'result'=>$response]);
            $result = json_decode($response->getBody());
                 return response()->json(['success'=>true,'result'=>$result]);
-           if($result->message=="Success")
-           {
-                 $response = $client->get('https://openapi.zalo.me/v2.0/article/upload_video/verify',['query'=>[
-               'access_token'=>$accessToken,
-               'token'=>$result->data->token,
-                 ],
-             ]);
-        $result = json_decode($response->getBody());
-        return response()->json(['success'=>true,'result'=>$result]);
-                }
-                else{
-                    return response()->json(['success'=>false]);
-                }
-            }
+        //    if($result->message=="Success")
+        //    {
+        //          $response = $client->get('https://openapi.zalo.me/v2.0/article/upload_video/verify',['query'=>[
+        //        'access_token'=>$accessToken,
+        //        'token'=>$result->data->token,
+        //          ],
+        //      ]);
+        // $result = json_decode($response->getBody());
+        // return response()->json(['success'=>true,'result'=>$result]);
+        //         }
+        //         else{
+        //             return response()->json(['success'=>false]);
+        //         }
+        //     }
                 catch (\Exception $e) {
             return response()->json(['success' => true, 'result' => $e->getMessage()]);
-        }
+            }
         }
 }
 
