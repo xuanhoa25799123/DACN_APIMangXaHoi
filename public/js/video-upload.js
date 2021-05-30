@@ -28,10 +28,10 @@ $(document).ready(function () {
             $.ajax({
                 url: url,
                 type: "POST",
-                data: formData,
                 contentType: false,
                 enctype: "multipart/form-data",
                 processData: false,
+                data: formData,
                 headers: {
                     "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
                         "content"
@@ -39,20 +39,13 @@ $(document).ready(function () {
                     "Access-Control-Allow-Headers":
                         "X-CSRF-Token, Content-Type",
                 },
-                beforeSend: function () {
-                    $(".upload-text").text("Đang tải video lên...");
-                },
                 success: function (response) {
+                    console.log(response);
                     if (response.success) {
                         console.log(response.result);
                     } else {
                         alert("Đã có lỗi vui lòng thử lại sau");
                     }
-                },
-                complete: function () {
-                    $(".upload-text").text(
-                        "Tải lên từ máy tính (tối đa 50 MB)"
-                    );
                 },
             });
         }
