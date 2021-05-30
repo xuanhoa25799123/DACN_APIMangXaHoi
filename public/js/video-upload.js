@@ -22,13 +22,13 @@ $(document).ready(function () {
                 alert("Chọn file ít hơn 50 MB");
                 return;
             }
+            let formData = new FormData();
+            formData.append("file", file);
             let url = $(this).data("href");
             $.ajax({
                 url: url,
                 type: "POST",
-                contentType: "multipart/form-data",
-                processData: false,
-                data: file,
+                data: formData,
                 headers: {
                     "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
                         "content"
