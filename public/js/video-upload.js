@@ -43,6 +43,8 @@ $(document).ready(function () {
                 success: function (response) {
                     if (response.success) {
                         console.log(response.result);
+                    } else {
+                        alert("Đã có lỗi vui lòng thử lại sau");
                     }
                 },
                 complete: function () {
