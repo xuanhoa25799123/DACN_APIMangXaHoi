@@ -232,7 +232,7 @@ Route::prefix('oa')->group(function () {
     ]);
         Route::post('/upload-video',[
         'as'=>'upload-video',
-        'uses'=>'App\Http\Controllers\OAController@uploadVideo',
+        'uses'=>'App\Http\Controllers\TestController@uploadingVideo',
     ]);
 });
 
