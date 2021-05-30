@@ -1032,6 +1032,7 @@ class OAController extends Controller
         ],
            ]]);
            $result = json_decode($response->getBody());
+            return response()->json(['success'=>true,'result'=>$result]);
            if($result->message=="Success")
            {
                  $response = $client->get('https://openapi.zalo.me/v2.0/article/upload_video/verify',['query'=>[
