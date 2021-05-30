@@ -1020,10 +1020,11 @@ class OAController extends Controller
 }
     public function uploadVideo(Request $request)
     {
+        try {
          $accessToken = session('oa_token');
           $video = $request->file;      
          $client = new \GuzzleHttp\Client();
-                 $response = $client->request('POST','https://openapi.zalo.me/v2.0/article/upload_video/preparevideo',['query'=>[
+        $response = $client->request('POST','https://openapi.zalo.me/v2.0/article/upload_video/preparevideo',['query'=>[
                'access_token'=>$accessToken
                  ],
              'multipart' => [
@@ -1033,46 +1034,25 @@ class OAController extends Controller
             'contents' =>  fopen($video,'r'),
         ],
            ]]);
-                 return response()->json(['success'=>true,'result'=>'krungle']);
-    $result = json_decode($response->getBody());
-
-     $response = $client->get('https://openapi.zalo.me/v2.0/article/upload_video/verify',['query'=>[
+           $result = json_decode($response->getBody());
+                return response()->json(['success'=>true,'result'=>$result]);
+           if($result->message=="Success")
+           {
+                 $response = $client->get('https://openapi.zalo.me/v2.0/article/upload_video/verify',['query'=>[
                'access_token'=>$accessToken,
                'token'=>$result->data->token,
                  ],
              ]);
         $result = json_decode($response->getBody());
         return response()->json(['success'=>true,'result'=>$result]);
-        //  $video = $request->file;
-        //  $client = new \GuzzleHttp\Client();
-        //          $response = $client->request('POST','https://openapi.zalo.me/v2.0/article/upload_video/preparevideo',['query'=>[
-        //        'access_token'=>$accessToken
-        //          ],
-        //      'multipart' => [
-        // [
-        //     'name'=>'file',
-        //     'filename'=>$video->getClientOriginalName(),
-        //     'contents' =>  fopen($video,'r'),
-        // ],
-        //    ]]);
-        //    $result = json_decode($response->getBody());
-        //         return response()->json(['success'=>true,'result'=>$result]);
-        //    if($result->message=="Success")
-        //    {
-        //          $response = $client->get('https://openapi.zalo.me/v2.0/article/upload_video/verify',['query'=>[
-        //        'access_token'=>$accessToken,
-        //        'token'=>$result->data->token,
-        //          ],
-        //      ]);
-        // $result = json_decode($response->getBody());
-        // return response()->json(['success'=>true,'result'=>$result]);
-        //         }
-        //         else{
-        //             return response()->json(['success'=>false]);
-        //         }
-
+                }
+                else{
+                    return response()->json(['success'=>false]);
+                }
+            }
+                catch (\Exception $e) {
+            return response()->json(['success' => true, 'result' => $e->getMessage()]);
         }
-
-
+        }
 }
 
