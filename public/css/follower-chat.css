@@ -52,6 +52,14 @@
     font-size: 14px;
     color: black;
 }
+
+.username-right {
+    font-weight: bold;
+    font-size: 14px;
+    color: black;
+    display: flex;
+    justify-content: flex-end;
+}
 .username2 {
     font-weight: bold;
     font-size: 14px;

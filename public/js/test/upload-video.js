@@ -40,6 +40,7 @@ $(document).ready(function () {
                 // enctype: "multipart/form-data",
                 // processData: false,
                 // data: formData,
+
                 dataType: "jsonp",
                 headers: {
                     "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(

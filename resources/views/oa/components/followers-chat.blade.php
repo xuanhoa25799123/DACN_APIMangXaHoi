@@ -76,10 +76,10 @@
                     <div class="message-right">
                       <div class="message-item">
                             <div class="message-item-info">
-                                <p class="username">{{$message->from_display_name}}</p>
+                                <p class="username-right">{{$message->from_display_name}}</p>
                                 <div class="message-content-right">
                                       @if($message->type=="text")
-                                    <p message-text>
+                                    <p class="message-text">
                                     {{$message->message}}
                                     </p>
                                     @elseif($message->type=="sticker")
