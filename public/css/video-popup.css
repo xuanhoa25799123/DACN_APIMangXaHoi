@@ -45,7 +45,7 @@
     left: 0;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    opacity: 0;
+    display: none;
 }
 
 .video-title {
@@ -61,5 +61,6 @@
     }
 }
 .video-popup-item:hover > .video-info {
+    display: initial;
     animation: fadeInFromNone 0.25s ease-in-out;
 }
