@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-
+    <button class="btn btn-primary btn-test">Hehe</button>
     <label for="uploadFile">
         <p>ahehehe</p>
     </label>

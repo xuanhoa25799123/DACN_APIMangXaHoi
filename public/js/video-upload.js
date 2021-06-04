@@ -24,27 +24,19 @@ $(document).ready(function () {
             }
             let formData = new FormData();
             formData.append("file", file);
-            let url = $(this).data("href");
+            let oa_token = $(this).data("oa_token");
             $.ajax({
-                url: url,
+                url:
+                    "https://openapi.zalo.me/v2.0/article/upload_video/preparevideo?access_token=" +
+                    accessToken,
                 type: "POST",
                 contentType: false,
-                enctype: "multipart/form-data",
                 processData: false,
                 data: formData,
-                headers: {
-                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
-                        "content"
-                    ),
-                    "Access-Control-Allow-Headers":
-                        "X-CSRF-Token, Content-Type",
-                },
                 success: function (response) {
                     console.log(response);
                     if (response.success) {
                         console.log(response.result);
-                    } else {
-                        alert("Đã có lỗi vui lòng thử lại sau");
                     }
                 },
             });

@@ -322,10 +322,11 @@ class OAController extends Controller
     }
     public function createVideoArticle()
     {
+             $accessToken = session('oa_token');
         $oa_info = session('oa_info');
 
         $title="Tạo bài viết video";
-        return view('oa.components.create-video-article',compact('oa_info','title'));
+        return view('oa.components.create-video-article',compact('oa_info','title','accessToken'));
     }
     public function textArticle()
     {
@@ -589,7 +590,7 @@ class OAController extends Controller
          if($response->message=="Success")
          {
             $article  = $response->data;
-            return view('oa.components.edit-article',compact('oa_info','title','article','videos'));
+            return view('oa.components.edit-article',compact('oa_info','title','article','videos','accessToken'));
          }
     }
     public function getListVideos()
@@ -663,7 +664,7 @@ class OAController extends Controller
          if($response->message=="Success")
          {
             $video  = $response->data;
-            return view('oa.components.edit-video',compact('oa_info','title','videos','video'));
+            return view('oa.components.edit-video',compact('oa_info','title','videos','video','accessToken'));
          }
     }
     public function updateArticle(Request $request)
@@ -726,11 +727,12 @@ class OAController extends Controller
 
     public function createArticle()
     {
+         $accessToken = session('oa_token');
         $oa_info = session('oa_info');
         $title="Tạo bài viết mới";
         $videos = session('videos');
         $videos = $this->getListVideos();
-        return view('oa.components.create-article2',compact('oa_info','title','videos'));
+        return view('oa.components.create-article2',compact('oa_info','title','videos','accessToken'));
     }
         public function createVideo()
     {
