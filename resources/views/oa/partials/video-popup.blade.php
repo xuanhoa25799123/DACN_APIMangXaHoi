@@ -18,8 +18,8 @@
 
           <div class="video-popup-item" style="cursor:pointer" id="video-{{$video->video_id}}" data-id="{{$video->video_id}}">
             <img class="video-popup-image image-{{$video->video_id}}" src="{{$video->thumb}}" alt="">
-            <div class="video-info">
-              <p class="video-title">{{$video->title}}</p>
+            <div class="video-popup-info">
+              <p class="video-popup-title">{{$video->title}}</p>
             </div>
           </div>
           @endforeach

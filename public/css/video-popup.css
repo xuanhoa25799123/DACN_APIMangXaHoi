@@ -39,7 +39,7 @@
     height: 100%;
     object-fit: cover;
 }
-.video-info {
+.video-popup-info {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -48,8 +48,9 @@
     display: none;
 }
 
-.video-title {
+.video-popup-title {
     padding: 10px;
+    margin: 0;
     color: white;
 }
 @keyframes fadeInFromNone {
@@ -60,7 +61,7 @@
         opacity: 1;
     }
 }
-.video-popup-item:hover > .video-info {
+.video-popup-item:hover > .video-popup-info {
     display: initial;
     animation: fadeInFromNone 0.25s ease-in-out;
 }
