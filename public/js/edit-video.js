@@ -30,6 +30,7 @@ $(document).ready(function () {
                 let description = $("textarea[name=description]").val();
                 let photo_url = $("input[name=photo_url]").val();
                 let video_id = selected_video_id;
+
                 let status = $("input[name=status]").is(":checked")
                     ? "show"
                     : "hide";
@@ -49,6 +50,8 @@ $(document).ready(function () {
                     return;
                 }
                 let url = $(this).data("href");
+                console.log(video_id);
+                console.log(url);
                 $.ajax({
                     url: url,
                     type: "POST",

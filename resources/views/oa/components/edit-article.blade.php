@@ -104,6 +104,7 @@
                              </div>
                              <div class="video-preview" style="display:none">
                                     <img src="" class="preview-video">
+                                       <i class="fa fa-play video-preview-icon"></i>
                               </div>
                                </div>
                               </div>
