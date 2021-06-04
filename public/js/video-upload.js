@@ -55,7 +55,7 @@ $(document).ready(function () {
                                         response.data.convert_percent;
                                     $(".inputVideo").after(`
                                       
-          <div class="video-popup-item" style="cursor:pointer" id="video-${video_id}" data-id="${video_id}">
+          <div class="video-popup-item upload-item" style="cursor:pointer" id="video-${video_id}" data-id="${video_id}">
                 <i class="fa fa-video video-popup-icon"></i>
                 <p class="video-popup-percent">${convert_percent}%</p>
             <div class="video-popup-info">
@@ -64,6 +64,46 @@ $(document).ready(function () {
             </div>
           </div>
                                       `);
+                                    let ajaxInterval = setInterval(() => {
+                                        $.ajax({
+                                            url:
+                                                "https://openapi.zalo.me/v2.0/article/upload_video/verify?access_token=" +
+                                                accessToken +
+                                                "&token=" +
+                                                token,
+                                            type: "GET",
+                                            success: function (response) {
+                                                if (
+                                                    response.message ==
+                                                    "Success"
+                                                ) {
+                                                    let convert_percent =
+                                                        response.data
+                                                            .convert_percent;
+                                                    if (
+                                                        convert_percent == 100
+                                                    ) {
+                                                        clearInterval(
+                                                            ajaxInterval
+                                                        );
+                                                        $(
+                                                            ".video-popup-percent"
+                                                        ).css(
+                                                            "display",
+                                                            "none"
+                                                        );
+                                                    } else {
+                                                        $(
+                                                            ".video-poppup-percent"
+                                                        ).text(
+                                                            convert_percent +
+                                                                "%"
+                                                        );
+                                                    }
+                                                }
+                                            },
+                                        });
+                                    }, 2000);
                                 } else {
                                     console.log(response.message);
                                     alert(

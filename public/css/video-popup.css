@@ -76,8 +76,10 @@
 }
 
 .video-popup-icon {
-    width: 100%;
-    height: 100%;
     font-size: 40px;
     color: rgb(65, 194, 236);
+}
+
+.upload-item {
+    display: flex;
 }
