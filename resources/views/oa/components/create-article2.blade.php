@@ -80,6 +80,7 @@
                               </div>
                                       <div class="video-preview">
                                     <img src="" class="preview-video">
+                                         <i class="fa fa-play video-preview-icon"></i>
                               </div>
                               </div>
                       

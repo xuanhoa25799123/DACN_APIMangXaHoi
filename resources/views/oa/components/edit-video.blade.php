@@ -55,6 +55,7 @@
                    <div class="video-preview">
                              <p class="video-change"><i class="fa fa-video"></i> &nbsp; Chọn lại</p>
                             <img src="{{$video->avatar}}" class="preview-video">
+                                 <i class="fa fa-play video-preview-icon"></i>
                     </div>
           </div>
             @include('oa.partials.video-popup')

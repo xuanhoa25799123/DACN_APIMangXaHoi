@@ -247,3 +247,10 @@
         transform: rotate(360deg);
     }
 }
+
+.video-preview-icon {
+    display: none;
+    font-size: 40px;
+    color: rgb(65, 194, 236);
+    margin: auto;
+}

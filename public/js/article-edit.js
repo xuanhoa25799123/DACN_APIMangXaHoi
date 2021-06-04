@@ -1,6 +1,7 @@
 $(document).ready(function () {
     let selected_video_id = null;
     let temp_id = null;
+    let select_upload = false;
     if ($(".video-button").hasClass("active-button")) {
         selected_video_id = $("#hidden-video-id").val();
         console.log("asdada");
@@ -163,18 +164,53 @@ $(document).ready(function () {
 
         $(".video-content").css("display", "none");
     });
-    $(".video-popup-item").on("click", function () {
-        $(".video-popup-image").removeClass("active-video");
-        let id = $(this).data("id");
-        temp_id = id;
-        $(`.image-${id}`).addClass("active-video");
-        $(".select-video").css("display", "initial");
+    $("body").on("click", ".video-popup-item", function () {
+        if ($(this).hasClass("upload-item")) {
+            $(".active-video").removeClass("active-video");
+            let id = $(this).data("id");
+            temp_id = id;
+            $(this).addClass("active-video");
+            $(".select-video").css("display", "initial");
+            select_upload = true;
+        } else {
+            $(".active-video").removeClass("active-video");
+            let id = $(this).data("id");
+            temp_id = id;
+            $(`.image-${id}`).addClass("active-video");
+            $(".select-video").css("display", "initial");
+            select_upload = false;
+        }
     });
+
     $(".select-video").on("click", function () {
         selected_video_id = temp_id;
-        let image_src = $(`.image-${selected_video_id}`).attr("src");
-        $(".sub-video-info").css("display", "none");
-        $(".video-preview").css("display", "flex");
-        $(".preview-video").attr("src", image_src);
+        if (select_upload) {
+            $(".sub-video-info").css("display", "none");
+            $(".video-preview").css("display", "flex");
+            $(".preview-video").css("display", "none");
+            $(".video-preview").css("background-color", "black");
+            $(".video-preview-icon").css("display", "initial");
+        } else {
+            let image_src = $(`.image-${selected_video_id}`).attr("src");
+            $(".sub-video-info").css("display", "none");
+            $(".video-preview").css("display", "flex");
+            $(".preview-video").css("display", "initial");
+            $(".preview-video").attr("src", image_src);
+            $(".video-preview-icon").css("display", "none");
+        }
     });
+    // $(".video-popup-item").on("click", function () {
+    //     $(".video-popup-image").removeClass("active-video");
+    //     let id = $(this).data("id");
+    //     temp_id = id;
+    //     $(`.image-${id}`).addClass("active-video");
+    //     $(".select-video").css("display", "initial");
+    // });
+    // $(".select-video").on("click", function () {
+    //     selected_video_id = temp_id;
+    //     let image_src = $(`.image-${selected_video_id}`).attr("src");
+    //     $(".sub-video-info").css("display", "none");
+    //     $(".video-preview").css("display", "flex");
+    //     $(".preview-video").attr("src", image_src);
+    // });
 });
