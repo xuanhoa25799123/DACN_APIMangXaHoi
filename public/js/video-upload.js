@@ -57,6 +57,7 @@ $(document).ready(function () {
           </div>
                                       `);
                                 } else {
+                                    console.log(response.message);
                                     alert(
                                         "Xảy ra lỗi, vui lòng thử lại sau ít phút"
                                     );
@@ -65,6 +66,7 @@ $(document).ready(function () {
                             },
                         });
                     } else {
+                        console.log(response.message);
                         alert("Xảy ra lỗi, vui lòng thử lại sau ít phút");
                         return;
                     }
