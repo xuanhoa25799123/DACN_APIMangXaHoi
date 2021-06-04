@@ -38,9 +38,35 @@ $(document).ready(function () {
                     $("#inputvideo").attr("disabled", "disabled");
                 },
                 success: function (response) {
-                    console.log(response);
-                    if (response.success) {
-                        console.log(response.result);
+                    if (response.message == "success") {
+                        let token = response.data.token;
+                        $.ajax({
+                            url:
+                                "https://openapi.zalo.me/v2.0/article/upload_video/verify?access_token=" +
+                                accessToken +
+                                "&token=" +
+                                token,
+                            type: "GET",
+                            success: function (response) {
+                                if (response.message == "success") {
+                                    let video_id = response.data.video_id;
+                                    $(".inputVideo").after(`
+                                      
+          <div class="video-popup-item" style="cursor:pointer" id="video-${video_id}" data-id=${video_id}>
+            <img class="video-popup-image image-${video_id}" src="" alt="">
+          </div>
+                                      `);
+                                } else {
+                                    alert(
+                                        "Xảy ra lỗi, vui lòng thử lại sau ít phút"
+                                    );
+                                    return;
+                                }
+                            },
+                        });
+                    } else {
+                        alert("Xảy ra lỗi, vui lòng thử lại sau ít phút");
+                        return;
                     }
                 },
                 complete: function () {
