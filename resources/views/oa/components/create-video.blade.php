@@ -50,6 +50,7 @@
                    <div class="video-preview" style="display:none">
                              <p class="video-change"><i class="fa fa-video"></i> &nbsp; Chọn lại</p>
                             <img src="" class="preview-video">
+                            <i class="fa fa-play video-preview-icon"></i>
                     </div>
           </div>
             @include('oa.partials.video-popup')

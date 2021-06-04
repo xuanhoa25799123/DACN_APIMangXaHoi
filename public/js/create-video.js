@@ -104,7 +104,13 @@ $(document).ready(function () {
     });
     $(".select-video").on("click", function () {
         selected_video_id = temp_id;
-        if (!select_upload) {
+        if (select_upload) {
+            $(".sub-video-info").css("display", "none");
+            $(".video-preview").css("display", "flex");
+            $(".preview-video").css("display", "none");
+            $(".video-preview").css("background-color", "black");
+            $(".video-preview-icon").css("display", "initial");
+        } else {
             let image_src = $(`.image-${selected_video_id}`).attr("src");
             $(".sub-video-info").css("display", "none");
             $(".video-preview").css("display", "flex");
@@ -113,6 +119,7 @@ $(document).ready(function () {
             $(".image-preview").css("display", "initial");
             $(".preview-image").attr("src", image_src);
             $(".image-input").val(image_src);
+            $(".video-preview-icon").css("display", "none");
         }
     });
 });

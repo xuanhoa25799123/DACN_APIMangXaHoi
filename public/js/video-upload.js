@@ -57,58 +57,14 @@ $(document).ready(function () {
                                       
           <div class="video-popup-item upload-item" style="cursor:pointer" id="video-${video_id}" data-id="${video_id}">
                 <i class="fa fa-play video-popup-icon"></i>
-                <p class="video-popup-percent">${convert_percent}%</p>
+
             <div class="video-popup-info">
               
                 <p class="video-popup-title">${title}</p>
             </div>
           </div>
                                       `);
-                                    let ajaxInterval = setInterval(() => {
-                                        $.ajax({
-                                            url:
-                                                "https://openapi.zalo.me/v2.0/article/upload_video/verify?access_token=" +
-                                                accessToken +
-                                                "&token=" +
-                                                token,
-                                            type: "GET",
-                                            success: function (response) {
-                                                console.log(response);
-                                                if (
-                                                    response.message ==
-                                                    "Success"
-                                                ) {
-                                                    convert_percent =
-                                                        response.data
-                                                            .convert_percent;
-                                                    if (
-                                                        convert_percent == 100
-                                                    ) {
-                                                        clearInterval(
-                                                            ajaxInterval
-                                                        );
-                                                        $(
-                                                            ".video-popup-percent"
-                                                        ).css(
-                                                            "display",
-                                                            "none"
-                                                        );
-                                                    } else {
-                                                        $(
-                                                            ".video-popup-percent"
-                                                        ).text(
-                                                            convert_percent +
-                                                                "%"
-                                                        );
-                                                    }
-                                                } else {
-                                                    clearInterval(ajaxInterval);
-                                                }
-                                            },
-                                        });
-                                    }, 3000);
                                 } else {
-                                    console.log(response.message);
                                     alert(
                                         "Xảy ra lỗi, vui lòng thử lại sau ít phút"
                                     );
