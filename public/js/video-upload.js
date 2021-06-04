@@ -50,10 +50,18 @@ $(document).ready(function () {
                             success: function (response) {
                                 if (response.message == "Success") {
                                     let video_id = response.data.video_id;
+                                    let title = response.data.video_name;
+                                    let convert_percent =
+                                        response.data.convert_percent;
                                     $(".inputVideo").after(`
                                       
-          <div class="video-popup-item" style="cursor:pointer" id="video-${video_id}" data-id=${video_id}>
-            <img class="video-popup-image image-${video_id}" src="">
+          <div class="video-popup-item" style="cursor:pointer" id="video-${video_id}" data-id="${video_id}">
+                <i class="fa fa-video video-popup-icon"></i>
+                <p class="video-popup-percent">${convert_percent}%</p>
+            <div class="video-popup-info">
+              
+                <p class="video-popup-title">${title}</p>
+            </div>
           </div>
                                       `);
                                 } else {

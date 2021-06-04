@@ -102,7 +102,7 @@ $(document).ready(function () {
         });
     });
     $(".video-popup-item").on("click", function () {
-        $(".video-popup-image   ").removeClass("active-video");
+        $(".video-popup-image").removeClass("active-video");
         let id = $(this).data("id");
         temp_id = id;
         $(`.image-${id}`).addClass("active-video");

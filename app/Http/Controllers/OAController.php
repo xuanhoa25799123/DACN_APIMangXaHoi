@@ -700,21 +700,29 @@ class OAController extends Controller
     {
          $accessToken = session('oa_token');
            $client = new \GuzzleHttp\Client();
-        //      $avatar = null;
-        //    if(trim($request->avatar)!="")
-        //    {
-        //        $avatar = ['avatar'=>$request->avatar];
-        //    }
-           $data = json_encode([
+          $data=null;
+           if(trim($request->avatar)!="")
+           {
+                $data = json_encode([
+           "title"=>$request->title,
+            "description"=> $request->description,
+            "comment"=> $request->comment,
+            'video_id'=>$request->video_id,
+            "type"=>"video",
+            'status'=>$request->status,
+            'avatar'=>$request->avatar,
+            ]);
+           }
+           else{
+                   $data = json_encode([
             "title"=>$request->title,
             "description"=> $request->description,
             "comment"=> $request->comment,
             'video_id'=>$request->video_id,
             "type"=>"video",
-            'id'=>$id,  
             'status'=>$request->status,
-            'avatar'=>$request->avatar,
             ]);
+           }
              $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/update',[
                  'query'=>[
                      'access_token'=>$accessToken,
@@ -775,13 +783,11 @@ class OAController extends Controller
     {
          $accessToken = session('oa_token');
            $client = new \GuzzleHttp\Client();
-        //    $avatar = null;
-        //    if(trim($request->avatar)!="")
-        //    {
-        //        $avatar = ['avatar'=>$request->avatar];
-        //    }
-           $data = json_encode([
-            "title"=>$request->title,
+            $data=null;
+           if(trim($request->avatar)!="")
+           {
+                $data = json_encode([
+           "title"=>$request->title,
             "description"=> $request->description,
             "comment"=> $request->comment,
             'video_id'=>$request->video_id,
@@ -789,6 +795,18 @@ class OAController extends Controller
             'status'=>$request->status,
             'avatar'=>$request->avatar,
             ]);
+           }
+           else{
+                   $data = json_encode([
+            "title"=>$request->title,
+            "description"=> $request->description,
+            "comment"=> $request->comment,
+            'video_id'=>$request->video_id,
+            "type"=>"video",
+            'status'=>$request->status,
+            ]);
+           }
+        
              $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/create',[
                  'query'=>[
                      'access_token'=>$accessToken,
