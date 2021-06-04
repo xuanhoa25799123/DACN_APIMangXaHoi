@@ -73,11 +73,12 @@ $(document).ready(function () {
                                                 token,
                                             type: "GET",
                                             success: function (response) {
+                                                console.log(response);
                                                 if (
                                                     response.message ==
                                                     "Success"
                                                 ) {
-                                                    let convert_percent =
+                                                    convert_percent =
                                                         response.data
                                                             .convert_percent;
                                                     if (
@@ -94,7 +95,7 @@ $(document).ready(function () {
                                                         );
                                                     } else {
                                                         $(
-                                                            ".video-poppup-percent"
+                                                            ".video-popup-percent"
                                                         ).text(
                                                             convert_percent +
                                                                 "%"
@@ -105,7 +106,7 @@ $(document).ready(function () {
                                                 }
                                             },
                                         });
-                                    }, 2000);
+                                    }, 3000);
                                 } else {
                                     console.log(response.message);
                                     alert(
