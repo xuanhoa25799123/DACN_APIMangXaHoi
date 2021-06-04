@@ -38,7 +38,7 @@ $(document).ready(function () {
                     $("#inputvideo").attr("disabled", "disabled");
                 },
                 success: function (response) {
-                    if (response.message == "success") {
+                    if (response.message == "Success") {
                         let token = response.data.token;
                         $.ajax({
                             url:
@@ -48,7 +48,7 @@ $(document).ready(function () {
                                 token,
                             type: "GET",
                             success: function (response) {
-                                if (response.message == "success") {
+                                if (response.message == "Success") {
                                     let video_id = response.data.video_id;
                                     $(".inputVideo").after(`
                                       
