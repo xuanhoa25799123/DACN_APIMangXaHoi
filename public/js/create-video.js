@@ -114,6 +114,7 @@ $(document).ready(function () {
             let image_src = $(`.image-${selected_video_id}`).attr("src");
             $(".sub-video-info").css("display", "none");
             $(".video-preview").css("display", "flex");
+            $(".preview-video").css("display", "initial");
             $(".preview-video").attr("src", image_src);
             $(".sub-image-info").css("display", "none");
             $(".image-preview").css("display", "initial");

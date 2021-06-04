@@ -149,7 +149,7 @@
         transform: rotate(360deg);
     }
 }
-.video-popup-icon {
+.video-preview-icon {
     display: none;
     font-size: 40px;
     color: rgb(65, 194, 236);
