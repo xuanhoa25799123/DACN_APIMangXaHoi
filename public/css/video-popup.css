@@ -78,8 +78,10 @@
 .video-popup-icon {
     font-size: 40px;
     color: rgb(65, 194, 236);
+    margin: auto;
 }
 
 .upload-item {
     display: flex;
+    background-color: black;
 }
