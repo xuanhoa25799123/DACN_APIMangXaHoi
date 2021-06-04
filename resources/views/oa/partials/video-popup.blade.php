@@ -13,7 +13,7 @@
               <i class="fa fa-upload icon"></i>
               <p class="upload-text">Tải lên từ máy tính (tối đa 50 MB)</p>
           </label>
-          <input type="file" id="inputVideo" name="inputVideo" style="display:none" data-oa_token="{{$oa_token}}">
+          <input type="file" id="inputVideo" name="inputVideo" style="display:none" data-oa_token="{{$accessToken}}">
           @foreach($videos as $video)
 
           <div class="video-popup-item" style="cursor:pointer" id="video-{{$video->video_id}}" data-id="{{$video->video_id}}">
