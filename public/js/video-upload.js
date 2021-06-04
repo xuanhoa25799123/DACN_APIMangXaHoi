@@ -24,7 +24,7 @@ $(document).ready(function () {
             }
             let formData = new FormData();
             formData.append("file", file);
-            let oa_token = $(this).data("oa_token");
+            let accessToken = $(this).data("oa_token");
             $.ajax({
                 url:
                     "https://openapi.zalo.me/v2.0/article/upload_video/preparevideo?access_token=" +
@@ -33,11 +33,21 @@ $(document).ready(function () {
                 contentType: false,
                 processData: false,
                 data: formData,
+                beforeSend: function () {
+                    $(".upload-text").text("Đang tải video lên...");
+                    $("#inputvideo").attr("disabled", "disabled");
+                },
                 success: function (response) {
                     console.log(response);
                     if (response.success) {
                         console.log(response.result);
                     }
+                },
+                complete: function () {
+                    $(".upload-text").text(
+                        "Tải lên từ máy tính (tối đa 50 MB)"
+                    );
+                    $("inputvideo").removeAttr("disabled");
                 },
             });
         }
