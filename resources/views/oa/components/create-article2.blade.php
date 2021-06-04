@@ -33,13 +33,13 @@
             <div class="form-group">
              <label>Trạng thái</label>
               <label class="checkbox-inline">
-                        <input type="checkbox" checked data-toggle="toggle" name="status">
+                        <input type="checkbox" checked data-toggle="toggle" name="status" data-size="sm">
             </label>
             </div>
              <div class="form-group">
              <label>Bình luận</label>
               <label class="checkbox-inline">
-                        <input type="checkbox" checked data-toggle="toggle" name="comment">
+                        <input type="checkbox" checked data-toggle="toggle" name="comment" data-size="sm">
             </label>
             </div>
         </div>

@@ -39,9 +39,9 @@
              <label>Trạng thái</label>
               <label class="checkbox-inline">
                 @if($article->status=="show")
-                        <input type="checkbox" checked data-toggle="toggle" name="status">
+                        <input type="checkbox" checked data-toggle="toggle" name="status" data-size="sm">
                     @else
-                            <input type="checkbox" data-toggle="toggle" name="status">
+                            <input type="checkbox" data-toggle="toggle" name="status" data-size="sm">
                 @endif
                    </label>
                 </div>
@@ -49,10 +49,10 @@
                     <label>Bình luận</label>
                        <label class="checkbox-inline">
                     @if($article->comment=="show")
-                        <input type="checkbox" checked data-toggle="toggle" name="comment">
+                        <input type="checkbox" checked data-toggle="toggle" name="comment" data-size="sm">
                     </label>
                     @else
-                            <input type="checkbox" data-toggle="toggle" name="comment">
+                            <input type="checkbox" data-toggle="toggle" name="comment" data-size="sm">
                 @endif
                  </label>
                 </div>
