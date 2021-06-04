@@ -711,6 +711,7 @@ class OAController extends Controller
             "type"=>"video",
             'status'=>$request->status,
             'avatar'=>$request->avatar,
+            'id'=>$id,
             ]);
            }
            else{
@@ -721,6 +722,7 @@ class OAController extends Controller
             'video_id'=>$request->video_id,
             "type"=>"video",
             'status'=>$request->status,
+              'id'=>$id,
             ]);
            }
              $result = $client->request('POST','https://openapi.zalo.me/v2.0/article/update',[
