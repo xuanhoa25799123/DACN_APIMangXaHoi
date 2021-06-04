@@ -53,7 +53,7 @@ $(document).ready(function () {
                                     $(".inputVideo").after(`
                                       
           <div class="video-popup-item" style="cursor:pointer" id="video-${video_id}" data-id=${video_id}>
-            <img class="video-popup-image image-${video_id}" src="" alt="">
+            <img class="video-popup-image image-${video_id}" src="">
           </div>
                                       `);
                                 } else {
