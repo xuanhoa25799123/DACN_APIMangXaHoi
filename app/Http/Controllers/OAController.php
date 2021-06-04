@@ -736,10 +736,11 @@ class OAController extends Controller
     }
         public function createVideo()
     {
+          $accessToken = session('oa_token');
         $oa_info = session('oa_info');
         $title="Tạo bài video mới";
          $videos = $this->getListVideos();
-        return view('oa.components.create-video',compact('oa_info','title','videos'));
+        return view('oa.components.create-video',compact('oa_info','title','videos','accessToken'));
     }
     public function storeArticle(Request $request)
     {
