@@ -219,34 +219,14 @@ class ZaloController extends Controller
     }
     public function invite(Request $request,$sendIds){
         $accessToken = session('token');
+          if(empty($accessToken))
+        {
+       return response()->json(['success'=>false,'message'=>'invalid token']);
+        }
         $params = ['message' => $request->message, 'to' => $sendIds];
         $response = $this->zalo->post(ZaloEndpoint::API_GRAPH_APP_REQUESTS, $accessToken, $params);
-        $result = $response->getDecodedBody(); // result
-//        $sendArr = explode(',',$sendIds);
-//        if(count($sendArr)==count($result['to']))
-//        {
-//            return response()->json(['success'=>'true','complete'=>true,'count'=>count($result['to'])]);
-//        }
-//        else{
-//            $unsend = "";
-//            $count = 0;
-//            foreach($sendArr as $item)
-//            {
-//                if(!in_array($item,$result['to']))
-//                {
-//                    $count++;
-//                    if($unsend=="")
-//                    {
-//                        $unsend .= $item;
-//                    }
-//                    else{
-//                        $unsend .=','.$item;
-//                    }
-//                }
-//            }
-            //return response()->json(['success'=>'true','complete'=>true,'unsend'=>$unsend,'count'=>$count,'result'=>$result]);
-        return response()->json(['success'=>'true','complete'=>true,'result'=>$result]);
-        //}
+        $result = $response->getDecodedBody(); 
+        return response()->json(['success'=>true,'complete'=>true,'result'=>$result]);
     }
     public function makeStatus()
     {
