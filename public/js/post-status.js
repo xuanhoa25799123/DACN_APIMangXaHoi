@@ -105,11 +105,7 @@ $(document).ready(function () {
                 if (response.message == "Success") {
                     Swal.fire({
                         title: "Thành công",
-                        text:
-                            "Đã đăng bài viết " +
-                            response.message +
-                            " " +
-                            response.link,
+                        text: "Đã đăng bài viết",
                         icon: "success",
                         showCancelButton: true,
                         confirmButtonColor: "#3085d6",
