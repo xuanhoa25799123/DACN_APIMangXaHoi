@@ -64,7 +64,7 @@ class OAController extends Controller
         $accessToken = session('oa_token');
         if(empty($accessToken))
         {
-            return redirect('/oa');
+            return redirect('/oa/get-token');
         }
         $current_page = 1;
         if($request->has('page'))
