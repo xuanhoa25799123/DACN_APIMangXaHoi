@@ -225,7 +225,7 @@ $(document).ready(function () {
             dataType: "json",
             beforeSend: function () {
                 Swal.fire({
-                    title: "Đang tạo video...",
+                    title: "Đang gửi broadcast...",
                     html: "Vui lòng chờ", // add html attribute if you want or remove
                     allowOutsideClick: false,
                     onBeforeOpen: () => {

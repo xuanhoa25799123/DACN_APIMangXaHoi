@@ -103,7 +103,7 @@ $(document).ready(function () {
                     success: function (response) {
                         $(".message-enter").val("");
                         if (response.message == "Success") {
-                            let date = null;
+                            let date = "";
                             if (first) {
                                 date = new Date();
                                 let datehtml =
