@@ -27,7 +27,7 @@
         </div>
         <div>
             <div class="form-group">
-                <label>Tin nhắn</label>
+                <label>Tiêu đề</label>
                 <textarea class="form-control" name="message"></textarea>
             </div>
             <button type="button" class="btn btn-primary invite-btn">Gửi lời mời</button>
