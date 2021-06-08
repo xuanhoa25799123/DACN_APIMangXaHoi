@@ -76,9 +76,7 @@
                         </div>
                 </div>
             </div>
-            <div class="loader-container">
-                <div class="loader"></div>
-            </div>
+         
         </div>
 
         <button type="button"  data-href="{{route('store-video')}}" class="btn btn-primary submit-button">Xuất bản</button>

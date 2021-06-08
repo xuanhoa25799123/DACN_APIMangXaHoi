@@ -105,9 +105,7 @@
             </div>
         @endforeach
     </div>
-              <div class="loader-container">
-                <div class="loader"></div>
-            </div>
+           
     <button type="submit" class="btn btn-primary submit-button" data-href="{{route('oa-send-broadcast')}}">Gửi broadcast</button>
 </div>
 @endsection

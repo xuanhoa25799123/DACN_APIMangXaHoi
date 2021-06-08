@@ -99,8 +99,8 @@ $(document).ready(function () {
             dataType: "json",
             beforeSend: function () {
                 Swal.fire({
-                    title: "Please Wait !",
-                    html: "data uploading", // add html attribute if you want or remove
+                    title: "Đang tạo bài viết...",
+                    html: "Vui lòng chờ", // add html attribute if you want or remove
                     allowOutsideClick: false,
                     onBeforeOpen: () => {
                         Swal.showLoading();

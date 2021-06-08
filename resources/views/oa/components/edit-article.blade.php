@@ -144,9 +144,6 @@
         </div>
         </div>
         </div>
-                  <div class="loader-container">
-                <div class="loader"></div>
-            </div>
         </div>
         <button type="submit" class="btn btn-primary submit-button" data-href="{{route('update-article')}}">Sửa</button>
     

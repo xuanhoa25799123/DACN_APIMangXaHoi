@@ -224,9 +224,18 @@ $(document).ready(function () {
             },
             dataType: "json",
             beforeSend: function () {
-                $(".loader-container").css("display", "flex");
+                Swal.fire({
+                    title: "Đang tạo video...",
+                    html: "Vui lòng chờ", // add html attribute if you want or remove
+                    allowOutsideClick: false,
+                    onBeforeOpen: () => {
+                        Swal.showLoading();
+                    },
+                    showConfirmButton: false,
+                });
             },
             success: function (response) {
+                swal.close();
                 if (response.message == "Success") {
                     Swal.fire({
                         title: "Thành công",
@@ -250,9 +259,6 @@ $(document).ready(function () {
                         confirmButtonColor: "#3085d6",
                     });
                 }
-            },
-            complete: function () {
-                $(".loader-container").css("display", "none");
             },
         });
     });
