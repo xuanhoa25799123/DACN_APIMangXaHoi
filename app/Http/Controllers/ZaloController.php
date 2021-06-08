@@ -99,9 +99,9 @@ class ZaloController extends Controller
     }
     public function send(Request $request,$sendIds){
         $accessToken = session('token');
-         if(empty($accessToken))
+        if(empty($accessToken))
         {
-            return redirect('/');
+       return response()->json(['success'=>false,'message'=>'invalid token']);
         }
         $idArr = explode(',',$sendIds);
         $result=array();
@@ -112,7 +112,7 @@ class ZaloController extends Controller
             array_push($result,$rs['to']);
         }
 
-        return response()->json(['success'=>'true','sendIds'=>$sendIds,'message'=>$request->message,'link'=>$request->link,'result'=>$result]);
+        return response()->json(['success'=>true,'sendIds'=>$sendIds,'message'=>$request->message,'link'=>$request->link,'result'=>$result]);
     }
     public function friendSearch($keyword)
     {

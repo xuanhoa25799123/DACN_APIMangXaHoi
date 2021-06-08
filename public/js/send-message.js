@@ -107,23 +107,28 @@ $(document).ready(function () {
             },
             dataType: "json",
             success: function (response) {
-                console.log(response.result);
-                Swal.fire({
-                    title: "Thành công",
-                    text: "Đã gửi tin nhắn",
-                    icon: "success",
-                    showCancelButton: true,
-                    confirmButtonColor: "#3085d6",
-                    cancelButtonColor: "#6c800b",
-                    confirmButtonText: "Trở về trang chủ",
-                    cancelButtonText: "Ở lại",
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = "/dashboard";
-                    } else {
-                        $(".preview-container").css("display", "none");
+                if (response.success) {
+                    Swal.fire({
+                        title: "Thành công",
+                        text: "Đã gửi tin nhắn",
+                        icon: "success",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#6c800b",
+                        confirmButtonText: "Trở về trang chủ",
+                        cancelButtonText: "Ở lại",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "/dashboard";
+                        } else {
+                            $(".preview-container").css("display", "none");
+                        }
+                    });
+                } else {
+                    if (response.message == "invalid token") {
+                        window.location.href = "/";
                     }
-                });
+                }
             },
         });
     });
