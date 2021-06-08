@@ -351,7 +351,7 @@ class OAController extends Controller
     public function createVideoArticle()
     {
              $accessToken = session('oif(empty($accessa_token');
-              Token))
+              if(empty($accessToken))
         {
             return redirect('/oa/get-token');
         }
