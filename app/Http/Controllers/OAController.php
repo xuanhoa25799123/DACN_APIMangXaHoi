@@ -36,8 +36,6 @@ class OAController extends Controller
     public function dashboard(Request $request)
     {
             $oa_token = $request->access_token;
-
-            
             $oa_id = $request->oa_id;
             session(['oa_token' => $oa_token]);
             session(['oa_id' => $oa_id]);
@@ -63,6 +61,11 @@ class OAController extends Controller
     }
     public function followersList(Request $request)
     {
+          $accessToken = session('oa_token');
+        if(empty($accessToken))
+        {
+            return redirect('/oa');
+        }
         $current_page = 1;
         if($request->has('page'))
         {
@@ -70,7 +73,7 @@ class OAController extends Controller
         }
         $limit = 20;
         $offset = ($current_page-1)*$limit;
-        $accessToken = session('oa_token');
+      
         $data = ['data' => json_encode(array(
             'offset' => $offset,
             'count' => $limit
