@@ -469,7 +469,7 @@ class OAController extends Controller
 
          $frs = session('followers');
          $frs=array();
-        if($frs == null)
+        if($frs === null)
         {
             return redirect('/oa/get-token');
         }
