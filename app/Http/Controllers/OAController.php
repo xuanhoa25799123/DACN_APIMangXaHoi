@@ -53,7 +53,7 @@ class OAController extends Controller
     }
     public function home()
     {
-         $accessToken = session('oa_token')
+         $accessToken = session('oa_token');
               if(empty($accessToken))
         {
             return redirect('/oa/get-token');
