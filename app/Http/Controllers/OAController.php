@@ -467,10 +467,9 @@ class OAController extends Controller
     public function followerSearch($keyword)
     {
          $frs = session('followers');
-         $frs = array();
-        if($frs == null)
+        if($frs === null)
         {
-            return response()->json(['success'=>false,'message'=>'abc']);
+            return response()->json(['success'=>false,'message'=>'Error']);
         }
         $followers = array();
         if($keyword=="*")
