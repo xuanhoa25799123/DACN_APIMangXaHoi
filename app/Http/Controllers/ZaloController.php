@@ -83,6 +83,10 @@ class ZaloController extends Controller
     public function inviteList()
     {
         $accessToken=session('token');
+         if(empty($accessToken))
+        {
+            return redirect('/');
+        }
         $params = ['offset' => 0, 'fields' => "id,name,gender,picture"];
         $response = $this->zalo->get(ZaloEndpoint::API_GRAPH_INVITABLE_FRIENDS, $accessToken, $params);
         $result = $response->getDecodedBody();
@@ -95,6 +99,10 @@ class ZaloController extends Controller
     }
     public function send(Request $request,$sendIds){
         $accessToken = session('token');
+         if(empty($accessToken))
+        {
+            return redirect('/');
+        }
         $idArr = explode(',',$sendIds);
         $result=array();
         foreach($idArr as $id) {
