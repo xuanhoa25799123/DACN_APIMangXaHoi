@@ -53,15 +53,14 @@ class OAController extends Controller
     }
     public function home()
     {
-        $oa_info = session('oa_info');
-        if(empty($oa_info))
+         $oa_token = $request->access_token;
+              if(empty($accessToken))
         {
-            $this->getToken();
+            return redirect('/oa/get-token');
         }
-        else {
+        $oa_info = session('oa_info');
             $title = "Trang chủ";
             return view('oa.dashboard', compact('oa_info', 'title'));
-        }
     }
     public function followersList(Request $request)
     {
