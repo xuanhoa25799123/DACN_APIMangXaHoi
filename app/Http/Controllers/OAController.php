@@ -36,7 +36,7 @@ class OAController extends Controller
     public function dashboard(Request $request)
     {
             $oa_token = $request->access_token;
-              if(empty($accessToken))
+              if(empty($oa_token))
         {
             return redirect('/oa/get-token');
         }
