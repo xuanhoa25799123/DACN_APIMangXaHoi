@@ -49,7 +49,7 @@ $(document).ready(function () {
                                 let preview = "";
                                 if ($.trim(link) != "") {
                                     let data = response.data;
-                                    let url = data.url ? data.url : "/";
+                                    let url = data.url ? data.url : ".";
                                     let image = data.image
                                         ? data.image
                                         : "https://cdn2.iconfinder.com/data/icons/pittogrammi/142/95-512.png";
