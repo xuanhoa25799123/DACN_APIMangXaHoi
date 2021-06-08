@@ -228,8 +228,12 @@ class ZaloController extends Controller
         $result = $response->getDecodedBody(); 
         return response()->json(['success'=>true,'complete'=>true,'result'=>$result]);
     }
-    public function makeStatus()
-    {
+    public function makeStatus(){
+         $accessToken=session('token');
+        if(empty($accessToken))
+        {
+            return redirect('/');
+        }
         $profile = session('profile');
         $message="";
         $link="";
@@ -241,8 +245,8 @@ class ZaloController extends Controller
         $accessToken = session('token');
         $params = ['message' => $request->message, 'link' => $request->link];
         $response = $this->zalo->post(ZaloEndpoint::API_GRAPH_POST_FEED, $accessToken, $params);
-        $result = $response->getDecodedBody(); // result
-        dd($result);
+        $result = $response->getDecodedBody();
+        
     }
     public function extractProcess(Request $request)
     {
@@ -336,11 +340,3 @@ class ZaloController extends Controller
         }
     }
 }
-
-//$params2 = ['offset' => 0, 'limit' => 10, 'fields' => "id, name,'picture"];
-//$response2 = $this->zalo->get(ZaloEndpoint::API_GRAPH_INVITABLE_FRIENDS, $accessToken, $params2);
-//$invitable_friends = $response2->getDecodedBody(); // result
-//$params3 = ['offset' => 0, 'limit' => 10, 'fields' => "id,name,gender,picture"];
-//$response3 = $this->zalo->get(ZaloEndpoint::API_GRAPH_FRIENDS, $accessToken, $params3);
-//$friends = $response3->getDecodedBody(); // result
-////dd($friends['data'][0]['picture']['data']['url']);
