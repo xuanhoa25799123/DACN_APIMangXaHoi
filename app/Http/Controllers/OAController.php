@@ -1009,7 +1009,7 @@ class OAController extends Controller
         $broadcasts=session('broadcasts');
         if($broadcasts === null)
         {
-              return response()->json(['success' => false, 'message'=>'Xảy ra lỗi vui lòng refresh lại trang');
+              return response()->json(['success' => false, 'message'=>'Xảy ra lỗi vui lòng refresh lại trang')];
         }
         foreach($broadcasts as $broadcast=>$item)
         {
@@ -1029,7 +1029,7 @@ class OAController extends Controller
         $broadcasts=session('broadcasts');
           if($broadcasts === null)
         {
-              return response()->json(['success' => false, 'message'=>'Xảy ra lỗi vui lòng refresh lại trang');
+              return response()->json(['success' => false, 'message'=>'Xảy ra lỗi vui lòng refresh lại trang')];
         }
         foreach($broadcasts as $broadcast=>$item)
         {
@@ -1049,7 +1049,7 @@ class OAController extends Controller
         $arr = session('broadcasts');
            if($broadcasts === null)
         {
-              return response()->json(['success' => false, 'message'=>'Xảy ra lỗi vui lòng refresh lại trang');
+              return response()->json(['success' => false, 'message'=>'Xảy ra lỗi vui lòng refresh lại trang')];
         }
         $broadcasts = array();
         if($keyword=="*")
