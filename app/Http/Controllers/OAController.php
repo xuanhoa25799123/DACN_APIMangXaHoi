@@ -468,7 +468,7 @@ class OAController extends Controller
     {
          $frs = session('followers');
          $frs = array();
-        if($frs === null)
+        if($frs == null)
         {
             return response()->json(['success'=>false,'message'=>'abc']);
         }
