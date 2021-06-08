@@ -117,11 +117,24 @@ $(document).ready(function () {
                             $(".total-article").html(response.total);
                             $(`#row-${id}`).remove();
                         } else {
-                            Swal.fire({
-                                title: "Xảy ra lỗi",
-                                text: response.message,
-                                icon: "info",
-                            });
+                            if (response.message == "invalid token") {
+                                Swal.fire({
+                                    title: "Xảy ra lỗi",
+                                    text: response.message,
+                                    icon: "info",
+                                    confirmButtonText: "Lấy token",
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        window.location.href = "/oa/get-token";
+                                    }
+                                });
+                            } else {
+                                Swal.fire({
+                                    title: "Xảy ra lỗi",
+                                    text: response.message,
+                                    icon: "info",
+                                });
+                            }
                         }
                     },
                 });

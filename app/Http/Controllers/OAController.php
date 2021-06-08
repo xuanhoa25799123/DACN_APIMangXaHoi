@@ -517,6 +517,10 @@ class OAController extends Controller
     public function deleteArticle($id)
     {
         $accessToken = session('oa_token');
+        if(empty($accessToken))
+        {
+              return response()->json(['success'=>false,'message'=>'invalid token']);
+        }
            $client = new \GuzzleHttp\Client();
            $data = json_encode([
                'id'=>$id
@@ -546,7 +550,7 @@ class OAController extends Controller
              return response()->json(['success'=>true,'total'=>$total]);
          }
          else{
-             return response()->json(['success'=>false]);
+             return response()->json(['success'=>false,'message'=>'Xảy ra lỗi thử lại sau ít phút']);
          }
     }
        public function deleteVideo($id)
@@ -1003,6 +1007,10 @@ class OAController extends Controller
     public function selectBroadcast($id)
     {
         $broadcasts=session('broadcasts');
+        if($broadcasts === null)
+        {
+              return response()->json(['success' => false, 'message'=>'Xảy ra lỗi vui lòng refresh lại trang');
+        }
         foreach($broadcasts as $broadcast=>$item)
         {
             if($item->id==$id)
@@ -1019,6 +1027,10 @@ class OAController extends Controller
     public function unselectBroadcast($id)
     {
         $broadcasts=session('broadcasts');
+          if($broadcasts === null)
+        {
+              return response()->json(['success' => false, 'message'=>'Xảy ra lỗi vui lòng refresh lại trang');
+        }
         foreach($broadcasts as $broadcast=>$item)
         {
             if($item->id==$id)
@@ -1035,6 +1047,10 @@ class OAController extends Controller
     public function searchBroadcast($keyword)
     {
         $arr = session('broadcasts');
+           if($broadcasts === null)
+        {
+              return response()->json(['success' => false, 'message'=>'Xảy ra lỗi vui lòng refresh lại trang');
+        }
         $broadcasts = array();
         if($keyword=="*")
         {
@@ -1075,6 +1091,10 @@ class OAController extends Controller
     public function broadcastResetDate()
     {
        $broadcasts = session('broadcasts');
+            if($broadcasts===null)
+         {
+             return response()->json(['success'=>false,'message'=>'Xảy ra lỗi vui lòng refresh lại trang']);
+         }
        $article_html = view('oa.partials.broadcast')->with(compact('broadcasts'))->render();
         $video_html = view('oa.partials.video-broadcast')->with(compact('broadcasts'))->render();
         return response()->json(['success' => true, 'article_html' => $article_html,'video_html'=>$video_html]);
@@ -1148,6 +1168,10 @@ class OAController extends Controller
     public function uploadVideo(Request $request)
     {
          $accessToken = session('oa_token');
+            if(empty($accessToken))
+             {
+                 return response()->json(['success'=>false,'message'=>'Token không hợp lệ']);
+             }
           $video = $request->file;      
          $client = new \GuzzleHttp\Client();
         $response = $client->request('POST','https://openapi.zalo.me/v2.0/article/upload_video/preparevideo',['query'=>[

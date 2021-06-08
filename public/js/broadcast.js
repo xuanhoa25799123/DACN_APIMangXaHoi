@@ -30,13 +30,13 @@ $(document).ready(function () {
                 },
                 dataType: "json",
                 success: function (response) {
-                    $(".cancel-daterange").css("display", "initial");
-                    $(".article-rows").html(response.article_html);
-                    $(".video-rows").html(response.video_html);
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert("Status: " + textStatus);
-                    alert("Error: " + errorThrown);
+                    if (response.success) {
+                        $(".cancel-daterange").css("display", "initial");
+                        $(".article-rows").html(response.article_html);
+                        $(".video-rows").html(response.video_html);
+                    } else {
+                        alert(response.message);
+                    }
                 },
             });
         }
@@ -49,13 +49,13 @@ $(document).ready(function () {
             type: "get",
             dataType: "json",
             success: function (response) {
-                $(".cancel-daterange").css("display", "none");
-                $(".article-rows").html(response.article_html);
-                $(".video-rows").html(response.video_html);
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert("Status: " + textStatus);
-                alert("Error: " + errorThrown);
+                if (response.success) {
+                    $(".cancel-daterange").css("display", "none");
+                    $(".article-rows").html(response.article_html);
+                    $(".video-rows").html(response.video_html);
+                } else {
+                    alert(response.message);
+                }
             },
         });
     });
@@ -93,8 +93,12 @@ $(document).ready(function () {
             type: "get",
             dataType: "json",
             success: function (response) {
-                $(".article-rows").html(response.article_html);
-                $(".video-rows").html(response.video_html);
+                if (response.success) {
+                    $(".article-rows").html(response.article_html);
+                    $(".video-rows").html(response.video_html);
+                } else {
+                    alert(response.message);
+                }
             },
         });
     });
@@ -117,6 +121,8 @@ $(document).ready(function () {
                         // $(this).removeClass("selected");
                         $(".article-rows").html(response.article_html);
                         $(".video-rows").html(response.video_html);
+                    } else {
+                        alert(response.message);
                     }
                 },
             });
