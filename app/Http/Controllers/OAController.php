@@ -836,7 +836,10 @@ class OAController extends Controller
         public function createVideo()
     {
           $accessToken = session('oa_token');
+          if(empty($accessToken))
+          {
             return redirect('/oa/get-token');
+          }
         $oa_info = session('oa_info');
         $title="Tạo bài video mới";
          $videos = $this->getListVideos();
