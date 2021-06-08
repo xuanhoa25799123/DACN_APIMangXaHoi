@@ -186,6 +186,10 @@ class OAController extends Controller
         $user_id = $request->user_id;
         $message= $request->message;
         $accessToken = session('oa_token');
+           if(empty($accessToken))
+        {
+            return response()->json(['success'=>false,'message':'Token không hợp lệ']);
+        }
        $data = json_encode([
           'recipient'=>[
               'user_id'=>$user_id,
@@ -389,6 +393,10 @@ class OAController extends Controller
     public function articleSearch($keyword)
     {
          $arr = session('articles');
+         if($arr===null)
+         {
+             return response()->json(['success'=>false,'message'=>'Xảy ra lỗi vui lòng refresh lại trang']);
+         }
         $articles = array();
         if($keyword=="*")
         {
