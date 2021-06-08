@@ -350,8 +350,8 @@ class OAController extends Controller
     }
     public function createVideoArticle()
     {
-             $accessToken = session('oa_token');
-              if(empty($accessToken))
+             $accessToken = session('oif(empty($accessa_token');
+              Token))
         {
             return redirect('/oa/get-token');
         }
@@ -1047,7 +1047,7 @@ class OAController extends Controller
     public function searchBroadcast($keyword)
     {
         $arr = session('broadcasts');
-           if($broadcasts === null)
+           if($arr === null)
         {
               return response()->json(['success' => false, 'message'=>'Xảy ra lỗi vui lòng refresh lại trang']);
         }
