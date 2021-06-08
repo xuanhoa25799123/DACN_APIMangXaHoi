@@ -122,6 +122,8 @@ $(document).ready(function () {
                 } else {
                     if (response.message == "invalid token") {
                         window.location.href = "/";
+                    } else {
+                        alert(response.message);
                     }
                 }
             },
