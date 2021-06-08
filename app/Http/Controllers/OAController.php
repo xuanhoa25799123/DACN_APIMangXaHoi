@@ -466,12 +466,11 @@ class OAController extends Controller
     }
     public function followerSearch($keyword)
     {
-
          $frs = session('followers');
-         $frs=array();
+         $frs = array();
         if($frs === null)
         {
-            return redirect('/oa/get-token');
+            return response()->json(['success'=>false,'message'=>'abc']);
         }
         $followers = array();
         if($keyword=="*")
