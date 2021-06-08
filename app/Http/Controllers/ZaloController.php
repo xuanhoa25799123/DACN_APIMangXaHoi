@@ -251,7 +251,7 @@ class ZaloController extends Controller
         $response = $this->zalo->post(ZaloEndpoint::API_GRAPH_POST_FEED, $accessToken, $params);
         $result = $response->getDecodedBody();
 
-        return response()->json($result)
+        return response()->json($result);
     }
     public function extractProcess(Request $request)
     {
