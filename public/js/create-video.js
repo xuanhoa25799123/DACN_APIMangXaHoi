@@ -29,7 +29,8 @@ $(document).ready(function () {
             !video_id
         ) {
             Swal.fire({
-                title: "Vui lòng điền vào các trường bắt buộc",
+                title: "Lưu ý",
+                text: "Vui lòng điền vào các trường bắt buộc",
                 icon: "info",
                 confirmButtonColor: "#3085d6",
             });

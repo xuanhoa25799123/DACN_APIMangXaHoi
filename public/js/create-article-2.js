@@ -43,7 +43,8 @@ $(document).ready(function () {
             $.trim(content) == ""
         ) {
             Swal.fire({
-                title: "Vui lòng điền vào các trường bắt buộc",
+                title: "Lưu ý",
+                text: "Vui lòng điền vào các trường bắt buộc",
                 icon: "info",
                 confirmButtonColor: "#3085d6",
             });
@@ -52,7 +53,8 @@ $(document).ready(function () {
         if ($(".image-button").hasClass("active-button")) {
             if ($.trim(photo_url) == "") {
                 Swal.fire({
-                    title: "Vui lòng điền vào ảnh đại diện",
+                    title: "Lưu ý",
+                    text: "Vui lòng điền vào ảnh đại diện",
                     icon: "info",
                     confirmButtonColor: "#3085d6",
                 });
@@ -66,7 +68,8 @@ $(document).ready(function () {
         } else {
             if (selected_video_id == null) {
                 Swal.fire({
-                    title: "Vui lòng chọn video đại diện",
+                    title: "Lưu ý",
+                    text: "Vui lòng chọn video đại diện",
                     icon: "info",
                     confirmButtonColor: "#3085d6",
                 });

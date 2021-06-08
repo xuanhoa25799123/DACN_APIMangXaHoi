@@ -16,8 +16,8 @@ $(document).ready(function () {
 
     $(".submit-button").on("click", function () {
         Swal.fire({
-            title: "Sửa bài viết",
-            message: "Bạn có chắc muốn sửa bài viết?",
+            title: "Cập nhật Video",
+            text: "Bạn có chắc muốn cập nhật video?",
             icon: "info",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
@@ -43,7 +43,8 @@ $(document).ready(function () {
                     !video_id
                 ) {
                     Swal.fire({
-                        title: "Vui lòng điền vào các trường bắt buộc",
+                        title: "Lưu ý",
+                        text: "Vui lòng điền vào các trường bắt buộc",
                         icon: "info",
                         confirmButtonColor: "#3085d6",
                     });
