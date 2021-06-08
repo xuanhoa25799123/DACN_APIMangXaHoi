@@ -104,6 +104,10 @@ class OAController extends Controller
     public function followerChat($id)
     {
         $accessToken = session('oa_token');
+         if(empty($accessToken))
+        {
+            return redirect('/oa/get-token');
+        }
        $data = json_encode([
            'offset'=>0,
            'count'=>10,
@@ -221,6 +225,10 @@ class OAController extends Controller
     {
         $client = new GuzzleHttp\Client();
         $accessToken = session('oa_token');
+         if(empty($accessToken))
+        {
+            return redirect('/oa/get-token');
+        }
         $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',
     ['query'=>[
         'offset'=>0,
@@ -266,6 +274,10 @@ class OAController extends Controller
     {
         $client = new GuzzleHttp\Client();
         $accessToken = session('oa_token');
+         if(empty($accessToken))
+        {
+            return redirect('/oa/get-token');
+        }
         $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',
         ['query'=>[
         'offset'=>0,
@@ -312,6 +324,10 @@ class OAController extends Controller
     {
         $oa_info = session('oa_info');
         $accessToken = session('oa_token');
+         if(empty($accessToken))
+        {
+            return redirect('/oa/get-token');
+        }
               $client = new \GuzzleHttp\Client();
         $response = $client->get('https://openapi.zalo.me/v2.0/article/getslice',['query'=>[
                'offset'=>0,
@@ -328,6 +344,10 @@ class OAController extends Controller
     public function createVideoArticle()
     {
              $accessToken = session('oa_token');
+              if(empty($accessToken))
+        {
+            return redirect('/oa/get-token');
+        }
         $oa_info = session('oa_info');
 
         $title="Tạo bài viết video";
