@@ -102,7 +102,7 @@ $(document).ready(function () {
             },
             dataType: "json",
             success: function (response) {
-                if (response.success) {
+                if (response.message == "Success") {
                     Swal.fire({
                         title: "Thành công",
                         text:

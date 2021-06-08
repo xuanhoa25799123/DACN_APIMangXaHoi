@@ -18,7 +18,7 @@
                 <input type="text" class="form-control post-status-link" name="link">
             </div>
             <div class="form-group">
-                <label>Tin nhắn</label>
+                <label>Tiêu đề</label>
                 <textarea class="form-control" name="message"></textarea>
             </div>
             <button type="button" class="btn btn-primary send-btn">Đăng bài viết</button>

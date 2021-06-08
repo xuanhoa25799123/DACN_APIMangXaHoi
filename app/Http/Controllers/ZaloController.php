@@ -243,10 +243,15 @@ class ZaloController extends Controller
     public function postStatus(Request $request)
     {
         $accessToken = session('token');
+         if(empty($accessToken))
+        {
+       return response()->json(['success'=>false,'message'=>'invalid token']);
+        }
         $params = ['message' => $request->message, 'link' => $request->link];
         $response = $this->zalo->post(ZaloEndpoint::API_GRAPH_POST_FEED, $accessToken, $params);
         $result = $response->getDecodedBody();
-        
+
+        return response()->json(['success'=>true]);
     }
     public function extractProcess(Request $request)
     {
