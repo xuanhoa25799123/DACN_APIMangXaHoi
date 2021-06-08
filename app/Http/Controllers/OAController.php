@@ -188,7 +188,7 @@ class OAController extends Controller
         $accessToken = session('oa_token');
            if(empty($accessToken))
         {
-            return response()->json(['success'=>false,'message':'Token không hợp lệ']);
+            return response()->json(['success'=>false,'message'=>'Token không hợp lệ']);
         }
        $data = json_encode([
           'recipient'=>[
