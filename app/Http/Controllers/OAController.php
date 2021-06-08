@@ -466,7 +466,13 @@ class OAController extends Controller
     }
     public function followerSearch($keyword)
     {
+        // $accessToken = session('oa_token');
+        //   if(empty($accessToken))
+        // {
+        //     return redirect('/oa/get-token');
+        // }
          $frs = session('followers');
+        dd($frs);
         $followers = array();
         if($keyword=="*")
         {
