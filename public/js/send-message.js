@@ -46,22 +46,37 @@ $(document).ready(function () {
                                 $(".temp").addClass("loader");
                             },
                             success: function (response) {
-                                let data = response.data;
-                                console.log(data);
-                                var preview =
-                                    '<a class="send-preview-link" href="' +
-                                    data.url +
-                                    '"target="_blank"><img class="send-preview-img" src="' +
-                                    data.image +
-                                    '">' +
-                                    '<div class="send-preview-text"><p class="send-preview-title">' +
-                                    data.title +
-                                    '</p><p class="send-preview-description">' +
-                                    data.description +
-                                    '</p><p class="send-preview-host">' +
-                                    data.host +
-                                    "</p></div>";
-                                $(".results").html(preview);
+                                let preview = "";
+                                if ($.trim(link) != "") {
+                                    let data = response.data;
+                                    let url = data.url ? data.url : "/";
+                                    let image = data.image
+                                        ? data.image
+                                        : "https://cdn2.iconfinder.com/data/icons/pittogrammi/142/95-512.png";
+                                    let title = data.title
+                                        ? data.title
+                                        : "Không có tiêu đề";
+                                    let description = data.description
+                                        ? data.description
+                                        : "Không có mô tả";
+                                    let host = data.host
+                                        ? data.host
+                                        : "Không rõ trang web";
+                                    preview =
+                                        '<a class="send-preview-link" href="' +
+                                        url +
+                                        '"target="_blank"><img class="send-preview-img" src="' +
+                                        image +
+                                        '">' +
+                                        '<div class="send-preview-text"><p class="send-preview-title">' +
+                                        title +
+                                        '</p><p class="send-preview-description">' +
+                                        description +
+                                        '</p><p class="send-preview-host">' +
+                                        host +
+                                        "</p></div>";
+                                    $(".results").html(preview);
+                                }
                             },
                             complete: function () {
                                 $(".temp").removeClass("loader");
