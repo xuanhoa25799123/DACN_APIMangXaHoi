@@ -475,12 +475,20 @@ class OAController extends Controller
     public function articleResetDate()
     {
        $articles = session('articles');
+          if($articles===null)
+         {
+             return response()->json(['success'=>false,'message'=>'Xảy ra lỗi vui lòng refresh lại trang']);
+         }
          $html = view('oa.partials.articles')->with(compact('articles'))->render();
         return response()->json(['success' => true, 'html' => $html ]);
     }
        public function videoResetDate()
     {
        $videos = session('videos');
+          if($videos===null)
+         {
+             return response()->json(['success'=>false,'message'=>'Xảy ra lỗi vui lòng refresh lại trang']);
+         }
          $html = view('oa.partials.videos')->with(compact('videos'))->render();
         return response()->json(['success' => true, 'html' => $html ]);
     }
