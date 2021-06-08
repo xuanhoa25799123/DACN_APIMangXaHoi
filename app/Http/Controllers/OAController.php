@@ -415,6 +415,10 @@ class OAController extends Controller
       public function videoSearch($keyword)
     {
          $arr = session('videos');
+         if($arr===null)
+         {
+             return response()->json(['success'=>false,'message'=>'Xảy ra lỗi vui lòng refresh lại trang']);
+         }
         $videos = array();
         if($keyword=="*")
         {
@@ -433,6 +437,10 @@ class OAController extends Controller
     public function articleSearchDate(Request $request)
     {
          $arr = session('articles');
+            if($arr===null)
+         {
+             return response()->json(['success'=>false,'message'=>'Xảy ra lỗi vui lòng refresh lại trang']);
+         }
         $start = strtotime($request->st);
         $end = strtotime($request->en);
         $articles = array();
@@ -448,6 +456,10 @@ class OAController extends Controller
      public function videoSearchDate(Request $request)
     {
          $arr = session('videos');
+            if($arr===null)
+         {
+             return response()->json(['success'=>false,'message'=>'Xảy ra lỗi vui lòng refresh lại trang']);
+         }
         $start = strtotime($request->st);
         $end = strtotime($request->en);
         $videos = array();
@@ -1035,6 +1047,10 @@ class OAController extends Controller
        public function broadcastSearchDate(Request $request)
     {
          $arr = session('broadcasts');
+            if($arr===null)
+         {
+             return response()->json(['success'=>false,'message'=>'Xảy ra lỗi vui lòng refresh lại trang']);
+         }
         $start = strtotime($request->st);
         $end = strtotime($request->en);
         $broadcasts = array();
