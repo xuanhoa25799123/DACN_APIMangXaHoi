@@ -517,6 +517,10 @@ class OAController extends Controller
        public function deleteVideo($id)
     {
         $accessToken = session('oa_token');
+        if(empty($accessToken))
+        {
+            return response()->json(['success'=>false,'message'=>'Token không hợp lệ']);
+        }
            $client = new \GuzzleHttp\Client();
            $data = json_encode([
                'id'=>$id
@@ -547,12 +551,16 @@ class OAController extends Controller
              return response()->json(['success'=>true,'total'=>$total]);
          }
          else{
-             return response()->json(['success'=>false]);
+             return response()->json(['success'=>false,'message'=>$response->message]);
          }
     }
     public function editArticle($id)
     {
          $accessToken = session('oa_token');
+           if(empty($accessToken))
+        {
+                 return redirect('/oa/get-token'); 
+        }
            $client = new \GuzzleHttp\Client();
            $data = json_encode([
                'id'=>$id
@@ -675,6 +683,10 @@ class OAController extends Controller
     public function editVideo($id)
     {
          $accessToken = session('oa_token');
+            if(empty($accessToken))
+        {
+                 return redirect('/oa/get-token'); 
+        }
            $client = new \GuzzleHttp\Client();
              $result = $client->request('GET','https://openapi.zalo.me/v2.0/article/getdetail',[
                 'query'=>[
@@ -695,6 +707,10 @@ class OAController extends Controller
     public function updateArticle(Request $request)
     {
              $accessToken = session('oa_token');
+             if(empty($accessToken))
+             {
+                 return response()->json(['message'=>'Token không hợp lệ']);
+             }
            $client = new \GuzzleHttp\Client();
            $data = json_encode([
                "cover"=> $request->cover,
@@ -719,11 +735,16 @@ class OAController extends Controller
                 'body'=>$data
          ]);
          $response = json_decode($result->getBody());
+
             return response()->json($response);
     }
      public function updateVideo(Request $request,$id)
     {
          $accessToken = session('oa_token');
+            if(empty($accessToken))
+             {
+                 return response()->json(['message'=>'Token không hợp lệ']);
+             }
            $client = new \GuzzleHttp\Client();
           $data=null;
            if(trim($request->avatar)!="")
@@ -763,6 +784,10 @@ class OAController extends Controller
     public function createArticle()
     {
          $accessToken = session('oa_token');
+            if(empty($accessToken))
+             {
+                 return redirect('/oa/get-token');
+             }
         $oa_info = session('oa_info');
         $title="Tạo bài viết mới";
         $videos = session('videos');
@@ -772,6 +797,7 @@ class OAController extends Controller
         public function createVideo()
     {
           $accessToken = session('oa_token');
+            return redirect('/oa/get-token');
         $oa_info = session('oa_info');
         $title="Tạo bài video mới";
          $videos = $this->getListVideos();
@@ -780,6 +806,10 @@ class OAController extends Controller
     public function storeArticle(Request $request)
     {
          $accessToken = session('oa_token');
+           if(empty($accessToken))
+             {
+                 return response()->json(['message'=>'Token không hợp lệ']);
+             }
            $client = new \GuzzleHttp\Client();
            $data = json_encode([
                "cover"=> $request->cover,
@@ -809,6 +839,10 @@ class OAController extends Controller
      public function storeVideo(Request $request)
     {
          $accessToken = session('oa_token');
+           if(empty($accessToken))
+             {
+                 return response()->json(['message'=>'Token không hợp lệ']);
+             }
            $client = new \GuzzleHttp\Client();
             $data=null;
            if(trim($request->avatar)!="")
@@ -847,7 +881,10 @@ class OAController extends Controller
     {
        
          $client = new GuzzleHttp\Client();
-        $accessToken = session('oa_token');
+        $accessToken = session('oa_token');if(empty($accessToken))
+             {
+                 return redirect('oa/get-token');
+             }
         $res = $client->get('https://openapi.zalo.me/v2.0/article/getslice',[
             'query'=>[
                 'offset'=>0,
@@ -1037,7 +1074,10 @@ class OAController extends Controller
                 ]);
             }
               $accessToken = session('oa_token');
-        
+        if(empty($accessToken))
+             {
+                 return response()->json(['message'=>'Token không hợp lệ']);
+             }
           $data=json_encode([
               'recipient'=>[
                   'target'=>[

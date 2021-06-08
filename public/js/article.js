@@ -99,14 +99,14 @@ $(document).ready(function() {
                                     text: "Đã xoá bài viết",
                                     icon: 'success',
                    
-                            })
+                            })                           
                             $('.total-article').html(response.total);
                             $(`#row-${id}`).remove();
                             }
                             else{
                                     Swal.fire({
                                     title: 'Xảy ra lỗi',
-                                    text: "Không thể xoá bài viết",
+                                    text:  response.message,
                                     icon: 'info',
                             })
                         }
