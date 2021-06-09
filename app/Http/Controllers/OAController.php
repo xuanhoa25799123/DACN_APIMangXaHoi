@@ -1079,7 +1079,7 @@ class OAController extends Controller
              return response()->json(['success'=>false,'message'=>'Xảy ra lỗi vui lòng refresh lại trang']);
          }
         $start = strtotime($request->st);
-        $end = strtotime($request->en);
+        $end = strtotime('+1 day',$request->en);
         $broadcasts = array();
             foreach ($arr as $item) {
                 $date =(int)substr((string)$item->create_date,0,10);
