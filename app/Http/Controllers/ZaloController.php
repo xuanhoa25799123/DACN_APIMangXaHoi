@@ -255,7 +255,7 @@ class ZaloController extends Controller
         return response()->json(['message'=>'Success']);
         }
         else{
-              return response()->json(['message'=>$response['message']]);
+              return response()->json(['message'=>$result['message']]);
         }
     }
     public function extractProcess(Request $request)
