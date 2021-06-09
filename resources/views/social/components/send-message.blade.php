@@ -27,11 +27,11 @@
                 @endforeach
             </div>
             <div class="form-group">
-                <label>Link</label>
+                <label>Liên kết</label>
                 <input class="form-control send-message-link" name="link" placeholder="nhập link">
             </div>
             <div class="form-group">
-                <label>Message</label>
+                <label>Tin nhắn</label>
                 <textarea class="form-control" name="message" rows="5" placeholder="nhập nội dung"></textarea>
             </div>
             <button type="button" class="btn btn-primary send-btn" data-href="{{route('send',['sendIds'=>$sendIds])}}">Gửi tin nhắn</button>
