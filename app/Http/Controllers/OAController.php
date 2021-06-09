@@ -442,7 +442,7 @@ class OAController extends Controller
              return response()->json(['success'=>false,'message'=>'Xảy ra lỗi vui lòng refresh lại trang']);
          }
         $start = strtotime($request->st);
-        $end = strtotime($request->en);
+        $end = strtotime($request->en)+24*60*60;
         $articles = array();
             foreach ($arr as $item) {
                 $date =(int)substr((string)$item->create_date,0,10);
@@ -461,7 +461,7 @@ class OAController extends Controller
              return response()->json(['success'=>false,'message'=>'Xảy ra lỗi vui lòng refresh lại trang']);
          }
         $start = strtotime($request->st);
-        $end = strtotime($request->en);
+        $end = strtotime($request->en)+24*60*60;
         $videos = array();
             foreach ($arr as $item) {
                 $date =(int)substr((string)$item->create_date,0,10);
