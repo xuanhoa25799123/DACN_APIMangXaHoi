@@ -14,7 +14,7 @@
         <h4>Tạo bài viết mới</h4>
         <div>
             <div class="form-group">
-                <label>Link</label>
+                <label>Liên kết</label>
                 <input type="text" class="form-control post-status-link" name="link">
             </div>
             <div class="form-group">
