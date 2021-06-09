@@ -250,13 +250,13 @@ class ZaloController extends Controller
         $params = ['message' => $request->message, 'link' => $request->link];
         $response = $this->zalo->post(ZaloEndpoint::API_GRAPH_POST_FEED, $accessToken, $params);
         $result = $response->getDecodedBody();
-        if(!empty($result['id']))
-        {
-        return response()->json(['message'=>'Success','result'=>$result]);
-        }
-        else{
-              return response()->json(['message'=>'Xảy ra lỗi thử lại sau','result'=>$result]);
-        }
+        // if(!empty($result['id']))
+        // {
+        return response()->json(['message'=>'Success']);
+        // }
+        // else{
+        //       return response()->json(['message'=>'Xảy ra lỗi thử lại sau','result'=>$result]);
+        // }
     }
     public function extractProcess(Request $request)
     {
